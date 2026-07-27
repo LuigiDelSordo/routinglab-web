@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://routinglab.es/sitemap.xml
