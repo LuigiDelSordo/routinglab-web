@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Glosario de redes · 46 términos explicados · RoutingLab</title>
-<meta name="description" content="Glosario de redes para el CCNA: 46 términos como VLAN, ARP, NAT, STP o subnetting explicados en español de forma sencilla. Con buscador.">
+<title>Glosario de redes · 125 términos explicados · RoutingLab</title>
+<meta name="description" content="Glosario de redes para el CCNA: 125 términos como VLAN, ARP, NAT, STP o subnetting explicados en español de forma sencilla. Con buscador.">
 <meta name="theme-color" content="#0A1D5C">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -79,7 +79,7 @@
   <div class="contenedor">
     <span class="etiqueta-seccion" style="background:rgba(255,255,255,.15);color:#fff">Gratis · sin registro</span>
     <h1>Glosario de redes</h1>
-    <p>46 términos del temario CCNA explicados en cristiano. Búscalos al instante mientras estudias.</p>
+    <p>125 términos del temario CCNA explicados en cristiano. Búscalos al instante mientras estudias.</p>
   </div>
 </header>
 
@@ -144,6 +144,18 @@
 <script>
 const TERMINOS = [
 {
+"t": "802.1Q",
+"d": "Estándar que etiqueta las tramas con su VLAN para que varias VLANs viajen por un mismo enlace trunk."
+},
+{
+"t": "802.11",
+"d": "Familia de estándares del WiFi (a/b/g/n/ac/ax) que define cómo se transmiten los datos por radio."
+},
+{
+"t": "AAA",
+"d": "Authentication, Authorization y Accounting: quién eres, qué puedes hacer y registro de lo que hiciste. Se apoya en RADIUS o TACACS+."
+},
+{
 "t": "ACL (Access Control List)",
 "d": "Lista de reglas que permite o bloquea tráfico en un router o switch según origen, destino, protocolo o puerto."
 },
@@ -152,12 +164,48 @@ const TERMINOS = [
 "d": "Cantidad máxima de datos que puede transmitir un enlace por segundo (p. ej. 1 Gbps)."
 },
 {
+"t": "Ansible",
+"d": "Herramienta de automatización que configura muchos equipos a la vez desde ficheros de texto, sin instalar agentes."
+},
+{
+"t": "AP (Punto de acceso)",
+"d": "Dispositivo que da cobertura WiFi y conecta los equipos inalámbricos con la red cableada."
+},
+{
+"t": "APIPA",
+"d": "Dirección 169.254.x.x que se autoasigna un equipo cuando no encuentra servidor DHCP. Señal típica de que el DHCP falla."
+},
+{
 "t": "ARP",
 "d": "Protocolo que traduce una dirección IP a su dirección MAC dentro de la misma red local."
 },
 {
+"t": "Banner MOTD",
+"d": "Mensaje que muestra un equipo Cisco al conectarse. Se usa para avisos legales de acceso restringido."
+},
+{
+"t": "BGP",
+"d": "Protocolo de enrutamiento que interconecta grandes redes (sistemas autónomos): es el que hace funcionar Internet."
+},
+{
+"t": "Bridge ID",
+"d": "Identificador de un switch en STP: prioridad + dirección MAC. El más bajo gana la elección de root bridge."
+},
+{
 "t": "Broadcast",
 "d": "Envío de un paquete a TODOS los dispositivos de la red local a la vez."
+},
+{
+"t": "Cable cruzado",
+"d": "Cable de red con los pares invertidos, usado antiguamente para unir equipos iguales. Hoy el auto-MDIX lo hace innecesario."
+},
+{
+"t": "Cable directo",
+"d": "Cable de red con el mismo orden de pares en ambos extremos: el habitual para conectar un PC a un switch."
+},
+{
+"t": "CDP",
+"d": "Protocolo propietario de Cisco que descubre los dispositivos Cisco directamente conectados."
 },
 {
 "t": "CIDR",
@@ -172,8 +220,28 @@ const TERMINOS = [
 "d": "Choque de dos tramas enviadas a la vez en el mismo medio compartido. Los switches full-duplex las eliminan."
 },
 {
+"t": "Contenedor",
+"d": "Aplicación empaquetada con lo que necesita para ejecutarse, compartiendo el sistema operativo del anfitrión. Más ligero que una máquina virtual."
+},
+{
+"t": "CSMA/CD",
+"d": "Método de Ethernet clásico: escucha antes de transmitir y detecta colisiones. Irrelevante en redes full-duplex modernas."
+},
+{
 "t": "DHCP",
 "d": "Protocolo que asigna automáticamente direcciones IP y configuración de red a los dispositivos."
+},
+{
+"t": "DHCP Snooping",
+"d": "Función de seguridad del switch que solo acepta respuestas DHCP desde puertos de confianza, evitando servidores DHCP falsos."
+},
+{
+"t": "Distancia administrativa",
+"d": "Grado de confianza en la fuente de una ruta (menor es mejor): conectada 0, estática 1, OSPF 110, RIP 120."
+},
+{
+"t": "DMZ",
+"d": "Zona de red intermedia donde se colocan los servidores públicos, separada de la red interna por el firewall."
 },
 {
 "t": "DNS",
@@ -188,20 +256,60 @@ const TERMINOS = [
 "d": "Segmento de red donde las tramas pueden colisionar. Cada puerto de switch es su propio dominio."
 },
 {
+"t": "DTP",
+"d": "Protocolo de Cisco que negocia automáticamente si un enlace es de acceso o trunk. Por seguridad se recomienda desactivarlo."
+},
+{
 "t": "Dúplex (half/full)",
 "d": "Half: no se puede enviar y recibir a la vez. Full: sí, simultáneamente, sin colisiones."
+},
+{
+"t": "Encapsulación",
+"d": "Proceso de ir añadiendo cabeceras al bajar por las capas OSI: datos → segmento → paquete → trama → bits."
+},
+{
+"t": "Enrutamiento dinámico",
+"d": "El router aprende las rutas solo, hablando con sus vecinos mediante protocolos como OSPF o EIGRP."
+},
+{
+"t": "EtherChannel",
+"d": "Agrupación de varios enlaces físicos en uno lógico para sumar ancho de banda y tener redundancia."
 },
 {
 "t": "Ethernet",
 "d": "Tecnología LAN por cable más usada; define cómo viajan las tramas por el medio."
 },
 {
+"t": "EUI-64",
+"d": "Método que genera la parte de host de una dirección IPv6 a partir de la MAC del interfaz."
+},
+{
+"t": "FHRP",
+"d": "Familia de protocolos (HSRP, VRRP, GLBP) que dan un gateway redundante: si un router cae, otro toma su lugar."
+},
+{
+"t": "Fibra óptica",
+"d": "Medio que transmite datos con luz. Permite mucha más distancia y velocidad que el cobre, e inmune a interferencias."
+},
+{
 "t": "Firewall",
 "d": "Dispositivo o software que filtra el tráfico de red para proteger según reglas de seguridad."
 },
 {
+"t": "FTP",
+"d": "Protocolo de transferencia de archivos (puertos 20 y 21). No cifra: hoy se prefiere SFTP."
+},
+{
 "t": "Gateway (puerta de enlace)",
 "d": "Router que conecta tu red local con otras redes o con Internet."
+},
+{
+"t": "GLBP",
+"d": "Protocolo FHRP de Cisco que además de dar redundancia reparte la carga entre varios routers."
+},
+{
+"t": "HSRP",
+"d": "Protocolo FHRP de Cisco: dos routers comparten una IP virtual; si el activo falla, el de reserva asume el papel."
 },
 {
 "t": "HTTP / HTTPS",
@@ -216,20 +324,60 @@ const TERMINOS = [
 "d": "Enrutamiento que permite comunicar dispositivos de VLANs distintas a través de un router o switch L3."
 },
 {
-"t": "Dirección IP",
+"t": "IP (dirección)",
 "d": "Identificador lógico de un dispositivo en la red (IPv4: 192.168.1.10; IPv6: más larga)."
+},
+{
+"t": "IPsec",
+"d": "Conjunto de protocolos que cifra y autentica el tráfico IP. Es la base de muchas VPN de sitio a sitio."
+},
+{
+"t": "IPv6",
+"d": "Nueva versión del protocolo IP con direcciones de 128 bits, creada para superar el agotamiento de IPv4."
+},
+{
+"t": "Jitter",
+"d": "Variación en el retardo de los paquetes. Es el enemigo de la voz y el vídeo, aunque haya ancho de banda de sobra."
+},
+{
+"t": "JSON",
+"d": "Formato de datos en texto que usan las APIs REST. Fundamental para la automatización de redes."
+},
+{
+"t": "LACP",
+"d": "Protocolo estándar que negocia la formación de un EtherChannel entre dos equipos."
+},
+{
+"t": "LAN",
+"d": "Red de área local: la red de una casa, oficina o edificio."
 },
 {
 "t": "Latencia",
 "d": "Tiempo que tarda un paquete en ir de origen a destino. Cuanto menor, mejor (crítico en voz/vídeo)."
 },
 {
-"t": "Dirección MAC",
+"t": "LLDP",
+"d": "Equivalente estándar de CDP: descubre vecinos directamente conectados, sea cual sea el fabricante."
+},
+{
+"t": "Loopback",
+"d": "Interfaz virtual siempre activa de un router. Muy usada como identificador estable en OSPF y para gestión."
+},
+{
+"t": "MAC (dirección)",
 "d": "Identificador físico único de una tarjeta de red, grabado de fábrica (48 bits)."
 },
 {
 "t": "Máscara de subred",
 "d": "Indica qué parte de la IP es red y qué parte es host (p. ej. 255.255.255.0)."
+},
+{
+"t": "Métrica",
+"d": "Valor que usa un protocolo de enrutamiento para elegir la mejor ruta: en OSPF es el coste, en RIP el número de saltos."
+},
+{
+"t": "MPLS",
+"d": "Tecnología WAN que reenvía tráfico usando etiquetas en vez de consultar la IP de destino en cada salto."
 },
 {
 "t": "MTU",
@@ -244,12 +392,36 @@ const TERMINOS = [
 "d": "Traduce direcciones IP privadas a una pública para salir a Internet compartiendo una sola IP."
 },
 {
-"t": "Modelo OSI",
+"t": "Nube (IaaS/PaaS/SaaS)",
+"d": "Modelos de servicio: IaaS te da la infraestructura, PaaS la plataforma para desplegar, SaaS la aplicación ya lista."
+},
+{
+"t": "NTP",
+"d": "Protocolo que sincroniza la hora de todos los equipos de red. Imprescindible para que los registros cuadren."
+},
+{
+"t": "NVRAM",
+"d": "Memoria de un equipo Cisco donde se guarda la startup-config: sobrevive al apagado."
+},
+{
+"t": "OSI (modelo)",
 "d": "Modelo de 7 capas que estandariza cómo se comunican los sistemas de red."
 },
 {
 "t": "OSPF",
 "d": "Protocolo de enrutamiento dinámico que calcula las mejores rutas según el &#x27;coste&#x27; del enlace."
+},
+{
+"t": "PAgP",
+"d": "Protocolo propietario de Cisco para negociar EtherChannel (el equivalente propietario de LACP)."
+},
+{
+"t": "Paquete",
+"d": "Unidad de datos de la capa 3: lleva las direcciones IP de origen y destino."
+},
+{
+"t": "PAT (NAT overload)",
+"d": "Variante de NAT que permite a muchos equipos compartir una IP pública distinguiéndolos por el número de puerto."
 },
 {
 "t": "Ping",
@@ -260,28 +432,104 @@ const TERMINOS = [
 "d": "Envía energía eléctrica por el cable de red para alimentar teléfonos IP, cámaras o APs."
 },
 {
+"t": "Port Security",
+"d": "Función del switch que limita qué direcciones MAC pueden usar un puerto, y qué hacer si se incumple."
+},
+{
+"t": "PortFast",
+"d": "Función de STP que pone un puerto de acceso en reenvío al instante, sin esperar la convergencia. Solo para puertos de equipos finales."
+},
+{
+"t": "Prefijo",
+"d": "Número de bits de red de una dirección, el valor que va tras la barra en /24."
+},
+{
 "t": "Puerto",
 "d": "Número que identifica un servicio en un host (p. ej. 22 SSH, 80 HTTP, 443 HTTPS)."
+},
+{
+"t": "QoS",
+"d": "Calidad de servicio: prioriza el tráfico sensible (voz, vídeo) cuando la red se congestiona."
+},
+{
+"t": "RADIUS",
+"d": "Protocolo AAA estándar que centraliza la autenticación de usuarios. Cifra solo la contraseña."
+},
+{
+"t": "REST API",
+"d": "Interfaz web que permite consultar y configurar equipos mediante peticiones HTTP y datos JSON."
+},
+{
+"t": "RIP",
+"d": "Protocolo de enrutamiento antiguo y sencillo que elige rutas por número de saltos (máximo 15)."
 },
 {
 "t": "RJ45",
 "d": "Conector estándar de los cables de red Ethernet de par trenzado."
 },
 {
+"t": "Root bridge",
+"d": "Switch central de referencia en STP; todos los caminos del árbol se calculan hacia él."
+},
+{
 "t": "Router",
 "d": "Dispositivo que reenvía paquetes entre redes distintas eligiendo la mejor ruta."
+},
+{
+"t": "Router-on-a-stick",
+"d": "Enrutamiento entre VLANs usando un único enlace trunk al router, dividido en subinterfaces."
 },
 {
 "t": "Ruta estática",
 "d": "Ruta configurada manualmente por el administrador, no aprendida por un protocolo."
 },
 {
+"t": "Ruta por defecto",
+"d": "Ruta comodín (0.0.0.0/0) que se usa cuando ninguna otra coincide: normalmente la salida a Internet."
+},
+{
+"t": "Running-config",
+"d": "Configuración activa en memoria RAM. Se pierde al reiniciar si no se guarda en la startup-config."
+},
+{
+"t": "SDN",
+"d": "Redes definidas por software: un controlador central decide y programa el comportamiento de todos los equipos."
+},
+{
+"t": "Segmento",
+"d": "Unidad de datos de la capa 4 (TCP): lleva los puertos de origen y destino."
+},
+{
+"t": "SLAAC",
+"d": "Autoconfiguración de direcciones IPv6: el equipo se genera su propia dirección a partir del prefijo que anuncia el router."
+},
+{
+"t": "SNMP",
+"d": "Protocolo para monitorizar y gestionar equipos de red de forma centralizada."
+},
+{
 "t": "SSH",
 "d": "Protocolo para administrar equipos de forma remota y CIFRADA (puerto 22). Sustituye a Telnet."
 },
 {
+"t": "SSID",
+"d": "Nombre de una red WiFi: lo que ves en la lista de redes disponibles."
+},
+{
+"t": "Startup-config",
+"d": "Configuración guardada en NVRAM que el equipo carga al arrancar."
+},
+{
+"t": "Sticky MAC",
+"d": "Opción de Port Security que aprende automáticamente la MAC conectada y la fija en la configuración."
+},
+{
 "t": "STP (Spanning Tree)",
 "d": "Protocolo que evita bucles en redes con switches redundantes bloqueando enlaces sobrantes."
+},
+{
+"t": "Subinterfaz",
+"d": "División lógica de una interfaz física (p. ej. G0/0.10) que permite atender varias VLANs con un solo puerto."
 },
 {
 "t": "Subnetting",
@@ -292,6 +540,22 @@ const TERMINOS = [
 "d": "Dispositivo que conecta equipos de una LAN y reenvía tramas según la dirección MAC."
 },
 {
+"t": "Syslog",
+"d": "Sistema de registro centralizado: los equipos envían sus mensajes de evento a un servidor común."
+},
+{
+"t": "Tabla de enrutamiento",
+"d": "Lista de redes conocidas por un router y por dónde alcanzarlas. Se consulta en cada paquete."
+},
+{
+"t": "Tabla MAC",
+"d": "Tabla del switch que asocia cada dirección MAC con el puerto por el que se aprendió."
+},
+{
+"t": "TACACS+",
+"d": "Protocolo AAA de Cisco que cifra todo el paquete y separa autenticación de autorización. Ideal para administrar equipos."
+},
+{
 "t": "TCP",
 "d": "Protocolo de transporte fiable y orientado a conexión (confirma la entrega de los datos)."
 },
@@ -300,12 +564,24 @@ const TERMINOS = [
 "d": "Protocolo de administración remota SIN cifrar (puerto 23). Inseguro; usa SSH."
 },
 {
-"t": "TTL (Time To Live)",
-"d": "Contador que limita cuántos saltos (routers) puede atravesar un paquete antes de descartarse."
+"t": "Throughput",
+"d": "Velocidad real que se consigue en la práctica, normalmente menor que el ancho de banda teórico."
+},
+{
+"t": "Topología",
+"d": "Forma en que se conectan los dispositivos: estrella, malla, anillo o bus."
+},
+{
+"t": "Trama (frame)",
+"d": "Unidad de datos de la capa 2: lleva las direcciones MAC de origen y destino."
 },
 {
 "t": "Trunk",
 "d": "Enlace entre switches que transporta el tráfico de varias VLANs a la vez (802.1Q)."
+},
+{
+"t": "TTL (Time To Live)",
+"d": "Contador que limita cuántos saltos (routers) puede atravesar un paquete antes de descartarse."
 },
 {
 "t": "UDP",
@@ -316,16 +592,56 @@ const TERMINOS = [
 "d": "Comunicación uno a uno: un único origen y un único destino."
 },
 {
+"t": "Virtualización",
+"d": "Ejecutar varias máquinas virtuales sobre un mismo servidor físico gracias a un hipervisor."
+},
+{
 "t": "VLAN",
 "d": "Red de área local virtual que separa lógicamente los dispositivos aunque estén en el mismo switch."
+},
+{
+"t": "VLAN nativa",
+"d": "VLAN cuyo tráfico viaja sin etiquetar por un trunk. Debe coincidir en ambos extremos y conviene cambiarla de la 1."
+},
+{
+"t": "VLSM",
+"d": "Máscaras de longitud variable: usar prefijos distintos según el tamaño de cada subred, sin desperdiciar direcciones."
 },
 {
 "t": "VPN",
 "d": "Túnel cifrado que conecta de forma segura redes o usuarios a través de Internet."
 },
 {
+"t": "VRRP",
+"d": "Alternativa estándar a HSRP para tener un gateway redundante entre routers de distintos fabricantes."
+},
+{
+"t": "VTP",
+"d": "Protocolo de Cisco que propaga la base de datos de VLANs entre switches. Peligroso si se configura mal."
+},
+{
+"t": "WAN",
+"d": "Red de área extensa: conecta ubicaciones distantes, normalmente a través de un operador."
+},
+{
 "t": "WiFi",
 "d": "Tecnología de red local inalámbrica (estándar 802.11)."
+},
+{
+"t": "Wildcard (máscara)",
+"d": "Máscara invertida que usan las ACLs y OSPF: los 0 indican bits que deben coincidir."
+},
+{
+"t": "WLAN",
+"d": "Red local inalámbrica: la versión WiFi de una LAN."
+},
+{
+"t": "WLC",
+"d": "Controlador de WLAN: gestiona de forma centralizada todos los puntos de acceso de la red."
+},
+{
+"t": "WPA2 / WPA3",
+"d": "Estándares de seguridad del WiFi. WPA3 es el más moderno y robusto; WEP está obsoleto y no debe usarse."
 }
 ];
 
