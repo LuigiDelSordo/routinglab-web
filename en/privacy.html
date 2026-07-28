@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy · RoutingLab</title>
+<meta name="description" content="RoutingLab privacy policy: what data we process, what for, and how you can delete your account.">
+<meta name="theme-color" content="#0A1D5C">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../estilos.css">
+<link rel="alternate" hreflang="es" href="https://routinglab.es/privacidad.html">
+<link rel="alternate" hreflang="en" href="https://routinglab.es/en/privacy.html">
+<link rel="alternate" hreflang="x-default" href="https://routinglab.es/privacidad.html">
+<link rel="canonical" href="https://routinglab.es/en/privacy.html">
+<style>
+  .cabecera-pagina {
+    background: linear-gradient(125deg, var(--marino), var(--azul2) 110%);
+    color: #fff; padding: 56px 0 48px;
+  }
+  .cabecera-pagina h1 { color: #fff; font-size: clamp(1.9rem, 5vw, 2.8rem); margin-bottom: 8px; }
+  .cabecera-pagina p { color: #c8d3f5; margin: 0; }
+  .legal { max-width: 820px; margin: 0 auto; }
+  .legal h2 { font-size: 1.35rem; margin-top: 38px; }
+  .legal h3 { font-size: 1.05rem; margin-top: 22px; color: var(--azul); }
+  .legal ul { padding-left: 22px; color: var(--texto-sec); }
+  .legal li { margin-bottom: 8px; }
+  .legal p { color: var(--texto-sec); }
+  .aviso {
+    background: var(--superficie); border: 1px solid var(--borde); border-left: 4px solid var(--azul);
+    border-radius: var(--radio-s); padding: 18px 22px; margin: 24px 0;
+  }
+  .aviso p:last-child { margin: 0; }
+  .indice-legal { background: var(--superficie); border: 1px solid var(--borde); border-radius: var(--radio); padding: 22px 26px; margin-bottom: 32px; }
+  .indice-legal ol { margin: 0; padding-left: 20px; }
+  .indice-legal li { margin-bottom: 6px; }
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="contenedor nav-inner">
+    <a href="index.html" class="logo">
+      <svg viewBox="0 0 100 100" aria-hidden="true">
+        <circle cx="50" cy="50" r="48" fill="url(#g)"/>
+        <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#0A1D5C"/><stop offset="1" stop-color="#2E5BFF"/>
+        </linearGradient></defs>
+        <g stroke="#4CC9F0" stroke-width="6" stroke-linecap="round">
+          <path d="M50 50 L28 30 M50 50 L72 26 M50 50 L28 72 M50 50 L74 70 M28 30 L72 26 M28 72 L74 70"/>
+        </g>
+        <circle cx="28" cy="30" r="9" fill="#fff"/><circle cx="72" cy="26" r="9" fill="#fff"/>
+        <circle cx="28" cy="72" r="9" fill="#fff"/><circle cx="74" cy="70" r="9" fill="#fff"/>
+        <circle cx="50" cy="50" r="11" fill="#4CC9F0"/>
+      </svg>
+      RoutingLab
+    </a>
+    <button class="menu-movil" aria-label="Open menu">☰</button>
+    <div class="nav-links">
+      <a href="index.html#caracteristicas">Features</a>
+      <a href="tools.html">Tools</a>
+      <a href="glossary.html">Glossary</a>
+      <a href="index.html#precios">Pricing</a>
+      <a href="support.html">Support</a>
+      <a href="index.html#descargar" class="btn btn-primario btn-sm">Download</a>
+    </div>
+    <a href="../privacidad.html" class="cambio-idioma" hreflang="es" lang="es" aria-label="Leer esta página en español">ES</a>
+    <button class="boton-tema" onclick="alternarTema()">🌙</button>
+  </div>
+</nav>
+<header class="cabecera-pagina">
+  <div class="contenedor">
+    <h1>Privacy Policy</h1>
+    <p>Last updated: 28 July 2026</p>
+  </div>
+</header>
+<section>
+  <div class="contenedor">
+    <div class="legal">
+      <div class="indice-legal">
+        <strong>In short:</strong>
+        <ol>
+          <li>We only ask for data if you sign in (name, email and picture from your Google account).</li>
+          <li>We store your study progress so you have it on any device.</li>
+          <li>We do not sell your data and we show no advertising.</li>
+          <li>You can delete your account and all your data from within the app.</li>
+        </ol>
+      </div>
+
+      <p>At <strong>RoutingLab</strong> ("the app", "we") we take your privacy seriously. This policy explains what data we process, for what purpose, and what your rights are. By using the app you accept what is described here.</p>
+
+      <h2>1. Data controller</h2>
+      <p>RoutingLab. Contact: <a href="mailto:soporte@routinglab.es">soporte@routinglab.es</a></p>
+
+      <h2>2. What data we process</h2>
+      <h3>a) If you sign in with Google (optional)</h3>
+      <ul>
+        <li>Your <strong>name, email address, profile picture and user identifier</strong>, through <strong>Firebase Authentication</strong> (Google).</li>
+      </ul>
+      <h3>b) Study progress</h3>
+      <ul>
+        <li>The <strong>lessons you complete</strong> and the date you started your trial, to sync your progress across devices, stored in <strong>Firebase Firestore</strong> (Google).</li>
+        <li>If you do <em>not</em> sign in, your progress is stored <strong>only on your device</strong> and never leaves it.</li>
+      </ul>
+      <h3>c) Settings and local usage</h3>
+      <ul>
+        <li>Preferences (theme, text size, daily goal, streak, notes and bookmarks), stored <strong>on your device</strong>.</li>
+      </ul>
+      <h3>d) Notifications</h3>
+      <ul>
+        <li>If you enable them, we use the notification permission solely to send you your daily study reminder. You can turn them off whenever you like.</li>
+      </ul>
+      <h3>e) Subscriptions</h3>
+      <ul>
+        <li>Billing is handled by <strong>Google Play</strong>. <strong>We neither receive nor store your card or payment details.</strong></li>
+        <li>We use <strong>RevenueCat</strong> to check whether your subscription is still active: it receives an identifier for your installation and the purchase details.</li>
+      </ul>
+      <h3>f) Crash diagnostics</h3>
+      <ul>
+        <li>If the app closes unexpectedly, <strong>Firebase Crashlytics</strong> sends us a technical report (device model, Android version, where the crash happened and installation identifiers) so we can fix it.</li>
+      </ul>
+      <h3>g) App usage</h3>
+      <ul>
+        <li><strong>Firebase Analytics</strong> collects usage statistics and installation identifiers (which screens are opened, events such as finishing a test or switching language) to help us understand what works and improve it.</li>
+      </ul>
+      <div class="aviso"><p><strong>We show no advertising and we do not sell your data to third parties.</strong></p></div>
+
+      <h2>3. Purpose and legal basis</h2>
+      <ul>
+        <li><strong>Providing the service</strong> and saving your progress (performance of the service you request).</li>
+        <li><strong>Syncing your progress</strong> across devices (with your consent when signing in).</li>
+        <li><strong>Sending you reminders</strong> (only if you enable notifications: consent).</li>
+        <li><strong>Diagnosing and improving the app</strong> (legitimate interest in it working correctly).</li>
+      </ul>
+
+      <h2>4. Third parties processing data on our behalf</h2>
+      <ul>
+        <li><strong>Google Firebase</strong> (Authentication, Firestore, Crashlytics and Analytics) — identity, progress, crash diagnostics and usage statistics. <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Firebase privacy</a>.</li>
+        <li><strong>RevenueCat, Inc.</strong> — validating your subscription status. <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener">RevenueCat privacy</a>.</li>
+        <li><strong>Google Play</strong> — app distribution and subscription billing. <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google privacy</a>.</li>
+      </ul>
+
+      <h2>5. Retention</h2>
+      <p>We keep your progress for as long as you keep your account. If you delete your account or ask us to, we erase your data from the cloud.</p>
+
+      <h2>6. Your rights</h2>
+      <p>You may exercise your rights of <strong>access, rectification, erasure, objection, restriction and portability</strong> by writing to us at <a href="mailto:soporte@routinglab.es">soporte@routinglab.es</a>.</p>
+      <div class="aviso">
+        <p><strong>Deleting your account:</strong> you can do it yourself in the app from
+        <strong>Settings → Account → Delete account</strong>. Your account and your cloud-stored progress will be erased.
+        You can also ask us by email.</p>
+      </div>
+      <p>If you live in the European Union, you have the right to lodge a complaint with your data protection authority.</p>
+
+      <h2>7. Children</h2>
+      <p>The app is not directed at children under 14 and we do not knowingly collect their data.</p>
+
+      <h2>8. Changes to this policy</h2>
+      <p>We may update this policy. The new version will be published on this page with its update date.</p>
+      <div class="aviso" style="margin-top:40px">
+        <p>Any questions about this document? Write to us at
+        <a href="mailto:soporte@routinglab.es">soporte@routinglab.es</a> and we will get back to you.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="contenedor">
+    <div class="pie-rejilla">
+      <div>
+        <a href="index.html" class="logo" style="margin-bottom:12px">RoutingLab</a>
+        <p class="texto-sec" style="max-width:280px;font-size:.92rem">The app to prepare for the CCNA 200-301 certification, in English and Spanish.</p>
+      </div>
+      <div><h4>Product</h4><div class="pie-links">
+        <a href="index.html#caracteristicas">Features</a>
+        <a href="index.html#precios">Pricing</a>
+        <a href="index.html#demo">Try a quiz</a>
+      </div></div>
+      <div><h4>Free</h4><div class="pie-links">
+        <a href="tools.html#subredes">Subnet calculator</a>
+        <a href="tools.html#puertos">Port table</a>
+        <a href="glossary.html">Glossary</a>
+      </div></div>
+      <div><h4>Help</h4><div class="pie-links">
+        <a href="support.html">Support</a>
+        <a href="mailto:soporte@routinglab.es">soporte@routinglab.es</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+      </div></div>
+    </div>
+    <div class="pie-abajo">
+      <span>© <span data-anio>2026</span> RoutingLab · routinglab.es</span>
+      <span>Made with ☕ for future network engineers</span>
+    </div>
+  </div>
+</footer>
+<script src="../app.js"></script>
+</body>
+</html>

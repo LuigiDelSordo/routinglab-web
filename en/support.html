@@ -1,19 +1,19 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Soporte y contacto · RoutingLab</title>
-<meta name="description" content="¿Necesitas ayuda con RoutingLab? Escríbenos, envíanos ideas de mejora o reporta un fallo. Respondemos a todo.">
+<title>Support and contact · RoutingLab</title>
+<meta name="description" content="Need help with RoutingLab? Write to us, send improvement ideas or report a bug. We answer everything.">
 <meta name="theme-color" content="#0A1D5C">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="estilos.css">
+<link rel="stylesheet" href="../estilos.css">
 <link rel="alternate" hreflang="es" href="https://routinglab.es/soporte.html">
 <link rel="alternate" hreflang="en" href="https://routinglab.es/en/support.html">
 <link rel="alternate" hreflang="x-default" href="https://routinglab.es/soporte.html">
-<link rel="canonical" href="https://routinglab.es/soporte.html">
+<link rel="canonical" href="https://routinglab.es/en/support.html">
 <style>
   .cabecera-pagina {
     background: linear-gradient(125deg, var(--marino), #118AB2 130%);
@@ -65,17 +65,17 @@
       </svg>
       RoutingLab
     </a>
-    <button class="menu-movil" aria-label="Abrir menú">☰</button>
+    <button class="menu-movil" aria-label="Open menu">☰</button>
     <div class="nav-links">
-      <a href="index.html#caracteristicas">Características</a>
+      <a href="index.html#caracteristicas">Features</a>
       <a href="index.html#demo">Demo</a>
-      <a href="herramientas.html">Herramientas</a>
-      <a href="glosario.html">Glosario</a>
-      <a href="index.html#precios">Precios</a>
-      <a href="soporte.html" class="activo">Soporte</a>
-      <a href="index.html#descargar" class="btn btn-primario btn-sm">Descargar</a>
+      <a href="tools.html">Tools</a>
+      <a href="glossary.html">Glossary</a>
+      <a href="index.html#precios">Pricing</a>
+      <a href="support.html" class="activo">Support</a>
+      <a href="index.html#descargar" class="btn btn-primario btn-sm">Download</a>
     </div>
-    <a href="en/support.html" class="cambio-idioma" hreflang="en" lang="en" aria-label="Read this page in English">EN</a>
+    <a href="../soporte.html" class="cambio-idioma" hreflang="es" lang="es" aria-label="Leer esta página en español">ES</a>
     <button class="boton-tema" onclick="alternarTema()">🌙</button>
   </div>
 </nav>
@@ -83,9 +83,9 @@
 <header class="cabecera-pagina">
   <canvas id="redCanvas" aria-hidden="true"></canvas>
   <div class="contenedor">
-    <span class="etiqueta-seccion" style="background:rgba(255,255,255,.15);color:#fff">Estamos al otro lado</span>
-    <h1>¿Te echamos una mano?</h1>
-    <p>Escríbenos para lo que necesites: una duda, un fallo que hayas visto o una idea para mejorar la app. Leemos y respondemos todo.</p>
+    <span class="etiqueta-seccion" style="background:rgba(255,255,255,.15);color:#fff">We are on the other side</span>
+    <h1>Need a hand?</h1>
+    <p>Write to us about anything: a question, a bug you have spotted or an idea to improve the app. We read and answer everything.</p>
   </div>
 </header>
 
@@ -94,27 +94,27 @@
     <div class="soporte-rejilla">
       <!-- Formulario -->
       <div class="tarjeta revelar">
-        <h2 style="font-size:1.5rem">Cuéntanos</h2>
-        <p class="texto-sec" style="font-size:.95rem">Elige el motivo y te preparamos el correo con todo listo para enviar.</p>
+        <h2 style="font-size:1.5rem">Tell us</h2>
+        <p class="texto-sec" style="font-size:.95rem">Pick a reason and we will draft the email ready for you to send.</p>
 
         <div class="tipo-mensaje" id="tipos">
-          <button class="tipo-btn activo" data-tipo="Ayuda"><span>💬</span>Ayuda</button>
-          <button class="tipo-btn" data-tipo="Fallo"><span>🐞</span>Reportar fallo</button>
-          <button class="tipo-btn" data-tipo="Idea"><span>💡</span>Idea de mejora</button>
+          <button class="tipo-btn activo" data-tipo="Help"><span>💬</span>Help</button>
+          <button class="tipo-btn" data-tipo="Bug"><span>🐞</span>Report a bug</button>
+          <button class="tipo-btn" data-tipo="Idea"><span>💡</span>Improvement idea</button>
         </div>
 
         <div style="margin-bottom:16px">
-          <label for="nombre">Tu nombre</label>
-          <input class="campo" id="nombre" placeholder="Cómo te llamamos">
+          <label for="nombre">Your name</label>
+          <input class="campo" id="nombre" placeholder="What should we call you">
         </div>
         <div style="margin-bottom:16px">
-          <label for="mensaje">Mensaje</label>
-          <textarea class="campo" id="mensaje" rows="6" placeholder="Cuéntanos con detalle: qué esperabas y qué pasó."></textarea>
+          <label for="mensaje">Message</label>
+          <textarea class="campo" id="mensaje" rows="6" placeholder="Tell us in detail: what you expected and what happened."></textarea>
         </div>
-        <button class="btn btn-primario" style="width:100%" id="enviar">✉️ Escribir correo</button>
+        <button class="btn btn-primario" style="width:100%" id="enviar">✉️ Write the email</button>
         <p class="texto-sec" style="font-size:.85rem;margin:14px 0 0;text-align:center">
-          Se abrirá tu aplicación de correo con el mensaje redactado.<br>
-          También puedes escribirnos directamente a
+          Your email app will open with the message already written.<br>
+          You can also write to us directly at
           <a href="mailto:soporte@routinglab.es">soporte@routinglab.es</a>
         </p>
       </div>
@@ -123,19 +123,19 @@
       <div>
         <div class="tarjeta g2 revelar" style="margin-bottom:18px">
           <div class="icono-chip">📧</div>
-          <h3>Correo directo</h3>
-          <p class="texto-sec" style="margin-bottom:8px">Para cualquier tema, incluida la privacidad y el borrado de tu cuenta.</p>
+          <h3>Direct email</h3>
+          <p class="texto-sec" style="margin-bottom:8px">For anything at all, including privacy and deleting your account.</p>
           <a href="mailto:soporte@routinglab.es" style="font-weight:700">soporte@routinglab.es</a>
         </div>
         <div class="tarjeta g1 revelar" style="margin-bottom:18px">
           <div class="icono-chip">⏱️</div>
-          <h3>Tiempo de respuesta</h3>
-          <p class="texto-sec" style="margin:0">Solemos contestar en 24-48 horas laborables. Somos un proyecto pequeño, pero contestamos.</p>
+          <h3>Response time</h3>
+          <p class="texto-sec" style="margin:0">We usually reply within 24-48 working hours. We are a small project, but we do reply.</p>
         </div>
         <div class="tarjeta g4 revelar">
           <div class="icono-chip">🗑️</div>
-          <h3>Eliminar tu cuenta</h3>
-          <p class="texto-sec" style="margin:0">Puedes borrarla desde la propia app en <strong>Configuración → Cuenta → Eliminar cuenta</strong>, o pidiéndolo por correo.</p>
+          <h3>Delete your account</h3>
+          <p class="texto-sec" style="margin:0">You can delete it from the app itself in <strong>Settings → Account → Delete account</strong>, or by asking us by email.</p>
         </div>
       </div>
     </div>
@@ -145,29 +145,29 @@
 <section style="background:var(--fondo2)">
   <div class="contenedor">
     <div class="centrado">
-      <span class="etiqueta-seccion revelar">Antes de escribir</span>
-      <h2 class="revelar">Respuestas rápidas</h2>
+      <span class="etiqueta-seccion revelar">Before writing</span>
+      <h2 class="revelar">Quick answers</h2>
     </div>
     <div style="max-width:760px;margin:36px auto 0">
       <div class="faq-item revelar" data-acordeon>
-        <button class="faq-pregunta" aria-expanded="false">He perdido mi progreso, ¿lo puedo recuperar?</button>
-        <div class="faq-respuesta"><p>Si habías iniciado sesión con Google, sí: entra con la misma cuenta y pulsa «Sincronizar» en Configuración. Si estudiabas sin cuenta, el progreso vive solo en ese dispositivo.</p></div>
+        <button class="faq-pregunta" aria-expanded="false">I lost my progress, can I get it back?</button>
+        <div class="faq-respuesta"><p>If you had signed in with Google, yes: sign in with the same account and tap "Sync" in Settings. If you were studying without an account, your progress lives only on that device.</p></div>
       </div>
       <div class="faq-item revelar" data-acordeon>
-        <button class="faq-pregunta" aria-expanded="false">¿Cómo cancelo la suscripción?</button>
-        <div class="faq-respuesta"><p>Desde Google Play: abre la app de Play Store → tu perfil → Pagos y suscripciones → Suscripciones → RoutingLab → Cancelar. También tienes un acceso directo en Configuración → Gestión → Gestionar suscripción.</p></div>
+        <button class="faq-pregunta" aria-expanded="false">How do I cancel my subscription?</button>
+        <div class="faq-respuesta"><p>Through Google Play: open the Play Store app → your profile → Payments and subscriptions → Subscriptions → RoutingLab → Cancel. There is also a shortcut in Settings → Management → Manage subscription.</p></div>
       </div>
       <div class="faq-item revelar" data-acordeon>
-        <button class="faq-pregunta" aria-expanded="false">He encontrado un error en una pregunta del temario</button>
-        <div class="faq-respuesta"><p>Nos ayudas mucho avisando. Escríbenos indicando el mundo, la lección y el enunciado, y lo corregimos en la siguiente actualización de contenido.</p></div>
+        <button class="faq-pregunta" aria-expanded="false">I found a mistake in one of the questions</button>
+        <div class="faq-respuesta"><p>Telling us helps a lot. Write to us with the world, the lesson and the question text, and we will fix it in the next content update.</p></div>
       </div>
       <div class="faq-item revelar" data-acordeon>
-        <button class="faq-pregunta" aria-expanded="false">¿Cuándo estará la versión para iPhone?</button>
-        <div class="faq-respuesta"><p>Está en la hoja de ruta, pero aún no tenemos fecha. Escríbenos y te avisamos en cuanto salga.</p></div>
+        <button class="faq-pregunta" aria-expanded="false">When will the iPhone version be ready?</button>
+        <div class="faq-respuesta"><p>It is on the roadmap, but we do not have a date yet. Write to us and we will let you know as soon as it is out.</p></div>
       </div>
       <div class="faq-item revelar" data-acordeon>
-        <button class="faq-pregunta" aria-expanded="false">¿Puedo pedir que borréis mis datos?</button>
-        <div class="faq-respuesta"><p>Sí. Puedes eliminar tu cuenta desde la app o pedírnoslo por correo y borraremos todos tus datos de la nube. Tienes el detalle en la <a href="privacidad.html">política de privacidad</a>.</p></div>
+        <button class="faq-pregunta" aria-expanded="false">Can I ask you to delete my data?</button>
+        <div class="faq-respuesta"><p>Yes. You can delete your account from the app, or ask us by email and we will erase all your data from the cloud. The details are in the <a href="privacy.html">privacy policy</a>.</p></div>
       </div>
     </div>
   </div>
@@ -178,35 +178,35 @@
     <div class="pie-rejilla">
       <div>
         <a href="index.html" class="logo" style="margin-bottom:12px">RoutingLab</a>
-        <p class="texto-sec" style="max-width:280px;font-size:.92rem">La app en español para preparar la certificación CCNA 200-301.</p>
+        <p class="texto-sec" style="max-width:280px;font-size:.92rem">The app to prepare for the CCNA 200-301 certification, in English and Spanish.</p>
       </div>
-      <div><h4>Producto</h4><div class="pie-links">
-        <a href="index.html#caracteristicas">Características</a>
-        <a href="index.html#precios">Precios</a>
-        <a href="index.html#demo">Test de prueba</a>
+      <div><h4>Product</h4><div class="pie-links">
+        <a href="index.html#caracteristicas">Features</a>
+        <a href="index.html#precios">Pricing</a>
+        <a href="index.html#demo">Try a quiz</a>
       </div></div>
-      <div><h4>Gratis</h4><div class="pie-links">
-        <a href="herramientas.html#subredes">Calculadora de subredes</a>
-        <a href="herramientas.html#puertos">Tabla de puertos</a>
-        <a href="glosario.html">Glosario</a>
+      <div><h4>Free</h4><div class="pie-links">
+        <a href="tools.html#subredes">Subnet calculator</a>
+        <a href="tools.html#puertos">Port table</a>
+        <a href="glossary.html">Glossary</a>
       </div></div>
-      <div><h4>Ayuda</h4><div class="pie-links">
-        <a href="soporte.html">Soporte</a>
+      <div><h4>Help</h4><div class="pie-links">
+        <a href="support.html">Support</a>
         <a href="mailto:soporte@routinglab.es">soporte@routinglab.es</a>
-        <a href="privacidad.html">Privacidad</a>
-        <a href="terminos.html">Términos</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
       </div></div>
     </div>
     <div class="pie-abajo">
       <span>© <span data-anio>2026</span> RoutingLab · routinglab.es</span>
-      <span>Hecho con ☕ para futuros ingenieros de red</span>
+      <span>Made with ☕ for future network engineers</span>
     </div>
   </div>
 </footer>
 
-<script src="app.js"></script>
+<script src="../app.js"></script>
 <script>
-let tipo = 'Ayuda';
+let tipo = 'Help';
 document.getElementById('tipos').addEventListener('click', e => {
   const btn = e.target.closest('.tipo-btn'); if (!btn) return;
   document.querySelectorAll('.tipo-btn').forEach(b => b.classList.remove('activo'));
@@ -217,12 +217,12 @@ document.getElementById('enviar').addEventListener('click', () => {
   const nombre = document.getElementById('nombre').value.trim();
   const mensaje = document.getElementById('mensaje').value.trim();
   if (!mensaje) {
-    alert('Escribe un mensaje para que podamos ayudarte 🙂');
+    alert('Write a message so we can help you 🙂');
     document.getElementById('mensaje').focus();
     return;
   }
   const asunto = `[${tipo}] RoutingLab${nombre ? ' · ' + nombre : ''}`;
-  const cuerpo = `${mensaje}\n\n---\nEnviado desde routinglab.es\nNavegador: ${navigator.userAgent}`;
+  const cuerpo = `${mensaje}\n\n---\nSent from routinglab.es\nBrowser: ${navigator.userAgent}`;
   location.href = `mailto:soporte@routinglab.es?subject=${encodeURIComponent(asunto)}&body=${encodeURIComponent(cuerpo)}`;
 });
 </script>

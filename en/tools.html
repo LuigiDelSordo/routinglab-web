@@ -1,19 +1,19 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Calculadora de subredes y tabla de puertos · RoutingLab</title>
-<meta name="description" content="Calculadora de subredes IPv4 gratis: red, broadcast, rango de hosts, wildcard y binario. Además, conversor binario/decimal y tabla de puertos del CCNA.">
+<title>Subnet calculator and port table · RoutingLab</title>
+<meta name="description" content="Free IPv4 subnet calculator: network, broadcast, host range, wildcard and binary. Plus a binary/decimal converter and the CCNA port table.">
 <meta name="theme-color" content="#0A1D5C">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="estilos.css">
+<link rel="stylesheet" href="../estilos.css">
 <link rel="alternate" hreflang="es" href="https://routinglab.es/herramientas.html">
 <link rel="alternate" hreflang="en" href="https://routinglab.es/en/tools.html">
 <link rel="alternate" hreflang="x-default" href="https://routinglab.es/herramientas.html">
-<link rel="canonical" href="https://routinglab.es/herramientas.html">
+<link rel="canonical" href="https://routinglab.es/en/tools.html">
 <style>
   .cabecera-pagina {
     background: linear-gradient(125deg, var(--marino), var(--azul2) 90%);
@@ -77,17 +77,17 @@
       </svg>
       RoutingLab
     </a>
-    <button class="menu-movil" aria-label="Abrir menú">☰</button>
+    <button class="menu-movil" aria-label="Open menu">☰</button>
     <div class="nav-links">
-      <a href="index.html#caracteristicas">Características</a>
+      <a href="index.html#caracteristicas">Features</a>
       <a href="index.html#demo">Demo</a>
-      <a href="herramientas.html" class="activo">Herramientas</a>
-      <a href="glosario.html">Glosario</a>
-      <a href="index.html#precios">Precios</a>
-      <a href="soporte.html">Soporte</a>
-      <a href="index.html#descargar" class="btn btn-primario btn-sm">Descargar</a>
+      <a href="tools.html" class="activo">Tools</a>
+      <a href="glossary.html">Glossary</a>
+      <a href="index.html#precios">Pricing</a>
+      <a href="support.html">Support</a>
+      <a href="index.html#descargar" class="btn btn-primario btn-sm">Download</a>
     </div>
-    <a href="en/tools.html" class="cambio-idioma" hreflang="en" lang="en" aria-label="Read this page in English">EN</a>
+    <a href="../herramientas.html" class="cambio-idioma" hreflang="es" lang="es" aria-label="Leer esta página en español">ES</a>
     <button class="boton-tema" onclick="alternarTema()">🌙</button>
   </div>
 </nav>
@@ -95,22 +95,22 @@
 <header class="cabecera-pagina">
   <canvas id="redCanvas" aria-hidden="true"></canvas>
   <div class="contenedor">
-    <span class="etiqueta-seccion" style="background:rgba(255,255,255,.15);color:#fff">Gratis · sin registro</span>
-    <h1>Herramientas de red</h1>
-    <p>Calculadora de subredes, conversor binario y la tabla de puertos del CCNA. Úsalas mientras estudias, desde el móvil o el ordenador.</p>
+    <span class="etiqueta-seccion" style="background:rgba(255,255,255,.15);color:#fff">Free · no sign-up</span>
+    <h1>Networking tools</h1>
+    <p>A subnet calculator, a binary converter and the CCNA port table. Use them while you study, on your phone or your computer.</p>
   </div>
 </header>
 
 <!-- ============ CALCULADORA DE SUBREDES ============ -->
 <section id="subredes">
   <div class="contenedor">
-    <span class="etiqueta-seccion revelar">Calculadora</span>
-    <h2 class="revelar">Calculadora de subredes IPv4</h2>
-    <p class="texto-sec revelar" style="max-width:620px">Escribe una dirección IP y su prefijo. Te calculamos todo lo que te van a preguntar en el examen.</p>
+    <span class="etiqueta-seccion revelar">Calculator</span>
+    <h2 class="revelar">IPv4 subnet calculator</h2>
+    <p class="texto-sec revelar" style="max-width:620px">Enter an IP address and its prefix. We work out everything they will ask you in the exam.</p>
 
     <div class="calc-rejilla revelar" style="margin-top:28px">
       <div class="tarjeta">
-        <label for="ip">Dirección IP</label>
+        <label for="ip">IP address</label>
         <div class="fila-campos">
           <input class="campo mono" id="ip" value="192.168.10.130" inputmode="decimal" placeholder="192.168.1.1">
           <select class="campo mono" id="cidr"></select>
@@ -122,7 +122,7 @@
           <button class="chip-rapido" data-ej="203.0.113.9/30">203.0.113.9/30</button>
         </div>
         <div id="binarioCaja" style="margin-top:22px">
-          <span style="font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;color:var(--texto-sec);font-weight:700">Binario (azul = red · gris = host)</span>
+          <span style="font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;color:var(--texto-sec);font-weight:700">Binary (blue = network · grey = host)</span>
           <div class="binario" id="binario"></div>
         </div>
       </div>
@@ -137,17 +137,17 @@
 <!-- ============ CONVERSOR ============ -->
 <section id="conversor" style="background:var(--fondo2)">
   <div class="contenedor">
-    <span class="etiqueta-seccion revelar">Conversor</span>
-    <h2 class="revelar">Decimal ⇄ binario</h2>
-    <p class="texto-sec revelar" style="max-width:620px">La conversión que más se practica para subnetting. Escribe en cualquiera de los dos campos.</p>
+    <span class="etiqueta-seccion revelar">Converter</span>
+    <h2 class="revelar">Decimal ⇄ binary</h2>
+    <p class="texto-sec revelar" style="max-width:620px">The conversion you practise most for subnetting. Type in either field.</p>
     <div class="rejilla rejilla-2 revelar" style="margin-top:26px">
       <div class="tarjeta">
         <label for="dec">Decimal (0-255)</label>
         <input class="campo mono" id="dec" value="192" inputmode="numeric">
-        <p class="texto-sec" style="margin:14px 0 0;font-size:.9rem">Valores de cada octeto: 128 · 64 · 32 · 16 · 8 · 4 · 2 · 1</p>
+        <p class="texto-sec" style="margin:14px 0 0;font-size:.9rem">Value of each bit in an octet: 128 · 64 · 32 · 16 · 8 · 4 · 2 · 1</p>
       </div>
       <div class="tarjeta g2">
-        <label for="bin">Binario (8 bits)</label>
+        <label for="bin">Binary (8 bits)</label>
         <input class="campo mono" id="bin" value="11000000" inputmode="numeric">
         <p class="texto-sec" style="margin:14px 0 0;font-size:.9rem" id="pistaBin"></p>
       </div>
@@ -158,18 +158,18 @@
 <!-- ============ PUERTOS ============ -->
 <section id="puertos">
   <div class="contenedor">
-    <span class="etiqueta-seccion revelar">Referencia</span>
-    <h2 class="revelar">Puertos y protocolos del CCNA</h2>
-    <p class="texto-sec revelar" style="max-width:620px">Los que de verdad caen en el examen. Busca por número, protocolo o para qué sirve.</p>
-    <input class="campo revelar" id="buscarPuerto" placeholder="🔍 Buscar: SSH, 443, correo…" style="max-width:420px;margin:22px 0">
+    <span class="etiqueta-seccion revelar">Reference</span>
+    <h2 class="revelar">CCNA ports and protocols</h2>
+    <p class="texto-sec revelar" style="max-width:620px">The ones that really come up in the exam. Search by number, protocol or what it does.</p>
+    <input class="campo revelar" id="buscarPuerto" placeholder="🔍 Search: SSH, 443, mail…" style="max-width:420px;margin:22px 0">
     <div class="tabla-envoltura revelar">
       <table>
-        <thead><tr><th>Puerto</th><th>Protocolo</th><th>Transporte</th><th>Para qué sirve</th></tr></thead>
+        <thead><tr><th>Port</th><th>Protocol</th><th>Transport</th><th>What it does</th></tr></thead>
         <tbody id="tablaPuertos"></tbody>
       </table>
     </div>
     <p class="texto-sec revelar" style="margin-top:18px;font-size:.92rem">
-      ¿Quieres practicarlos con preguntas tipo examen? Están en el <strong>Mundo 8</strong> de la app.
+      Want to drill them with exam-style questions? They are in <strong>World 8</strong> of the app.
     </p>
   </div>
 </section>
@@ -177,11 +177,11 @@
 <section style="padding-top:0">
   <div class="contenedor">
     <div class="tarjeta revelar" style="text-align:center;padding:48px 32px;background:linear-gradient(125deg,var(--marino),var(--azul2));border:0;color:#fff">
-      <h2 style="color:#fff">¿Te han servido?</h2>
+      <h2 style="color:#fff">Did they help?</h2>
       <p style="color:#c8d3f5;max-width:520px;margin:0 auto 24px">
-        En la app tienes estas herramientas y mucho más: teoría, ejercicios de CLI, troubleshooting y simulacros de examen.
+        The app has these tools and a lot more: theory, CLI exercises, troubleshooting and mock exams.
       </p>
-      <a href="index.html#descargar" class="btn btn-claro">📲 Descargar RoutingLab</a>
+      <a href="index.html#descargar" class="btn btn-claro">📲 Download RoutingLab</a>
     </div>
   </div>
 </section>
@@ -191,33 +191,33 @@
     <div class="pie-rejilla">
       <div>
         <a href="index.html" class="logo" style="margin-bottom:12px">RoutingLab</a>
-        <p class="texto-sec" style="max-width:280px;font-size:.92rem">La app en español para preparar la certificación CCNA 200-301.</p>
+        <p class="texto-sec" style="max-width:280px;font-size:.92rem">The app to prepare for the CCNA 200-301 certification, in English and Spanish.</p>
       </div>
-      <div><h4>Producto</h4><div class="pie-links">
-        <a href="index.html#caracteristicas">Características</a>
-        <a href="index.html#precios">Precios</a>
-        <a href="index.html#demo">Test de prueba</a>
+      <div><h4>Product</h4><div class="pie-links">
+        <a href="index.html#caracteristicas">Features</a>
+        <a href="index.html#precios">Pricing</a>
+        <a href="index.html#demo">Try a quiz</a>
       </div></div>
-      <div><h4>Gratis</h4><div class="pie-links">
-        <a href="#subredes">Calculadora de subredes</a>
-        <a href="#puertos">Tabla de puertos</a>
-        <a href="glosario.html">Glosario</a>
+      <div><h4>Free</h4><div class="pie-links">
+        <a href="#subredes">Subnet calculator</a>
+        <a href="#puertos">Port table</a>
+        <a href="glossary.html">Glossary</a>
       </div></div>
-      <div><h4>Ayuda</h4><div class="pie-links">
-        <a href="soporte.html">Soporte</a>
+      <div><h4>Help</h4><div class="pie-links">
+        <a href="support.html">Support</a>
         <a href="mailto:soporte@routinglab.es">soporte@routinglab.es</a>
-        <a href="privacidad.html">Privacidad</a>
-        <a href="terminos.html">Términos</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
       </div></div>
     </div>
     <div class="pie-abajo">
       <span>© <span data-anio>2026</span> RoutingLab · routinglab.es</span>
-      <span>Hecho con ☕ para futuros ingenieros de red</span>
+      <span>Made with ☕ for future network engineers</span>
     </div>
   </div>
 </footer>
 
-<script src="app.js"></script>
+<script src="../app.js"></script>
 <script>
 /* ================= Calculadora de subredes ================= */
 const $ip = document.getElementById('ip');
@@ -257,7 +257,7 @@ function calcular() {
   const texto = $ip.value.trim();
   const cidr = parseInt($cidr.value, 10);
   if (!ipValida(texto)) {
-    $salida.innerHTML = '<div class="error-caja">Esa dirección IP no es válida. Formato: 192.168.1.1</div>';
+    $salida.innerHTML = '<div class="error-caja">That IP address is not valid. Format: 192.168.1.1</div>';
     $binario.innerHTML = '';
     return;
   }
@@ -274,16 +274,16 @@ function calcular() {
   const subredes = Math.pow(2, cidr % 8 === 0 ? 0 : 0); // informativo abajo
 
   $salida.innerHTML = `
-    <div class="res destaca"><span>Dirección de red</span><b>${aTexto(red)}/${cidr}</b></div>
+    <div class="res destaca"><span>Network address</span><b>${aTexto(red)}/${cidr}</b></div>
     <div class="res destaca"><span>Broadcast</span><b>${aTexto(broadcast)}</b></div>
-    <div class="res"><span>Máscara</span><b>${aTexto(mascara)}</b></div>
+    <div class="res"><span>Mask</span><b>${aTexto(mascara)}</b></div>
     <div class="res"><span>Wildcard</span><b>${aTexto(wildcard)}</b></div>
-    <div class="res"><span>Primer host útil</span><b>${bitsHost <= 1 ? '—' : aTexto(primero)}</b></div>
-    <div class="res"><span>Último host útil</span><b>${bitsHost <= 1 ? '—' : aTexto(ultimo)}</b></div>
-    <div class="res destaca"><span>Hosts útiles</span><b>${utiles.toLocaleString('es-ES')}</b></div>
-    <div class="res"><span>Direcciones totales</span><b>${totales.toLocaleString('es-ES')}</b></div>
-    <div class="res"><span>Clase</span><b>${claseDe(ip)}</b></div>
-    <div class="res"><span>Tipo</span><b>${esPrivada(ip) ? 'Privada' : 'Pública'}</b></div>`;
+    <div class="res"><span>First usable host</span><b>${bitsHost <= 1 ? '—' : aTexto(primero)}</b></div>
+    <div class="res"><span>Last usable host</span><b>${bitsHost <= 1 ? '—' : aTexto(ultimo)}</b></div>
+    <div class="res destaca"><span>Usable hosts</span><b>${utiles.toLocaleString('en-GB')}</b></div>
+    <div class="res"><span>Total addresses</span><b>${totales.toLocaleString('en-GB')}</b></div>
+    <div class="res"><span>Class</span><b>${claseDe(ip)}</b></div>
+    <div class="res"><span>Type</span><b>${esPrivada(ip) ? 'Private' : 'Public'}</b></div>`;
 
   // Binario coloreado: bits de red en azul, de host en gris
   const bits = aBin(ip).replace(/\./g, '');
@@ -324,22 +324,22 @@ pista(192);
 
 /* ================= Tabla de puertos ================= */
 const PUERTOS = [
-  [20, 'FTP (datos)', 'TCP', 'Transferencia de archivos: canal de datos'],
-  [21, 'FTP (control)', 'TCP', 'Transferencia de archivos: canal de control'],
-  [22, 'SSH', 'TCP', 'Administración remota cifrada (sustituye a Telnet)'],
-  [23, 'Telnet', 'TCP', 'Administración remota SIN cifrar: inseguro'],
-  [25, 'SMTP', 'TCP', 'Envío de correo electrónico'],
-  [53, 'DNS', 'TCP/UDP', 'Traduce nombres de dominio a direcciones IP'],
-  ['67/68', 'DHCP', 'UDP', 'Asigna IP automáticamente (servidor/cliente)'],
-  [69, 'TFTP', 'UDP', 'Transferencia simple de archivos (copias de IOS)'],
-  [80, 'HTTP', 'TCP', 'Navegación web sin cifrar'],
-  [110, 'POP3', 'TCP', 'Descarga de correo (borra del servidor)'],
+  [20, 'FTP (datos)', 'TCP', 'File transfer: data channel'],
+  [21, 'FTP (control)', 'TCP', 'File transfer: control channel'],
+  [22, 'SSH', 'TCP', 'Encrypted remote administration (replaces Telnet)'],
+  [23, 'Telnet', 'TCP', 'UNENCRYPTED remote administration: insecure'],
+  [25, 'SMTP', 'TCP', 'Sending email'],
+  [53, 'DNS', 'TCP/UDP', 'Translates domain names into IP addresses'],
+  ['67/68', 'DHCP', 'UDP', 'Assigns IP addresses automatically (server/client)'],
+  [69, 'TFTP', 'UDP', 'Simple file transfer (IOS images)'],
+  [80, 'HTTP', 'TCP', 'Unencrypted web browsing'],
+  [110, 'POP3', 'TCP', 'Downloads mail (removes it from the server)'],
   [123, 'NTP', 'UDP', 'Sincroniza la hora de los equipos de red'],
-  [143, 'IMAP', 'TCP', 'Lectura de correo (lo mantiene en el servidor)'],
-  ['161/162', 'SNMP', 'UDP', 'Monitorización y trampas de dispositivos de red'],
-  [443, 'HTTPS', 'TCP', 'Navegación web cifrada con TLS'],
-  [514, 'Syslog', 'UDP', 'Envío centralizado de mensajes de registro'],
-  [3389, 'RDP', 'TCP', 'Escritorio remoto de Windows']
+  [143, 'IMAP', 'TCP', 'Reads mail (keeps it on the server)'],
+  ['161/162', 'SNMP', 'UDP', 'Network device monitoring and traps'],
+  [443, 'HTTPS', 'TCP', 'Web browsing encrypted with TLS'],
+  [514, 'Syslog', 'UDP', 'Centralised logging messages'],
+  [3389, 'RDP', 'TCP', 'Windows Remote Desktop']
 ];
 const $tabla = document.getElementById('tablaPuertos');
 function pintarPuertos(filtro = '') {
@@ -347,7 +347,7 @@ function pintarPuertos(filtro = '') {
   const filas = PUERTOS.filter(p => !q || p.join(' ').toLowerCase().includes(q));
   $tabla.innerHTML = filas.length
     ? filas.map(p => `<tr><td class="puerto">${p[0]}</td><td><strong>${p[1]}</strong></td><td class="mono texto-sec">${p[2]}</td><td class="texto-sec">${p[3]}</td></tr>`).join('')
-    : `<tr><td colspan="4" class="texto-sec" style="text-align:center;padding:28px">Sin resultados para "${filtro}"</td></tr>`;
+    : `<tr><td colspan="4" class="texto-sec" style="text-align:center;padding:28px">No results for "${filtro}"</td></tr>`;
 }
 document.getElementById('buscarPuerto').addEventListener('input', e => pintarPuertos(e.target.value));
 pintarPuertos();

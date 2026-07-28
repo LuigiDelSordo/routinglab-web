@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Networking glossary · 125 terms explained · RoutingLab</title>
+<meta name="description" content="Glosario de redes para el CCNA: 125 términos como VLAN, ARP, NAT, STP o subnetting explicados en español de forma sencilla. Con buscador.">
+<meta name="theme-color" content="#0A1D5C">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../estilos.css">
+<link rel="alternate" hreflang="es" href="https://routinglab.es/glosario.html">
+<link rel="alternate" hreflang="en" href="https://routinglab.es/en/glossary.html">
+<link rel="alternate" hreflang="x-default" href="https://routinglab.es/glosario.html">
+<link rel="canonical" href="https://routinglab.es/en/glossary.html">
+<style>
+  .cabecera-pagina {
+    background: linear-gradient(125deg, var(--marino), var(--violeta) 130%);
+    color: #fff; padding: 64px 0 56px; position: relative; overflow: hidden;
+  }
+  #redCanvas { position: absolute; inset: 0; width: 100%; height: 100%; opacity: .6; }
+  .cabecera-pagina .contenedor { position: relative; z-index: 2; }
+  .cabecera-pagina h1 { color: #fff; font-size: clamp(2rem, 5vw, 3rem); }
+  .cabecera-pagina p { color: #c8d3f5; max-width: 620px; font-size: 1.08rem; margin: 0 0 24px; }
+  .buscador-sticky {
+    position: sticky; top: 68px; z-index: 20; padding: 16px 0;
+    background: color-mix(in srgb, var(--fondo) 92%, transparent);
+    backdrop-filter: blur(10px); border-bottom: 1px solid var(--borde);
+  }
+  .termino {
+    background: var(--superficie); border: 1px solid var(--borde); border-left: 4px solid var(--azul);
+    border-radius: var(--radio-s); padding: 20px 22px; margin-bottom: 12px;
+    transition: transform var(--trans), box-shadow var(--trans);
+  }
+  .termino:hover { transform: translateX(4px); box-shadow: var(--sombra); }
+  .termino h3 { color: var(--azul); margin-bottom: 4px; font-size: 1.1rem; }
+  .termino p { margin: 0; color: var(--texto-sec); }
+  mark { background: color-mix(in srgb, var(--cian) 35%, transparent); color: inherit; border-radius: 3px; padding: 0 2px; }
+  .letra-indice {
+    display: inline-block; margin: 0 4px 6px 0; padding: 4px 10px; border-radius: 8px;
+    background: var(--superficie-var); color: var(--texto-sec); font-weight: 700; font-size: .85rem;
+    cursor: pointer; border: 0; font-family: inherit; transition: all var(--trans);
+  }
+  .letra-indice:hover { background: var(--azul); color: #fff; }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="contenedor nav-inner">
+    <a href="index.html" class="logo">
+      <svg viewBox="0 0 100 100" aria-hidden="true">
+        <circle cx="50" cy="50" r="48" fill="url(#g)"/>
+        <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#0A1D5C"/><stop offset="1" stop-color="#2E5BFF"/>
+        </linearGradient></defs>
+        <g stroke="#4CC9F0" stroke-width="6" stroke-linecap="round">
+          <path d="M50 50 L28 30 M50 50 L72 26 M50 50 L28 72 M50 50 L74 70 M28 30 L72 26 M28 72 L74 70"/>
+        </g>
+        <circle cx="28" cy="30" r="9" fill="#fff"/><circle cx="72" cy="26" r="9" fill="#fff"/>
+        <circle cx="28" cy="72" r="9" fill="#fff"/><circle cx="74" cy="70" r="9" fill="#fff"/>
+        <circle cx="50" cy="50" r="11" fill="#4CC9F0"/>
+      </svg>
+      RoutingLab
+    </a>
+    <button class="menu-movil" aria-label="Open menu">☰</button>
+    <div class="nav-links">
+      <a href="index.html#caracteristicas">Features</a>
+      <a href="index.html#demo">Demo</a>
+      <a href="tools.html">Tools</a>
+      <a href="glossary.html" class="activo">Glossary</a>
+      <a href="index.html#precios">Pricing</a>
+      <a href="support.html">Support</a>
+      <a href="index.html#descargar" class="btn btn-primario btn-sm">Download</a>
+    </div>
+    <a href="../glosario.html" class="cambio-idioma" hreflang="es" lang="es" aria-label="Leer esta página en español">ES</a>
+    <button class="boton-tema" onclick="alternarTema()">🌙</button>
+  </div>
+</nav>
+
+<header class="cabecera-pagina">
+  <canvas id="redCanvas" aria-hidden="true"></canvas>
+  <div class="contenedor">
+    <span class="etiqueta-seccion" style="background:rgba(255,255,255,.15);color:#fff">Free · no sign-up</span>
+    <h1>Networking glossary</h1>
+    <p>125 terms from the CCNA syllabus explained in plain English. Look them up instantly while you study.</p>
+  </div>
+</header>
+
+<div class="buscador-sticky">
+  <div class="contenedor">
+    <input class="campo" id="buscar" placeholder="🔍 Search a term: VLAN, NAT, subnetting…" autocomplete="off">
+    <div id="indice" style="margin-top:12px"></div>
+  </div>
+</div>
+
+<section style="padding-top:36px">
+  <div class="contenedor">
+    <p class="texto-sec" id="contador" style="margin-bottom:18px"></p>
+    <div id="lista"></div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="contenedor">
+    <div class="tarjeta revelar" style="text-align:center;padding:48px 32px;background:linear-gradient(125deg,var(--marino),var(--violeta));border:0;color:#fff">
+      <h2 style="color:#fff">Take the glossary with you</h2>
+      <p style="color:#c8d3f5;max-width:520px;margin:0 auto 24px">
+        The app has this glossary offline, plus theory, exercises and mock exams.
+      </p>
+      <a href="index.html#descargar" class="btn btn-claro">📲 Download RoutingLab</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="contenedor">
+    <div class="pie-rejilla">
+      <div>
+        <a href="index.html" class="logo" style="margin-bottom:12px">RoutingLab</a>
+        <p class="texto-sec" style="max-width:280px;font-size:.92rem">The app to prepare for the CCNA 200-301 certification, in English and Spanish.</p>
+      </div>
+      <div><h4>Product</h4><div class="pie-links">
+        <a href="index.html#caracteristicas">Features</a>
+        <a href="index.html#precios">Pricing</a>
+        <a href="index.html#demo">Try a quiz</a>
+      </div></div>
+      <div><h4>Free</h4><div class="pie-links">
+        <a href="tools.html#subredes">Subnet calculator</a>
+        <a href="tools.html#puertos">Port table</a>
+        <a href="glossary.html">Glossary</a>
+      </div></div>
+      <div><h4>Help</h4><div class="pie-links">
+        <a href="support.html">Support</a>
+        <a href="mailto:soporte@routinglab.es">soporte@routinglab.es</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+      </div></div>
+    </div>
+    <div class="pie-abajo">
+      <span>© <span data-anio>2026</span> RoutingLab · routinglab.es</span>
+      <span>Made with ☕ for future network engineers</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../app.js"></script>
+<script>
+const TERMINOS = [
+{
+"t": "802.11",
+"d": "The family of WiFi standards (a/b/g/n/ac/ax) that defines how data travels over radio."
+},
+{
+"t": "802.1Q",
+"d": "Standard that tags frames with their VLAN so several VLANs can travel over the same trunk link."
+},
+{
+"t": "AAA",
+"d": "Authentication, Authorization and Accounting: who you are, what you may do and a record of what you did. It relies on RADIUS or TACACS+."
+},
+{
+"t": "ACL (Access Control List)",
+"d": "A list of rules that permits or blocks traffic on a router or switch based on source, destination, protocol or port."
+},
+{
+"t": "Administrative distance",
+"d": "How much a router trusts the source of a route (lower is better): connected 0, static 1, OSPF 110, RIP 120."
+},
+{
+"t": "Ansible",
+"d": "An automation tool that configures many devices at once from text files, with no agents to install."
+},
+{
+"t": "AP (Access Point)",
+"d": "A device that provides WiFi coverage and connects wireless clients to the wired network."
+},
+{
+"t": "APIPA",
+"d": "The 169.254.x.x address a host assigns itself when it finds no DHCP server. A classic sign that DHCP has failed."
+},
+{
+"t": "ARP",
+"d": "The protocol that translates an IP address into its MAC address within the same local network."
+},
+{
+"t": "Bandwidth",
+"d": "The maximum amount of data a link can carry per second (e.g. 1 Gbps)."
+},
+{
+"t": "BGP",
+"d": "The routing protocol that interconnects large networks (autonomous systems): it is what makes the Internet work."
+},
+{
+"t": "Bridge ID",
+"d": "A switch's identifier in STP: priority + MAC address. The lowest one wins the root bridge election."
+},
+{
+"t": "Broadcast",
+"d": "Sending a packet to EVERY device on the local network at once."
+},
+{
+"t": "Broadcast domain",
+"d": "The set of devices that receive each other's broadcasts. Each VLAN is one broadcast domain."
+},
+{
+"t": "CDP",
+"d": "Cisco's proprietary protocol that discovers directly connected Cisco devices."
+},
+{
+"t": "CIDR",
+"d": "Notation that states the network bits with a slash (e.g. /24) instead of writing out the full mask."
+},
+{
+"t": "CLI",
+"d": "Command-line interface: you configure the device by typing commands (as in Cisco IOS)."
+},
+{
+"t": "Cloud (IaaS/PaaS/SaaS)",
+"d": "Service models: IaaS gives you the infrastructure, PaaS the platform to deploy on, SaaS the finished application."
+},
+{
+"t": "Collision",
+"d": "Two frames sent at the same time clashing on a shared medium. Full-duplex switches eliminate them."
+},
+{
+"t": "Collision domain",
+"d": "A network segment where frames can collide. Every switch port is its own domain."
+},
+{
+"t": "Container",
+"d": "An application packaged with everything it needs to run, sharing the host's operating system. Lighter than a virtual machine."
+},
+{
+"t": "Crossover cable",
+"d": "A network cable with the pairs swapped, once used to join identical devices. Auto-MDIX makes it unnecessary today."
+},
+{
+"t": "CSMA/CD",
+"d": "Classic Ethernet's method: listen before transmitting and detect collisions. Irrelevant on modern full-duplex networks."
+},
+{
+"t": "Default route",
+"d": "The wildcard route (0.0.0.0/0) used when nothing else matches: normally the way out to the Internet."
+},
+{
+"t": "DHCP",
+"d": "The protocol that automatically hands out IP addresses and network settings to devices."
+},
+{
+"t": "DHCP Snooping",
+"d": "A switch security feature that only accepts DHCP replies from trusted ports, blocking rogue DHCP servers."
+},
+{
+"t": "DMZ",
+"d": "An intermediate network zone where public servers live, separated from the internal network by the firewall."
+},
+{
+"t": "DNS",
+"d": "The system that translates domain names (e.g. google.com) into IP addresses."
+},
+{
+"t": "DTP",
+"d": "Cisco's protocol that automatically negotiates whether a link is access or trunk. Turning it off is the safe practice."
+},
+{
+"t": "Duplex (half/full)",
+"d": "Half: you cannot send and receive at the same time. Full: you can, simultaneously and without collisions."
+},
+{
+"t": "Dynamic routing",
+"d": "The router learns routes by itself, talking to its neighbours with protocols such as OSPF or EIGRP."
+},
+{
+"t": "Encapsulation",
+"d": "Adding headers as you move down the OSI layers: data → segment → packet → frame → bits."
+},
+{
+"t": "EtherChannel",
+"d": "Bundling several physical links into one logical link to add bandwidth and gain redundancy."
+},
+{
+"t": "Ethernet",
+"d": "The most widely used wired LAN technology; it defines how frames travel over the medium."
+},
+{
+"t": "EUI-64",
+"d": "The method that builds the host part of an IPv6 address from the interface's MAC."
+},
+{
+"t": "FHRP",
+"d": "A family of protocols (HSRP, VRRP, GLBP) that provide a redundant gateway: if one router dies, another takes over."
+},
+{
+"t": "Fiber optics",
+"d": "A medium that carries data with light. It reaches far greater distance and speed than copper, and is immune to interference."
+},
+{
+"t": "Firewall",
+"d": "A device or software that filters network traffic to protect it according to security rules."
+},
+{
+"t": "Frame",
+"d": "The layer 2 data unit: it carries the source and destination MAC addresses."
+},
+{
+"t": "FTP",
+"d": "The file transfer protocol (ports 20 and 21). It does not encrypt: SFTP is preferred today."
+},
+{
+"t": "Gateway",
+"d": "The router that connects your local network to other networks or to the Internet."
+},
+{
+"t": "GLBP",
+"d": "Cisco's FHRP protocol that, on top of redundancy, shares the load across several routers."
+},
+{
+"t": "HSRP",
+"d": "Cisco's FHRP protocol: two routers share a virtual IP; if the active one fails, the standby takes over."
+},
+{
+"t": "HTTP / HTTPS",
+"d": "The web protocol (port 80). HTTPS is its TLS-encrypted version (port 443)."
+},
+{
+"t": "ICMP",
+"d": "The control and error message protocol; 'ping' uses it to check connectivity."
+},
+{
+"t": "Inter-VLAN routing",
+"d": "Routing that lets devices in different VLANs talk to each other through a router or an L3 switch."
+},
+{
+"t": "IP address",
+"d": "A device's logical identifier on the network (IPv4: 192.168.1.10; IPv6: much longer)."
+},
+{
+"t": "IPsec",
+"d": "A set of protocols that encrypts and authenticates IP traffic. It underpins most site-to-site VPNs."
+},
+{
+"t": "IPv6",
+"d": "The new version of the IP protocol, with 128-bit addresses, created to overcome IPv4 exhaustion."
+},
+{
+"t": "Jitter",
+"d": "Variation in packet delay. It is the enemy of voice and video, even when bandwidth is plentiful."
+},
+{
+"t": "JSON",
+"d": "The text data format REST APIs use. Essential for network automation."
+},
+{
+"t": "LACP",
+"d": "The standard protocol that negotiates forming an EtherChannel between two devices."
+},
+{
+"t": "LAN",
+"d": "Local area network: the network of a home, office or building."
+},
+{
+"t": "Latency",
+"d": "How long a packet takes to get from source to destination. Lower is better (critical for voice/video)."
+},
+{
+"t": "LLDP",
+"d": "The vendor-neutral equivalent of CDP: it discovers directly connected neighbours whatever the manufacturer."
+},
+{
+"t": "Loopback",
+"d": "A router's always-up virtual interface. Widely used as a stable identifier in OSPF and for management."
+},
+{
+"t": "MAC address",
+"d": "A network card's unique physical identifier, burned in at the factory (48 bits)."
+},
+{
+"t": "MAC address table",
+"d": "The switch table that maps each MAC address to the port it was learned on."
+},
+{
+"t": "Metric",
+"d": "The value a routing protocol uses to pick the best route: cost in OSPF, hop count in RIP."
+},
+{
+"t": "MOTD banner",
+"d": "A message a Cisco device shows when you connect. Used for legal restricted-access notices."
+},
+{
+"t": "MPLS",
+"d": "A WAN technology that forwards traffic using labels instead of looking up the destination IP at every hop."
+},
+{
+"t": "MTU",
+"d": "The largest packet that can be transmitted without fragmenting (typically 1500 bytes on Ethernet)."
+},
+{
+"t": "Multicast",
+"d": "Sending a packet to a specific GROUP of subscribed devices, not to everyone."
+},
+{
+"t": "NAT",
+"d": "It translates private IP addresses into a public one so many hosts reach the Internet sharing a single IP."
+},
+{
+"t": "Native VLAN",
+"d": "The VLAN whose traffic crosses a trunk untagged. It must match at both ends, and moving it off VLAN 1 is good practice."
+},
+{
+"t": "NTP",
+"d": "The protocol that synchronises the clock on every network device. Essential for logs to line up."
+},
+{
+"t": "NVRAM",
+"d": "The memory on a Cisco device where the startup-config lives: it survives a power cycle."
+},
+{
+"t": "OSI model",
+"d": "The 7-layer model that standardises how network systems communicate."
+},
+{
+"t": "OSPF",
+"d": "A dynamic routing protocol that works out the best routes from the 'cost' of each link."
+},
+{
+"t": "Packet",
+"d": "The layer 3 data unit: it carries the source and destination IP addresses."
+},
+{
+"t": "PAgP",
+"d": "Cisco's proprietary protocol for negotiating EtherChannel (the proprietary counterpart to LACP)."
+},
+{
+"t": "PAT (NAT overload)",
+"d": "The NAT variant that lets many devices share one public IP, telling them apart by port number."
+},
+{
+"t": "Ping",
+"d": "The tool that checks whether a host is reachable and measures the response time (it uses ICMP)."
+},
+{
+"t": "PoE (Power over Ethernet)",
+"d": "It sends electrical power down the network cable to run IP phones, cameras or APs."
+},
+{
+"t": "Port",
+"d": "The number that identifies a service on a host (e.g. 22 SSH, 80 HTTP, 443 HTTPS)."
+},
+{
+"t": "Port Security",
+"d": "The switch feature that limits which MAC addresses may use a port, and what to do when the rule is broken."
+},
+{
+"t": "PortFast",
+"d": "The STP feature that puts an access port straight into forwarding without waiting for convergence. Only for end-device ports."
+},
+{
+"t": "Prefix",
+"d": "The number of network bits in an address, the value after the slash in /24."
+},
+{
+"t": "QoS",
+"d": "Quality of service: it prioritises sensitive traffic (voice, video) when the network gets congested."
+},
+{
+"t": "RADIUS",
+"d": "The standard AAA protocol that centralises user authentication. It encrypts only the password."
+},
+{
+"t": "REST API",
+"d": "A web interface that lets you query and configure devices through HTTP requests and JSON data."
+},
+{
+"t": "RIP",
+"d": "An old, simple routing protocol that picks routes by hop count (15 maximum)."
+},
+{
+"t": "RJ45",
+"d": "The standard connector on twisted-pair Ethernet cables."
+},
+{
+"t": "Root bridge",
+"d": "The central reference switch in STP; every path in the tree is calculated towards it."
+},
+{
+"t": "Router",
+"d": "The device that forwards packets between different networks, choosing the best route."
+},
+{
+"t": "Router-on-a-stick",
+"d": "Inter-VLAN routing over a single trunk link to the router, split into subinterfaces."
+},
+{
+"t": "Routing table",
+"d": "The list of networks a router knows and how to reach them. It is consulted for every packet."
+},
+{
+"t": "Running-config",
+"d": "The active configuration in RAM. It is lost on reboot unless you save it to the startup-config."
+},
+{
+"t": "SDN",
+"d": "Software-defined networking: a central controller decides and programs how every device behaves."
+},
+{
+"t": "Segment",
+"d": "The layer 4 (TCP) data unit: it carries the source and destination ports."
+},
+{
+"t": "SLAAC",
+"d": "IPv6 address autoconfiguration: the host builds its own address from the prefix the router advertises."
+},
+{
+"t": "SNMP",
+"d": "The protocol for monitoring and managing network devices centrally."
+},
+{
+"t": "SSH",
+"d": "The protocol for managing devices remotely and ENCRYPTED (port 22). It replaces Telnet."
+},
+{
+"t": "SSID",
+"d": "A WiFi network's name: what you see in the list of available networks."
+},
+{
+"t": "Startup-config",
+"d": "The configuration saved in NVRAM that the device loads when it boots."
+},
+{
+"t": "Static route",
+"d": "A route configured by hand by the administrator, not learned from a protocol."
+},
+{
+"t": "Sticky MAC",
+"d": "The Port Security option that automatically learns the connected MAC and pins it into the configuration."
+},
+{
+"t": "STP (Spanning Tree)",
+"d": "The protocol that prevents loops in networks with redundant switches by blocking the spare links."
+},
+{
+"t": "Straight-through cable",
+"d": "A network cable with the same pair order at both ends: the usual one for connecting a PC to a switch."
+},
+{
+"t": "Subinterface",
+"d": "A logical division of a physical interface (e.g. G0/0.10) that lets one port serve several VLANs."
+},
+{
+"t": "Subnet mask",
+"d": "It states which part of the IP is network and which is host (e.g. 255.255.255.0)."
+},
+{
+"t": "Subnetting",
+"d": "Splitting a large network into smaller subnets to organise and optimise addressing."
+},
+{
+"t": "Switch",
+"d": "The device that connects hosts on a LAN and forwards frames by MAC address."
+},
+{
+"t": "Syslog",
+"d": "Centralised logging: devices send their event messages to a common server."
+},
+{
+"t": "TACACS+",
+"d": "Cisco's AAA protocol that encrypts the whole packet and separates authentication from authorization. Ideal for device administration."
+},
+{
+"t": "TCP",
+"d": "The reliable, connection-oriented transport protocol (it confirms the data arrived)."
+},
+{
+"t": "Telnet",
+"d": "The UNENCRYPTED remote administration protocol (port 23). Insecure; use SSH."
+},
+{
+"t": "Throughput",
+"d": "The speed you actually get in practice, normally lower than the theoretical bandwidth."
+},
+{
+"t": "Topology",
+"d": "How the devices are wired together: star, mesh, ring or bus."
+},
+{
+"t": "Trunk",
+"d": "A link between switches that carries the traffic of several VLANs at once (802.1Q)."
+},
+{
+"t": "TTL (Time To Live)",
+"d": "The counter that limits how many hops (routers) a packet may cross before being dropped."
+},
+{
+"t": "UDP",
+"d": "The fast, CONNECTIONLESS transport protocol; it does not confirm delivery (ideal for voice/video)."
+},
+{
+"t": "Unicast",
+"d": "One-to-one communication: a single source and a single destination."
+},
+{
+"t": "Virtualization",
+"d": "Running several virtual machines on one physical server thanks to a hypervisor."
+},
+{
+"t": "VLAN",
+"d": "A virtual local area network that logically separates devices even when they share a switch."
+},
+{
+"t": "VLSM",
+"d": "Variable-length subnet masks: using different prefixes according to the size of each subnet, wasting no addresses."
+},
+{
+"t": "VPN",
+"d": "An encrypted tunnel that securely connects networks or users across the Internet."
+},
+{
+"t": "VRRP",
+"d": "The standard alternative to HSRP for a redundant gateway across routers from different vendors."
+},
+{
+"t": "VTP",
+"d": "Cisco's protocol that propagates the VLAN database between switches. Dangerous if misconfigured."
+},
+{
+"t": "WAN",
+"d": "Wide area network: it connects distant sites, normally through a service provider."
+},
+{
+"t": "WiFi",
+"d": "Wireless local network technology (the 802.11 standard)."
+},
+{
+"t": "Wildcard mask",
+"d": "The inverted mask used by ACLs and OSPF: the 0s mark the bits that must match."
+},
+{
+"t": "WLAN",
+"d": "Wireless local area network: the WiFi version of a LAN."
+},
+{
+"t": "WLC",
+"d": "WLAN controller: it centrally manages every access point on the network."
+},
+{
+"t": "WPA2 / WPA3",
+"d": "WiFi security standards. WPA3 is the most modern and robust; WEP is obsolete and must not be used."
+}
+];
+
+const $lista = document.getElementById('lista');
+const $buscar = document.getElementById('buscar');
+const $contador = document.getElementById('contador');
+const $indice = document.getElementById('indice');
+
+function escaparRegex(t) { return t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+
+function resaltar(texto, q) {
+  if (!q) return texto;
+  return texto.replace(new RegExp('(' + escaparRegex(q) + ')', 'gi'), '<mark>$1</mark>');
+}
+
+function pintar(q = '') {
+  const filtro = q.trim().toLowerCase();
+  const res = TERMINOS.filter(x =>
+    !filtro || x.t.toLowerCase().includes(filtro) || x.d.toLowerCase().includes(filtro));
+  $contador.textContent = filtro
+    ? `${res.length} result${res.length === 1 ? '' : 's'} for "${q}"`
+    : `${TERMINOS.length} terms · in alphabetical order`;
+  $lista.innerHTML = res.length
+    ? res.map(x => `<article class="termino" id="t-${x.t.charAt(0).toUpperCase()}">
+         <h3>${resaltar(x.t, filtro)}</h3><p>${resaltar(x.d, filtro)}</p></article>`).join('')
+    : `<div class="tarjeta" style="text-align:center;padding:40px">
+         <p style="font-size:2rem;margin:0">🔍</p>
+         <h3>No results</h3>
+         <p class="texto-sec">We could not find "${q}". Try another word.</p></div>`;
+}
+
+// Índice alfabético
+const letras = [...new Set(TERMINOS.map(x => x.t.charAt(0).toUpperCase()))].sort();
+$indice.innerHTML = letras.map(l => `<button class="letra-indice" data-l="${l}">${l}</button>`).join('');
+$indice.addEventListener('click', e => {
+  const l = e.target.dataset?.l; if (!l) return;
+  $buscar.value = ''; pintar();
+  document.getElementById('t-' + l)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+});
+
+$buscar.addEventListener('input', e => pintar(e.target.value));
+pintar();
+</script>
+</body>
+</html>

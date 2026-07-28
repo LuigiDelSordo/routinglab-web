@@ -1,9 +1,88 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://routinglab.es/</loc><lastmod>2026-07-27</lastmod><priority>1.0</priority></url>
-  <url><loc>https://routinglab.es/herramientas.html</loc><lastmod>2026-07-27</lastmod><priority>0.9</priority></url>
-  <url><loc>https://routinglab.es/glosario.html</loc><lastmod>2026-07-27</lastmod><priority>0.9</priority></url>
-  <url><loc>https://routinglab.es/soporte.html</loc><lastmod>2026-07-27</lastmod><priority>0.6</priority></url>
-  <url><loc>https://routinglab.es/privacidad.html</loc><lastmod>2026-07-27</lastmod><priority>0.4</priority></url>
-  <url><loc>https://routinglab.es/terminos.html</loc><lastmod>2026-07-27</lastmod><priority>0.4</priority></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://routinglab.es/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://routinglab.es/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://routinglab.es/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://routinglab.es/"/>
+    <lastmod>2026-07-29</lastmod><priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://routinglab.es/en/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://routinglab.es/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://routinglab.es/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://routinglab.es/"/>
+    <lastmod>2026-07-29</lastmod><priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://routinglab.es/herramientas.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://routinglab.es/herramientas.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://routinglab.es/en/tools.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://routinglab.es/herramientas.html"/>
+    <lastmod>2026-07-29</lastmod><priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://routinglab.es/en/tools.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://routinglab.es/herramientas.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://routinglab.es/en/tools.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://routinglab.es/herramientas.html"/>
+    <lastmod>2026-07-29</lastmod><priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://routinglab.es/glosario.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://routinglab.es/glosario.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://routinglab.es/en/glossary.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://routinglab.es/glosario.html"/>
+    <lastmod>2026-07-29</lastmod><priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://routinglab.es/en/glossary.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://routinglab.es/glosario.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://routinglab.es/en/glossary.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://routinglab.es/glosario.html"/>
+    <lastmod>2026-07-29</lastmod><priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://routinglab.es/soporte.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://routinglab.es/soporte.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://routinglab.es/en/support.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://routinglab.es/soporte.html"/>
+    <lastmod>2026-07-29</lastmod><priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://routinglab.es/en/support.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://routinglab.es/soporte.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://routinglab.es/en/support.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://routinglab.es/soporte.html"/>
+    <lastmod>2026-07-29</lastmod><priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://routinglab.es/privacidad.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://routinglab.es/privacidad.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://routinglab.es/en/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://routinglab.es/privacidad.html"/>
+    <lastmod>2026-07-29</lastmod><priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://routinglab.es/en/privacy.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://routinglab.es/privacidad.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://routinglab.es/en/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://routinglab.es/privacidad.html"/>
+    <lastmod>2026-07-29</lastmod><priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://routinglab.es/terminos.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://routinglab.es/terminos.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://routinglab.es/en/terms.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://routinglab.es/terminos.html"/>
+    <lastmod>2026-07-29</lastmod><priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://routinglab.es/en/terms.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://routinglab.es/terminos.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://routinglab.es/en/terms.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://routinglab.es/terminos.html"/>
+    <lastmod>2026-07-29</lastmod><priority>0.4</priority>
+  </url>
 </urlset>

@@ -1,23 +1,23 @@
 <!DOCTYPE html>
-<html lang="es" >
+<html lang="en" >
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>RoutingLab · Aprende redes y aprueba el CCNA 200-301</title>
-<meta name="description" content="App para preparar la certificación CCNA 200-301 en español: teoría, subnetting, CLI, troubleshooting y simulacros de examen. Pruébala gratis 7 días.">
+<title>RoutingLab · Learn networking and pass the CCNA 200-301</title>
+<meta name="description" content="App to prepare the CCNA 200-301 certification: theory, subnetting, CLI, troubleshooting and mock exams. Try it free for 7 days.">
 <meta name="theme-color" content="#0A1D5C">
-<meta property="og:title" content="RoutingLab · Aprueba el CCNA 200-301">
-<meta property="og:description" content="Teoría, práctica y simulacros de CCNA en español. Prueba gratis 7 días.">
+<meta property="og:title" content="RoutingLab · Pass the CCNA 200-301">
+<meta property="og:description" content="CCNA theory, practice and mock exams. Free 7-day trial.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://routinglab.es">
+<meta property="og:url" content="https://routinglab.es/en/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="estilos.css">
+<link rel="stylesheet" href="../estilos.css">
 <link rel="alternate" hreflang="es" href="https://routinglab.es/">
 <link rel="alternate" hreflang="en" href="https://routinglab.es/en/">
 <link rel="alternate" hreflang="x-default" href="https://routinglab.es/">
-<link rel="canonical" href="https://routinglab.es/">
+<link rel="canonical" href="https://routinglab.es/en/">
 <style>
   /* ---------- Hero ---------- */
   .hero {
@@ -140,17 +140,17 @@
       </svg>
       RoutingLab
     </a>
-    <button class="menu-movil" aria-label="Abrir menú">☰</button>
+    <button class="menu-movil" aria-label="Open menu">☰</button>
     <div class="nav-links">
-      <a href="#caracteristicas">Características</a>
+      <a href="#caracteristicas">Features</a>
       <a href="#demo">Demo</a>
-      <a href="herramientas.html">Herramientas</a>
-      <a href="glosario.html">Glosario</a>
-      <a href="#precios">Precios</a>
-      <a href="soporte.html">Soporte</a>
-      <a href="#descargar" class="btn btn-primario btn-sm">Descargar</a>
+      <a href="tools.html">Tools</a>
+      <a href="glossary.html">Glossary</a>
+      <a href="#precios">Pricing</a>
+      <a href="support.html">Support</a>
+      <a href="#descargar" class="btn btn-primario btn-sm">Download</a>
     </div>
-    <a href="en/index.html" class="cambio-idioma" hreflang="en" lang="en" aria-label="Read this page in English">EN</a>
+    <a href="../index.html" class="cambio-idioma" hreflang="es" lang="es" aria-label="Leer esta página en español">ES</a>
     <button class="boton-tema" onclick="alternarTema()">🌙</button>
   </div>
 </nav>
@@ -161,25 +161,25 @@
   <div class="contenedor">
     <div class="hero-rejilla">
       <div>
-        <span class="pildora-hero">🎓 Certificación CCNA 200-301 · en español</span>
-        <h1>Domina las redes.<br><span class="destacado">Aprueba el CCNA.</span></h1>
+        <span class="pildora-hero">🎓 CCNA 200-301 certification · English &amp; Spanish</span>
+        <h1>Master networking.<br><span class="destacado">Pass the CCNA.</span></h1>
         <p class="lead">
-          Teoría clara, práctica real y simulacros de examen. Todo en tu bolsillo,
-          desde cero hasta el día del examen.
+          Clear theory, real practice and mock exams. All in your pocket,
+          from zero to exam day.
         </p>
         <div class="hero-botones">
-          <a href="#descargar" class="btn btn-claro">📲 Descargar la app</a>
-          <a href="#demo" class="btn btn-fantasma" style="color:#fff;border-color:rgba(255,255,255,.5)">Probar un test →</a>
+          <a href="#descargar" class="btn btn-claro">📲 Download the app</a>
+          <a href="#demo" class="btn btn-fantasma" style="color:#fff;border-color:rgba(255,255,255,.5)">Try a quiz →</a>
         </div>
         <div class="stats">
-          <div class="stat"><b data-contador="9" data-sufijo="">0</b><span>Mundos de temario</span></div>
-          <div class="stat"><b data-contador="437" data-sufijo="+">0</b><span>Ejercicios de CLI</span></div>
-          <div class="stat"><b data-contador="7" data-sufijo=" días">0</b><span>Prueba gratis</span></div>
+          <div class="stat"><b data-contador="9" data-sufijo="">0</b><span>Syllabus worlds</span></div>
+          <div class="stat"><b data-contador="437" data-sufijo="+">0</b><span>CLI exercises</span></div>
+          <div class="stat"><b data-contador="7" data-sufijo=" days">0</b><span>Free trial</span></div>
         </div>
       </div>
       <div>
         <div class="marco-movil">
-          <img src="capturas/home.png" alt="Pantalla principal de RoutingLab"
+          <img src="../capturas/home.png" alt="RoutingLab home screen"
                onerror="this.parentElement.style.display='none'">
         </div>
       </div>
@@ -190,30 +190,30 @@
 <!-- ================= CARACTERÍSTICAS ================= -->
 <section id="caracteristicas">
   <div class="contenedor centrado">
-    <span class="etiqueta-seccion revelar">Todo incluido</span>
-    <h2 class="revelar">Un método completo, no un simple test</h2>
+    <span class="etiqueta-seccion revelar">Everything included</span>
+    <h2 class="revelar">A complete method, not just a quiz app</h2>
     <p class="subtitulo-seccion revelar">
-      Cada herramienta está pensada para un momento distinto de tu preparación.
+      Each tool is designed for a different stage of your preparation.
     </p>
     <div class="rejilla rejilla-3" style="text-align:left">
       <div class="tarjeta revelar"><div class="icono-chip">🌍</div>
-        <h3>Mapa de Mundos</h3>
-        <p class="texto-sec">Teoría y quizzes organizados por temario, avanzando mundo a mundo hasta cubrirlo todo.</p></div>
+        <h3>World Map</h3>
+        <p class="texto-sec">Theory and quizzes organised by syllabus, advancing world by world until you have covered it all.</p></div>
       <div class="tarjeta g2 revelar"><div class="icono-chip">🔢</div>
         <h3>Subnetting Trainer</h3>
-        <p class="texto-sec">Ejercicios ilimitados para calcular subredes rápido y sin dudar el día del examen.</p></div>
+        <p class="texto-sec">Unlimited exercises so you can work out subnets fast and without hesitating on exam day.</p></div>
       <div class="tarjeta g1 revelar"><div class="icono-chip">⌨️</div>
-        <h3>Interpretar CLI</h3>
-        <p class="texto-sec">Más de 437 ejercicios con configuraciones reales de routers y switches Cisco.</p></div>
+        <h3>Read the CLI</h3>
+        <p class="texto-sec">Over 437 exercises with real Cisco router and switch configurations.</p></div>
       <div class="tarjeta g3 revelar"><div class="icono-chip">🔧</div>
         <h3>Troubleshooting</h3>
-        <p class="texto-sec">Diagnostica averías de red paso a paso, como en el examen y en el trabajo real.</p></div>
+        <p class="texto-sec">Diagnose network faults step by step, like in the exam and on the job.</p></div>
       <div class="tarjeta g4 revelar"><div class="icono-chip">📝</div>
-        <h3>Modo Examen</h3>
-        <p class="texto-sec">Simulacros cronometrados y un medidor de preparación por dominios oficiales.</p></div>
+        <h3>Exam Mode</h3>
+        <p class="texto-sec">Timed mock exams and a readiness meter broken down by official domain.</p></div>
       <div class="tarjeta g2 revelar"><div class="icono-chip">🧠</div>
-        <h3>Repaso espaciado</h3>
-        <p class="texto-sec">Lo que fallas vuelve a aparecer a 1, 3 y 7 días: la técnica que fija la memoria.</p></div>
+        <h3>Spaced repetition</h3>
+        <p class="texto-sec">What you get wrong comes back after 1, 3 and 7 days: the technique that makes it stick.</p></div>
     </div>
   </div>
 </section>
@@ -222,9 +222,9 @@
 <section id="demo" style="background:var(--fondo2)">
   <div class="contenedor">
     <div class="centrado">
-      <span class="etiqueta-seccion revelar">Pruébalo ahora</span>
-      <h2 class="revelar">¿Cuánto sabes de redes?</h2>
-      <p class="subtitulo-seccion revelar">5 preguntas reales del temario CCNA. Sin registro, aquí mismo.</p>
+      <span class="etiqueta-seccion revelar">Try it now</span>
+      <h2 class="revelar">How much do you know about networking?</h2>
+      <p class="subtitulo-seccion revelar">5 real questions from the CCNA syllabus. No sign-up, right here.</p>
     </div>
     <div class="quiz revelar">
       <div class="quiz-tarjeta">
@@ -238,22 +238,22 @@
 <!-- ================= HERRAMIENTAS ================= -->
 <section>
   <div class="contenedor centrado">
-    <span class="etiqueta-seccion revelar">Gratis para todos</span>
-    <h2 class="revelar">Herramientas que puedes usar hoy</h2>
-    <p class="subtitulo-seccion revelar">Sin instalar nada y sin registrarte. Úsalas mientras estudias.</p>
+    <span class="etiqueta-seccion revelar">Free for everyone</span>
+    <h2 class="revelar">Tools you can use today</h2>
+    <p class="subtitulo-seccion revelar">Nothing to install, no sign-up. Use them while you study.</p>
     <div class="rejilla rejilla-3" style="text-align:left">
-      <a href="herramientas.html#subredes" class="tarjeta revelar" style="color:inherit">
-        <div class="icono-chip">🧮</div><h3>Calculadora de subredes</h3>
-        <p class="texto-sec">Introduce una IP y una máscara: red, broadcast, rango útil, hosts y binario al instante.</p>
-        <span style="color:var(--azul);font-weight:700">Abrir →</span></a>
-      <a href="herramientas.html#puertos" class="tarjeta g1 revelar" style="color:inherit">
-        <div class="icono-chip">🔌</div><h3>Tabla de puertos</h3>
-        <p class="texto-sec">Los puertos y protocolos que caen en el examen, buscables al momento.</p>
-        <span style="color:var(--azul);font-weight:700">Abrir →</span></a>
-      <a href="glosario.html" class="tarjeta g2 revelar" style="color:inherit">
-        <div class="icono-chip">📖</div><h3>Glosario de redes</h3>
-        <p class="texto-sec">Más de 120 términos explicados en cristiano, con buscador en vivo.</p>
-        <span style="color:var(--azul);font-weight:700">Abrir →</span></a>
+      <a href="tools.html#subredes" class="tarjeta revelar" style="color:inherit">
+        <div class="icono-chip">🧮</div><h3>Subnet calculator</h3>
+        <p class="texto-sec">Enter an IP and a mask: network, broadcast, usable range, hosts and binary, instantly.</p>
+        <span style="color:var(--azul);font-weight:700">Open →</span></a>
+      <a href="tools.html#puertos" class="tarjeta g1 revelar" style="color:inherit">
+        <div class="icono-chip">🔌</div><h3>Port table</h3>
+        <p class="texto-sec">The ports and protocols that come up in the exam, searchable in a second.</p>
+        <span style="color:var(--azul);font-weight:700">Open →</span></a>
+      <a href="glossary.html" class="tarjeta g2 revelar" style="color:inherit">
+        <div class="icono-chip">📖</div><h3>Networking glossary</h3>
+        <p class="texto-sec">Over 120 terms explained in plain English, with a live search box.</p>
+        <span style="color:var(--azul);font-weight:700">Open →</span></a>
     </div>
   </div>
 </section>
@@ -261,42 +261,42 @@
 <!-- ================= PRECIOS ================= -->
 <section id="precios" style="background:var(--fondo2)">
   <div class="contenedor centrado">
-    <span class="etiqueta-seccion revelar">Precios</span>
-    <h2 class="revelar">Empieza gratis. Sigue si te convence.</h2>
-    <p class="subtitulo-seccion revelar">7 días de acceso completo al registrarte. Cancela cuando quieras.</p>
+    <span class="etiqueta-seccion revelar">Pricing</span>
+    <h2 class="revelar">Start free. Carry on if you like it.</h2>
+    <p class="subtitulo-seccion revelar">7 days of full access when you sign in. Cancel whenever you want.</p>
     <div class="precios" style="text-align:left">
       <div class="tarjeta plan destacado revelar">
-        <span class="cinta">AHORRA 37%</span>
-        <h3>Anual</h3>
-        <div class="precio">30 €<small> /año</small></div>
-        <p class="texto-sec" style="margin:0">Equivale a 2,50 €/mes</p>
+        <span class="cinta">SAVE 37%</span>
+        <h3>Annual</h3>
+        <div class="precio">€30<small> /year</small></div>
+        <p class="texto-sec" style="margin:0">Works out at €2.50/month</p>
         <ul class="lista-check">
-          <li>Todo el temario CCNA desbloqueado</li>
-          <li>Modo Examen y Troubleshooting</li>
-          <li>Interpretar CLI completo</li>
-          <li>Repaso espaciado inteligente</li>
-          <li>Progreso sincronizado en la nube</li>
-          <li>Sin anuncios</li>
+          <li>The whole CCNA syllabus unlocked</li>
+          <li>Exam Mode and Troubleshooting</li>
+          <li>The full Read-the-CLI section</li>
+          <li>Smart spaced repetition</li>
+          <li>Progress synced to the cloud</li>
+          <li>No advertising</li>
         </ul>
-        <a href="#descargar" class="btn btn-primario" style="width:100%">Empezar prueba gratis</a>
+        <a href="#descargar" class="btn btn-primario" style="width:100%">Start free trial</a>
       </div>
       <div class="tarjeta revelar">
-        <h3>Mensual</h3>
-        <div class="precio">3,99 €<small> /mes</small></div>
-        <p class="texto-sec" style="margin:0">Flexibilidad total</p>
+        <h3>Monthly</h3>
+        <div class="precio">€3.99<small> /month</small></div>
+        <p class="texto-sec" style="margin:0">Total flexibility</p>
         <ul class="lista-check">
-          <li>Todo el temario CCNA desbloqueado</li>
-          <li>Modo Examen y Troubleshooting</li>
-          <li>Interpretar CLI completo</li>
-          <li>Repaso espaciado inteligente</li>
-          <li>Progreso sincronizado en la nube</li>
-          <li>Sin anuncios</li>
+          <li>The whole CCNA syllabus unlocked</li>
+          <li>Exam Mode and Troubleshooting</li>
+          <li>The full Read-the-CLI section</li>
+          <li>Smart spaced repetition</li>
+          <li>Progress synced to the cloud</li>
+          <li>No advertising</li>
         </ul>
-        <a href="#descargar" class="btn btn-fantasma" style="width:100%">Empezar prueba gratis</a>
+        <a href="#descargar" class="btn btn-fantasma" style="width:100%">Start free trial</a>
       </div>
     </div>
     <p class="texto-sec revelar" style="margin-top:26px;font-size:.9rem">
-      Los fundamentos son <strong>gratis para siempre</strong>: Mundos 0 y 1, Subnetting Trainer y repaso de fallos.
+      The fundamentals are <strong>free forever</strong>: Worlds 0 and 1, the Subnetting Trainer and mistake review.
     </p>
   </div>
 </section>
@@ -305,33 +305,33 @@
 <section>
   <div class="contenedor">
     <div class="centrado">
-      <span class="etiqueta-seccion revelar">Dudas</span>
-      <h2 class="revelar">Preguntas frecuentes</h2>
+      <span class="etiqueta-seccion revelar">Questions</span>
+      <h2 class="revelar">Frequently asked questions</h2>
     </div>
     <div class="faq" style="margin-top:36px">
       <div class="faq-item revelar" data-acordeon>
-        <button class="faq-pregunta" aria-expanded="false">¿Necesito saber algo de redes para empezar?</button>
-        <div class="faq-respuesta"><p>No. El Mundo 0 («Fundamentos Absolutos») está pensado para alguien que parte de cero, y a partir de ahí se avanza de forma progresiva hasta los temas más avanzados del CCNA.</p></div>
+        <button class="faq-pregunta" aria-expanded="false">Do I need to know any networking to start?</button>
+        <div class="faq-respuesta"><p>No. World 0 ("Absolute Fundamentals") is written for someone starting from scratch, and from there you move up gradually to the most advanced CCNA topics.</p></div>
       </div>
       <div class="faq-item revelar" data-acordeon>
-        <button class="faq-pregunta" aria-expanded="false">¿Funciona sin conexión a internet?</button>
-        <div class="faq-respuesta"><p>Sí. Todo el contenido (teoría, preguntas, ejercicios) está dentro de la app, así que puedes estudiar en el metro o donde no tengas cobertura. La conexión solo hace falta para sincronizar tu progreso en la nube.</p></div>
+        <button class="faq-pregunta" aria-expanded="false">Does it work without an internet connection?</button>
+        <div class="faq-respuesta"><p>Yes. All the content (theory, questions, exercises) is inside the app, so you can study on the underground or anywhere without signal. A connection is only needed to sync your progress to the cloud.</p></div>
       </div>
       <div class="faq-item revelar" data-acordeon>
-        <button class="faq-pregunta" aria-expanded="false">¿Cómo funciona la prueba de 7 días?</button>
-        <div class="faq-respuesta"><p>Al iniciar sesión con tu cuenta de Google desbloqueas todo el contenido durante 7 días. Puedes ver la app completa y decidir con calma si te compensa suscribirte.</p></div>
+        <button class="faq-pregunta" aria-expanded="false">How does the 7-day trial work?</button>
+        <div class="faq-respuesta"><p>Signing in with your Google account unlocks all the content for 7 days. You can see the whole app and decide at your own pace whether subscribing is worth it.</p></div>
       </div>
       <div class="faq-item revelar" data-acordeon>
-        <button class="faq-pregunta" aria-expanded="false">¿Se me guarda el progreso si cambio de móvil?</button>
-        <div class="faq-respuesta"><p>Sí, siempre que inicies sesión con Google. Tu progreso se guarda en la nube y lo recuperas en cualquier dispositivo con la misma cuenta.</p></div>
+        <button class="faq-pregunta" aria-expanded="false">Is my progress saved if I change phone?</button>
+        <div class="faq-respuesta"><p>Yes, as long as you sign in with Google. Your progress is stored in the cloud and you get it back on any device with the same account.</p></div>
       </div>
       <div class="faq-item revelar" data-acordeon>
-        <button class="faq-pregunta" aria-expanded="false">¿Puedo cancelar la suscripción cuando quiera?</button>
-        <div class="faq-respuesta"><p>Por supuesto. Se gestiona desde tu cuenta de Google Play, igual que cualquier otra suscripción, y puedes cancelarla en dos toques sin dar explicaciones.</p></div>
+        <button class="faq-pregunta" aria-expanded="false">Can I cancel my subscription whenever I want?</button>
+        <div class="faq-respuesta"><p>Of course. It is managed from your Google Play account, like any other subscription, and you can cancel it in two taps without explaining yourself.</p></div>
       </div>
       <div class="faq-item revelar" data-acordeon>
-        <button class="faq-pregunta" aria-expanded="false">¿Hay versión para iPhone?</button>
-        <div class="faq-respuesta"><p>Todavía no. Empezamos por Android y la versión para iOS está en la hoja de ruta. Escríbenos a <a href="mailto:soporte@routinglab.es">soporte@routinglab.es</a> si la quieres y te avisamos en cuanto salga.</p></div>
+        <button class="faq-pregunta" aria-expanded="false">Is there an iPhone version?</button>
+        <div class="faq-respuesta"><p>Not yet. We started with Android and the iOS version is on the roadmap. Write to <a href="mailto:soporte@routinglab.es">soporte@routinglab.es</a> if you want it and we will let you know as soon as it is out.</p></div>
       </div>
     </div>
   </div>
@@ -341,12 +341,12 @@
 <section id="descargar">
   <div class="contenedor">
     <div class="cta-final revelar">
-      <h2>Tu certificación empieza hoy</h2>
-      <p>Descarga RoutingLab y estudia un poco cada día. El examen se aprueba con constancia, no con prisas.</p>
+      <h2>Your certification starts today</h2>
+      <p>Download RoutingLab and study a little every day. The exam is passed with consistency, not with cramming.</p>
       <a href="https://play.google.com/store/apps/details?id=com.luigi.routinglab" class="btn btn-claro">
-        📲 Consíguela en Google Play
+        📲 Get it on Google Play
       </a>
-      <p style="margin-top:20px;font-size:.88rem;opacity:.8">Muy pronto disponible · Android 7.0 o superior</p>
+      <p style="margin-top:20px;font-size:.88rem;opacity:.8">Coming very soon · Android 7.0 or later</p>
     </div>
   </div>
 </section>
@@ -371,52 +371,52 @@
           RoutingLab
         </a>
         <p class="texto-sec" style="max-width:280px;font-size:.92rem">
-          La app en español para preparar la certificación CCNA 200-301.
+          The app to prepare for the CCNA 200-301 certification, in English and Spanish.
         </p>
       </div>
-      <div><h4>Producto</h4><div class="pie-links">
-        <a href="#caracteristicas">Características</a>
-        <a href="#precios">Precios</a>
-        <a href="#demo">Test de prueba</a>
+      <div><h4>Product</h4><div class="pie-links">
+        <a href="#caracteristicas">Features</a>
+        <a href="#precios">Pricing</a>
+        <a href="#demo">Try a quiz</a>
       </div></div>
-      <div><h4>Gratis</h4><div class="pie-links">
-        <a href="herramientas.html#subredes">Calculadora de subredes</a>
-        <a href="herramientas.html#puertos">Tabla de puertos</a>
-        <a href="glosario.html">Glosario</a>
+      <div><h4>Free</h4><div class="pie-links">
+        <a href="tools.html#subredes">Subnet calculator</a>
+        <a href="tools.html#puertos">Port table</a>
+        <a href="glossary.html">Glossary</a>
       </div></div>
-      <div><h4>Ayuda</h4><div class="pie-links">
-        <a href="soporte.html">Soporte</a>
+      <div><h4>Help</h4><div class="pie-links">
+        <a href="support.html">Support</a>
         <a href="mailto:soporte@routinglab.es">soporte@routinglab.es</a>
-        <a href="privacidad.html">Privacidad</a>
-        <a href="terminos.html">Términos</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
       </div></div>
     </div>
     <div class="pie-abajo">
       <span>© <span data-anio>2026</span> RoutingLab · routinglab.es</span>
-      <span>Hecho con ☕ para futuros ingenieros de red</span>
+      <span>Made with ☕ for future network engineers</span>
     </div>
   </div>
 </footer>
 
-<script src="app.js"></script>
+<script src="../app.js"></script>
 <script>
 /* ---------- Quiz demo ---------- */
 const PREGUNTAS = [
-  { q: "¿Qué dispositivo separa dominios de broadcast por defecto?",
-    o: ["Un hub", "Un switch", "Un router", "Un repetidor"], c: 2,
-    e: "El router separa dominios de broadcast: no reenvía broadcasts entre sus interfaces. Un switch los reenvía por todos sus puertos de la misma VLAN." },
-  { q: "En la red 192.168.10.0/26, ¿cuántos hosts útiles hay por subred?",
+  { q: "Which device separates broadcast domains by default?",
+    o: ["A hub", "A switch", "A router", "A repeater"], c: 2,
+    e: "A router separates broadcast domains: it does not forward broadcasts between its interfaces. A switch forwards them out of every port in the same VLAN." },
+  { q: "On the 192.168.10.0/26 network, how many usable hosts are there per subnet?",
     o: ["30", "62", "64", "126"], c: 1,
-    e: "Un /26 deja 6 bits de host: 2⁶ = 64 direcciones, menos la de red y la de broadcast → 62 hosts útiles." },
-  { q: "¿Qué protocolo traduce una dirección IP a su dirección MAC en la red local?",
+    e: "A /26 leaves 6 host bits: 2⁶ = 64 addresses, minus the network and broadcast addresses → 62 usable hosts." },
+  { q: "Which protocol resolves an IP address to its MAC address on the local network?",
     o: ["DNS", "DHCP", "ARP", "ICMP"], c: 2,
-    e: "ARP (Address Resolution Protocol) resuelve la MAC asociada a una IP dentro de la misma red local." },
-  { q: "¿Qué comando de Cisco IOS activa una interfaz apagada administrativamente?",
+    e: "ARP (Address Resolution Protocol) resolves the MAC associated with an IP inside the same local network." },
+  { q: "Which Cisco IOS command brings up an administratively shut interface?",
     o: ["enable", "no shutdown", "interface up", "power on"], c: 1,
-    e: "Dentro del modo de configuración de la interfaz, 'no shutdown' la levanta. 'shutdown' la apagaría." },
-  { q: "¿Qué puerto usa HTTPS por defecto?",
+    e: "In interface configuration mode, 'no shutdown' brings it up. 'shutdown' would take it down." },
+  { q: "Which port does HTTPS use by default?",
     o: ["21", "22", "80", "443"], c: 3,
-    e: "HTTPS usa el puerto 443 (HTTP el 80, SSH el 22 y FTP el 21)." }
+    e: "HTTPS uses port 443 (HTTP uses 80, SSH 22 and FTP 21)." }
 ];
 
 let iQuiz = 0, aciertos = 0;
@@ -429,7 +429,7 @@ function pintarPregunta() {
   barra.style.width = `${(iQuiz / PREGUNTAS.length) * 100}%`;
   cuerpo.innerHTML = `
     <p style="font-size:.82rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--azul);margin-bottom:8px">
-      Pregunta ${iQuiz + 1} de ${PREGUNTAS.length}</p>
+      Question ${iQuiz + 1} of ${PREGUNTAS.length}</p>
     <h3 style="margin-bottom:20px">${p.q}</h3>
     <div id="opciones">${p.o.map((t, i) =>
       `<button class="opcion" data-i="${i}"><span class="letra">${LETRAS[i]}</span><span>${t}</span></button>`
@@ -451,7 +451,7 @@ function responder(elegida) {
   document.getElementById('tras').innerHTML = `
     <div class="explicacion">💡 ${p.e}</div>
     <button class="btn btn-primario" style="width:100%;margin-top:18px" id="siguiente">
-      ${iQuiz + 1 < PREGUNTAS.length ? 'Siguiente pregunta →' : 'Ver mi resultado'}
+      ${iQuiz + 1 < PREGUNTAS.length ? 'Next question →' : 'See my score'}
     </button>`;
   document.getElementById('siguiente').addEventListener('click', () => {
     iQuiz++;
@@ -464,15 +464,15 @@ function pintarResultado() {
   const pct = Math.round((aciertos / PREGUNTAS.length) * 100);
   const aprobado = pct >= 80;
   const mensaje = aprobado
-    ? '¡Muy bien! Vas por buen camino. En la app tienes cientos de preguntas más para llegar al examen sobrado.'
-    : 'Hay margen de mejora, y eso es justo lo que entrenamos. La app te lleva desde los fundamentos hasta el examen paso a paso.';
+    ? 'Nicely done! You are on the right track. The app has hundreds more questions to get you to the exam with room to spare.'
+    : 'There is room to improve, and that is exactly what we train. The app takes you from the fundamentals to the exam step by step.';
   cuerpo.innerHTML = `
     <div class="quiz-resultado">
       <div class="quiz-nota" style="color:${aprobado ? 'var(--verde)' : 'var(--ambar)'}">${pct}%</div>
-      <p style="font-weight:600;margin-bottom:6px">${aciertos} de ${PREGUNTAS.length} correctas</p>
+      <p style="font-weight:600;margin-bottom:6px">${aciertos} of ${PREGUNTAS.length} correct</p>
       <p class="texto-sec" style="max-width:460px;margin:0 auto 26px">${mensaje}</p>
-      <a href="#descargar" class="btn btn-primario">Seguir practicando en la app</a>
-      <button class="btn btn-fantasma" style="margin-left:10px" onclick="reiniciarQuiz()">Repetir test</button>
+      <a href="#descargar" class="btn btn-primario">Keep practising in the app</a>
+      <button class="btn btn-fantasma" style="margin-left:10px" onclick="reiniciarQuiz()">Retake the quiz</button>
     </div>`;
 }
 
