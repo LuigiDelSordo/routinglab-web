@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Delete your account · RoutingLab</title>
+<meta name="description" content="How to delete your RoutingLab account and all your data: from the app in three taps, or by writing to us. What gets erased and what is kept.">
+<meta name="theme-color" content="#0A1D5C">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../estilos.css">
+<link rel="alternate" hreflang="es" href="https://routinglab.es/eliminar-cuenta.html">
+<link rel="alternate" hreflang="en" href="https://routinglab.es/en/delete-account.html">
+<link rel="alternate" hreflang="x-default" href="https://routinglab.es/eliminar-cuenta.html">
+<link rel="canonical" href="https://routinglab.es/en/delete-account.html">
+<style>
+  .cabecera-pagina {
+    background: linear-gradient(125deg, var(--marino), #118AB2 130%);
+    color: #fff; padding: 64px 0 56px; position: relative; overflow: hidden;
+  }
+  #redCanvas { position: absolute; inset: 0; width: 100%; height: 100%; opacity: .6; }
+  .cabecera-pagina .contenedor { position: relative; z-index: 2; }
+  .cabecera-pagina h1 { color: #fff; font-size: clamp(2rem, 5vw, 3rem); }
+  .cabecera-pagina p { color: #c8d3f5; max-width: 620px; font-size: 1.08rem; margin: 0; }
+  .pasos { list-style: none; padding: 0; margin: 0 0 32px; counter-reset: paso; }
+  .pasos li {
+    counter-increment: paso; position: relative; padding: 18px 20px 18px 68px;
+    border: 1px solid var(--borde); border-radius: var(--radio-s);
+    background: var(--superficie); margin-bottom: 12px;
+  }
+  .pasos li::before {
+    content: counter(paso); position: absolute; left: 20px; top: 50%; transform: translateY(-50%);
+    width: 32px; height: 32px; border-radius: 50%; background: var(--azul); color: #fff;
+    display: grid; place-items: center; font-family: 'Sora', sans-serif; font-weight: 700;
+  }
+  .tabla-datos { width: 100%; border-collapse: collapse; margin: 8px 0 28px; }
+  .tabla-datos th, .tabla-datos td {
+    text-align: left; padding: 13px 16px; border-bottom: 1px solid var(--borde); font-size: .95rem;
+  }
+  .tabla-datos th { font-family: 'Sora', sans-serif; font-size: .88rem; color: var(--texto-sec); }
+  .tabla-datos td:first-child { font-weight: 600; }
+  .aviso {
+    border-left: 4px solid #F4A261; background: color-mix(in srgb, #F4A261 10%, var(--superficie));
+    padding: 18px 22px; border-radius: 0 var(--radio-s) var(--radio-s) 0; margin: 28px 0;
+  }
+  .aviso p:last-child { margin-bottom: 0; }
+  .caja-contacto {
+    border: 1px solid var(--borde); border-radius: var(--radio-s);
+    background: var(--fondo2); padding: 26px; margin-top: 8px;
+  }
+  .contenido-legal { max-width: 760px; }
+  .contenido-legal h2 { margin-top: 40px; }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="contenedor nav-inner">
+    <a href="index.html" class="logo">
+      <svg viewBox="0 0 100 100" aria-hidden="true">
+        <circle cx="50" cy="50" r="48" fill="url(#g)"/>
+        <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#0A1D5C"/><stop offset="1" stop-color="#2E5BFF"/>
+        </linearGradient></defs>
+        <g stroke="#4CC9F0" stroke-width="6" stroke-linecap="round">
+          <path d="M50 50 L28 30 M50 50 L72 26 M50 50 L28 72 M50 50 L74 70 M28 30 L72 26 M28 72 L74 70"/>
+        </g>
+        <circle cx="28" cy="30" r="9" fill="#fff"/><circle cx="72" cy="26" r="9" fill="#fff"/>
+        <circle cx="28" cy="72" r="9" fill="#fff"/><circle cx="74" cy="70" r="9" fill="#fff"/>
+        <circle cx="50" cy="50" r="11" fill="#4CC9F0"/>
+      </svg>
+      RoutingLab
+    </a>
+    <button class="menu-movil" aria-label="Open menu">☰</button>
+    <div class="nav-links">
+      <a href="index.html#caracteristicas">Features</a>
+      <a href="index.html#demo">Demo</a>
+      <a href="tools.html">Tools</a>
+      <a href="glossary.html">Glossary</a>
+      <a href="index.html#precios">Pricing</a>
+      <a href="support.html">Support</a>
+      <a href="index.html#descargar" class="btn btn-primario btn-sm">Download</a>
+    </div>
+    <a href="../eliminar-cuenta.html" class="cambio-idioma" hreflang="es" lang="es" aria-label="Leer esta página en español">ES</a>
+    <button class="boton-tema" onclick="alternarTema()">🌙</button>
+  </div>
+</nav>
+
+<header class="cabecera-pagina">
+  <canvas id="redCanvas" aria-hidden="true"></canvas>
+  <div class="contenedor">
+    <span class="etiqueta-seccion" style="background:rgba(255,255,255,.15);color:#fff">Your data is yours</span>
+    <h1>Delete your account</h1>
+    <p>You can delete your RoutingLab account and all your progress whenever you want — no permission needed and no explanation required. Here is how, and exactly what happens.</p>
+  </div>
+</header>
+
+<section>
+  <div class="contenedor contenido-legal">
+
+    <h2>From the app (fastest)</h2>
+    <p>This is the recommended way: deletion is immediate and you do not have to wait for anyone to process it.</p>
+
+    <ol class="pasos">
+      <li>Open <strong>RoutingLab</strong> and sign in with the account you want to delete.</li>
+      <li>Go to <strong>Settings</strong> (the gear in the main menu).</li>
+      <li>Scroll down to the <strong>Account</strong> section and tap <strong>Delete account</strong>.</li>
+      <li>Confirm. Your account and your cloud data are erased right then.</li>
+    </ol>
+
+    <h2>By email</h2>
+    <p>If you have already uninstalled the app or cannot access your account, write to us and we will do it for you.</p>
+
+    <div class="caja-contacto">
+      <p>Send an email to <strong><a href="mailto:soporte@routinglab.es?subject=Account%20deletion%20request">soporte@routinglab.es</a></strong> from <strong>the same address you signed up with</strong>, with the subject "Account deletion request".</p>
+      <p>We need it to come from that address so we can confirm the account is yours: it is the only way to verify it without asking you for more personal data.</p>
+      <p style="margin-bottom:0">We reply confirming the deletion within <strong>30 days at most</strong>, usually in under 72 hours.</p>
+    </div>
+
+    <h2>What is erased and what is kept</h2>
+
+    <table class="tabla-datos">
+      <thead>
+        <tr><th>Data</th><th>What happens</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Your sign-in account</td><td>Permanently deleted.</td></tr>
+        <tr><td>Email address and profile name</td><td>Permanently deleted.</td></tr>
+        <tr><td>Progress stored in the cloud</td><td>Permanently deleted (lessons passed, statistics, streak, missed questions and synced notes).</td></tr>
+        <tr><td>Your free trial start date</td><td>Permanently deleted.</td></tr>
+        <tr><td>Data stored only on your phone</td><td>Goes away when you uninstall the app. You can also clear it beforehand from Settings → Reset progress.</td></tr>
+        <tr><td>Your Google Play subscription</td><td><strong>Not cancelled automatically.</strong> Google manages it, not us — see below.</td></tr>
+        <tr><td>Billing records</td><td>Kept by Google Play. The law requires purchase receipts to be retained for tax purposes.</td></tr>
+      </tbody>
+    </table>
+
+    <div class="aviso">
+      <p><strong>If you have an active subscription, cancel it first.</strong></p>
+      <p>Deleting your RoutingLab account does <em>not</em> stop the billing: the subscription lives in your Google Play account and can only be stopped from there.</p>
+      <p>Go to <strong>Google Play → your profile picture → Payments and subscriptions → Subscriptions → RoutingLab → Cancel</strong>. You can also do it at <a href="https://play.google.com/store/account/subscriptions" target="_blank" rel="noopener">play.google.com/store/account/subscriptions</a>.</p>
+    </div>
+
+    <h2>After deletion</h2>
+    <p>Deletion is <strong>permanent and cannot be undone</strong>: we keep no backup from which your progress could be restored, not even if you ask us the next day. If you install the app again you can create a new account, but it will start from scratch.</p>
+    <p>The 7-day free trial does not reset by creating another account with the same email address.</p>
+
+    <p style="margin-top:36px">Any doubts before you decide? Write to <a href="mailto:soporte@routinglab.es">soporte@routinglab.es</a> — you can also tell us what was missing for you on the <a href="support.html">support page</a>. More detail on how we handle your data in the <a href="privacy.html">privacy policy</a>.</p>
+
+  </div>
+</section>
+
+<footer>
+  <div class="contenedor">
+    <div class="pie-rejilla">
+      <div>
+        <a href="index.html" class="logo" style="margin-bottom:12px">RoutingLab</a>
+        <p class="texto-sec" style="max-width:280px;font-size:.92rem">The app to prepare for the CCNA 200-301 certification, in English and Spanish.</p>
+      </div>
+      <div><h4>Product</h4><div class="pie-links">
+        <a href="index.html#caracteristicas">Features</a>
+        <a href="index.html#precios">Pricing</a>
+        <a href="index.html#demo">Try a quiz</a>
+      </div></div>
+      <div><h4>Free</h4><div class="pie-links">
+        <a href="tools.html#subredes">Subnet calculator</a>
+        <a href="tools.html#puertos">Port table</a>
+        <a href="glossary.html">Glossary</a>
+      </div></div>
+      <div><h4>Help</h4><div class="pie-links">
+        <a href="support.html">Support</a>
+        <a href="mailto:soporte@routinglab.es">soporte@routinglab.es</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="delete-account.html">Delete account</a>
+      </div></div>
+    </div>
+    <div class="pie-abajo">
+      <span>© <span data-anio>2026</span> RoutingLab · routinglab.es</span>
+      <span>Made with ☕ for future network engineers</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../app.js"></script>
+</body>
+</html>

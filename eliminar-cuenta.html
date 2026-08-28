@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Eliminar tu cuenta · RoutingLab</title>
+<meta name="description" content="Cómo eliminar tu cuenta de RoutingLab y todos tus datos: desde la app en tres toques, o escribiéndonos. Qué se borra y qué se conserva.">
+<meta name="theme-color" content="#0A1D5C">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="estilos.css">
+<link rel="alternate" hreflang="es" href="https://routinglab.es/eliminar-cuenta.html">
+<link rel="alternate" hreflang="en" href="https://routinglab.es/en/delete-account.html">
+<link rel="alternate" hreflang="x-default" href="https://routinglab.es/eliminar-cuenta.html">
+<link rel="canonical" href="https://routinglab.es/eliminar-cuenta.html">
+<style>
+  .cabecera-pagina {
+    background: linear-gradient(125deg, var(--marino), #118AB2 130%);
+    color: #fff; padding: 64px 0 56px; position: relative; overflow: hidden;
+  }
+  #redCanvas { position: absolute; inset: 0; width: 100%; height: 100%; opacity: .6; }
+  .cabecera-pagina .contenedor { position: relative; z-index: 2; }
+  .cabecera-pagina h1 { color: #fff; font-size: clamp(2rem, 5vw, 3rem); }
+  .cabecera-pagina p { color: #c8d3f5; max-width: 620px; font-size: 1.08rem; margin: 0; }
+  .pasos { list-style: none; padding: 0; margin: 0 0 32px; counter-reset: paso; }
+  .pasos li {
+    counter-increment: paso; position: relative; padding: 18px 20px 18px 68px;
+    border: 1px solid var(--borde); border-radius: var(--radio-s);
+    background: var(--superficie); margin-bottom: 12px;
+  }
+  .pasos li::before {
+    content: counter(paso); position: absolute; left: 20px; top: 50%; transform: translateY(-50%);
+    width: 32px; height: 32px; border-radius: 50%; background: var(--azul); color: #fff;
+    display: grid; place-items: center; font-family: 'Sora', sans-serif; font-weight: 700;
+  }
+  .tabla-datos { width: 100%; border-collapse: collapse; margin: 8px 0 28px; }
+  .tabla-datos th, .tabla-datos td {
+    text-align: left; padding: 13px 16px; border-bottom: 1px solid var(--borde); font-size: .95rem;
+  }
+  .tabla-datos th { font-family: 'Sora', sans-serif; font-size: .88rem; color: var(--texto-sec); }
+  .tabla-datos td:first-child { font-weight: 600; }
+  .aviso {
+    border-left: 4px solid #F4A261; background: color-mix(in srgb, #F4A261 10%, var(--superficie));
+    padding: 18px 22px; border-radius: 0 var(--radio-s) var(--radio-s) 0; margin: 28px 0;
+  }
+  .aviso p:last-child { margin-bottom: 0; }
+  .caja-contacto {
+    border: 1px solid var(--borde); border-radius: var(--radio-s);
+    background: var(--fondo2); padding: 26px; margin-top: 8px;
+  }
+  .contenido-legal { max-width: 760px; }
+  .contenido-legal h2 { margin-top: 40px; }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="contenedor nav-inner">
+    <a href="index.html" class="logo">
+      <svg viewBox="0 0 100 100" aria-hidden="true">
+        <circle cx="50" cy="50" r="48" fill="url(#g)"/>
+        <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#0A1D5C"/><stop offset="1" stop-color="#2E5BFF"/>
+        </linearGradient></defs>
+        <g stroke="#4CC9F0" stroke-width="6" stroke-linecap="round">
+          <path d="M50 50 L28 30 M50 50 L72 26 M50 50 L28 72 M50 50 L74 70 M28 30 L72 26 M28 72 L74 70"/>
+        </g>
+        <circle cx="28" cy="30" r="9" fill="#fff"/><circle cx="72" cy="26" r="9" fill="#fff"/>
+        <circle cx="28" cy="72" r="9" fill="#fff"/><circle cx="74" cy="70" r="9" fill="#fff"/>
+        <circle cx="50" cy="50" r="11" fill="#4CC9F0"/>
+      </svg>
+      RoutingLab
+    </a>
+    <button class="menu-movil" aria-label="Abrir menú">☰</button>
+    <div class="nav-links">
+      <a href="index.html#caracteristicas">Características</a>
+      <a href="index.html#demo">Demo</a>
+      <a href="herramientas.html">Herramientas</a>
+      <a href="glosario.html">Glosario</a>
+      <a href="index.html#precios">Precios</a>
+      <a href="soporte.html">Soporte</a>
+      <a href="index.html#descargar" class="btn btn-primario btn-sm">Descargar</a>
+    </div>
+    <a href="en/delete-account.html" class="cambio-idioma" hreflang="en" lang="en" aria-label="Read this page in English">EN</a>
+    <button class="boton-tema" onclick="alternarTema()">🌙</button>
+  </div>
+</nav>
+
+<header class="cabecera-pagina">
+  <canvas id="redCanvas" aria-hidden="true"></canvas>
+  <div class="contenedor">
+    <span class="etiqueta-seccion" style="background:rgba(255,255,255,.15);color:#fff">Tus datos son tuyos</span>
+    <h1>Eliminar tu cuenta</h1>
+    <p>Puedes borrar tu cuenta de RoutingLab y todo tu progreso cuando quieras, sin pedirnos permiso y sin dar explicaciones. Aquí te contamos cómo y qué ocurre exactamente.</p>
+  </div>
+</header>
+
+<section>
+  <div class="contenedor contenido-legal">
+
+    <h2>Desde la app (lo más rápido)</h2>
+    <p>Es la forma recomendada: el borrado es inmediato y no tienes que esperar a que nadie lo tramite.</p>
+
+    <ol class="pasos">
+      <li>Abre <strong>RoutingLab</strong> e inicia sesión con la cuenta que quieres eliminar.</li>
+      <li>Ve a <strong>Configuración</strong> (el engranaje del menú principal).</li>
+      <li>Baja hasta el apartado <strong>Cuenta</strong> y pulsa <strong>Eliminar cuenta</strong>.</li>
+      <li>Confirma. Tu cuenta y tus datos en la nube se borran en ese momento.</li>
+    </ol>
+
+    <h2>Por correo</h2>
+    <p>Si ya has desinstalado la app o no puedes acceder a tu cuenta, escríbenos y lo hacemos nosotros.</p>
+
+    <div class="caja-contacto">
+      <p>Envía un correo a <strong><a href="mailto:soporte@routinglab.es?subject=Solicitud%20de%20eliminaci%C3%B3n%20de%20cuenta">soporte@routinglab.es</a></strong> desde <strong>la misma dirección con la que te registraste</strong>, con el asunto «Solicitud de eliminación de cuenta».</p>
+      <p>Necesitamos que sea desde esa dirección para confirmar que la cuenta es tuya: es lo único que nos permite comprobarlo sin pedirte más datos personales.</p>
+      <p style="margin-bottom:0">Respondemos confirmando el borrado en un <strong>plazo máximo de 30 días</strong>, normalmente en menos de 72 horas.</p>
+    </div>
+
+    <h2>Qué se borra y qué se conserva</h2>
+
+    <table class="tabla-datos">
+      <thead>
+        <tr><th>Dato</th><th>Qué pasa</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Tu cuenta de acceso</td><td>Se elimina de forma permanente.</td></tr>
+        <tr><td>Correo y nombre de perfil</td><td>Se eliminan de forma permanente.</td></tr>
+        <tr><td>Progreso guardado en la nube</td><td>Se elimina de forma permanente (lecciones superadas, estadísticas, racha, fallos y notas sincronizadas).</td></tr>
+        <tr><td>Fecha de inicio de tu prueba gratuita</td><td>Se elimina de forma permanente.</td></tr>
+        <tr><td>Datos guardados solo en tu móvil</td><td>Se van al desinstalar la app. También puedes borrarlos antes desde Configuración → Reiniciar progreso.</td></tr>
+        <tr><td>Tu suscripción de Google Play</td><td><strong>No se cancela sola.</strong> La gestiona Google, no nosotros — ver más abajo.</td></tr>
+        <tr><td>Registros de facturación</td><td>Los conserva Google Play. La ley obliga a guardar los justificantes de una compra durante los plazos fiscales.</td></tr>
+      </tbody>
+    </table>
+
+    <div class="aviso">
+      <p><strong>Si tienes una suscripción activa, cancélala primero.</strong></p>
+      <p>Borrar tu cuenta de RoutingLab <em>no</em> cancela el cobro: la suscripción vive en tu cuenta de Google Play y solo puedes pararla desde ahí.</p>
+      <p>Ve a <strong>Google Play → tu foto de perfil → Pagos y suscripciones → Suscripciones → RoutingLab → Cancelar</strong>. También puedes hacerlo desde <a href="https://play.google.com/store/account/subscriptions" target="_blank" rel="noopener">play.google.com/store/account/subscriptions</a>.</p>
+    </div>
+
+    <h2>Después de borrar</h2>
+    <p>El borrado es <strong>definitivo y no se puede deshacer</strong>: no guardamos ninguna copia con la que restaurar tu progreso, ni siquiera si nos lo pides al día siguiente. Si vuelves a instalar la app podrás crear una cuenta nueva, pero empezará de cero.</p>
+    <p>La prueba gratuita de 7 días no se reinicia creando otra cuenta con el mismo correo.</p>
+
+    <p style="margin-top:36px">¿Alguna duda antes de decidirte? Escríbenos a <a href="mailto:soporte@routinglab.es">soporte@routinglab.es</a> — también puedes contarnos qué te ha faltado en <a href="soporte.html">soporte</a>. Más detalle sobre el tratamiento de tus datos en la <a href="privacidad.html">política de privacidad</a>.</p>
+
+  </div>
+</section>
+
+<footer>
+  <div class="contenedor">
+    <div class="pie-rejilla">
+      <div>
+        <a href="index.html" class="logo" style="margin-bottom:12px">RoutingLab</a>
+        <p class="texto-sec" style="max-width:280px;font-size:.92rem">La app en español para preparar la certificación CCNA 200-301.</p>
+      </div>
+      <div><h4>Producto</h4><div class="pie-links">
+        <a href="index.html#caracteristicas">Características</a>
+        <a href="index.html#precios">Precios</a>
+        <a href="index.html#demo">Test de prueba</a>
+      </div></div>
+      <div><h4>Gratis</h4><div class="pie-links">
+        <a href="herramientas.html#subredes">Calculadora de subredes</a>
+        <a href="herramientas.html#puertos">Tabla de puertos</a>
+        <a href="glosario.html">Glosario</a>
+      </div></div>
+      <div><h4>Ayuda</h4><div class="pie-links">
+        <a href="soporte.html">Soporte</a>
+        <a href="mailto:soporte@routinglab.es">soporte@routinglab.es</a>
+        <a href="privacidad.html">Privacidad</a>
+        <a href="terminos.html">Términos</a>
+        <a href="eliminar-cuenta.html">Eliminar cuenta</a>
+      </div></div>
+    </div>
+    <div class="pie-abajo">
+      <span>© <span data-anio>2026</span> RoutingLab · routinglab.es</span>
+      <span>Hecho con ☕ para futuros ingenieros de red</span>
+    </div>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
