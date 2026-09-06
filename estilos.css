@@ -146,6 +146,10 @@ a:hover { color: var(--cian); }
   .nav-inner > .boton-tema { order: 3; }
   .nav-inner > .cambio-idioma { order: 2; margin-left: auto; }
   .menu-movil { margin-left: 0; }
+  /* En pantalla tactil los controles necesitan 44x44 como minimo: con 40px
+     el dedo falla el toque a menudo (le pasaba al cambiar de idioma). */
+  .cambio-idioma, .boton-tema, .menu-movil { min-width: 44px; height: 44px; }
+  .menu-movil { width: 44px; }
 }
 
 /* ---------- Botones ---------- */
