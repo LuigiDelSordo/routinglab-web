@@ -119,6 +119,76 @@
   }
   .cta-final h2 { color: #fff; }
   .cta-final p { color: #c8d3f5; max-width: 520px; margin: 0 auto 28px; }
+  /* ---------- Galería de la app ---------- */
+  .galeria { display: grid; grid-template-columns: 1fr .78fr; gap: 52px; align-items: center; }
+  .galeria-lista { display: flex; flex-direction: column; gap: 10px; }
+  .galeria-tab {
+    display: flex; gap: 14px; align-items: flex-start; width: 100%; text-align: left;
+    padding: 15px 17px; border-radius: 14px; cursor: pointer;
+    border: 1.5px solid var(--borde); background: var(--superficie); color: var(--texto);
+    font-family: inherit; transition: border-color var(--trans), background var(--trans), transform var(--trans);
+  }
+  .galeria-tab:hover { border-color: var(--azul); transform: translateX(3px); }
+  .galeria-tab[aria-selected="true"] {
+    border-color: var(--azul); background: color-mix(in srgb, var(--azul) 8%, var(--superficie));
+    box-shadow: var(--sombra);
+  }
+  .galeria-tab .icono-chip { width: 40px; height: 40px; font-size: 1.05rem; flex: none; margin: 0; }
+  .galeria-tab h3 { font-size: 1rem; margin: 0 0 3px; }
+  .galeria-tab p { margin: 0; font-size: .89rem; color: var(--texto-sec); line-height: 1.45; }
+  .galeria-vista { display: grid; place-items: center; }
+  .marco-app {
+    width: 268px; border-radius: 34px; padding: 10px;
+    background: linear-gradient(160deg, var(--marino), var(--violeta));
+    box-shadow: var(--sombra-fuerte); border: 1px solid var(--borde);
+  }
+  .marco-app img {
+    width: 100%; height: auto; display: block; border-radius: 26px; aspect-ratio: 560 / 1244;
+    background: var(--superficie-var); transition: opacity .28s ease;
+  }
+  .marco-app img.cambiando { opacity: 0; }
+  @media (prefers-reduced-motion: reduce) { .marco-app img { transition: none; } }
+  /* En móvil el teléfono va arriba y se queda fijo: así ves cambiar la pantalla
+     mientras vas tocando los apartados de abajo. */
+  @media (max-width: 900px) {
+    .galeria { grid-template-columns: 1fr; gap: 22px; }
+    .galeria-vista {
+      order: -1; position: sticky; top: 74px; z-index: 3;
+      background: var(--fondo2); padding: 6px 0 14px;
+    }
+    .marco-app { width: 172px; padding: 7px; border-radius: 26px; }
+    .marco-app img { border-radius: 20px; }
+  }
+
+  /* ---------- Planificador de estudio ---------- */
+  .plf {
+    max-width: 880px; margin: 0 auto; background: var(--superficie);
+    border: 1px solid var(--borde); border-radius: var(--radio); padding: 32px;
+    box-shadow: var(--sombra);
+  }
+  @media (max-width: 560px) { .plf { padding: 24px 20px; } }
+  .plf-campos { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 18px; }
+  .plf-res { margin-top: 30px; padding-top: 28px; border-top: 1px solid var(--borde); }
+  .plf-metricas { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 14px; margin-bottom: 22px; }
+  .plf-metrica { background: var(--fondo2); border: 1px solid var(--borde); border-radius: var(--radio-s); padding: 18px 14px; text-align: center; }
+  .plf-metrica b { display: block; font-family: 'Sora', sans-serif; font-size: 1.85rem; font-weight: 800; color: var(--azul); line-height: 1.1; }
+  .plf-metrica span { display: block; margin-top: 5px; font-size: .84rem; color: var(--texto-sec); }
+  .plf-veredicto {
+    display: flex; gap: 13px; align-items: flex-start;
+    border-radius: var(--radio-s); padding: 17px 19px; font-size: .97rem; line-height: 1.55;
+    border: 1px solid var(--borde); background: var(--fondo2);
+  }
+  .plf-veredicto.bien { border-color: color-mix(in srgb, var(--verde) 45%, var(--borde)); background: color-mix(in srgb, var(--verde) 10%, var(--fondo2)); }
+  .plf-veredicto.justo { border-color: color-mix(in srgb, var(--ambar) 45%, var(--borde)); background: color-mix(in srgb, var(--ambar) 10%, var(--fondo2)); }
+  .plf-veredicto.apretado { border-color: color-mix(in srgb, var(--fucsia) 40%, var(--borde)); background: color-mix(in srgb, var(--fucsia) 8%, var(--fondo2)); }
+  .plf-veredicto b { display: block; margin-bottom: 3px; }
+  .plf-icono { font-size: 1.3rem; flex: none; line-height: 1.2; }
+  .plf-nota { margin-top: 16px; font-size: .84rem; color: var(--texto-sec); }
+
+  /* ---------- Insignias de plan ---------- */
+  .tarjeta-cabecera { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 6px 10px; margin-bottom: 4px; }
+  .tarjeta-cabecera h3 { margin: 0; }
+  .insignia-premium { background: linear-gradient(90deg, var(--ambar), #FF5400); color: #fff; }
 </style>
 </head>
 <body>
@@ -144,6 +214,7 @@
     <div class="nav-links">
       <a href="#caracteristicas">Features</a>
       <a href="#demo">Demo</a>
+      <a href="#plan">Your plan</a>
       <a href="tools.html">Tools</a>
       <a href="glossary.html">Glossary</a>
       <a href="#precios">Pricing</a>
@@ -197,29 +268,80 @@
     </p>
     <div class="rejilla rejilla-3" style="text-align:left">
       <div class="tarjeta revelar"><div class="icono-chip">🌍</div>
-        <h3>World Map</h3>
-        <p class="texto-sec">Theory and quizzes organised by syllabus, advancing world by world until you have covered it all.</p></div>
+        <div class="tarjeta-cabecera"><h3>World Map</h3><span class="insignia insignia-verde">Worlds 0-1 free</span></div>
+        <p class="texto-sec">Theory and quizzes organized by syllabus, advancing world by world until you have covered it all.</p></div>
       <div class="tarjeta g2 revelar"><div class="icono-chip">🔢</div>
-        <h3>Subnetting Trainer</h3>
+        <div class="tarjeta-cabecera"><h3>Subnetting Trainer</h3><span class="insignia insignia-verde">Free</span></div>
         <p class="texto-sec">Unlimited exercises so you can work out subnets fast and without hesitating on exam day.</p></div>
       <div class="tarjeta g1 revelar"><div class="icono-chip">⌨️</div>
-        <h3>Read the CLI</h3>
+        <div class="tarjeta-cabecera"><h3>Read the CLI</h3><span class="insignia insignia-premium">Premium</span></div>
         <p class="texto-sec">Over 437 exercises with real Cisco router and switch configurations.</p></div>
       <div class="tarjeta g3 revelar"><div class="icono-chip">🔧</div>
-        <h3>Troubleshooting</h3>
+        <div class="tarjeta-cabecera"><h3>Troubleshooting</h3><span class="insignia insignia-premium">Premium</span></div>
         <p class="texto-sec">Diagnose network faults step by step, like in the exam and on the job.</p></div>
       <div class="tarjeta g4 revelar"><div class="icono-chip">📝</div>
-        <h3>Exam Mode</h3>
+        <div class="tarjeta-cabecera"><h3>Exam Mode</h3><span class="insignia insignia-premium">Premium</span></div>
         <p class="texto-sec">Timed mock exams and a readiness meter broken down by official domain.</p></div>
       <div class="tarjeta g2 revelar"><div class="icono-chip">🧠</div>
-        <h3>Spaced repetition</h3>
+        <div class="tarjeta-cabecera"><h3>Spaced repetition</h3><span class="insignia insignia-verde">Free</span></div>
         <p class="texto-sec">What you get wrong comes back after 1, 3 and 7 days: the technique that makes it stick.</p></div>
     </div>
   </div>
 </section>
 
+<!-- ================= GALERÍA DE LA APP ================= -->
+<section id="galeria" style="background:var(--fondo2)">
+  <div class="contenedor">
+    <div class="centrado">
+      <span class="etiqueta-seccion revelar">Inside the app</span>
+      <h2 class="revelar">This is how you study with RoutingLab</h2>
+      <p class="subtitulo-seccion revelar">Tap any section to see it. These are real screenshots of the app.</p>
+    </div>
+    <div class="galeria revelar">
+      <div class="galeria-lista" role="tablist" aria-label="App screens">
+        <button class="galeria-tab" role="tab" aria-selected="true" id="tab-0" aria-controls="vista-app"
+                data-img="../capturas/app-inicio.webp" data-alt="RoutingLab home screen">
+          <span class="icono-chip">🏠</span>
+          <span><h3>Your starting point</h3><p>Today's mission, your streak and how close you are to being ready.</p></span>
+        </button>
+        <button class="galeria-tab g1" role="tab" aria-selected="false" id="tab-1" aria-controls="vista-app" tabindex="-1"
+                data-img="../capturas/app-mundos.webp" data-alt="Syllabus world map">
+          <span class="icono-chip">🌍</span>
+          <span><h3>World Map</h3><p>The full syllabus split into worlds that you unlock as you go.</p></span>
+        </button>
+        <button class="galeria-tab g2" role="tab" aria-selected="false" id="tab-2" aria-controls="vista-app" tabindex="-1"
+                data-img="../capturas/app-leccion.webp" data-alt="Lesson with clear theory">
+          <span class="icono-chip">📖</span>
+          <span><h3>Clear theory</h3><p>Plain-English explanations, with examples and a quiz at the end.</p></span>
+        </button>
+        <button class="galeria-tab g3" role="tab" aria-selected="false" id="tab-3" aria-controls="vista-app" tabindex="-1"
+                data-img="../capturas/app-subnetting.webp" data-alt="Subnetting trainer">
+          <span class="icono-chip">🔢</span>
+          <span><h3>Subnetting Trainer</h3><p>Endless exercises until working out subnets becomes second nature.</p></span>
+        </button>
+        <button class="galeria-tab g4" role="tab" aria-selected="false" id="tab-4" aria-controls="vista-app" tabindex="-1"
+                data-img="../capturas/app-troubleshooting.webp" data-alt="Troubleshooting scenario">
+          <span class="icono-chip">🔧</span>
+          <span><h3>Troubleshooting</h3><p>Real faults you diagnose step by step, just like on the job.</p></span>
+        </button>
+        <button class="galeria-tab g1" role="tab" aria-selected="false" id="tab-5" aria-controls="vista-app" tabindex="-1"
+                data-img="../capturas/app-examen.webp" data-alt="Exam mode mock test">
+          <span class="icono-chip">📝</span>
+          <span><h3>Exam Mode</h3><p>A timed mock exam and your score by official domain.</p></span>
+        </button>
+      </div>
+      <div class="galeria-vista">
+        <div class="marco-app">
+          <img id="vista-app" role="tabpanel" aria-labelledby="tab-0" src="../capturas/app-inicio.webp"
+               alt="RoutingLab home screen" width="560" height="1244" loading="lazy" decoding="async">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ================= DEMO / QUIZ ================= -->
-<section id="demo" style="background:var(--fondo2)">
+<section id="demo">
   <div class="contenedor">
     <div class="centrado">
       <span class="etiqueta-seccion revelar">Try it now</span>
@@ -236,7 +358,7 @@
 </section>
 
 <!-- ================= HERRAMIENTAS ================= -->
-<section>
+<section style="background:var(--fondo2)">
   <div class="contenedor centrado">
     <span class="etiqueta-seccion revelar">Free for everyone</span>
     <h2 class="revelar">Tools you can use today</h2>
@@ -254,6 +376,44 @@
         <div class="icono-chip">📖</div><h3>Networking glossary</h3>
         <p class="texto-sec">Over 120 terms explained in plain English, with a live search box.</p>
         <span style="color:var(--azul);font-weight:700">Open →</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PLANIFICADOR ================= -->
+<section id="plan">
+  <div class="contenedor">
+    <div class="centrado">
+      <span class="etiqueta-seccion revelar">Plan ahead</span>
+      <h2 class="revelar">Will you be ready by exam day?</h2>
+      <p class="subtitulo-seccion revelar">
+        Tell us when you sit the exam and how much you can study. We'll work out the pace you need.
+      </p>
+    </div>
+    <div class="plf revelar">
+      <div class="plf-campos">
+        <div>
+          <label for="plfFecha">Exam date</label>
+          <input type="date" id="plfFecha" class="campo">
+        </div>
+        <div>
+          <label for="plfNivel">Your starting point</label>
+          <select id="plfNivel" class="campo">
+            <option value="120">Starting from scratch</option>
+            <option value="85" selected>I know some networking</option>
+            <option value="55">I work in networks, just revising</option>
+          </select>
+        </div>
+        <div>
+          <label for="plfHoras">Hours per week</label>
+          <input type="number" id="plfHoras" class="campo" min="1" max="60" step="1" value="8">
+        </div>
+      </div>
+      <div class="plf-res" id="plfRes" hidden></div>
+      <p class="plf-nota">
+        A rough estimate based on the app's syllabus (92 lessons and over 2,100 questions)
+        and the hours the CCNA 200-301 usually takes depending on your starting point.
+      </p>
     </div>
   </div>
 </section>
@@ -383,6 +543,7 @@
         <a href="tools.html#subredes">Subnet calculator</a>
         <a href="tools.html#puertos">Port table</a>
         <a href="glossary.html">Glossary</a>
+        <a href="#plan">Study planner</a>
       </div></div>
       <div><h4>Help</h4><div class="pie-links">
         <a href="support.html">Support</a>
@@ -472,12 +633,147 @@ function pintarResultado() {
       <div class="quiz-nota" style="color:${aprobado ? 'var(--verde)' : 'var(--ambar)'}">${pct}%</div>
       <p style="font-weight:600;margin-bottom:6px">${aciertos} of ${PREGUNTAS.length} correct</p>
       <p class="texto-sec" style="max-width:460px;margin:0 auto 26px">${mensaje}</p>
-      <a href="#descargar" class="btn btn-primario">Keep practising in the app</a>
+      <a href="#descargar" class="btn btn-primario">Keep practicing in the app</a>
       <button class="btn btn-fantasma" style="margin-left:10px" onclick="reiniciarQuiz()">Retake the quiz</button>
     </div>`;
 }
 
 window.reiniciarQuiz = function () { iQuiz = 0; aciertos = 0; pintarPregunta(); };
+
+/* ---------- Galería de la app ---------- */
+(function galeria() {
+  const tabs = [...document.querySelectorAll('.galeria-tab')];
+  const vista = document.getElementById('vista-app');
+  if (!tabs.length || !vista) return;
+
+  function activar(indice) {
+    tabs.forEach((t, i) => {
+      const activo = i === indice;
+      t.setAttribute('aria-selected', activo);
+      t.tabIndex = activo ? 0 : -1;
+    });
+    const tab = tabs[indice];
+    const previa = new Image();
+    previa.onload = () => {
+      vista.src = previa.src;
+      vista.alt = tab.dataset.alt || '';
+      vista.setAttribute('aria-labelledby', tab.id);
+      vista.classList.remove('cambiando');
+    };
+    vista.classList.add('cambiando');
+    previa.src = tab.dataset.img;
+  }
+
+  tabs.forEach((t, i) => t.addEventListener('click', () => activar(i)));
+
+  document.querySelector('.galeria-lista')?.addEventListener('keydown', (e) => {
+    const actual = tabs.findIndex(t => t.getAttribute('aria-selected') === 'true');
+    let destino = null;
+    if (e.key === 'ArrowDown' || e.key === 'ArrowRight') destino = (actual + 1) % tabs.length;
+    if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') destino = (actual - 1 + tabs.length) % tabs.length;
+    if (e.key === 'Home') destino = 0;
+    if (e.key === 'End') destino = tabs.length - 1;
+    if (destino === null) return;
+    e.preventDefault();
+    activar(destino);
+    tabs[destino].focus();
+  });
+})();
+
+/* ---------- Planificador de estudio ---------- */
+(function planificador() {
+  const fecha = document.getElementById('plfFecha');
+  const nivel = document.getElementById('plfNivel');
+  const horas = document.getElementById('plfHoras');
+  const caja = document.getElementById('plfRes');
+  if (!fecha || !nivel || !horas || !caja) return;
+
+  const LECCIONES = 92;
+  const DIA_MS = 86400000;
+
+  const sugerida = new Date(Date.now() + 90 * DIA_MS);
+  fecha.value = sugerida.toISOString().slice(0, 10);
+  fecha.min = new Date().toISOString().slice(0, 10);
+
+  function calcular() {
+    if (!fecha.value) { caja.hidden = true; return; }
+
+    const hoy = new Date(); hoy.setHours(0, 0, 0, 0);
+    const dia = new Date(fecha.value + 'T00:00:00');
+    const dias = Math.round((dia - hoy) / DIA_MS);
+
+    if (isNaN(dias) || dias < 0) {
+      caja.hidden = false;
+      caja.innerHTML = `<div class="plf-veredicto apretado">
+        <span class="plf-icono">📅</span>
+        <span><b>That date has already passed</b>Pick your exam day to work out your plan.</span></div>`;
+      return;
+    }
+
+    const horasSemana = Math.max(1, Math.min(60, parseFloat(horas.value) || 1));
+    const horasNecesarias = parseFloat(nivel.value);
+    const semanas = Math.max(dias / 7, 0.15);
+    const horasDisponibles = semanas * horasSemana;
+    const ratio = horasDisponibles / horasNecesarias;
+
+    const minDia = Math.round((horasNecesarias * 60) / Math.max(dias, 1));
+    const lecSemana = Math.max(1, Math.round(LECCIONES / semanas));
+    const rectaFinal = dias <= 2;
+
+    let clase, icono, titulo, texto;
+    if (dias === 0) {
+      clase = 'justo'; icono = '🎯';
+      titulo = 'Today is the day!';
+      texto = 'No new material: go over what you got wrong and take it easy. Good luck.';
+    } else if (rectaFinal) {
+      clase = 'justo'; icono = '🎯';
+      titulo = 'You are on the home straight';
+      texto = `${dias === 1 ? 'One day to go' : 'Two days to go'}: do not start new material. Review your mistakes, sit one mock exam and rest before the real thing.`;
+    } else if (ratio >= 1.25) {
+      clase = 'bien'; icono = '✅';
+      titulo = 'You have time to spare';
+      texto = `At ${horasSemana} h a week you will get there comfortably. Use the extra time for full mock exams and for shoring up your weakest areas.`;
+    } else if (ratio >= 0.95) {
+      clase = 'bien'; icono = '👍';
+      titulo = 'Tight, but you will make it';
+      texto = `Keeping up ${horasSemana} h a week gets you there. The key is not skipping days: consistency is what passes the exam.`;
+    } else if (ratio >= 0.7) {
+      clase = 'justo'; icono = '⚠️';
+      titulo = 'You are cutting it fine';
+      const extra = Math.ceil((horasNecesarias - horasDisponibles) / semanas);
+      texto = `You are about ${Math.round(horasNecesarias - horasDisponibles)} h short. Push it to ~${horasSemana + extra} h per week, or move the exam back a couple of weeks.`;
+    } else {
+      clase = 'apretado'; icono = '🔴';
+      titulo = 'You will not make it at this pace';
+      const idealSemana = Math.ceil(horasNecesarias / semanas);
+      texto = `You would need around ${idealSemana} h per week. If that is not realistic, the sensible move is to push the exam date back.`;
+    }
+
+    const ritmo = minDia < 120
+      ? { valor: minDia, etiqueta: 'minutes a day' }
+      : { valor: (Math.round(minDia / 6) / 10).toLocaleString('en-GB') + ' h', etiqueta: 'a day' };
+
+    const metricas = rectaFinal
+      ? `<div class="plf-metrica"><b>${dias}</b><span>${dias === 1 ? 'day to go' : 'days to go'}</span></div>`
+      : `<div class="plf-metrica"><b>${dias}</b><span>days to go</span></div>
+         <div class="plf-metrica"><b>${ritmo.valor}</b><span>${ritmo.etiqueta}</span></div>
+         <div class="plf-metrica"><b>${lecSemana}</b><span>${lecSemana === 1 ? 'lesson per week' : 'lessons per week'}</span></div>`;
+
+    caja.hidden = false;
+    caja.innerHTML = `
+      <div class="plf-metricas">${metricas}</div>
+      <div class="plf-veredicto ${clase}">
+        <span class="plf-icono">${icono}</span>
+        <span><b>${titulo}</b>${texto}</span>
+      </div>`;
+  }
+
+  [fecha, nivel, horas].forEach(el => {
+    el.addEventListener('change', calcular);
+    el.addEventListener('input', calcular);
+  });
+  calcular();
+})();
 pintarPregunta();
 </script>
 </body>
