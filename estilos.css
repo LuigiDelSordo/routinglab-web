@@ -251,3 +251,28 @@ footer h4 { font-size: .85rem; text-transform: uppercase; letter-spacing: .08em;
 html[data-tema="oscuro"] .insignia-verde { color: var(--verde); }
 .mono { font-family: 'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace; }
 .oculto { display: none !important; }
+
+/* ---------- Calculadoras VLSM / wildcard / IPv6 (herramientas) ---------- */
+.vlsm-fila { display: grid; grid-template-columns: 1fr 110px 40px; gap: 8px; margin-bottom: 8px; }
+.vlsm-quitar {
+  border: 1px solid var(--borde); background: var(--fondo2); color: var(--texto-sec);
+  border-radius: 10px; cursor: pointer; font-size: .95rem; transition: all var(--trans);
+}
+.vlsm-quitar:hover { border-color: #B3261E; color: #B3261E; }
+.tabla-vlsm td, .tabla-vlsm th { padding: 10px 12px; font-size: .9rem; white-space: nowrap; }
+.barra-uso { height: 8px; border-radius: 4px; background: var(--superficie-var); overflow: hidden; margin-top: 14px; }
+.barra-uso div { height: 100%; background: linear-gradient(90deg, var(--cian), var(--azul)); }
+.aviso-caja {
+  background: color-mix(in srgb, var(--ambar) 12%, var(--fondo2)); border: 1px solid color-mix(in srgb, var(--ambar) 55%, var(--borde));
+  padding: 12px 15px; border-radius: var(--radio-s); font-size: .92rem; margin-bottom: 12px;
+}
+.cli-bloque {
+  margin-top: 16px; background: #0B1220; color: #D7E3FF; border-radius: var(--radio-s);
+  padding: 14px 16px; font-family: 'JetBrains Mono', monospace; font-size: .88rem; line-height: 1.7; overflow-x: auto;
+}
+.cli-com { color: #7F8DB0; }
+/* Las columnas de una rejilla no deben crecer por su contenido (tablas anchas) */
+.calc-rejilla > * { min-width: 0; }
+/* VLSM: formulario arriba y tabla a todo el ancho debajo */
+.calc-apilada { display: grid; grid-template-columns: minmax(0, 1fr); gap: 24px; }
+.calc-apilada > .tarjeta { max-width: 560px; }

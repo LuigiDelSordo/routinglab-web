@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Calculadora de subredes y tabla de puertos · RoutingLab</title>
-<meta name="description" content="Calculadora de subredes IPv4 gratis: red, broadcast, rango de hosts, wildcard y binario. Además, conversor binario/decimal y tabla de puertos del CCNA.">
-<meta property="og:title" content="Calculadora de subredes y tabla de puertos · RoutingLab">
-<meta property="og:description" content="Calculadora de subredes IPv4 gratis: red, broadcast, rango de hosts, wildcard y binario. Además, conversor binario/decimal y tabla de puertos del CCNA.">
+<title>Calculadora de subredes, VLSM, wildcard e IPv6 · RoutingLab</title>
+<meta name="description" content="Calculadoras de red gratis para el CCNA: subredes IPv4, VLSM, wildcard para ACL y OSPF, IPv6 con EUI-64, conversor binario y tabla de puertos.">
+<meta property="og:title" content="Calculadora de subredes, VLSM, wildcard e IPv6 · RoutingLab">
+<meta property="og:description" content="Calculadoras de red gratis para el CCNA: subredes IPv4, VLSM, wildcard para ACL y OSPF, IPv6 con EUI-64, conversor binario y tabla de puertos.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://routinglab.es/herramientas.html">
 <meta property="og:site_name" content="RoutingLab">
@@ -16,8 +16,8 @@
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="RoutingLab · CCNA 200-301">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Calculadora de subredes y tabla de puertos · RoutingLab">
-<meta name="twitter:description" content="Calculadora de subredes IPv4 gratis: red, broadcast, rango de hosts, wildcard y binario. Además, conversor binario/decimal y tabla de puertos del CCNA.">
+<meta name="twitter:title" content="Calculadora de subredes, VLSM, wildcard e IPv6 · RoutingLab">
+<meta name="twitter:description" content="Calculadoras de red gratis para el CCNA: subredes IPv4, VLSM, wildcard para ACL y OSPF, IPv6 con EUI-64, conversor binario y tabla de puertos.">
 <meta name="twitter:image" content="https://routinglab.es/capturas/og-es.jpg">
 <meta name="theme-color" content="#0A1D5C">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -111,7 +111,7 @@
   <div class="contenedor">
     <span class="etiqueta-seccion" style="background:rgba(255,255,255,.15);color:#fff">Gratis · sin registro</span>
     <h1>Herramientas de red</h1>
-    <p>Calculadora de subredes, conversor binario y la tabla de puertos del CCNA. Úsalas mientras estudias, desde el móvil o el ordenador.</p>
+    <p>Subredes, VLSM, wildcard, IPv6, conversor binario y la tabla de puertos del CCNA. Úsalas mientras estudias, desde el móvil o el ordenador.</p>
   </div>
 </header>
 
@@ -169,8 +169,81 @@
   </div>
 </section>
 
+<!-- ============ VLSM ============ -->
+<section id="vlsm">
+  <div class="contenedor">
+    <span class="etiqueta-seccion revelar">Calculadora</span>
+    <h2 class="revelar">Calculadora VLSM</h2>
+    <p class="texto-sec revelar" style="max-width:620px">Dale una red y los hosts que necesita cada departamento. Te reparte las subredes de mayor a menor, sin solaparse y sin malgastar direcciones.</p>
+    <div class="calc-apilada revelar" style="margin-top:28px">
+      <div class="tarjeta">
+        <label for="vlsmRed">Red de partida</label>
+        <input class="campo mono" id="vlsmRed" value="192.168.10.0/24" placeholder="192.168.10.0/24">
+        <label style="margin-top:18px">Subredes que necesitas (nombre y hosts)</label>
+        <div id="vlsmFilas"></div>
+        <button class="btn btn-fantasma btn-sm" id="vlsmAnadir" type="button">+ Añadir subred</button>
+      </div>
+      <div id="vlsmSalida"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WILDCARD ============ -->
+<section id="wildcard" style="background:var(--fondo2)">
+  <div class="contenedor">
+    <span class="etiqueta-seccion revelar">Calculadora</span>
+    <h2 class="revelar">Calculadora de wildcard (ACL y OSPF)</h2>
+    <p class="texto-sec revelar" style="max-width:620px">Mira qué direcciones abarca una wildcard antes de ponerla en una ACL o en un <span class="mono">network</span> de OSPF. Te da también las líneas de Cisco IOS.</p>
+    <div class="calc-rejilla revelar" style="margin-top:28px">
+      <div class="tarjeta">
+        <label for="wcIp">Dirección</label>
+        <input class="campo mono" id="wcIp" value="172.16.32.0" inputmode="decimal">
+        <label for="wcMascara" style="margin-top:14px">Wildcard</label>
+        <div class="fila-campos">
+          <input class="campo mono" id="wcMascara" value="0.0.15.255" inputmode="decimal">
+          <select class="campo mono" id="wcPrefijo" aria-label="Rellenar desde un prefijo"><option value="">Prefijo…</option></select>
+        </div>
+        <div class="chips-rapidos">
+          <button class="chip-rapido" data-wc="192.168.1.0 0.0.0.255">0.0.0.255</button>
+          <button class="chip-rapido" data-wc="10.1.1.1 0.0.0.0">host</button>
+          <button class="chip-rapido" data-wc="0.0.0.0 255.255.255.255">any</button>
+          <button class="chip-rapido" data-wc="192.168.1.0 0.0.0.254">pares</button>
+        </div>
+      </div>
+      <div id="wcSalida"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ IPv6 ============ -->
+<section id="ipv6">
+  <div class="contenedor">
+    <span class="etiqueta-seccion revelar">Calculadora</span>
+    <h2 class="revelar">Calculadora IPv6</h2>
+    <p class="texto-sec revelar" style="max-width:620px">Expande y comprime direcciones (como pide el examen), dice de qué tipo son y calcula el prefijo. Con una MAC, te saca el ID de interfaz EUI-64.</p>
+    <div class="calc-rejilla revelar" style="margin-top:28px">
+      <div class="tarjeta">
+        <label for="v6Dir">Dirección IPv6 (con prefijo opcional)</label>
+        <input class="campo mono" id="v6Dir" value="2001:0db8:00ac:0001:0000:0000:0000:0010/64" spellcheck="false" autocapitalize="off">
+        <div class="chips-rapidos">
+          <button class="chip-rapido" data-v6="2001:db8:acad:1::1/64">2001:db8:acad:1::1/64</button>
+          <button class="chip-rapido" data-v6="fe80::1">fe80::1</button>
+          <button class="chip-rapido" data-v6="ff02::5">ff02::5</button>
+          <button class="chip-rapido" data-v6="fd00:0:0:10::abcd/48">fd00:0:0:10::abcd/48</button>
+        </div>
+        <label for="v6Mac" style="margin-top:20px">MAC para EUI-64 (opcional)</label>
+        <input class="campo mono" id="v6Mac" value="00:1A:2B:3C:4D:5E" spellcheck="false" autocapitalize="off">
+      </div>
+      <div>
+        <div id="v6Salida"></div>
+        <div id="v6SalidaMac" style="margin-top:12px"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ============ PUERTOS ============ -->
-<section id="puertos">
+<section id="puertos" style="background:var(--fondo2)">
   <div class="contenedor">
     <span class="etiqueta-seccion revelar">Referencia</span>
     <h2 class="revelar">Puertos y protocolos del CCNA</h2>
@@ -214,6 +287,9 @@
       </div></div>
       <div><h4>Gratis</h4><div class="pie-links">
         <a href="#subredes">Calculadora de subredes</a>
+        <a href="#vlsm">Calculadora VLSM</a>
+        <a href="#wildcard">Calculadora de wildcard</a>
+        <a href="#ipv6">Calculadora IPv6</a>
         <a href="#puertos">Tabla de puertos</a>
         <a href="glosario.html">Glosario</a>
       </div></div>
@@ -233,6 +309,7 @@
 </footer>
 
 <script src="app.js"></script>
+<script src="calculadoras.js" defer></script>
 <script>
 /* ================= Calculadora de subredes ================= */
 const $ip = document.getElementById('ip');
