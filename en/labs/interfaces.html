@@ -19,10 +19,11 @@
 <meta name="twitter:title" content="Lab 2: Interfaces and addressing · Packet Tracer">
 <meta name="twitter:description" content="IP addresses, descriptions, no shutdown and loopback. Packet Tracer guide for the CCNA with topology, step-by-step solution and verification.">
 <meta name="twitter:image" content="https://routinglab.es/capturas/og-en.jpg">
-<meta name="theme-color" content="#0A1D5C">
+<meta name="theme-color" content="#0B1F4D">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,500,1,0&icon_names=check_circle,extension,terminal&display=block">
 <link rel="stylesheet" href="../../estilos.css">
 <link rel="stylesheet" href="../../labs.css">
 <link rel="alternate" hreflang="es" href="https://routinglab.es/laboratorios/interfaces.html">
@@ -35,18 +36,7 @@
 <nav class="nav">
   <div class="contenedor nav-inner">
     <a href="../index.html" class="logo">
-      <svg viewBox="0 0 100 100" aria-hidden="true">
-        <circle cx="50" cy="50" r="48" fill="url(#g)"/>
-        <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stop-color="#0A1D5C"/><stop offset="1" stop-color="#2E5BFF"/>
-        </linearGradient></defs>
-        <g stroke="#4CC9F0" stroke-width="6" stroke-linecap="round">
-          <path d="M50 50 L28 30 M50 50 L72 26 M50 50 L28 72 M50 50 L74 70 M28 30 L72 26 M28 72 L74 70"/>
-        </g>
-        <circle cx="28" cy="30" r="9" fill="#fff"/><circle cx="72" cy="26" r="9" fill="#fff"/>
-        <circle cx="28" cy="72" r="9" fill="#fff"/><circle cx="74" cy="70" r="9" fill="#fff"/>
-        <circle cx="50" cy="50" r="11" fill="#4CC9F0"/>
-      </svg>
+      <svg viewBox="0 0 108 108" aria-hidden="true"><rect width="108" height="108" rx="26" fill="#0B1F4D"/><path d="M31 75V54h46V33" fill="none" stroke="#3D8BFD" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><circle cx="54" cy="54" r="4.5" fill="#3D8BFD"/><circle cx="31" cy="75" r="8.5" fill="#fff"/><circle cx="77" cy="33" r="8.5" fill="#fff"/></svg>
       RoutingLab
     </a>
     <button class="menu-movil" aria-label="Open menu">☰</button>
@@ -61,7 +51,7 @@
       <a href="../index.html#descargar" class="btn btn-primario btn-sm">Download</a>
     </div>
     <a href="../../laboratorios/interfaces.html" class="cambio-idioma" hreflang="es" lang="es" aria-label="Leer esta página en español">ES</a>
-    <button class="boton-tema" onclick="alternarTema()">🌙</button>
+    <button class="boton-tema" onclick="alternarTema()" aria-label="Tema"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="currentColor"><path d="M12.4 2.5a9.6 9.6 0 1 0 9.1 12.6 7.6 7.6 0 0 1-9.1-12.6z"/></svg></button>
   </div>
 </nav>
 <header class="cabecera-pagina cabecera-lab">
@@ -83,7 +73,7 @@
 <h2>Scenario</h2>
 <p>R1 joins two networks: PC1&#x27;s (192.168.1.0/24) on G0/0 and PC2&#x27;s (192.168.2.0/24) on G0/1. The PCs already have their IP and default gateway, but the router is unconfigured and its interfaces ship shut down.</p>
 <p>Assign the addresses from the table, add a description to each interface, bring them up and create Loopback0 with 10.0.0.1/32. Finally, check that the PCs can reach each other (from PC1&#x27;s console: ping 192.168.2.10) and review the status with show ip interface brief.</p>
-<h2>Topology</h2><div class="topologia"><svg viewBox="0 0 640 190" role="img" aria-label="R1, PC1, PC2"><line class="cable" x1="60" y1="87" x2="320" y2="87"/><line class="cable" x1="320" y1="87" x2="580" y2="87"/><defs><linearGradient id="ginterfaces0" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4CC9F0"/><stop offset="1" stop-color="#2E5BFF"/></linearGradient></defs><rect x="30" y="57" width="60" height="60" rx="17" fill="url(#ginterfaces0)"/><g transform="translate(44,71) scale(1.333)" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M9 20h6M12 16v4"/></g><text class="nombre" x="60" y="139" text-anchor="middle">PC1</text><defs><linearGradient id="ginterfaces1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7209B7"/><stop offset="1" stop-color="#2E5BFF"/></linearGradient></defs><rect x="290" y="57" width="60" height="60" rx="17" fill="url(#ginterfaces1)"/><g transform="translate(304,71) scale(1.333)" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M12 4v5M12 15v5M4 12h5M15 12h5M10 7l2-3 2 3M10 17l2 3 2-3M7 10l-3 2 3 2M17 10l3 2-3 2"/></g><text class="nombre" x="320" y="139" text-anchor="middle">R1</text><defs><linearGradient id="ginterfaces2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#06D6A0"/><stop offset="1" stop-color="#118AB2"/></linearGradient></defs><rect x="550" y="57" width="60" height="60" rx="17" fill="url(#ginterfaces2)"/><g transform="translate(564,71) scale(1.333)" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M9 20h6M12 16v4"/></g><text class="nombre" x="580" y="139" text-anchor="middle">PC2</text><rect class="puerto-fondo" x="94" y="76" width="38" height="22" rx="6"/><text class="puerto" x="113" y="92" text-anchor="middle">Fa0</text><rect class="puerto-fondo" x="231" y="76" width="55" height="22" rx="6"/><text class="puerto" x="258" y="92" text-anchor="middle">Gi0/0</text><rect class="puerto-fondo" x="354" y="76" width="55" height="22" rx="6"/><text class="puerto" x="382" y="92" text-anchor="middle">Gi0/1</text><rect class="puerto-fondo" x="508" y="76" width="38" height="22" rx="6"/><text class="puerto" x="527" y="92" text-anchor="middle">Fa0</text></svg></div>
+<h2>Topology</h2><div class="topologia"><svg viewBox="0 0 640 190" role="img" aria-label="R1, PC1, PC2"><line class="cable" x1="60" y1="87" x2="320" y2="87"/><line class="cable" x1="320" y1="87" x2="580" y2="87"/><defs><linearGradient id="ginterfaces0" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1F4FD1"/><stop offset="1" stop-color="#1A44B8"/></linearGradient></defs><rect x="30" y="57" width="60" height="60" rx="17" fill="url(#ginterfaces0)"/><g transform="translate(44,71) scale(1.333)" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M9 20h6M12 16v4"/></g><text class="nombre" x="60" y="139" text-anchor="middle">PC1</text><defs><linearGradient id="ginterfaces1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0B1F4D"/><stop offset="1" stop-color="#16306E"/></linearGradient></defs><rect x="290" y="57" width="60" height="60" rx="17" fill="url(#ginterfaces1)"/><g transform="translate(304,71) scale(1.333)" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M12 4v5M12 15v5M4 12h5M15 12h5M10 7l2-3 2 3M10 17l2 3 2-3M7 10l-3 2 3 2M17 10l3 2-3 2"/></g><text class="nombre" x="320" y="139" text-anchor="middle">R1</text><defs><linearGradient id="ginterfaces2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1E3A8A"/><stop offset="1" stop-color="#1F4FD1"/></linearGradient></defs><rect x="550" y="57" width="60" height="60" rx="17" fill="url(#ginterfaces2)"/><g transform="translate(564,71) scale(1.333)" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M9 20h6M12 16v4"/></g><text class="nombre" x="580" y="139" text-anchor="middle">PC2</text><rect class="puerto-fondo" x="94" y="76" width="38" height="22" rx="6"/><text class="puerto" x="113" y="92" text-anchor="middle">Fa0</text><rect class="puerto-fondo" x="231" y="76" width="55" height="22" rx="6"/><text class="puerto" x="258" y="92" text-anchor="middle">Gi0/0</text><rect class="puerto-fondo" x="354" y="76" width="55" height="22" rx="6"/><text class="puerto" x="382" y="92" text-anchor="middle">Gi0/1</text><rect class="puerto-fondo" x="508" y="76" width="38" height="22" rx="6"/><text class="puerto" x="527" y="92" text-anchor="middle">Fa0</text></svg></div>
 <h2>Devices and cabling</h2><ul class="modelos"><li><strong>R1</strong> <span class="texto-sec">·</span> <span class="mono">2911</span></li><li><strong>PC1, PC2</strong> <span class="texto-sec">·</span> <span class="mono">PC-PT</span></li></ul>
 <div class="tabla-envoltura"><table class="tabla-guia"><thead><tr><th>From</th><th>To</th><th>Cable</th></tr></thead><tbody><tr><td><strong>PC1</strong> <span class="mono">Fa0</span></td><td><strong>R1</strong> <span class="mono">Gi0/0</span></td><td>Crossover</td></tr><tr><td><strong>R1</strong> <span class="mono">Gi0/1</span></td><td><strong>PC2</strong> <span class="mono">Fa0</span></td><td>Crossover</td></tr></tbody></table></div>
 <p class="nota">If in doubt, the automatic connection cable (the lightning bolt) picks the right one. Rule: straight-through between different devices (PC or router to switch) and crossover between alike ones.</p>

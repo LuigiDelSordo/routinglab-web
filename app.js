@@ -16,12 +16,19 @@
     pintarIconoTema();
   };
 
+  // Iconos dibujados (no emojis): se ven igual en todos los sistemas.
+  const LUNA = '<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="currentColor">'
+    + '<path d="M12.4 2.5a9.6 9.6 0 1 0 9.1 12.6 7.6 7.6 0 0 1-9.1-12.6z"/></svg>';
+  const SOL = '<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor"'
+    + ' stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.2" fill="currentColor" stroke="none"/>'
+    + '<path d="M12 2.5v2M12 19.5v2M4.6 4.6l1.4 1.4M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4L6 18M18 6l1.4-1.4"/></svg>';
+
   function pintarIconoTema() {
     const btn = document.querySelector('.boton-tema');
     if (!btn) return;
     const oscuro = (document.documentElement.getAttribute('data-tema')
       || (matchMedia('(prefers-color-scheme: dark)').matches ? 'oscuro' : 'claro')) === 'oscuro';
-    btn.textContent = oscuro ? '☀️' : '🌙';
+    btn.innerHTML = oscuro ? SOL : LUNA;
     btn.setAttribute('aria-label', oscuro ? 'Cambiar a tema claro' : 'Cambiar a tema oscuro');
   }
   document.addEventListener('DOMContentLoaded', pintarIconoTema);
@@ -68,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const paso = (t) => {
           const p = Math.min((t - inicio) / dur, 1);
           const suave = 1 - Math.pow(1 - p, 3);
-          el.textContent = Math.round(fin * suave).toLocaleString('es-ES') + sufijo;
+          el.textContent = Math.round(fin * suave).toLocaleString(document.documentElement.lang === 'en' ? 'en-US' : 'es-ES', { useGrouping: 'always' }) + sufijo;
           if (p < 1) requestAnimationFrame(paso);
         };
         requestAnimationFrame(paso);
@@ -127,12 +134,12 @@ function dibujarRed() {
         const m = nodos[j];
         const d = Math.hypot(n.x - m.x, n.y - m.y);
         if (d < 135) {
-          ctx.strokeStyle = `rgba(255,255,255,${(1 - d / 135) * .22})`;
+          ctx.strokeStyle = `rgba(255,255,255,${(1 - d / 135) * .14})`;
           ctx.lineWidth = 1;
           ctx.beginPath(); ctx.moveTo(n.x, n.y); ctx.lineTo(m.x, m.y); ctx.stroke();
         }
       }
-      ctx.fillStyle = 'rgba(255,255,255,.55)';
+      ctx.fillStyle = 'rgba(255,255,255,.4)';
       ctx.beginPath(); ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2); ctx.fill();
     }
     animacion = requestAnimationFrame(pintar);

@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>RoutingLab · Aprende redes y aprueba el CCNA 200-301</title>
-<meta name="description" content="App para preparar la certificación CCNA 200-301 en español: teoría, subnetting, CLI, troubleshooting y simulacros de examen. Pruébala gratis 7 días.">
-<meta name="theme-color" content="#0A1D5C">
+<meta name="description" content="App para preparar la certificación CCNA 200-301 en español: teoría, laboratorios con terminal IOS, subnetting, troubleshooting y simulacros de examen. Pruébala gratis 7 días.">
+<meta name="theme-color" content="#0B1F4D">
 <meta property="og:title" content="RoutingLab · Aprueba el CCNA 200-301">
 <meta property="og:description" content="Teoría, práctica y simulacros de CCNA en español. Prueba gratis 7 días.">
 <meta property="og:type" content="website">
@@ -18,11 +18,12 @@
 <meta property="og:image:alt" content="RoutingLab · CCNA 200-301">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="RoutingLab · Aprende redes y aprueba el CCNA 200-301">
-<meta name="twitter:description" content="App para preparar la certificación CCNA 200-301 en español: teoría, subnetting, CLI, troubleshooting y simulacros de examen. Pruébala gratis 7 días.">
+<meta name="twitter:description" content="App para preparar la certificación CCNA 200-301 en español: teoría, laboratorios con terminal IOS, subnetting, troubleshooting y simulacros de examen. Pruébala gratis 7 días.">
 <meta name="twitter:image" content="https://routinglab.es/capturas/og-es.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,500,1,0&icon_names=bug_report,build,calculate,calendar_month,chat,check_circle,delete,dns,error,extension,history,home,lan,lightbulb,mail,menu_book,quiz,replay,school,search,settings_ethernet,style,terminal,thumb_up,track_changes,warning&display=block">
 <link rel="stylesheet" href="estilos.css">
 <link rel="alternate" hreflang="es" href="https://routinglab.es/">
 <link rel="alternate" hreflang="en" href="https://routinglab.es/en/">
@@ -32,15 +33,15 @@
   /* ---------- Hero ---------- */
   .hero {
     position: relative; overflow: hidden; padding: 96px 0 104px;
-    background: linear-gradient(125deg, var(--marino) 0%, #17307e 45%, var(--violeta) 130%);
+    background: var(--marino);
     color: #fff;
   }
-  #redCanvas { position: absolute; inset: 0; width: 100%; height: 100%; opacity: .75; }
+  #redCanvas { position: absolute; inset: 0; width: 100%; height: 100%; opacity: .6; }
   .hero .contenedor { position: relative; z-index: 2; }
   .hero-rejilla { display: grid; grid-template-columns: 1.15fr .85fr; gap: 48px; align-items: center; }
   @media (max-width: 900px) { .hero-rejilla { grid-template-columns: 1fr; text-align: center; } }
   .hero h1 { color: #fff; margin-bottom: 20px; }
-  .hero h1 .destacado { background: linear-gradient(90deg, #fff, var(--cian)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+  .hero h1 .destacado { color: #8AB4FF; }
   .hero p.lead { font-size: 1.2rem; color: #c8d3f5; max-width: 560px; margin-bottom: 32px; }
   @media (max-width: 900px) { .hero p.lead { margin-inline: auto; } }
   .hero-botones { display: flex; gap: 14px; flex-wrap: wrap; }
@@ -59,7 +60,7 @@
   }
   @keyframes flotar { 0%,100% { transform: translateY(0) } 50% { transform: translateY(-14px) } }
   @media (prefers-reduced-motion: reduce) { .marco-movil { animation: none } }
-  .marco-movil img { width: 100%; display: block; border-radius: 26px; }
+  .marco-movil img { width: 100%; height: auto; display: block; border-radius: 26px; }
 
   .stats { display: flex; gap: 40px; margin-top: 44px; flex-wrap: wrap; }
   @media (max-width: 900px) { .stats { justify-content: center; } }
@@ -70,7 +71,7 @@
   .quiz { max-width: 720px; margin: 0 auto; }
   .quiz-tarjeta { background: var(--superficie); border: 1px solid var(--borde); border-radius: var(--radio); padding: 32px; box-shadow: var(--sombra); }
   .quiz-progreso { height: 7px; background: var(--superficie-var); border-radius: 4px; overflow: hidden; margin-bottom: 22px; }
-  .quiz-progreso div { height: 100%; background: linear-gradient(90deg, var(--cian), var(--azul)); width: 0; transition: width .4s ease; }
+  .quiz-progreso div { height: 100%; background: var(--azul); width: 0; transition: width .4s ease; }
   .opcion {
     display: flex; align-items: center; gap: 14px; width: 100%; text-align: left;
     padding: 15px 18px; margin-bottom: 10px; border-radius: 13px; cursor: pointer;
@@ -82,7 +83,7 @@
     width: 30px; height: 30px; flex: none; border-radius: 50%; display: grid; place-items: center;
     background: var(--superficie-var); font-weight: 700; font-size: .9rem;
   }
-  .opcion.correcta { border-color: #2D6A4F; background: color-mix(in srgb, #06D6A0 16%, var(--fondo2)); }
+  .opcion.correcta { border-color: #2D6A4F; background: color-mix(in srgb, var(--verde) 14%, var(--fondo2)); }
   .opcion.correcta .letra { background: #2D6A4F; color: #fff; }
   .opcion.fallo { border-color: #B3261E; background: color-mix(in srgb, #B3261E 12%, var(--fondo2)); }
   .opcion.fallo .letra { background: #B3261E; color: #fff; }
@@ -97,9 +98,9 @@
   /* ---------- Precios ---------- */
   .precios { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 22px; max-width: 820px; margin: 0 auto; }
   .plan { position: relative; }
-  .plan.destacado { border-color: var(--azul); box-shadow: 0 12px 40px rgba(46,91,255,.22); }
+  .plan.destacado { border-color: var(--azul); box-shadow: 0 10px 30px rgba(31,79,209,.16); }
   .plan .cinta {
-    position: absolute; top: 16px; right: 16px; background: linear-gradient(90deg, var(--fucsia), var(--violeta));
+    position: absolute; top: 16px; right: 16px; background: var(--marino);
     color: #fff; padding: 4px 12px; border-radius: 999px; font-size: .72rem; font-weight: 800; letter-spacing: .04em;
   }
   .precio { font-family: 'Sora', sans-serif; font-size: 2.6rem; font-weight: 800; margin: 8px 0 2px; }
@@ -123,9 +124,9 @@
 
   /* ---------- CTA final ---------- */
   .cta-final {
-    background: linear-gradient(125deg, var(--marino), var(--azul2) 70%, var(--violeta));
-    border-radius: 28px; padding: 64px 32px; text-align: center; color: #fff;
-    box-shadow: 0 20px 60px rgba(46,91,255,.3);
+    background: var(--marino);
+    border-radius: 20px; padding: 64px 32px; text-align: center; color: #fff;
+    box-shadow: var(--sombra-fuerte);
   }
   .cta-final h2 { color: #fff; }
   .cta-final p { color: #c8d3f5; max-width: 520px; margin: 0 auto 28px; }
@@ -144,13 +145,14 @@
     border-color: var(--azul); background: color-mix(in srgb, var(--azul) 8%, var(--superficie));
     box-shadow: var(--sombra);
   }
-  .galeria-tab .icono-chip { width: 40px; height: 40px; font-size: 1.05rem; flex: none; margin: 0; }
+  .galeria-tab .icono-chip { width: 40px; height: 40px; flex: none; margin: 0; }
+  .galeria-tab .icono-chip .material-symbols-rounded { font-size: 1.25rem; }
   .galeria-tab h3 { font-size: 1rem; margin: 0 0 3px; }
   .galeria-tab p { margin: 0; font-size: .89rem; color: var(--texto-sec); line-height: 1.45; }
   .galeria-vista { display: grid; place-items: center; }
   .marco-app {
     width: 268px; border-radius: 34px; padding: 10px;
-    background: linear-gradient(160deg, var(--marino), var(--violeta));
+    background: var(--marino);
     box-shadow: var(--sombra-fuerte); border: 1px solid var(--borde);
   }
   .marco-app img {
@@ -199,7 +201,7 @@
   /* ---------- Insignias de plan ---------- */
   .tarjeta-cabecera { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 6px 10px; margin-bottom: 4px; }
   .tarjeta-cabecera h3 { margin: 0; }
-  .insignia-premium { background: linear-gradient(90deg, var(--ambar), #FF5400); color: #fff; }
+  .insignia-premium { background: var(--marino); color: #fff; }
 </style>
 </head>
 <body>
@@ -207,18 +209,7 @@
 <nav class="nav">
   <div class="contenedor nav-inner">
     <a href="index.html" class="logo">
-      <svg viewBox="0 0 100 100" aria-hidden="true">
-        <circle cx="50" cy="50" r="48" fill="url(#g)"/>
-        <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stop-color="#0A1D5C"/><stop offset="1" stop-color="#2E5BFF"/>
-        </linearGradient></defs>
-        <g stroke="#4CC9F0" stroke-width="6" stroke-linecap="round">
-          <path d="M50 50 L28 30 M50 50 L72 26 M50 50 L28 72 M50 50 L74 70 M28 30 L72 26 M28 72 L74 70"/>
-        </g>
-        <circle cx="28" cy="30" r="9" fill="#fff"/><circle cx="72" cy="26" r="9" fill="#fff"/>
-        <circle cx="28" cy="72" r="9" fill="#fff"/><circle cx="74" cy="70" r="9" fill="#fff"/>
-        <circle cx="50" cy="50" r="11" fill="#4CC9F0"/>
-      </svg>
+      <svg viewBox="0 0 108 108" aria-hidden="true"><rect width="108" height="108" rx="26" fill="#0B1F4D"/><path d="M31 75V54h46V33" fill="none" stroke="#3D8BFD" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><circle cx="54" cy="54" r="4.5" fill="#3D8BFD"/><circle cx="31" cy="75" r="8.5" fill="#fff"/><circle cx="77" cy="33" r="8.5" fill="#fff"/></svg>
       RoutingLab
     </a>
     <button class="menu-movil" aria-label="Abrir menú">☰</button>
@@ -234,7 +225,7 @@
       <a href="#descargar" class="btn btn-primario btn-sm">Descargar</a>
     </div>
     <a href="en/index.html" class="cambio-idioma" hreflang="en" lang="en" aria-label="Read this page in English">EN</a>
-    <button class="boton-tema" onclick="alternarTema()">🌙</button>
+    <button class="boton-tema" onclick="alternarTema()" aria-label="Tema"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="currentColor"><path d="M12.4 2.5a9.6 9.6 0 1 0 9.1 12.6 7.6 7.6 0 0 1-9.1-12.6z"/></svg></button>
   </div>
 </nav>
 
@@ -244,19 +235,20 @@
   <div class="contenedor">
     <div class="hero-rejilla">
       <div>
-        <span class="pildora-hero">🎓 Certificación CCNA 200-301 · en español</span>
+        <span class="pildora-hero">Certificación CCNA 200-301 · en español</span>
         <h1>Domina las redes.<br><span class="destacado">Aprueba el CCNA.</span></h1>
         <p class="lead">
           Teoría clara, práctica real y simulacros de examen. Todo en tu bolsillo,
           desde cero hasta el día del examen.
         </p>
         <div class="hero-botones">
-          <a href="#descargar" class="btn btn-claro">📲 Descargar la app</a>
+          <a href="#descargar" class="btn btn-claro">Descargar la app</a>
           <a href="#demo" class="btn btn-fantasma" style="color:#fff;border-color:rgba(255,255,255,.5)">Probar un test →</a>
         </div>
         <div class="stats">
-          <div class="stat"><b data-contador="9" data-sufijo="">0</b><span>Mundos de temario</span></div>
-          <div class="stat"><b data-contador="437" data-sufijo="+">0</b><span>Ejercicios de CLI</span></div>
+          <div class="stat"><b data-contador="96" data-sufijo="">0</b><span>Lecciones</span></div>
+          <div class="stat"><b data-contador="3868" data-sufijo="">0</b><span>Preguntas tipo examen</span></div>
+          <div class="stat"><b data-contador="15" data-sufijo="">0</b><span>Laboratorios</span></div>
           <div class="stat"><b data-contador="7" data-sufijo=" días">0</b><span>Prueba gratis</span></div>
         </div>
       </div>
@@ -280,24 +272,24 @@
       Cada herramienta está pensada para un momento distinto de tu preparación.
     </p>
     <div class="rejilla rejilla-3" style="text-align:left">
-      <div class="tarjeta revelar"><div class="icono-chip">🌍</div>
-        <div class="tarjeta-cabecera"><h3>Mapa de Mundos</h3><span class="insignia insignia-verde">Mundos 0-1 gratis</span></div>
-        <p class="texto-sec">Teoría y quizzes organizados por temario, avanzando mundo a mundo hasta cubrirlo todo.</p></div>
-      <div class="tarjeta g2 revelar"><div class="icono-chip">🔢</div>
-        <div class="tarjeta-cabecera"><h3>Subnetting Trainer</h3><span class="insignia insignia-verde">Gratis</span></div>
-        <p class="texto-sec">Ejercicios ilimitados para calcular subredes rápido y sin dudar el día del examen.</p></div>
-      <div class="tarjeta g1 revelar"><div class="icono-chip">⌨️</div>
-        <div class="tarjeta-cabecera"><h3>Interpretar CLI</h3><span class="insignia insignia-premium">Premium</span></div>
-        <p class="texto-sec">Más de 437 ejercicios con configuraciones reales de routers y switches Cisco.</p></div>
-      <div class="tarjeta g3 revelar"><div class="icono-chip">🔧</div>
-        <div class="tarjeta-cabecera"><h3>Troubleshooting</h3><span class="insignia insignia-premium">Premium</span></div>
-        <p class="texto-sec">Diagnostica averías de red paso a paso, como en el examen y en el trabajo real.</p></div>
-      <div class="tarjeta g4 revelar"><div class="icono-chip">📝</div>
-        <div class="tarjeta-cabecera"><h3>Modo Examen</h3><span class="insignia insignia-premium">Premium</span></div>
-        <p class="texto-sec">Simulacros cronometrados y un medidor de preparación por dominios oficiales.</p></div>
-      <div class="tarjeta g2 revelar"><div class="icono-chip">🧠</div>
-        <div class="tarjeta-cabecera"><h3>Repaso espaciado</h3><span class="insignia insignia-verde">Gratis</span></div>
-        <p class="texto-sec">Lo que fallas vuelve a aparecer a 1, 3 y 7 días: la técnica que fija la memoria.</p></div>
+      <div class="tarjeta revelar"><div class="icono-chip"><span class="material-symbols-rounded" aria-hidden="true">school</span></div>
+        <div class="tarjeta-cabecera"><h3>Temario completo</h3><span class="insignia insignia-verde">Módulos 0-1 gratis</span></div>
+        <p class="texto-sec">96 lecciones en 9 módulos que cubren el examen 200-301. Abres la que quieras o sigues el orden recomendado.</p></div>
+      <div class="tarjeta revelar"><div class="icono-chip"><span class="material-symbols-rounded" aria-hidden="true">lan</span></div>
+        <div class="tarjeta-cabecera"><h3>Laboratorios con terminal IOS</h3><span class="insignia insignia-verde">2 gratis</span></div>
+        <p class="texto-sec">15 laboratorios en los que configuras routers, switches y PC con comandos de Cisco IOS. Los objetivos se comprueban solos.</p></div>
+      <div class="tarjeta revelar"><div class="icono-chip"><span class="material-symbols-rounded" aria-hidden="true">quiz</span></div>
+        <div class="tarjeta-cabecera"><h3>Modo examen</h3><span class="insignia insignia-premium">Premium</span></div>
+        <p class="texto-sec">Simulacros cronometrados como el real: una pregunta cada vez, marcar para revisar, nota por dominio e historial.</p></div>
+      <div class="tarjeta revelar"><div class="icono-chip"><span class="material-symbols-rounded" aria-hidden="true">calculate</span></div>
+        <div class="tarjeta-cabecera"><h3>Entrenador de subnetting</h3><span class="insignia insignia-verde">Gratis</span></div>
+        <p class="texto-sec">Ejercicios ilimitados de subredes, VLSM, wildcards e IPv6, con contrarreloj para ganar velocidad.</p></div>
+      <div class="tarjeta revelar"><div class="icono-chip"><span class="material-symbols-rounded" aria-hidden="true">build</span></div>
+        <div class="tarjeta-cabecera"><h3>Troubleshooting e Interpretar CLI</h3><span class="insignia insignia-premium">Premium</span></div>
+        <p class="texto-sec">148 averías reales resueltas paso a paso y 508 ejercicios con configuraciones y salidas reales de Cisco IOS.</p></div>
+      <div class="tarjeta revelar"><div class="icono-chip"><span class="material-symbols-rounded" aria-hidden="true">replay</span></div>
+        <div class="tarjeta-cabecera"><h3>Repaso espaciado y flashcards</h3><span class="insignia insignia-verde">Gratis</span></div>
+        <p class="texto-sec">Lo que fallas vuelve a 1, 3 y 7 días, y repasas los 295 términos del glosario con «Lo sé / Repasar».</p></div>
     </div>
   </div>
 </section>
@@ -314,33 +306,33 @@
       <div class="galeria-lista" role="tablist" aria-label="Pantallas de la app">
         <button class="galeria-tab" role="tab" aria-selected="true" id="tab-0" aria-controls="vista-app"
                 data-img="capturas/app-inicio.webp" data-alt="Pantalla de inicio de RoutingLab">
-          <span class="icono-chip">🏠</span>
+          <span class="icono-chip"><span class="material-symbols-rounded" aria-hidden="true">home</span></span>
           <span><h3>Tu punto de partida</h3><p>La misión de hoy, tu racha y cuánto te falta para estar listo.</p></span>
         </button>
-        <button class="galeria-tab g1" role="tab" aria-selected="false" id="tab-1" aria-controls="vista-app" tabindex="-1"
-                data-img="capturas/app-mundos.webp" data-alt="Mapa de mundos del temario">
-          <span class="icono-chip">🌍</span>
-          <span><h3>Mapa de Mundos</h3><p>El temario completo dividido en mundos que vas desbloqueando.</p></span>
+        <button class="galeria-tab" role="tab" aria-selected="false" id="tab-1" aria-controls="vista-app" tabindex="-1"
+                data-img="capturas/app-temario.webp" data-alt="Temario en módulos">
+          <span class="icono-chip"><span class="material-symbols-rounded" aria-hidden="true">school</span></span>
+          <span><h3>Temario en módulos</h3><p>Los 9 módulos con tu progreso y la siguiente lección recomendada.</p></span>
         </button>
-        <button class="galeria-tab g2" role="tab" aria-selected="false" id="tab-2" aria-controls="vista-app" tabindex="-1"
+        <button class="galeria-tab" role="tab" aria-selected="false" id="tab-2" aria-controls="vista-app" tabindex="-1"
                 data-img="capturas/app-leccion.webp" data-alt="Lección con teoría explicada">
-          <span class="icono-chip">📖</span>
-          <span><h3>Teoría clara</h3><p>Explicaciones en cristiano, con ejemplos y su test al final.</p></span>
+          <span class="icono-chip"><span class="material-symbols-rounded" aria-hidden="true">menu_book</span></span>
+          <span><h3>Teoría clara</h3><p>Explicaciones con fotos y diagramas propios, y un test al final.</p></span>
         </button>
-        <button class="galeria-tab g3" role="tab" aria-selected="false" id="tab-3" aria-controls="vista-app" tabindex="-1"
+        <button class="galeria-tab" role="tab" aria-selected="false" id="tab-3" aria-controls="vista-app" tabindex="-1"
+                data-img="capturas/app-laboratorio.webp" data-alt="Laboratorio con terminal IOS">
+          <span class="icono-chip"><span class="material-symbols-rounded" aria-hidden="true">lan</span></span>
+          <span><h3>Laboratorios</h3><p>Un terminal IOS simulado: configuras y los objetivos se comprueban solos.</p></span>
+        </button>
+        <button class="galeria-tab" role="tab" aria-selected="false" id="tab-4" aria-controls="vista-app" tabindex="-1"
                 data-img="capturas/app-subnetting.webp" data-alt="Entrenador de subnetting">
-          <span class="icono-chip">🔢</span>
-          <span><h3>Subnetting Trainer</h3><p>Ejercicios sin fin hasta que calcular subredes te salga solo.</p></span>
+          <span class="icono-chip"><span class="material-symbols-rounded" aria-hidden="true">calculate</span></span>
+          <span><h3>Entrenador de subnetting</h3><p>Ejercicios sin fin hasta que calcular subredes te salga solo.</p></span>
         </button>
-        <button class="galeria-tab g4" role="tab" aria-selected="false" id="tab-4" aria-controls="vista-app" tabindex="-1"
-                data-img="capturas/app-troubleshooting.webp" data-alt="Escenario de troubleshooting">
-          <span class="icono-chip">🔧</span>
-          <span><h3>Troubleshooting</h3><p>Averías reales que diagnosticas paso a paso, como en el trabajo.</p></span>
-        </button>
-        <button class="galeria-tab g1" role="tab" aria-selected="false" id="tab-5" aria-controls="vista-app" tabindex="-1"
-                data-img="capturas/app-examen.webp" data-alt="Simulacro del modo examen">
-          <span class="icono-chip">📝</span>
-          <span><h3>Modo Examen</h3><p>Simulacro cronometrado y tu nota por dominios oficiales.</p></span>
+        <button class="galeria-tab" role="tab" aria-selected="false" id="tab-5" aria-controls="vista-app" tabindex="-1"
+                data-img="capturas/app-examen.webp" data-alt="Revisión de un simulacro">
+          <span class="icono-chip"><span class="material-symbols-rounded" aria-hidden="true">quiz</span></span>
+          <span><h3>Modo examen</h3><p>Una pregunta cada vez, mapa de preguntas y revisión antes de entregar.</p></span>
         </button>
       </div>
       <div class="galeria-vista">
@@ -376,22 +368,22 @@
     <span class="etiqueta-seccion revelar">Gratis para todos</span>
     <h2 class="revelar">Herramientas que puedes usar hoy</h2>
     <p class="subtitulo-seccion revelar">Sin instalar nada y sin registrarte. Úsalas mientras estudias.</p>
-    <div class="rejilla rejilla-3" style="text-align:left">
+    <div class="rejilla" style="text-align:left;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))">
       <a href="herramientas.html#subredes" class="tarjeta revelar" style="color:inherit">
-        <div class="icono-chip">🧮</div><h3>Calculadoras de red</h3>
+        <div class="icono-chip"><span class="material-symbols-rounded" aria-hidden="true">calculate</span></div><h3>Calculadoras de red</h3>
         <p class="texto-sec">Subredes, VLSM, wildcard para ACL y OSPF, e IPv6 con EUI-64: lo que te piden calcular en el examen, al instante.</p>
         <span style="color:var(--azul);font-weight:700">Abrir →</span></a>
       <a href="herramientas.html#puertos" class="tarjeta g1 revelar" style="color:inherit">
-        <div class="icono-chip">🔌</div><h3>Tabla de puertos</h3>
+        <div class="icono-chip"><span class="material-symbols-rounded" aria-hidden="true">settings_ethernet</span></div><h3>Tabla de puertos</h3>
         <p class="texto-sec">Los puertos y protocolos que caen en el examen, buscables al momento.</p>
         <span style="color:var(--azul);font-weight:700">Abrir →</span></a>
       <a href="laboratorios.html" class="tarjeta g3 revelar" style="color:inherit">
-        <div class="icono-chip">🧪</div><h3>Laboratorios de Packet Tracer</h3>
+        <div class="icono-chip"><span class="material-symbols-rounded" aria-hidden="true">lan</span></div><h3>Laboratorios de Packet Tracer</h3>
         <p class="texto-sec">15 prácticas guiadas con topología, solución paso a paso y la salida esperada de cada comando.</p>
         <span style="color:var(--azul);font-weight:700">Abrir →</span></a>
       <a href="glosario.html" class="tarjeta g2 revelar" style="color:inherit">
-        <div class="icono-chip">📖</div><h3>Glosario de redes</h3>
-        <p class="texto-sec">Más de 120 términos explicados en cristiano, con buscador en vivo.</p>
+        <div class="icono-chip"><span class="material-symbols-rounded" aria-hidden="true">menu_book</span></div><h3>Glosario de redes</h3>
+        <p class="texto-sec">295 términos explicados en cristiano, con buscador en vivo.</p>
         <span style="color:var(--azul);font-weight:700">Abrir →</span></a>
     </div>
   </div>
@@ -428,7 +420,7 @@
       </div>
       <div class="plf-res" id="plfRes" hidden></div>
       <p class="plf-nota">
-        Estimación orientativa basada en el temario de la app (92 lecciones y más de 2.100 preguntas)
+        Estimación orientativa basada en el temario de la app (96 lecciones y 3.868 preguntas)
         y en las horas que suele pedir el CCNA 200-301 según tu punto de partida.
       </p>
     </div>
@@ -443,37 +435,38 @@
     <p class="subtitulo-seccion revelar">7 días de acceso completo al registrarte. Cancela cuando quieras.</p>
     <div class="precios" style="text-align:left">
       <div class="tarjeta plan destacado revelar">
-        <span class="cinta">AHORRA 37%</span>
+        <span class="cinta">AHORRA 37 %</span>
         <h3>Anual</h3>
-        <div class="precio">30 €<small> /año</small></div>
+        <div class="precio">29,99 €<small> /año</small></div>
         <p class="texto-sec" style="margin:0">Equivale a 2,50 €/mes</p>
         <ul class="lista-check">
-          <li>Todo el temario CCNA desbloqueado</li>
-          <li>Modo Examen y Troubleshooting</li>
-          <li>Interpretar CLI completo</li>
-          <li>Repaso espaciado inteligente</li>
+          <li>Los 9 módulos y el apartado Hardware Cisco</li>
+          <li>Modo examen con historial por dominio</li>
+          <li>Los 15 laboratorios</li>
+          <li>Troubleshooting e Interpretar CLI</li>
           <li>Progreso sincronizado en la nube</li>
-          <li>Sin anuncios</li>
+          <li>Cancela cuando quieras desde Google Play</li>
         </ul>
         <a href="#descargar" class="btn btn-primario" style="width:100%">Empezar prueba gratis</a>
       </div>
       <div class="tarjeta revelar">
         <h3>Mensual</h3>
         <div class="precio">3,99 €<small> /mes</small></div>
-        <p class="texto-sec" style="margin:0">Flexibilidad total</p>
+        <p class="texto-sec" style="margin:0">Sin permanencia</p>
         <ul class="lista-check">
-          <li>Todo el temario CCNA desbloqueado</li>
-          <li>Modo Examen y Troubleshooting</li>
-          <li>Interpretar CLI completo</li>
-          <li>Repaso espaciado inteligente</li>
+          <li>Los 9 módulos y el apartado Hardware Cisco</li>
+          <li>Modo examen con historial por dominio</li>
+          <li>Los 15 laboratorios</li>
+          <li>Troubleshooting e Interpretar CLI</li>
           <li>Progreso sincronizado en la nube</li>
-          <li>Sin anuncios</li>
+          <li>Cancela cuando quieras desde Google Play</li>
         </ul>
         <a href="#descargar" class="btn btn-fantasma" style="width:100%">Empezar prueba gratis</a>
       </div>
     </div>
     <p class="texto-sec revelar" style="margin-top:26px;font-size:.9rem">
-      Los fundamentos son <strong>gratis para siempre</strong>: Mundos 0 y 1, Subnetting Trainer y repaso de fallos.
+      Gratis para siempre: <strong>los módulos 0 y 1, 2 laboratorios, el entrenador de subnetting, el glosario, las flashcards y el repaso de fallos</strong>.<br>
+      Precios en España. En otros países, Google Play te muestra el tuyo.
     </p>
   </div>
 </section>
@@ -488,7 +481,11 @@
     <div class="faq" style="margin-top:36px">
       <div class="faq-item revelar" data-acordeon>
         <button class="faq-pregunta" aria-expanded="false">¿Necesito saber algo de redes para empezar?</button>
-        <div class="faq-respuesta"><p>No. El Mundo 0 («Fundamentos Absolutos») está pensado para alguien que parte de cero, y a partir de ahí se avanza de forma progresiva hasta los temas más avanzados del CCNA.</p></div>
+        <div class="faq-respuesta"><p>No. El Módulo 0 («Fundamentos absolutos») está pensado para alguien que parte de cero. La app te recomienda un orden, pero puedes abrir cualquier lección si ya dominas un tema.</p></div>
+      </div>
+      <div class="faq-item revelar" data-acordeon>
+        <button class="faq-pregunta" aria-expanded="false">¿Se puede practicar con comandos de verdad?</button>
+        <div class="faq-respuesta"><p>Sí. La app trae 15 laboratorios con un terminal IOS simulado: configuras routers, switches y PC escribiendo comandos de Cisco, con abreviaturas, ayuda con ? y los mensajes de error de un equipo real. Y en la web tienes las mismas prácticas como <a href="laboratorios.html">guías para Packet Tracer</a>.</p></div>
       </div>
       <div class="faq-item revelar" data-acordeon>
         <button class="faq-pregunta" aria-expanded="false">¿Funciona sin conexión a internet?</button>
@@ -521,7 +518,7 @@
       <h2>Tu certificación empieza hoy</h2>
       <p>Descarga RoutingLab y estudia un poco cada día. El examen se aprueba con constancia, no con prisas.</p>
       <a href="https://play.google.com/store/apps/details?id=com.luigi.routinglab" class="btn btn-claro">
-        📲 Consíguela en Google Play
+        Consíguela en Google Play
       </a>
       <p style="margin-top:20px;font-size:.88rem;opacity:.8">Muy pronto disponible · Android 7.0 o superior</p>
     </div>
@@ -533,18 +530,7 @@
     <div class="pie-rejilla">
       <div>
         <a href="index.html" class="logo" style="margin-bottom:12px">
-          <svg viewBox="0 0 100 100" aria-hidden="true">
-            <circle cx="50" cy="50" r="48" fill="url(#g2)"/>
-            <defs><linearGradient id="g2" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0" stop-color="#0A1D5C"/><stop offset="1" stop-color="#2E5BFF"/>
-            </linearGradient></defs>
-            <g stroke="#4CC9F0" stroke-width="6" stroke-linecap="round">
-              <path d="M50 50 L28 30 M50 50 L72 26 M50 50 L28 72 M50 50 L74 70 M28 30 L72 26 M28 72 L74 70"/>
-            </g>
-            <circle cx="28" cy="30" r="9" fill="#fff"/><circle cx="72" cy="26" r="9" fill="#fff"/>
-            <circle cx="28" cy="72" r="9" fill="#fff"/><circle cx="74" cy="70" r="9" fill="#fff"/>
-            <circle cx="50" cy="50" r="11" fill="#4CC9F0"/>
-          </svg>
+          <svg viewBox="0 0 108 108" aria-hidden="true"><rect width="108" height="108" rx="26" fill="#0B1F4D"/><path d="M31 75V54h46V33" fill="none" stroke="#3D8BFD" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><circle cx="54" cy="54" r="4.5" fill="#3D8BFD"/><circle cx="31" cy="75" r="8.5" fill="#fff"/><circle cx="77" cy="33" r="8.5" fill="#fff"/></svg>
           RoutingLab
         </a>
         <p class="texto-sec" style="max-width:280px;font-size:.92rem">
@@ -573,7 +559,7 @@
     </div>
     <div class="pie-abajo">
       <span>© <span data-anio>2026</span> RoutingLab · routinglab.es</span>
-      <span>Hecho con ☕ para futuros ingenieros de red</span>
+      <span>Hecho para futuros ingenieros de redes</span>
     </div>
   </div>
 </footer>
@@ -629,7 +615,7 @@ function responder(elegida) {
   });
   if (elegida === p.c) aciertos++;
   document.getElementById('tras').innerHTML = `
-    <div class="explicacion">💡 ${p.e}</div>
+    <div class="explicacion">${p.e}</div>
     <button class="btn btn-primario" style="width:100%;margin-top:18px" id="siguiente">
       ${iQuiz + 1 < PREGUNTAS.length ? 'Siguiente pregunta →' : 'Ver mi resultado'}
     </button>`;
@@ -708,7 +694,7 @@ window.reiniciarQuiz = function () { iQuiz = 0; aciertos = 0; pintarPregunta(); 
   const caja = document.getElementById('plfRes');
   if (!fecha || !nivel || !horas || !caja) return;
 
-  const LECCIONES = 92;          // lecciones del temario de la app
+  const LECCIONES = 96;          // lecciones del temario de la app
   const DIA_MS = 86400000;
 
   // Por defecto, un examen dentro de 3 meses: así se ve el resultado al entrar.
@@ -726,7 +712,7 @@ window.reiniciarQuiz = function () { iQuiz = 0; aciertos = 0; pintarPregunta(); 
     if (isNaN(dias) || dias < 0) {
       caja.hidden = false;
       caja.innerHTML = `<div class="plf-veredicto apretado">
-        <span class="plf-icono">📅</span>
+        <span class="plf-icono material-symbols-rounded">calendar_month</span>
         <span><b>Esa fecha ya pasó</b>Elige el día de tu examen para calcular tu plan.</span></div>`;
       return;
     }
@@ -744,28 +730,28 @@ window.reiniciarQuiz = function () { iQuiz = 0; aciertos = 0; pintarPregunta(); 
 
     let clase, icono, titulo, texto;
     if (dias === 0) {
-      clase = 'justo'; icono = '🎯';
+      clase = 'justo'; icono = 'track_changes';
       titulo = '¡Hoy es el día!';
       texto = 'Nada de temario nuevo: repasa lo que fallaste y ve tranquilo. Mucha suerte.';
     } else if (rectaFinal) {
-      clase = 'justo'; icono = '🎯';
+      clase = 'justo'; icono = 'track_changes';
       titulo = 'Estás en la recta final';
       texto = `${dias === 1 ? 'Queda un día' : 'Quedan dos días'}: no metas materia nueva. Repasa tus fallos, haz un simulacro y descansa antes del examen.`;
     } else if (ratio >= 1.25) {
-      clase = 'bien'; icono = '✅';
+      clase = 'bien'; icono = 'check_circle';
       titulo = 'Vas sobrado de tiempo';
       texto = `Con ${horasSemana} h a la semana llegas de sobra. Aprovecha para hacer simulacros completos y afianzar lo que peor llevas.`;
     } else if (ratio >= 0.95) {
-      clase = 'bien'; icono = '👍';
+      clase = 'bien'; icono = 'thumb_up';
       titulo = 'Llegas justo pero bien';
       texto = `Manteniendo ${horasSemana} h a la semana llegas a tu fecha. La clave es no saltarte días: la constancia es lo que aprueba.`;
     } else if (ratio >= 0.7) {
-      clase = 'justo'; icono = '⚠️';
+      clase = 'justo'; icono = 'warning';
       titulo = 'Vas apretado';
       const extra = Math.ceil((horasNecesarias - horasDisponibles) / semanas);
       texto = `Te faltan unas ${Math.round(horasNecesarias - horasDisponibles)} h. Súbelo a ~${horasSemana + extra} h por semana, o retrasa el examen un par de semanas.`;
     } else {
-      clase = 'apretado'; icono = '🔴';
+      clase = 'apretado'; icono = 'error';
       titulo = 'Con este ritmo no llegas';
       const idealSemana = Math.ceil(horasNecesarias / semanas);
       texto = `Necesitarías unas ${idealSemana} h por semana. Si no puedes, lo sensato es mover la fecha del examen antes de agobiarte.`;
@@ -786,7 +772,7 @@ window.reiniciarQuiz = function () { iQuiz = 0; aciertos = 0; pintarPregunta(); 
     caja.innerHTML = `
       <div class="plf-metricas">${metricas}</div>
       <div class="plf-veredicto ${clase}">
-        <span class="plf-icono">${icono}</span>
+        <span class="plf-icono material-symbols-rounded">${icono}</span>
         <span><b>${titulo}</b>${texto}</span>
       </div>`;
   }

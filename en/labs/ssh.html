@@ -19,10 +19,11 @@
 <meta name="twitter:title" content="Lab 13: Remote access over SSH · Packet Tracer">
 <meta name="twitter:description" content="Domain, RSA keys, local user and SSH-only vty. Packet Tracer guide for the CCNA with topology, step-by-step solution and verification.">
 <meta name="twitter:image" content="https://routinglab.es/capturas/og-en.jpg">
-<meta name="theme-color" content="#0A1D5C">
+<meta name="theme-color" content="#0B1F4D">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,500,1,0&icon_names=check_circle,extension,terminal&display=block">
 <link rel="stylesheet" href="../../estilos.css">
 <link rel="stylesheet" href="../../labs.css">
 <link rel="alternate" hreflang="es" href="https://routinglab.es/laboratorios/ssh.html">
@@ -35,18 +36,7 @@
 <nav class="nav">
   <div class="contenedor nav-inner">
     <a href="../index.html" class="logo">
-      <svg viewBox="0 0 100 100" aria-hidden="true">
-        <circle cx="50" cy="50" r="48" fill="url(#g)"/>
-        <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stop-color="#0A1D5C"/><stop offset="1" stop-color="#2E5BFF"/>
-        </linearGradient></defs>
-        <g stroke="#4CC9F0" stroke-width="6" stroke-linecap="round">
-          <path d="M50 50 L28 30 M50 50 L72 26 M50 50 L28 72 M50 50 L74 70 M28 30 L72 26 M28 72 L74 70"/>
-        </g>
-        <circle cx="28" cy="30" r="9" fill="#fff"/><circle cx="72" cy="26" r="9" fill="#fff"/>
-        <circle cx="28" cy="72" r="9" fill="#fff"/><circle cx="74" cy="70" r="9" fill="#fff"/>
-        <circle cx="50" cy="50" r="11" fill="#4CC9F0"/>
-      </svg>
+      <svg viewBox="0 0 108 108" aria-hidden="true"><rect width="108" height="108" rx="26" fill="#0B1F4D"/><path d="M31 75V54h46V33" fill="none" stroke="#3D8BFD" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><circle cx="54" cy="54" r="4.5" fill="#3D8BFD"/><circle cx="31" cy="75" r="8.5" fill="#fff"/><circle cx="77" cy="33" r="8.5" fill="#fff"/></svg>
       RoutingLab
     </a>
     <button class="menu-movil" aria-label="Open menu">☰</button>
@@ -61,7 +51,7 @@
       <a href="../index.html#descargar" class="btn btn-primario btn-sm">Download</a>
     </div>
     <a href="../../laboratorios/ssh.html" class="cambio-idioma" hreflang="es" lang="es" aria-label="Leer esta página en español">ES</a>
-    <button class="boton-tema" onclick="alternarTema()">🌙</button>
+    <button class="boton-tema" onclick="alternarTema()" aria-label="Tema"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="currentColor"><path d="M12.4 2.5a9.6 9.6 0 1 0 9.1 12.6 7.6 7.6 0 0 1-9.1-12.6z"/></svg></button>
   </div>
 </nav>
 <header class="cabecera-pagina cabecera-lab">
@@ -84,7 +74,7 @@
 <p>R1 has to be managed securely from PC1. Telnet sends everything in clear text, so only SSH version 2 will be allowed.</p>
 <p>Configure the domain ccna.local, generate 1024-bit RSA keys, create user admin with secret password cisco123 and protect privileged mode with enable secret class. On vty lines 0 to 4, authenticate against local users and allow SSH only.</p>
 <p>Finally, connect from PC1: ssh -l admin 192.168.1.1</p>
-<h2>Topology</h2><div class="topologia"><svg viewBox="0 0 640 340" role="img" aria-label="R1, SW1, PC1"><line class="cable" x1="320" y1="46" x2="320" y2="162"/><line class="cable" x1="320" y1="278" x2="320" y2="162"/><defs><linearGradient id="gssh0" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4CC9F0"/><stop offset="1" stop-color="#2E5BFF"/></linearGradient></defs><rect x="290" y="16" width="60" height="60" rx="17" fill="url(#gssh0)"/><g transform="translate(304,30) scale(1.333)" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M12 4v5M12 15v5M4 12h5M15 12h5M10 7l2-3 2 3M10 17l2 3 2-3M7 10l-3 2 3 2M17 10l3 2-3 2"/></g><text class="nombre" x="320" y="98" text-anchor="middle">R1</text><defs><linearGradient id="gssh1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7209B7"/><stop offset="1" stop-color="#2E5BFF"/></linearGradient></defs><rect x="290" y="132" width="60" height="60" rx="17" fill="url(#gssh1)"/><g transform="translate(304,146) scale(1.333)" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="10" rx="2"/><path d="M7 11h9M14 9l2 2-2 2M17 13H8M10 15l-2-2 2-2"/></g><text class="nombre" x="320" y="214" text-anchor="middle">SW1</text><defs><linearGradient id="gssh2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#06D6A0"/><stop offset="1" stop-color="#118AB2"/></linearGradient></defs><rect x="290" y="248" width="60" height="60" rx="17" fill="url(#gssh2)"/><g transform="translate(304,262) scale(1.333)" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M9 20h6M12 16v4"/></g><text class="nombre" x="320" y="330" text-anchor="middle">PC1</text><rect class="puerto-fondo" x="336" y="93" width="55" height="22" rx="6"/><text class="puerto" x="364" y="109" text-anchor="middle">Gi0/0</text><rect class="puerto-fondo" x="249" y="93" width="55" height="22" rx="6"/><text class="puerto" x="276" y="109" text-anchor="middle">Gi0/1</text><rect class="puerto-fondo" x="266" y="209" width="38" height="22" rx="6"/><text class="puerto" x="285" y="225" text-anchor="middle">Fa0</text><rect class="puerto-fondo" x="336" y="209" width="55" height="22" rx="6"/><text class="puerto" x="364" y="225" text-anchor="middle">Fa0/1</text></svg></div>
+<h2>Topology</h2><div class="topologia"><svg viewBox="0 0 640 340" role="img" aria-label="R1, SW1, PC1"><line class="cable" x1="320" y1="46" x2="320" y2="162"/><line class="cable" x1="320" y1="278" x2="320" y2="162"/><defs><linearGradient id="gssh0" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1F4FD1"/><stop offset="1" stop-color="#1A44B8"/></linearGradient></defs><rect x="290" y="16" width="60" height="60" rx="17" fill="url(#gssh0)"/><g transform="translate(304,30) scale(1.333)" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M12 4v5M12 15v5M4 12h5M15 12h5M10 7l2-3 2 3M10 17l2 3 2-3M7 10l-3 2 3 2M17 10l3 2-3 2"/></g><text class="nombre" x="320" y="98" text-anchor="middle">R1</text><defs><linearGradient id="gssh1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0B1F4D"/><stop offset="1" stop-color="#16306E"/></linearGradient></defs><rect x="290" y="132" width="60" height="60" rx="17" fill="url(#gssh1)"/><g transform="translate(304,146) scale(1.333)" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="10" rx="2"/><path d="M7 11h9M14 9l2 2-2 2M17 13H8M10 15l-2-2 2-2"/></g><text class="nombre" x="320" y="214" text-anchor="middle">SW1</text><defs><linearGradient id="gssh2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1E3A8A"/><stop offset="1" stop-color="#1F4FD1"/></linearGradient></defs><rect x="290" y="248" width="60" height="60" rx="17" fill="url(#gssh2)"/><g transform="translate(304,262) scale(1.333)" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M9 20h6M12 16v4"/></g><text class="nombre" x="320" y="330" text-anchor="middle">PC1</text><rect class="puerto-fondo" x="336" y="93" width="55" height="22" rx="6"/><text class="puerto" x="364" y="109" text-anchor="middle">Gi0/0</text><rect class="puerto-fondo" x="249" y="93" width="55" height="22" rx="6"/><text class="puerto" x="276" y="109" text-anchor="middle">Gi0/1</text><rect class="puerto-fondo" x="266" y="209" width="38" height="22" rx="6"/><text class="puerto" x="285" y="225" text-anchor="middle">Fa0</text><rect class="puerto-fondo" x="336" y="209" width="55" height="22" rx="6"/><text class="puerto" x="364" y="225" text-anchor="middle">Fa0/1</text></svg></div>
 <h2>Devices and cabling</h2><ul class="modelos"><li><strong>R1</strong> <span class="texto-sec">·</span> <span class="mono">2911</span></li><li><strong>SW1</strong> <span class="texto-sec">·</span> <span class="mono">2960-24TT</span></li><li><strong>PC1</strong> <span class="texto-sec">·</span> <span class="mono">PC-PT</span></li></ul>
 <div class="tabla-envoltura"><table class="tabla-guia"><thead><tr><th>From</th><th>To</th><th>Cable</th></tr></thead><tbody><tr><td><strong>R1</strong> <span class="mono">Gi0/0</span></td><td><strong>SW1</strong> <span class="mono">Gi0/1</span></td><td>Straight-through</td></tr><tr><td><strong>PC1</strong> <span class="mono">Fa0</span></td><td><strong>SW1</strong> <span class="mono">Fa0/1</span></td><td>Straight-through</td></tr></tbody></table></div>
 <p class="nota">If in doubt, the automatic connection cable (the lightning bolt) picks the right one. Rule: straight-through between different devices (PC or router to switch) and crossover between alike ones.</p>

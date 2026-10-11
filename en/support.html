@@ -19,10 +19,11 @@
 <meta name="twitter:title" content="Support and contact · RoutingLab">
 <meta name="twitter:description" content="Need help with RoutingLab? Write to us, send improvement ideas or report a bug. We answer everything.">
 <meta name="twitter:image" content="https://routinglab.es/capturas/og-en.jpg">
-<meta name="theme-color" content="#0A1D5C">
+<meta name="theme-color" content="#0B1F4D">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,500,1,0&icon_names=bug_report,build,calculate,calendar_month,chat,check_circle,delete,dns,error,extension,history,home,lan,lightbulb,mail,menu_book,quiz,replay,school,search,settings_ethernet,style,terminal,thumb_up,track_changes,warning&display=block">
 <link rel="stylesheet" href="../estilos.css">
 <link rel="alternate" hreflang="es" href="https://routinglab.es/soporte.html">
 <link rel="alternate" hreflang="en" href="https://routinglab.es/en/support.html">
@@ -30,7 +31,7 @@
 <link rel="canonical" href="https://routinglab.es/en/support.html">
 <style>
   .cabecera-pagina {
-    background: linear-gradient(125deg, var(--marino), #118AB2 130%);
+    background: var(--marino);
     color: #fff; padding: 64px 0 56px; position: relative; overflow: hidden;
   }
   #redCanvas { position: absolute; inset: 0; width: 100%; height: 100%; opacity: .6; }
@@ -65,18 +66,7 @@
 <nav class="nav">
   <div class="contenedor nav-inner">
     <a href="index.html" class="logo">
-      <svg viewBox="0 0 100 100" aria-hidden="true">
-        <circle cx="50" cy="50" r="48" fill="url(#g)"/>
-        <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stop-color="#0A1D5C"/><stop offset="1" stop-color="#2E5BFF"/>
-        </linearGradient></defs>
-        <g stroke="#4CC9F0" stroke-width="6" stroke-linecap="round">
-          <path d="M50 50 L28 30 M50 50 L72 26 M50 50 L28 72 M50 50 L74 70 M28 30 L72 26 M28 72 L74 70"/>
-        </g>
-        <circle cx="28" cy="30" r="9" fill="#fff"/><circle cx="72" cy="26" r="9" fill="#fff"/>
-        <circle cx="28" cy="72" r="9" fill="#fff"/><circle cx="74" cy="70" r="9" fill="#fff"/>
-        <circle cx="50" cy="50" r="11" fill="#4CC9F0"/>
-      </svg>
+      <svg viewBox="0 0 108 108" aria-hidden="true"><rect width="108" height="108" rx="26" fill="#0B1F4D"/><path d="M31 75V54h46V33" fill="none" stroke="#3D8BFD" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><circle cx="54" cy="54" r="4.5" fill="#3D8BFD"/><circle cx="31" cy="75" r="8.5" fill="#fff"/><circle cx="77" cy="33" r="8.5" fill="#fff"/></svg>
       RoutingLab
     </a>
     <button class="menu-movil" aria-label="Open menu">☰</button>
@@ -91,7 +81,7 @@
       <a href="index.html#descargar" class="btn btn-primario btn-sm">Download</a>
     </div>
     <a href="../soporte.html" class="cambio-idioma" hreflang="es" lang="es" aria-label="Leer esta página en español">ES</a>
-    <button class="boton-tema" onclick="alternarTema()">🌙</button>
+    <button class="boton-tema" onclick="alternarTema()" aria-label="Tema"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="currentColor"><path d="M12.4 2.5a9.6 9.6 0 1 0 9.1 12.6 7.6 7.6 0 0 1-9.1-12.6z"/></svg></button>
   </div>
 </nav>
 
@@ -113,9 +103,9 @@
         <p class="texto-sec" style="font-size:.95rem">Pick a reason and we will draft the email ready for you to send.</p>
 
         <div class="tipo-mensaje" id="tipos">
-          <button class="tipo-btn activo" data-tipo="Help"><span>💬</span>Help</button>
-          <button class="tipo-btn" data-tipo="Bug"><span>🐞</span>Report a bug</button>
-          <button class="tipo-btn" data-tipo="Idea"><span>💡</span>Improvement idea</button>
+          <button class="tipo-btn activo" data-tipo="Help"><span class="material-symbols-rounded" aria-hidden="true">chat</span>Help</button>
+          <button class="tipo-btn" data-tipo="Bug"><span class="material-symbols-rounded" aria-hidden="true">bug_report</span>Report a bug</button>
+          <button class="tipo-btn" data-tipo="Idea"><span class="material-symbols-rounded" aria-hidden="true">lightbulb</span>Improvement idea</button>
         </div>
 
         <div style="margin-bottom:16px">
@@ -126,7 +116,7 @@
           <label for="mensaje">Message</label>
           <textarea class="campo" id="mensaje" rows="6" placeholder="Tell us in detail: what you expected and what happened."></textarea>
         </div>
-        <button class="btn btn-primario" style="width:100%" id="enviar">✉️ Write the email</button>
+        <button class="btn btn-primario" style="width:100%" id="enviar">Write the email</button>
         <p class="texto-sec" style="font-size:.85rem;margin:14px 0 0;text-align:center">
           Your email app will open with the message already written.<br>
           You can also write to us directly at
@@ -137,7 +127,7 @@
       <!-- Info -->
       <div>
         <div class="tarjeta g2 revelar" style="margin-bottom:18px">
-          <div class="icono-chip">📧</div>
+          <div class="icono-chip"><span class="material-symbols-rounded" aria-hidden="true">mail</span></div>
           <h3>Direct email</h3>
           <p class="texto-sec" style="margin-bottom:8px">For anything at all, including privacy and deleting your account.</p>
           <a href="mailto:soporte@routinglab.es" style="font-weight:700">soporte@routinglab.es</a>
@@ -148,7 +138,7 @@
           <p class="texto-sec" style="margin:0">We usually reply within 24-48 working hours. We are a small project, but we do reply.</p>
         </div>
         <div class="tarjeta g4 revelar">
-          <div class="icono-chip">🗑️</div>
+          <div class="icono-chip"><span class="material-symbols-rounded" aria-hidden="true">delete</span></div>
           <h3>Delete your account</h3>
           <p class="texto-sec" style="margin:0">You can delete it from the app itself in <strong>Settings → Account → Delete account</strong>, or by asking us by email.</p>
         </div>
@@ -174,7 +164,7 @@
       </div>
       <div class="faq-item revelar" data-acordeon>
         <button class="faq-pregunta" aria-expanded="false">I found a mistake in one of the questions</button>
-        <div class="faq-respuesta"><p>Telling us helps a lot. Write to us with the world, the lesson and the question text, and we will fix it in the next content update.</p></div>
+        <div class="faq-respuesta"><p>Telling us helps a lot. Use "Report a problem" below the question's explanation: it opens an email with its number already filled in. Or write to us with the module, the lesson and the question text, and we will fix it in the next content update.</p></div>
       </div>
       <div class="faq-item revelar" data-acordeon>
         <button class="faq-pregunta" aria-expanded="false">When will the iPhone version be ready?</button>
@@ -216,7 +206,7 @@
     </div>
     <div class="pie-abajo">
       <span>© <span data-anio>2026</span> RoutingLab · routinglab.es</span>
-      <span>Made with ☕ for future network engineers</span>
+      <span>Made for future network engineers</span>
     </div>
   </div>
 </footer>
@@ -234,7 +224,7 @@ document.getElementById('enviar').addEventListener('click', () => {
   const nombre = document.getElementById('nombre').value.trim();
   const mensaje = document.getElementById('mensaje').value.trim();
   if (!mensaje) {
-    alert('Write a message so we can help you 🙂');
+    alert('Write a message so we can help you.');
     document.getElementById('mensaje').focus();
     return;
   }

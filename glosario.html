@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Glosario de redes · 125 términos explicados · RoutingLab</title>
-<meta name="description" content="Glosario de redes para el CCNA: 125 términos como VLAN, ARP, NAT, STP o subnetting explicados en español de forma sencilla. Con buscador.">
-<meta property="og:title" content="Glosario de redes · 125 términos explicados · RoutingLab">
-<meta property="og:description" content="Glosario de redes para el CCNA: 125 términos como VLAN, ARP, NAT, STP o subnetting explicados en español de forma sencilla. Con buscador.">
+<title>Glosario de redes · 295 términos explicados · RoutingLab</title>
+<meta name="description" content="Glosario de redes para el CCNA: 295 términos como VLAN, ARP, NAT, STP o subnetting explicados en español de forma sencilla. Con buscador.">
+<meta property="og:title" content="Glosario de redes · 295 términos explicados · RoutingLab">
+<meta property="og:description" content="Glosario de redes para el CCNA: 295 términos como VLAN, ARP, NAT, STP o subnetting explicados en español de forma sencilla. Con buscador.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://routinglab.es/glosario.html">
 <meta property="og:site_name" content="RoutingLab">
@@ -16,13 +16,14 @@
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="RoutingLab · CCNA 200-301">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Glosario de redes · 125 términos explicados · RoutingLab">
-<meta name="twitter:description" content="Glosario de redes para el CCNA: 125 términos como VLAN, ARP, NAT, STP o subnetting explicados en español de forma sencilla. Con buscador.">
+<meta name="twitter:title" content="Glosario de redes · 295 términos explicados · RoutingLab">
+<meta name="twitter:description" content="Glosario de redes para el CCNA: 295 términos como VLAN, ARP, NAT, STP o subnetting explicados en español de forma sencilla. Con buscador.">
 <meta name="twitter:image" content="https://routinglab.es/capturas/og-es.jpg">
-<meta name="theme-color" content="#0A1D5C">
+<meta name="theme-color" content="#0B1F4D">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,500,1,0&icon_names=bug_report,build,calculate,calendar_month,chat,check_circle,delete,dns,error,extension,history,home,lan,lightbulb,mail,menu_book,quiz,replay,school,search,settings_ethernet,style,terminal,thumb_up,track_changes,warning&display=block">
 <link rel="stylesheet" href="estilos.css">
 <link rel="alternate" hreflang="es" href="https://routinglab.es/glosario.html">
 <link rel="alternate" hreflang="en" href="https://routinglab.es/en/glossary.html">
@@ -30,7 +31,7 @@
 <link rel="canonical" href="https://routinglab.es/glosario.html">
 <style>
   .cabecera-pagina {
-    background: linear-gradient(125deg, var(--marino), var(--violeta) 130%);
+    background: var(--marino);
     color: #fff; padding: 64px 0 56px; position: relative; overflow: hidden;
   }
   #redCanvas { position: absolute; inset: 0; width: 100%; height: 100%; opacity: .6; }
@@ -64,18 +65,7 @@
 <nav class="nav">
   <div class="contenedor nav-inner">
     <a href="index.html" class="logo">
-      <svg viewBox="0 0 100 100" aria-hidden="true">
-        <circle cx="50" cy="50" r="48" fill="url(#g)"/>
-        <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stop-color="#0A1D5C"/><stop offset="1" stop-color="#2E5BFF"/>
-        </linearGradient></defs>
-        <g stroke="#4CC9F0" stroke-width="6" stroke-linecap="round">
-          <path d="M50 50 L28 30 M50 50 L72 26 M50 50 L28 72 M50 50 L74 70 M28 30 L72 26 M28 72 L74 70"/>
-        </g>
-        <circle cx="28" cy="30" r="9" fill="#fff"/><circle cx="72" cy="26" r="9" fill="#fff"/>
-        <circle cx="28" cy="72" r="9" fill="#fff"/><circle cx="74" cy="70" r="9" fill="#fff"/>
-        <circle cx="50" cy="50" r="11" fill="#4CC9F0"/>
-      </svg>
+      <svg viewBox="0 0 108 108" aria-hidden="true"><rect width="108" height="108" rx="26" fill="#0B1F4D"/><path d="M31 75V54h46V33" fill="none" stroke="#3D8BFD" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><circle cx="54" cy="54" r="4.5" fill="#3D8BFD"/><circle cx="31" cy="75" r="8.5" fill="#fff"/><circle cx="77" cy="33" r="8.5" fill="#fff"/></svg>
       RoutingLab
     </a>
     <button class="menu-movil" aria-label="Abrir menú">☰</button>
@@ -90,7 +80,7 @@
       <a href="index.html#descargar" class="btn btn-primario btn-sm">Descargar</a>
     </div>
     <a href="en/glossary.html" class="cambio-idioma" hreflang="en" lang="en" aria-label="Read this page in English">EN</a>
-    <button class="boton-tema" onclick="alternarTema()">🌙</button>
+    <button class="boton-tema" onclick="alternarTema()" aria-label="Tema"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="currentColor"><path d="M12.4 2.5a9.6 9.6 0 1 0 9.1 12.6 7.6 7.6 0 0 1-9.1-12.6z"/></svg></button>
   </div>
 </nav>
 
@@ -99,13 +89,13 @@
   <div class="contenedor">
     <span class="etiqueta-seccion" style="background:rgba(255,255,255,.15);color:#fff">Gratis · sin registro</span>
     <h1>Glosario de redes</h1>
-    <p>125 términos del temario CCNA explicados en cristiano. Búscalos al instante mientras estudias.</p>
+    <p>295 términos del temario CCNA explicados en cristiano. Búscalos al instante mientras estudias.</p>
   </div>
 </header>
 
 <div class="buscador-sticky">
   <div class="contenedor">
-    <input class="campo" id="buscar" placeholder="🔍 Busca un término: VLAN, NAT, subnetting…" autocomplete="off">
+    <input class="campo" id="buscar" placeholder="Busca un término: VLAN, NAT, subnetting…" autocomplete="off">
     <div id="indice" style="margin-top:12px"></div>
   </div>
 </div>
@@ -119,12 +109,12 @@
 
 <section style="padding-top:0">
   <div class="contenedor">
-    <div class="tarjeta revelar" style="text-align:center;padding:48px 32px;background:linear-gradient(125deg,var(--marino),var(--violeta));border:0;color:#fff">
+    <div class="tarjeta revelar" style="text-align:center;padding:48px 32px;background: var(--marino);border:0;color:#fff">
       <h2 style="color:#fff">Llévate el glosario en el móvil</h2>
       <p style="color:#c8d3f5;max-width:520px;margin:0 auto 24px">
         En la app tienes este glosario sin conexión, más teoría, ejercicios y simulacros de examen.
       </p>
-      <a href="index.html#descargar" class="btn btn-claro">📲 Descargar RoutingLab</a>
+      <a href="index.html#descargar" class="btn btn-claro">Descargar RoutingLab</a>
     </div>
   </div>
 </section>
@@ -157,7 +147,7 @@
     </div>
     <div class="pie-abajo">
       <span>© <span data-anio>2026</span> RoutingLab · routinglab.es</span>
-      <span>Hecho con ☕ para futuros ingenieros de red</span>
+      <span>Hecho para futuros ingenieros de redes</span>
     </div>
   </div>
 </footer>
@@ -166,20 +156,52 @@
 <script>
 const TERMINOS = [
 {
-"t": "802.1Q",
-"d": "Estándar que etiqueta las tramas con su VLAN para que varias VLANs viajen por un mismo enlace trunk."
+"t": "10GBASE-T",
+"d": "Ethernet de 10 Gbps sobre cobre de par trenzado, hasta 100 metros con cable Cat6a."
 },
 {
 "t": "802.11",
 "d": "Familia de estándares del WiFi (a/b/g/n/ac/ax) que define cómo se transmiten los datos por radio."
 },
 {
+"t": "802.1Q",
+"d": "Estándar que etiqueta las tramas con su VLAN para que varias VLANs viajen por un mismo enlace trunk."
+},
+{
+"t": "802.1X",
+"d": "Estándar de control de acceso por puerto: el equipo no entra en la red hasta autenticarse contra un servidor RADIUS. Se usa en cable y en WiFi empresarial."
+},
+{
 "t": "AAA",
 "d": "Authentication, Authorization y Accounting: quién eres, qué puedes hacer y registro de lo que hiciste. Se apoya en RADIUS o TACACS+."
 },
 {
+"t": "ABR (router frontera de área)",
+"d": "Router OSPF con interfaces en el área 0 y en otra área. Conecta las áreas y puede resumir sus rutas."
+},
+{
+"t": "Access-class",
+"d": "Comando que aplica una ACL a las líneas VTY para limitar desde qué direcciones se puede entrar en remoto al equipo."
+},
+{
 "t": "ACL (Access Control List)",
 "d": "Lista de reglas que permite o bloquea tráfico en un router o switch según origen, destino, protocolo o puerto."
+},
+{
+"t": "Adyacencia (OSPF)",
+"d": "Relación completa entre dos routers OSPF vecinos que ya han intercambiado su base de datos. Se ve como FULL."
+},
+{
+"t": "AES",
+"d": "Algoritmo de cifrado simétrico estándar y muy robusto. Lo usan WPA2, WPA3, IPsec y SNMPv3."
+},
+{
+"t": "Agotamiento de DHCP",
+"d": "Ataque que pide direcciones con miles de MAC falsas hasta vaciar el pool del servidor. Se frena con DHCP snooping y su límite de tasa."
+},
+{
+"t": "Amenaza",
+"d": "Cualquier cosa que puede aprovechar una vulnerabilidad para causar daño: un atacante, un malware o un error humano."
 },
 {
 "t": "Ancho de banda",
@@ -190,24 +212,92 @@ const TERMINOS = [
 "d": "Herramienta de automatización que configura muchos equipos a la vez desde ficheros de texto, sin instalar agentes."
 },
 {
+"t": "Anycast",
+"d": "Una misma dirección asignada a varios equipos; el tráfico llega al más cercano según el enrutamiento. La usan los servidores DNS raíz."
+},
+{
 "t": "AP (Punto de acceso)",
 "d": "Dispositivo que da cobertura WiFi y conecta los equipos inalámbricos con la red cableada."
+},
+{
+"t": "AP autónomo y AP ligero",
+"d": "El autónomo se configura uno a uno y funciona solo. El ligero depende de un controlador WLC, que lo gestiona por CAPWAP."
+},
+{
+"t": "API norte y sur",
+"d": "En SDN, la API norte comunica el controlador con las aplicaciones (normalmente REST) y la API sur, el controlador con los equipos (NETCONF, OpenFlow...)."
 },
 {
 "t": "APIPA",
 "d": "Dirección 169.254.x.x que se autoasigna un equipo cuando no encuentra servidor DHCP. Señal típica de que el DHCP falla."
 },
 {
+"t": "Área (OSPF)",
+"d": "Grupo de routers OSPF que comparten la misma base de datos de estado de enlace. Todas las áreas deben conectar con el área 0."
+},
+{
 "t": "ARP",
 "d": "Protocolo que traduce una dirección IP a su dirección MAC dentro de la misma red local."
+},
+{
+"t": "ARP gratuito",
+"d": "ARP que un equipo envía sin que nadie pregunte, para anunciar su propia IP y MAC. Lo usan HSRP y los cambios de MAC; también se abusa en ataques."
+},
+{
+"t": "ASIC",
+"d": "Chip diseñado para una sola tarea. Los switches conmutan y enrutan en ASIC, a velocidad de línea, sin cargar la CPU."
+},
+{
+"t": "Autenticación multifactor (MFA)",
+"d": "Exigir dos o más factores de tipos distintos: algo que sabes (contraseña), algo que tienes (móvil, token) y algo que eres (huella)."
+},
+{
+"t": "Auto-MDIX",
+"d": "Función de los puertos Ethernet que detecta si el cable es directo o cruzado y se adapta sola."
+},
+{
+"t": "Autonegociación",
+"d": "Mecanismo por el que dos puertos Ethernet acuerdan solos la velocidad y el dúplex. Si un lado se fija a mano, puede haber un duplex mismatch."
+},
+{
+"t": "Backbone (área 0)",
+"d": "Área central de OSPF. Todo el tráfico entre áreas pasa por ella."
+},
+{
+"t": "Balanceo de carga",
+"d": "Repartir el tráfico entre varios caminos o servidores. OSPF lo hace entre rutas de igual coste, y EtherChannel por flujos."
 },
 {
 "t": "Banner MOTD",
 "d": "Mensaje que muestra un equipo Cisco al conectarse. Se usa para avisos legales de acceso restringido."
 },
 {
+"t": "BDR",
+"d": "Router designado de reserva en un segmento OSPF. Toma el papel del DR si este cae."
+},
+{
 "t": "BGP",
 "d": "Protocolo de enrutamiento que interconecta grandes redes (sistemas autónomos): es el que hace funcionar Internet."
+},
+{
+"t": "Biometría",
+"d": "Autenticación por algo que eres: huella, cara o iris. Es el tercer tipo de factor en MFA."
+},
+{
+"t": "Bit y byte",
+"d": "Un bit es un 0 o un 1. Un byte son 8 bits. Las velocidades se miden en bits por segundo y los archivos, en bytes."
+},
+{
+"t": "Bloque (tamaño de)",
+"d": "Cada cuántas direcciones empieza una nueva subred: 256 menos el valor de la máscara en el octeto interesante. También se llama magic number."
+},
+{
+"t": "BPDU",
+"d": "Mensaje que intercambian los switches en STP para elegir el root bridge y calcular el árbol."
+},
+{
+"t": "BPDU Guard",
+"d": "Protección que apaga en err-disabled un puerto PortFast si recibe una BPDU, porque alguien ha conectado un switch donde no debía."
 },
 {
 "t": "Bridge ID",
@@ -218,36 +308,148 @@ const TERMINOS = [
 "d": "Envío de un paquete a TODOS los dispositivos de la red local a la vez."
 },
 {
+"t": "BSSID",
+"d": "Identificador de cada radio de un punto de acceso: su MAC. Un mismo SSID puede tener muchos BSSID, uno por AP y banda."
+},
+{
+"t": "Bucle de enrutamiento",
+"d": "Paquetes que dan vueltas entre routers porque cada uno cree que el otro es el camino. El TTL acaba descartándolos."
+},
+{
 "t": "Cable cruzado",
 "d": "Cable de red con los pares invertidos, usado antiguamente para unir equipos iguales. Hoy el auto-MDIX lo hace innecesario."
+},
+{
+"t": "Cable de consola",
+"d": "Cable para configurar un equipo por su puerto CONSOLE: RJ45 en un extremo y serie DB9 o USB en el otro."
 },
 {
 "t": "Cable directo",
 "d": "Cable de red con el mismo orden de pares en ambos extremos: el habitual para conectar un PC a un switch."
 },
 {
+"t": "CAM (tabla)",
+"d": "Nombre técnico de la tabla de direcciones MAC del switch, que guarda en una memoria de búsqueda muy rápida."
+},
+{
+"t": "Canal WiFi",
+"d": "Porción de una banda de radio que usa un punto de acceso. En 2,4 GHz solo 1, 6 y 11 no se solapan."
+},
+{
+"t": "CAPWAP",
+"d": "Protocolo que une los AP ligeros con su controlador WLC. Usa un túnel de control y otro de datos por UDP 5246 y 5247."
+},
+{
+"t": "Catalyst Center",
+"d": "Controlador SDN de Cisco para redes de campus, antes llamado DNA Center. Automatiza, aplica políticas y analiza la red."
+},
+{
 "t": "CDP",
 "d": "Protocolo propietario de Cisco que descubre los dispositivos Cisco directamente conectados."
+},
+{
+"t": "Centro de datos",
+"d": "Instalación con servidores, almacenamiento y red de alta capacidad, refrigeración y alimentación redundantes."
+},
+{
+"t": "Certificado digital",
+"d": "Documento electrónico que une una clave pública con una identidad, firmado por una autoridad de certificación. Lo usan HTTPS y las VPN."
+},
+{
+"t": "CGNAT",
+"d": "NAT a gran escala del operador: muchos clientes comparten una IP pública. Usa el rango 100.64.0.0/10."
 },
 {
 "t": "CIDR",
 "d": "Notación que indica los bits de red con una barra (p. ej. /24), en lugar de escribir la máscara completa."
 },
 {
+"t": "Cifrado simétrico y asimétrico",
+"d": "El simétrico usa la misma clave para cifrar y descifrar y es rápido (AES). El asimétrico usa una pareja de claves pública y privada (RSA) y sirve para intercambiar claves y firmar."
+},
+{
+"t": "Clase de dirección",
+"d": "Antigua división de IPv4 por el primer octeto: A (1-126), B (128-191), C (192-223), D multicast y E experimental."
+},
+{
+"t": "Clasificación y marcado",
+"d": "Primer paso de QoS: identificar el tipo de tráfico y marcarlo (DSCP o CoS) para que el resto de la red lo trate según su prioridad."
+},
+{
 "t": "CLI",
 "d": "Interfaz de línea de comandos: se configura el equipo escribiendo comandos (como en Cisco IOS)."
+},
+{
+"t": "Coincidencia más larga",
+"d": "Regla con la que el router elige ruta: gana la que tiene el prefijo más largo que coincide con el destino."
 },
 {
 "t": "Colisión",
 "d": "Choque de dos tramas enviadas a la vez en el mismo medio compartido. Los switches full-duplex las eliminan."
 },
 {
+"t": "Colisión tardía",
+"d": "Colisión que se detecta tarde en la trama. En redes modernas delata casi siempre un duplex mismatch."
+},
+{
+"t": "Collapsed core",
+"d": "Diseño de dos capas en el que el núcleo y la distribución se juntan en los mismos switches. Típico de campus medianos."
+},
+{
+"t": "Community (SNMP)",
+"d": "Cadena que hace de contraseña en SNMPv1 y v2c. Viaja en claro; las de fábrica, public y private, deben cambiarse."
+},
+{
+"t": "Con agente y sin agente",
+"d": "Herramientas de automatización que necesitan un programa instalado en cada equipo (Puppet, Chef) frente a las que entran por SSH o API sin instalar nada (Ansible)."
+},
+{
+"t": "Conmutación de paquetes",
+"d": "Los datos se trocean en paquetes que viajan por separado y comparten los enlaces. Es la base de Internet."
+},
+{
+"t": "Conmutación store-and-forward y cut-through",
+"d": "Store-and-forward recibe la trama entera y comprueba el CRC antes de reenviarla. Cut-through la reenvía en cuanto lee la MAC de destino: menos latencia, pero deja pasar tramas dañadas."
+},
+{
 "t": "Contenedor",
 "d": "Aplicación empaquetada con lo que necesita para ejecutarse, compartiendo el sistema operativo del anfitrión. Más ligero que una máquina virtual."
 },
 {
+"t": "Convergencia",
+"d": "Momento en que todos los routers o switches han actualizado su visión de la red tras un cambio. Cuanto más rápida, menos corte."
+},
+{
+"t": "CoS",
+"d": "Marca de prioridad de 3 bits dentro de la etiqueta 802.1Q. Solo existe en tramas etiquetadas, en capa 2."
+},
+{
+"t": "Coste (OSPF)",
+"d": "Métrica de OSPF: ancho de banda de referencia dividido por el de la interfaz. Gana la ruta con menor coste total."
+},
+{
+"t": "CRC",
+"d": "Comprobación de errores al final de cada trama Ethernet. Muchos errores CRC indican un cable dañado o interferencias."
+},
+{
+"t": "CRUD",
+"d": "Las cuatro operaciones sobre datos: crear, leer, actualizar y borrar. En REST equivalen a POST, GET, PUT o PATCH y DELETE."
+},
+{
 "t": "CSMA/CD",
 "d": "Método de Ethernet clásico: escucha antes de transmitir y detecta colisiones. Irrelevante en redes full-duplex modernas."
+},
+{
+"t": "DAI (Dynamic ARP Inspection)",
+"d": "Función del switch que descarta los ARP falsos comprobándolos con la tabla de DHCP snooping. Frena el envenenamiento ARP."
+},
+{
+"t": "dBm",
+"d": "Unidad de potencia de señal en decibelios respecto a 1 milivatio. En WiFi, -50 dBm es una señal excelente y -80 dBm, muy débil."
+},
+{
+"t": "Debug",
+"d": "Comando de IOS que muestra en directo lo que hace un proceso. Muy útil, pero consume CPU: se apaga con undebug all."
 },
 {
 "t": "DHCP",
@@ -256,6 +458,50 @@ const TERMINOS = [
 {
 "t": "DHCP Snooping",
 "d": "Función de seguridad del switch que solo acepta respuestas DHCP desde puertos de confianza, evitando servidores DHCP falsos."
+},
+{
+"t": "DHCPv6",
+"d": "Versión de DHCP para IPv6. Puede repartir direcciones (con estado) o solo información como el DNS (sin estado), junto con SLAAC."
+},
+{
+"t": "Diafonía",
+"d": "Interferencia de un par de cables sobre otro cercano. El trenzado de los pares la reduce."
+},
+{
+"t": "Dirección de broadcast",
+"d": "La última dirección de una subred, con todos los bits de host a 1. Llega a todos los equipos de la subred y no se asigna."
+},
+{
+"t": "Dirección de red",
+"d": "La primera dirección de una subred, con todos los bits de host a 0. Identifica la red y no se asigna a ningún equipo."
+},
+{
+"t": "Dirección global unicast",
+"d": "Dirección IPv6 pública y enrutable en Internet. Empieza por 2 o 3 (2000::/3)."
+},
+{
+"t": "Dirección link-local",
+"d": "Dirección IPv6 fe80::/10 que solo vale dentro del enlace. Todas las interfaces IPv6 tienen una y los routers la usan como siguiente salto."
+},
+{
+"t": "Dirección privada (RFC 1918)",
+"d": "Rangos reservados para redes internas que no se enrutan en Internet: 10.0.0.0/8, 172.16.0.0/12 y 192.168.0.0/16."
+},
+{
+"t": "Dirección pública",
+"d": "Dirección única en Internet, asignada por un operador o un registro regional. Es la que ve el resto del mundo."
+},
+{
+"t": "Dirección unique local",
+"d": "Dirección IPv6 privada, del rango fc00::/7, que en la práctica empieza por fd. No se enruta en Internet."
+},
+{
+"t": "Diseño de tres capas",
+"d": "Modelo jerárquico de red de campus: acceso (usuarios), distribución (políticas y enrutamiento) y núcleo (transporte rápido)."
+},
+{
+"t": "Dispositivo pirata (rogue)",
+"d": "Equipo no autorizado conectado a la red, como un AP o un servidor DHCP montado por un usuario o un atacante."
 },
 {
 "t": "Distancia administrativa",
@@ -278,20 +524,56 @@ const TERMINOS = [
 "d": "Segmento de red donde las tramas pueden colisionar. Cada puerto de switch es su propio dominio."
 },
 {
+"t": "DoS y DDoS",
+"d": "Ataques de denegación de servicio: saturan un equipo o un enlace para dejarlo inservible. En el DDoS el ataque llega desde miles de equipos a la vez."
+},
+{
+"t": "DR (router designado)",
+"d": "Router elegido en un segmento OSPF con varios routers para centralizar el intercambio de información. Gana la prioridad más alta y luego el router ID más alto."
+},
+{
+"t": "DSCP",
+"d": "Marca de prioridad de 6 bits en la cabecera IP. Sobrevive de extremo a extremo; la voz suele marcarse EF (46)."
+},
+{
 "t": "DTP",
 "d": "Protocolo de Cisco que negocia automáticamente si un enlace es de acceso o trunk. Por seguridad se recomienda desactivarlo."
+},
+{
+"t": "Dual stack",
+"d": "Ejecutar IPv4 e IPv6 a la vez en los mismos equipos e interfaces. Es la forma habitual de migrar a IPv6."
 },
 {
 "t": "Dúplex (half/full)",
 "d": "Half: no se puede enviar y recibir a la vez. Full: sí, simultáneamente, sin colisiones."
 },
 {
+"t": "EAP",
+"d": "Marco de autenticación que usa 802.1X. Tiene variantes como PEAP o EAP-TLS, que usa certificados."
+},
+{
+"t": "EIGRP",
+"d": "Protocolo de enrutamiento avanzado de Cisco, de vector distancia. Distancia administrativa 90 para rutas internas."
+},
+{
 "t": "Encapsulación",
 "d": "Proceso de ir añadiendo cabeceras al bajar por las capas OSI: datos → segmento → paquete → trama → bits."
 },
 {
+"t": "Endpoint",
+"d": "Cualquier equipo final de la red: PC, móvil, impresora, cámara o sensor."
+},
+{
 "t": "Enrutamiento dinámico",
 "d": "El router aprende las rutas solo, hablando con sus vecinos mediante protocolos como OSPF o EIGRP."
+},
+{
+"t": "Err-disabled",
+"d": "Estado en que el switch apaga un puerto por una protección: port security, BPDU Guard, límite de DHCP snooping. Se recupera con shutdown y no shutdown."
+},
+{
+"t": "ESP",
+"d": "Protocolo de IPsec que cifra y autentica los datos. En modo túnel cifra el paquete original completo."
 },
 {
 "t": "EtherChannel",
@@ -306,8 +588,20 @@ const TERMINOS = [
 "d": "Método que genera la parte de host de una dirección IPv6 a partir de la MAC del interfaz."
 },
 {
+"t": "Exploit",
+"d": "Código o técnica que aprovecha una vulnerabilidad concreta para atacar un sistema."
+},
+{
 "t": "FHRP",
 "d": "Familia de protocolos (HSRP, VRRP, GLBP) que dan un gateway redundante: si un router cae, otro toma su lugar."
+},
+{
+"t": "Fibra monomodo",
+"d": "Fibra de núcleo muy fino (9 micras) que lleva la luz por un solo camino. Alcanza decenas de kilómetros; su cubierta suele ser amarilla."
+},
+{
+"t": "Fibra multimodo",
+"d": "Fibra de núcleo más grueso (50 o 62,5 micras) para distancias cortas, dentro de un edificio o un centro de datos. Cubierta naranja o aguamarina."
 },
 {
 "t": "Fibra óptica",
@@ -318,16 +612,60 @@ const TERMINOS = [
 "d": "Dispositivo o software que filtra el tráfico de red para proteger según reglas de seguridad."
 },
 {
+"t": "Firewall con estado",
+"d": "Firewall que recuerda las conexiones abiertas y deja pasar automáticamente las respuestas, en vez de evaluar cada paquete por separado."
+},
+{
+"t": "Flash (memoria)",
+"d": "Memoria permanente de un equipo Cisco donde se guardan la imagen del IOS y, en los switches, el archivo vlan.dat."
+},
+{
+"t": "FlexConnect",
+"d": "Modo de AP para sedes remotas: el tráfico de los clientes sale directamente en la sede, sin pasar por el túnel hasta el WLC central."
+},
+{
+"t": "Fragmentación",
+"d": "Dividir un paquete en trozos más pequeños cuando supera la MTU de un enlace. IPv6 solo permite que lo haga el origen."
+},
+{
 "t": "FTP",
 "d": "Protocolo de transferencia de archivos (puertos 20 y 21). No cifra: hoy se prefiere SFTP."
+},
+{
+"t": "Fuerza bruta",
+"d": "Ataque que prueba contraseñas una tras otra hasta acertar. Se frena con contraseñas largas, bloqueo tras varios fallos y MFA."
 },
 {
 "t": "Gateway (puerta de enlace)",
 "d": "Router que conecta tu red local con otras redes o con Internet."
 },
 {
+"t": "Gestión en la nube",
+"d": "Equipos de red que se configuran y supervisan desde un panel web en la nube, como Cisco Meraki, sin controlador local."
+},
+{
 "t": "GLBP",
 "d": "Protocolo FHRP de Cisco que además de dar redundancia reparte la carga entre varios routers."
+},
+{
+"t": "GRE",
+"d": "Protocolo de túnel que encapsula paquetes dentro de otros. No cifra; por eso se combina con IPsec."
+},
+{
+"t": "Hash",
+"d": "Resumen de longitud fija calculado a partir de unos datos. Sirve para comprobar integridad y guardar contraseñas sin almacenarlas en claro (SHA-256, scrypt)."
+},
+{
+"t": "Hello (paquete)",
+"d": "Mensaje que envían periódicamente los protocolos como OSPF para descubrir vecinos y comprobar que siguen vivos."
+},
+{
+"t": "Hipervisor",
+"d": "Software que crea y ejecuta máquinas virtuales. El de tipo 1 va directamente sobre el hardware; el de tipo 2, sobre un sistema operativo."
+},
+{
+"t": "Host",
+"d": "Cualquier equipo con dirección IP que envía o recibe datos: un PC, un servidor, un móvil."
 },
 {
 "t": "HSRP",
@@ -338,12 +676,56 @@ const TERMINOS = [
 "d": "Protocolo web (puerto 80). HTTPS es su versión cifrada con TLS (puerto 443)."
 },
 {
+"t": "Hub",
+"d": "Antiguo concentrador que repetía cada señal por todos sus puertos. Todo era un dominio de colisión; hoy se usan switches."
+},
+{
 "t": "ICMP",
-"d": "Protocolo de mensajes de control y error; lo usa &#x27;ping&#x27; para comprobar conectividad."
+"d": "Protocolo de mensajes de control y error; lo usa 'ping' para comprobar conectividad."
+},
+{
+"t": "ICMPv6",
+"d": "ICMP para IPv6. Además de los mensajes de ping y error, transporta NDP, que sustituye a ARP."
+},
+{
+"t": "IDS e IPS",
+"d": "Sistemas que detectan ataques analizando el tráfico. El IDS solo avisa; el IPS, colocado en línea, además los bloquea."
+},
+{
+"t": "IEEE",
+"d": "Organismo que publica los estándares de Ethernet (802.3), WiFi (802.11), VLAN (802.1Q) y muchos más."
+},
+{
+"t": "IGP y EGP",
+"d": "Los IGP enrutan dentro de una organización (OSPF, EIGRP). Los EGP, entre organizaciones distintas: hoy, solo BGP."
+},
+{
+"t": "Infraestructura como código (IaC)",
+"d": "Definir la red o los servidores en archivos de texto versionados, que una herramienta aplica de forma automática y repetible."
+},
+{
+"t": "Ingeniería social",
+"d": "Engañar a las personas para que revelen información o den acceso: phishing, llamadas haciéndose pasar por soporte, pendrives abandonados."
+},
+{
+"t": "Inside local e inside global",
+"d": "En NAT, la inside local es la IP privada del equipo interno y la inside global, la pública con la que sale a Internet."
 },
 {
 "t": "Inter-VLAN routing",
 "d": "Enrutamiento que permite comunicar dispositivos de VLANs distintas a través de un router o switch L3."
+},
+{
+"t": "Inundación (flooding)",
+"d": "Cuando el switch no conoce la MAC de destino, envía la trama por todos los puertos de la VLAN salvo por el que entró."
+},
+{
+"t": "Inundación de MAC",
+"d": "Ataque que llena la tabla MAC del switch con direcciones falsas para que reparta las tramas por todos los puertos y el atacante las capture. Port security lo frena."
+},
+{
+"t": "IOS",
+"d": "Sistema operativo de los routers y switches Cisco. Sus versiones modernas son IOS XE; los routers de operador usan IOS XR."
 },
 {
 "t": "IP (dirección)",
@@ -358,12 +740,20 @@ const TERMINOS = [
 "d": "Nueva versión del protocolo IP con direcciones de 128 bits, creada para superar el agotamiento de IPv4."
 },
 {
+"t": "ISP",
+"d": "Proveedor de servicios de Internet: el operador que conecta tu red con Internet."
+},
+{
 "t": "Jitter",
 "d": "Variación en el retardo de los paquetes. Es el enemigo de la voz y el vídeo, aunque haya ancho de banda de sobra."
 },
 {
 "t": "JSON",
 "d": "Formato de datos en texto que usan las APIs REST. Fundamental para la automatización de redes."
+},
+{
+"t": "Keepalive",
+"d": "Mensaje periódico que confirma que el otro extremo sigue activo. Si dejan de llegar, el enlace o la sesión se da por caído."
 },
 {
 "t": "LACP",
@@ -378,16 +768,40 @@ const TERMINOS = [
 "d": "Tiempo que tarda un paquete en ir de origen a destino. Cuanto menor, mejor (crítico en voz/vídeo)."
 },
 {
+"t": "Lease (concesión DHCP)",
+"d": "Tiempo durante el que un cliente puede usar la IP que le dio el servidor DHCP. Antes de que acabe, la renueva."
+},
+{
 "t": "LLDP",
 "d": "Equivalente estándar de CDP: descubre vecinos directamente conectados, sea cual sea el fabricante."
+},
+{
+"t": "LLQ",
+"d": "Cola de baja latencia: una cola de prioridad estricta para la voz, con un límite para que no deje sin servicio al resto."
 },
 {
 "t": "Loopback",
 "d": "Interfaz virtual siempre activa de un router. Muy usada como identificador estable en OSPF y para gestión."
 },
 {
+"t": "LSA",
+"d": "Anuncio de estado de enlace de OSPF. Cada router describe sus enlaces en LSA, y con todos ellos se construye el mapa de la red."
+},
+{
 "t": "MAC (dirección)",
 "d": "Identificador físico único de una tarjeta de red, grabado de fábrica (48 bits)."
+},
+{
+"t": "Malware",
+"d": "Software malicioso: virus, gusanos, troyanos, ransomware o spyware."
+},
+{
+"t": "Man-in-the-middle",
+"d": "Ataque en el que alguien se coloca entre dos equipos que se comunican para leer o alterar su tráfico, por ejemplo con ARP falsos."
+},
+{
+"t": "Máquina virtual (VM)",
+"d": "Ordenador completo emulado por software sobre un hipervisor, con su propio sistema operativo."
 },
 {
 "t": "Máscara de subred",
@@ -396,6 +810,14 @@ const TERMINOS = [
 {
 "t": "Métrica",
 "d": "Valor que usa un protocolo de enrutamiento para elegir la mejor ruta: en OSPF es el coste, en RIP el número de saltos."
+},
+{
+"t": "MIB y OID",
+"d": "La MIB es el catálogo de datos que un equipo ofrece por SNMP. Cada dato tiene un identificador numérico único, el OID."
+},
+{
+"t": "Modos de IOS",
+"d": "Niveles del CLI de Cisco: usuario (>), privilegiado (#), configuración global ((config)#) y submodos como (config-if)#."
 },
 {
 "t": "MPLS",
@@ -414,12 +836,32 @@ const TERMINOS = [
 "d": "Traduce direcciones IP privadas a una pública para salir a Internet compartiendo una sola IP."
 },
 {
-"t": "Nube (IaaS/PaaS/SaaS)",
-"d": "Modelos de servicio: IaaS te da la infraestructura, PaaS la plataforma para desplegar, SaaS la aplicación ya lista."
+"t": "NDP",
+"d": "Protocolo de descubrimiento de vecinos de IPv6, sobre ICMPv6. Sustituye a ARP y permite encontrar routers y prefijos."
+},
+{
+"t": "NETCONF y RESTCONF",
+"d": "Protocolos para configurar equipos por programa usando modelos de datos YANG. NETCONF va sobre SSH con XML; RESTCONF, sobre HTTPS con JSON o XML."
+},
+{
+"t": "NGFW (firewall de nueva generación)",
+"d": "Firewall que además de puertos y direcciones entiende las aplicaciones, incluye IPS y filtra por usuario y por reputación."
+},
+{
+"t": "NIC",
+"d": "Tarjeta de red: el componente que conecta un equipo a la red y tiene su dirección MAC."
 },
 {
 "t": "NTP",
 "d": "Protocolo que sincroniza la hora de todos los equipos de red. Imprescindible para que los registros cuadren."
+},
+{
+"t": "Nube (IaaS/PaaS/SaaS)",
+"d": "Modelos de servicio: IaaS te da la infraestructura, PaaS la plataforma para desplegar, SaaS la aplicación ya lista."
+},
+{
+"t": "Nube pública, privada e híbrida",
+"d": "La pública la ofrece un proveedor a muchos clientes (AWS, Azure). La privada es para una sola organización. La híbrida combina ambas."
 },
 {
 "t": "NVRAM",
@@ -431,7 +873,19 @@ const TERMINOS = [
 },
 {
 "t": "OSPF",
-"d": "Protocolo de enrutamiento dinámico que calcula las mejores rutas según el &#x27;coste&#x27; del enlace."
+"d": "Protocolo de enrutamiento dinámico que calcula las mejores rutas según el 'coste' del enlace."
+},
+{
+"t": "OSPFv3",
+"d": "Versión de OSPF para IPv6. Se activa por interfaz y necesita un router ID de 32 bits."
+},
+{
+"t": "OUI",
+"d": "Los tres primeros bytes de una dirección MAC, que identifican al fabricante de la tarjeta."
+},
+{
+"t": "Overlay y underlay",
+"d": "El underlay es la red física que da conectividad IP. El overlay es una red lógica de túneles construida encima, como en SD-Access o VXLAN."
 },
 {
 "t": "PAgP",
@@ -442,16 +896,44 @@ const TERMINOS = [
 "d": "Unidad de datos de la capa 3: lleva las direcciones IP de origen y destino."
 },
 {
+"t": "Par trenzado (UTP y STP)",
+"d": "Cable de cobre con pares de hilos trenzados. UTP no lleva pantalla; STP o FTP la llevan para resistir interferencias."
+},
+{
+"t": "Passive interface",
+"d": "Interfaz en la que OSPF anuncia la red pero no envía hellos ni forma vecinos. Se usa hacia las LAN de usuarios."
+},
+{
 "t": "PAT (NAT overload)",
 "d": "Variante de NAT que permite a muchos equipos compartir una IP pública distinguiéndolos por el número de puerto."
+},
+{
+"t": "PDU",
+"d": "Unidad de datos de cada capa: datos en la de aplicación, segmento en la 4, paquete en la 3, trama en la 2 y bits en la 1."
+},
+{
+"t": "Phishing",
+"d": "Engaño por correo, SMS o web que imita a una entidad de confianza para robar contraseñas o datos. Es la forma más común de ingeniería social."
 },
 {
 "t": "Ping",
 "d": "Herramienta que comprueba si un host es accesible y mide el tiempo de respuesta (usa ICMP)."
 },
 {
+"t": "Plano de control, datos y gestión",
+"d": "El de control decide (protocolos de enrutamiento, STP); el de datos reenvía el tráfico; el de gestión es por donde se administra el equipo (SSH, SNMP)."
+},
+{
 "t": "PoE (Power over Ethernet)",
 "d": "Envía energía eléctrica por el cable de red para alimentar teléfonos IP, cámaras o APs."
+},
+{
+"t": "Policing y shaping",
+"d": "Dos formas de limitar el tráfico en QoS. El policing descarta o remarca lo que sobra; el shaping lo retrasa en una cola para suavizarlo."
+},
+{
+"t": "Política de contraseñas",
+"d": "Reglas sobre longitud, complejidad, caducidad y reutilización de las contraseñas. Hoy se priorizan la longitud y la MFA sobre los cambios frecuentes."
 },
 {
 "t": "Port Security",
@@ -466,8 +948,28 @@ const TERMINOS = [
 "d": "Número de bits de red de una dirección, el valor que va tras la barra en /24."
 },
 {
+"t": "Proxy ARP",
+"d": "Un router responde a un ARP en nombre de un equipo de otra red. Permite rutas estáticas con solo interfaz de salida en Ethernet, pero es mala práctica."
+},
+{
+"t": "PSK",
+"d": "Clave precompartida: la misma contraseña configurada en todos los equipos, como en WPA2-Personal o en una VPN sencilla."
+},
+{
 "t": "Puerto",
 "d": "Número que identifica un servicio en un host (p. ej. 22 SSH, 80 HTTP, 443 HTTPS)."
+},
+{
+"t": "Puerto bien conocido",
+"d": "Puertos del 0 al 1023, reservados a los servicios estándar: 22 SSH, 53 DNS, 80 HTTP, 443 HTTPS."
+},
+{
+"t": "Puerto efímero",
+"d": "Puerto de origen aleatorio y alto (normalmente de 49152 a 65535) que elige el cliente para cada conexión."
+},
+{
+"t": "Puppet y Chef",
+"d": "Herramientas de automatización veteranas que necesitan un agente en cada equipo gestionado."
 },
 {
 "t": "QoS",
@@ -476,6 +978,10 @@ const TERMINOS = [
 {
 "t": "RADIUS",
 "d": "Protocolo AAA estándar que centraliza la autenticación de usuarios. Cifra solo la contraseña."
+},
+{
+"t": "Rapid PVST+",
+"d": "Versión de Cisco de RSTP con una instancia por VLAN. Converge en segundos y es el modo recomendado en switches Cisco."
 },
 {
 "t": "REST API",
@@ -490,28 +996,72 @@ const TERMINOS = [
 "d": "Conector estándar de los cables de red Ethernet de par trenzado."
 },
 {
+"t": "Roaming",
+"d": "Paso de un cliente WiFi de un punto de acceso a otro sin perder la conexión mientras se mueve."
+},
+{
+"t": "Roles de puerto STP",
+"d": "Root (el mejor camino hacia el root bridge), designado (el que reenvía en cada segmento), alternativo y backup (de reserva, bloqueados)."
+},
+{
 "t": "Root bridge",
 "d": "Switch central de referencia en STP; todos los caminos del árbol se calculan hacia él."
+},
+{
+"t": "Root Guard",
+"d": "Protección de STP que impide que un switch conectado a ese puerto se convierta en root bridge."
 },
 {
 "t": "Router",
 "d": "Dispositivo que reenvía paquetes entre redes distintas eligiendo la mejor ruta."
 },
 {
+"t": "Router ID",
+"d": "Identificador de 32 bits de un router OSPF. Se toma del comando router-id, de la loopback más alta o de la interfaz activa más alta."
+},
+{
 "t": "Router-on-a-stick",
 "d": "Enrutamiento entre VLANs usando un único enlace trunk al router, dividido en subinterfaces."
+},
+{
+"t": "RSSI",
+"d": "Intensidad de la señal que recibe un cliente WiFi, en dBm. Cuanto más cerca de 0, mejor."
+},
+{
+"t": "RSTP",
+"d": "Rapid Spanning Tree (802.1w): versión rápida de STP que converge en segundos."
+},
+{
+"t": "Running-config",
+"d": "Configuración activa en memoria RAM. Se pierde al reiniciar si no se guarda en la startup-config."
+},
+{
+"t": "Ruta de host",
+"d": "Ruta /32 que lleva a un único equipo. Gana a cualquier ruta de red que lo contenga."
 },
 {
 "t": "Ruta estática",
 "d": "Ruta configurada manualmente por el administrador, no aprendida por un protocolo."
 },
 {
+"t": "Ruta flotante",
+"d": "Ruta estática de reserva con una distancia administrativa mayor que la principal. Solo entra en la tabla si la principal desaparece."
+},
+{
 "t": "Ruta por defecto",
 "d": "Ruta comodín (0.0.0.0/0) que se usa cuando ninguna otra coincide: normalmente la salida a Internet."
 },
 {
-"t": "Running-config",
-"d": "Configuración activa en memoria RAM. Se pierde al reiniciar si no se guarda en la startup-config."
+"t": "SAE",
+"d": "Método de intercambio de claves de WPA3-Personal. Sustituye a la PSK de WPA2 y resiste los ataques de diccionario fuera de línea."
+},
+{
+"t": "SD-Access",
+"d": "Solución de Cisco para campus basada en Catalyst Center: crea un tejido overlay con segmentación y políticas por grupo."
+},
+{
+"t": "SD-WAN",
+"d": "WAN definida por software: un controlador central gestiona los enlaces de varias sedes y elige el mejor camino para cada aplicación."
 },
 {
 "t": "SDN",
@@ -522,12 +1072,40 @@ const TERMINOS = [
 "d": "Unidad de datos de la capa 4 (TCP): lleva los puertos de origen y destino."
 },
 {
+"t": "Severidad (syslog)",
+"d": "Nivel de gravedad de un mensaje, de 0 (emergencies) a 7 (debugging). Cuanto más bajo el número, más grave."
+},
+{
+"t": "SFP y QSFP",
+"d": "Transceptores enchufables para puertos de switch. SFP lleva un carril (1, 10 o 25 Gbps); QSFP, cuatro (40 o 100 Gbps)."
+},
+{
+"t": "SFTP y SCP",
+"d": "Transferencia segura de archivos sobre SSH. Sustituyen a FTP y TFTP cuando el tráfico cruza redes no confiables."
+},
+{
 "t": "SLAAC",
 "d": "Autoconfiguración de direcciones IPv6: el equipo se genera su propia dirección a partir del prefijo que anuncia el router."
 },
 {
+"t": "SMTP",
+"d": "Protocolo para enviar correo entre servidores, puerto TCP 25 (y 587 para envío autenticado desde clientes)."
+},
+{
 "t": "SNMP",
 "d": "Protocolo para monitorizar y gestionar equipos de red de forma centralizada."
+},
+{
+"t": "SPF",
+"d": "Algoritmo de Dijkstra que usa OSPF para calcular el camino de menor coste hacia cada red."
+},
+{
+"t": "Spine-leaf",
+"d": "Diseño de centro de datos en dos niveles: cada switch leaf se conecta a todos los spine, así cualquier servidor está a dos saltos de otro."
+},
+{
+"t": "Spoofing",
+"d": "Suplantar una identidad falsificando una dirección IP, una MAC o un mensaje ARP o DHCP."
 },
 {
 "t": "SSH",
@@ -536,6 +1114,10 @@ const TERMINOS = [
 {
 "t": "SSID",
 "d": "Nombre de una red WiFi: lo que ves en la lista de redes disponibles."
+},
+{
+"t": "Stack de switches",
+"d": "Varios switches unidos por cables especiales que funcionan y se gestionan como uno solo."
 },
 {
 "t": "Startup-config",
@@ -550,6 +1132,10 @@ const TERMINOS = [
 "d": "Protocolo que evita bucles en redes con switches redundantes bloqueando enlaces sobrantes."
 },
 {
+"t": "Stratum (NTP)",
+"d": "Distancia a la fuente de hora de referencia. Estrato 1 está conectado a un reloj GPS o atómico; 16 significa no sincronizado."
+},
+{
 "t": "Subinterfaz",
 "d": "División lógica de una interfaz física (p. ej. G0/0.10) que permite atender varias VLANs con un solo puerto."
 },
@@ -558,12 +1144,28 @@ const TERMINOS = [
 "d": "Dividir una red grande en subredes más pequeñas para organizar y optimizar el direccionamiento."
 },
 {
+"t": "Sumarización de rutas",
+"d": "Anunciar varias redes contiguas con una sola ruta de prefijo más corto. Reduce las tablas y da estabilidad."
+},
+{
+"t": "SVI",
+"d": "Interfaz virtual de VLAN de un switch (interface vlan 10). Sirve para gestionarlo o, en un switch de capa 3, como puerta de enlace de la VLAN."
+},
+{
 "t": "Switch",
 "d": "Dispositivo que conecta equipos de una LAN y reenvía tramas según la dirección MAC."
 },
 {
+"t": "Switch de capa 3",
+"d": "Switch que además de conmutar enruta entre VLAN y redes en hardware, con SVI y puertos enrutados."
+},
+{
 "t": "Syslog",
 "d": "Sistema de registro centralizado: los equipos envían sus mensajes de evento a un servidor común."
+},
+{
+"t": "Tabla ARP",
+"d": "Lista de un equipo con las parejas IP y MAC que ya conoce de su red local. Se consulta antes de enviar cada trama."
 },
 {
 "t": "Tabla de enrutamiento",
@@ -586,20 +1188,48 @@ const TERMINOS = [
 "d": "Protocolo de administración remota SIN cifrar (puerto 23). Inseguro; usa SSH."
 },
 {
+"t": "Terraform",
+"d": "Herramienta de infraestructura como código que describe en archivos el estado deseado y lo crea o lo corrige en la nube o en la red."
+},
+{
+"t": "TFTP",
+"d": "Transferencia de archivos muy simple sobre UDP 69, sin usuario ni cifrado. Se usa para copias de configuración e imágenes de IOS en redes de gestión."
+},
+{
 "t": "Throughput",
 "d": "Velocidad real que se consigue en la práctica, normalmente menor que el ancho de banda teórico."
+},
+{
+"t": "TLS",
+"d": "Protocolo que cifra las conexiones de aplicación, como HTTPS. Sucesor de SSL."
 },
 {
 "t": "Topología",
 "d": "Forma en que se conectan los dispositivos: estrella, malla, anillo o bus."
 },
 {
+"t": "Tormenta de broadcast",
+"d": "Bucle de capa 2 en el que las tramas de broadcast se multiplican sin fin y saturan la red. STP existe para evitarla."
+},
+{
+"t": "Traceroute",
+"d": "Herramienta que muestra cada router del camino hasta un destino, usando paquetes con TTL creciente."
+},
+{
 "t": "Trama (frame)",
 "d": "Unidad de datos de la capa 2: lleva las direcciones MAC de origen y destino."
 },
 {
+"t": "Trap (SNMP)",
+"d": "Aviso que un equipo envía por su cuenta al gestor SNMP cuando ocurre algo, por ejemplo la caída de una interfaz."
+},
+{
 "t": "Trunk",
 "d": "Enlace entre switches que transporta el tráfico de varias VLANs a la vez (802.1Q)."
+},
+{
+"t": "Trust boundary",
+"d": "Punto de la red a partir del cual se confía en las marcas de QoS que traen los paquetes. Suele estar en el teléfono IP o en el switch de acceso."
 },
 {
 "t": "TTL (Time To Live)",
@@ -614,12 +1244,28 @@ const TERMINOS = [
 "d": "Comunicación uno a uno: un único origen y un único destino."
 },
 {
+"t": "Uplink",
+"d": "Enlace de un switch hacia el nivel superior de la red, normalmente más rápido que los puertos de usuario."
+},
+{
+"t": "Vector distancia y estado de enlace",
+"d": "Familias de protocolos de enrutamiento. Los de vector distancia se fían de lo que cuentan los vecinos (RIP); los de estado de enlace construyen un mapa completo de la red (OSPF)."
+},
+{
 "t": "Virtualización",
 "d": "Ejecutar varias máquinas virtuales sobre un mismo servidor físico gracias a un hipervisor."
 },
 {
 "t": "VLAN",
 "d": "Red de área local virtual que separa lógicamente los dispositivos aunque estén en el mismo switch."
+},
+{
+"t": "VLAN de voz",
+"d": "VLAN separada para los teléfonos IP en el mismo puerto que el PC, configurada con switchport voice vlan."
+},
+{
+"t": "VLAN hopping",
+"d": "Ataque para saltar a otra VLAN con un trunk negociado por DTP o con doble etiqueta. Se evita desactivando DTP y cambiando la VLAN nativa."
 },
 {
 "t": "VLAN nativa",
@@ -634,12 +1280,24 @@ const TERMINOS = [
 "d": "Túnel cifrado que conecta de forma segura redes o usuarios a través de Internet."
 },
 {
+"t": "VRF",
+"d": "Varias tablas de rutas independientes dentro de un mismo router, como si fueran routers separados. Permite redes con direcciones solapadas."
+},
+{
 "t": "VRRP",
 "d": "Alternativa estándar a HSRP para tener un gateway redundante entre routers de distintos fabricantes."
 },
 {
 "t": "VTP",
 "d": "Protocolo de Cisco que propaga la base de datos de VLANs entre switches. Peligroso si se configura mal."
+},
+{
+"t": "Vulnerabilidad",
+"d": "Debilidad de un sistema que una amenaza puede aprovechar: un fallo de software, una configuración insegura o una contraseña débil."
+},
+{
+"t": "VXLAN",
+"d": "Tecnología de overlay que lleva tramas de capa 2 dentro de paquetes UDP. Permite millones de segmentos y se usa en centros de datos y SD-Access."
 },
 {
 "t": "WAN",
@@ -664,6 +1322,18 @@ const TERMINOS = [
 {
 "t": "WPA2 / WPA3",
 "d": "Estándares de seguridad del WiFi. WPA3 es el más moderno y robusto; WEP está obsoleto y no debe usarse."
+},
+{
+"t": "XML",
+"d": "Formato de datos con etiquetas de apertura y cierre. Lo usa NETCONF; hoy JSON es más habitual en las API REST."
+},
+{
+"t": "YAML",
+"d": "Formato de datos legible basado en sangrías. Es el formato de los playbooks de Ansible."
+},
+{
+"t": "YANG",
+"d": "Lenguaje que describe los modelos de datos de los equipos de red. NETCONF y RESTCONF lo usan para saber qué se puede configurar."
 }
 ];
 
@@ -681,8 +1351,11 @@ function resaltar(texto, q) {
 
 function pintar(q = '') {
   const filtro = q.trim().toLowerCase();
+  // Sin tildes: "direccion" encuentra "Dirección", como en la app.
+  const plano = s => s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+  const fp = plano(filtro);
   const res = TERMINOS.filter(x =>
-    !filtro || x.t.toLowerCase().includes(filtro) || x.d.toLowerCase().includes(filtro));
+    !fp || plano(x.t).includes(fp) || plano(x.d).includes(fp));
   $contador.textContent = filtro
     ? `${res.length} resultado${res.length === 1 ? '' : 's'} para "${q}"`
     : `${TERMINOS.length} términos · ordenados alfabéticamente`;
@@ -690,7 +1363,7 @@ function pintar(q = '') {
     ? res.map(x => `<article class="termino" id="t-${x.t.charAt(0).toUpperCase()}">
          <h3>${resaltar(x.t, filtro)}</h3><p>${resaltar(x.d, filtro)}</p></article>`).join('')
     : `<div class="tarjeta" style="text-align:center;padding:40px">
-         <p style="font-size:2rem;margin:0">🔍</p>
+         <p style="margin:0;color:var(--texto-sec)"><span class="material-symbols-rounded" style="font-size:2.2rem" aria-hidden="true">search</span></p>
          <h3>Sin resultados</h3>
          <p class="texto-sec">No encontramos "${q}". Prueba con otra palabra.</p></div>`;
 }

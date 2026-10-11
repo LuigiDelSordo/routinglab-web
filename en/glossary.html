@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Networking glossary · 125 terms explained · RoutingLab</title>
-<meta name="description" content="Glosario de redes para el CCNA: 125 términos como VLAN, ARP, NAT, STP o subnetting explicados en español de forma sencilla. Con buscador.">
-<meta property="og:title" content="Networking glossary · 125 terms explained · RoutingLab">
-<meta property="og:description" content="Glosario de redes para el CCNA: 125 términos como VLAN, ARP, NAT, STP o subnetting explicados en español de forma sencilla. Con buscador.">
+<title>Networking glossary · 295 terms explained · RoutingLab</title>
+<meta name="description" content="Networking glossary for the CCNA: 295 terms such as VLAN, ARP, NAT, STP or subnetting explained simply. With search.">
+<meta property="og:title" content="Networking glossary · 295 terms explained · RoutingLab">
+<meta property="og:description" content="Networking glossary for the CCNA: 295 terms such as VLAN, ARP, NAT, STP or subnetting explained simply. With search.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://routinglab.es/en/glossary.html">
 <meta property="og:site_name" content="RoutingLab">
@@ -16,13 +16,14 @@
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="RoutingLab · CCNA 200-301">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Networking glossary · 125 terms explained · RoutingLab">
-<meta name="twitter:description" content="Glosario de redes para el CCNA: 125 términos como VLAN, ARP, NAT, STP o subnetting explicados en español de forma sencilla. Con buscador.">
+<meta name="twitter:title" content="Networking glossary · 295 terms explained · RoutingLab">
+<meta name="twitter:description" content="Networking glossary for the CCNA: 295 terms such as VLAN, ARP, NAT, STP or subnetting explained simply. With search.">
 <meta name="twitter:image" content="https://routinglab.es/capturas/og-en.jpg">
-<meta name="theme-color" content="#0A1D5C">
+<meta name="theme-color" content="#0B1F4D">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,500,1,0&icon_names=bug_report,build,calculate,calendar_month,chat,check_circle,delete,dns,error,extension,history,home,lan,lightbulb,mail,menu_book,quiz,replay,school,search,settings_ethernet,style,terminal,thumb_up,track_changes,warning&display=block">
 <link rel="stylesheet" href="../estilos.css">
 <link rel="alternate" hreflang="es" href="https://routinglab.es/glosario.html">
 <link rel="alternate" hreflang="en" href="https://routinglab.es/en/glossary.html">
@@ -30,7 +31,7 @@
 <link rel="canonical" href="https://routinglab.es/en/glossary.html">
 <style>
   .cabecera-pagina {
-    background: linear-gradient(125deg, var(--marino), var(--violeta) 130%);
+    background: var(--marino);
     color: #fff; padding: 64px 0 56px; position: relative; overflow: hidden;
   }
   #redCanvas { position: absolute; inset: 0; width: 100%; height: 100%; opacity: .6; }
@@ -64,18 +65,7 @@
 <nav class="nav">
   <div class="contenedor nav-inner">
     <a href="index.html" class="logo">
-      <svg viewBox="0 0 100 100" aria-hidden="true">
-        <circle cx="50" cy="50" r="48" fill="url(#g)"/>
-        <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stop-color="#0A1D5C"/><stop offset="1" stop-color="#2E5BFF"/>
-        </linearGradient></defs>
-        <g stroke="#4CC9F0" stroke-width="6" stroke-linecap="round">
-          <path d="M50 50 L28 30 M50 50 L72 26 M50 50 L28 72 M50 50 L74 70 M28 30 L72 26 M28 72 L74 70"/>
-        </g>
-        <circle cx="28" cy="30" r="9" fill="#fff"/><circle cx="72" cy="26" r="9" fill="#fff"/>
-        <circle cx="28" cy="72" r="9" fill="#fff"/><circle cx="74" cy="70" r="9" fill="#fff"/>
-        <circle cx="50" cy="50" r="11" fill="#4CC9F0"/>
-      </svg>
+      <svg viewBox="0 0 108 108" aria-hidden="true"><rect width="108" height="108" rx="26" fill="#0B1F4D"/><path d="M31 75V54h46V33" fill="none" stroke="#3D8BFD" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><circle cx="54" cy="54" r="4.5" fill="#3D8BFD"/><circle cx="31" cy="75" r="8.5" fill="#fff"/><circle cx="77" cy="33" r="8.5" fill="#fff"/></svg>
       RoutingLab
     </a>
     <button class="menu-movil" aria-label="Open menu">☰</button>
@@ -90,7 +80,7 @@
       <a href="index.html#descargar" class="btn btn-primario btn-sm">Download</a>
     </div>
     <a href="../glosario.html" class="cambio-idioma" hreflang="es" lang="es" aria-label="Leer esta página en español">ES</a>
-    <button class="boton-tema" onclick="alternarTema()">🌙</button>
+    <button class="boton-tema" onclick="alternarTema()" aria-label="Tema"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="currentColor"><path d="M12.4 2.5a9.6 9.6 0 1 0 9.1 12.6 7.6 7.6 0 0 1-9.1-12.6z"/></svg></button>
   </div>
 </nav>
 
@@ -99,13 +89,13 @@
   <div class="contenedor">
     <span class="etiqueta-seccion" style="background:rgba(255,255,255,.15);color:#fff">Free · no sign-up</span>
     <h1>Networking glossary</h1>
-    <p>125 terms from the CCNA syllabus explained in plain English. Look them up instantly while you study.</p>
+    <p>295 terms from the CCNA syllabus explained in plain English. Look them up instantly while you study.</p>
   </div>
 </header>
 
 <div class="buscador-sticky">
   <div class="contenedor">
-    <input class="campo" id="buscar" placeholder="🔍 Search a term: VLAN, NAT, subnetting…" autocomplete="off">
+    <input class="campo" id="buscar" placeholder="Search a term: VLAN, NAT, subnetting…" autocomplete="off">
     <div id="indice" style="margin-top:12px"></div>
   </div>
 </div>
@@ -119,12 +109,12 @@
 
 <section style="padding-top:0">
   <div class="contenedor">
-    <div class="tarjeta revelar" style="text-align:center;padding:48px 32px;background:linear-gradient(125deg,var(--marino),var(--violeta));border:0;color:#fff">
+    <div class="tarjeta revelar" style="text-align:center;padding:48px 32px;background: var(--marino);border:0;color:#fff">
       <h2 style="color:#fff">Take the glossary with you</h2>
       <p style="color:#c8d3f5;max-width:520px;margin:0 auto 24px">
         The app has this glossary offline, plus theory, exercises and mock exams.
       </p>
-      <a href="index.html#descargar" class="btn btn-claro">📲 Download RoutingLab</a>
+      <a href="index.html#descargar" class="btn btn-claro">Download RoutingLab</a>
     </div>
   </div>
 </section>
@@ -157,7 +147,7 @@
     </div>
     <div class="pie-abajo">
       <span>© <span data-anio>2026</span> RoutingLab · routinglab.es</span>
-      <span>Made with ☕ for future network engineers</span>
+      <span>Made for future network engineers</span>
     </div>
   </div>
 </footer>
@@ -165,6 +155,10 @@
 <script src="../app.js"></script>
 <script>
 const TERMINOS = [
+{
+"t": "10GBASE-T",
+"d": "10 Gbps Ethernet over twisted-pair copper, up to 100 meters with Cat6a cable."
+},
 {
 "t": "802.11",
 "d": "The family of WiFi standards (a/b/g/n/ac/ax) that defines how data travels over radio."
@@ -174,20 +168,52 @@ const TERMINOS = [
 "d": "Standard that tags frames with their VLAN so several VLANs can travel over the same trunk link."
 },
 {
+"t": "802.1X",
+"d": "Port-based access control standard: the device does not get onto the network until it authenticates against a RADIUS server. Used on wired ports and enterprise WiFi."
+},
+{
 "t": "AAA",
 "d": "Authentication, Authorization and Accounting: who you are, what you may do and a record of what you did. It relies on RADIUS or TACACS+."
+},
+{
+"t": "ABR (Area Border Router)",
+"d": "OSPF router with interfaces in area 0 and in another area. It connects the areas and can summarize their routes."
+},
+{
+"t": "Access-class",
+"d": "Command that applies an ACL to the VTY lines to limit which addresses can log into the device remotely."
 },
 {
 "t": "ACL (Access Control List)",
 "d": "A list of rules that permits or blocks traffic on a router or switch based on source, destination, protocol or port."
 },
 {
+"t": "Address class",
+"d": "Old division of IPv4 by the first octet: A (1-126), B (128-191), C (192-223), D multicast and E experimental."
+},
+{
+"t": "Adjacency (OSPF)",
+"d": "Full relationship between two neighboring OSPF routers that have exchanged their databases. It shows as FULL."
+},
+{
 "t": "Administrative distance",
 "d": "How much a router trusts the source of a route (lower is better): connected 0, static 1, OSPF 110, RIP 120."
 },
 {
+"t": "AES",
+"d": "Standard, very strong symmetric encryption algorithm. WPA2, WPA3, IPsec and SNMPv3 use it."
+},
+{
+"t": "Agent-based and agentless",
+"d": "Automation tools that need a program installed on every device (Puppet, Chef) versus those that connect over SSH or an API without installing anything (Ansible)."
+},
+{
 "t": "Ansible",
 "d": "An automation tool that configures many devices at once from text files, with no agents to install."
+},
+{
+"t": "Anycast",
+"d": "One address assigned to several devices; traffic reaches the nearest one according to routing. The DNS root servers use it."
 },
 {
 "t": "AP (Access Point)",
@@ -198,16 +224,68 @@ const TERMINOS = [
 "d": "The 169.254.x.x address a host assigns itself when it finds no DHCP server. A classic sign that DHCP has failed."
 },
 {
+"t": "Area (OSPF)",
+"d": "Group of OSPF routers sharing the same link-state database. Every area must connect to area 0."
+},
+{
 "t": "ARP",
 "d": "The protocol that translates an IP address into its MAC address within the same local network."
+},
+{
+"t": "ARP table",
+"d": "A device's list of the IP and MAC pairs it already knows on its local network. It is checked before sending each frame."
+},
+{
+"t": "ASIC",
+"d": "Chip designed for a single task. Switches switch and route in ASICs, at line rate, without loading the CPU."
+},
+{
+"t": "Auto-MDIX",
+"d": "Feature of Ethernet ports that detects whether the cable is straight-through or crossover and adapts on its own."
+},
+{
+"t": "Autonegotiation",
+"d": "Mechanism by which two Ethernet ports agree on speed and duplex by themselves. If one side is hard-set, a duplex mismatch can occur."
+},
+{
+"t": "Autonomous and lightweight AP",
+"d": "An autonomous AP is configured one by one and works on its own. A lightweight AP depends on a WLC controller, which manages it through CAPWAP."
+},
+{
+"t": "Backbone area (area 0)",
+"d": "OSPF's central area. All traffic between areas goes through it."
 },
 {
 "t": "Bandwidth",
 "d": "The maximum amount of data a link can carry per second (e.g. 1 Gbps)."
 },
 {
+"t": "BDR",
+"d": "Backup designated router on an OSPF segment. It takes over the DR's role if the DR fails."
+},
+{
 "t": "BGP",
 "d": "The routing protocol that interconnects large networks (autonomous systems): it is what makes the Internet work."
+},
+{
+"t": "Biometrics",
+"d": "Authentication by something you are: fingerprint, face or iris. It is the third type of factor in MFA."
+},
+{
+"t": "Bit and byte",
+"d": "A bit is a 0 or a 1. A byte is 8 bits. Speeds are measured in bits per second and files in bytes."
+},
+{
+"t": "Block size",
+"d": "How many addresses apart each new subnet starts: 256 minus the mask value in the interesting octet. Also called the magic number."
+},
+{
+"t": "BPDU",
+"d": "Message switches exchange in STP to elect the root bridge and work out the tree."
+},
+{
+"t": "BPDU Guard",
+"d": "Protection that err-disables a PortFast port if it receives a BPDU, because someone has plugged a switch in where they should not."
 },
 {
 "t": "Bridge ID",
@@ -218,16 +296,52 @@ const TERMINOS = [
 "d": "Sending a packet to EVERY device on the local network at once."
 },
 {
+"t": "Broadcast address",
+"d": "The last address of a subnet, with all host bits set to 1. It reaches every device in the subnet and is not assigned."
+},
+{
 "t": "Broadcast domain",
 "d": "The set of devices that receive each other's broadcasts. Each VLAN is one broadcast domain."
+},
+{
+"t": "Broadcast storm",
+"d": "Layer 2 loop in which broadcast frames multiply endlessly and saturate the network. STP exists to prevent it."
+},
+{
+"t": "Brute-force attack",
+"d": "Attack that tries passwords one after another until one works. Stopped by long passwords, lockout after several failures and MFA."
+},
+{
+"t": "BSSID",
+"d": "Identifier of each access point radio: its MAC. One SSID can have many BSSIDs, one per AP and band."
+},
+{
+"t": "CAM table",
+"d": "Technical name of the switch's MAC address table, kept in a very fast lookup memory."
+},
+{
+"t": "CAPWAP",
+"d": "Protocol that links lightweight APs with their WLC controller. It uses a control tunnel and a data tunnel over UDP 5246 and 5247."
+},
+{
+"t": "Catalyst Center",
+"d": "Cisco's SDN controller for campus networks, formerly called DNA Center. It automates, applies policies and analyzes the network."
 },
 {
 "t": "CDP",
 "d": "Cisco's proprietary protocol that discovers directly connected Cisco devices."
 },
 {
+"t": "CGNAT",
+"d": "Carrier-grade NAT: many customers share one public IP. It uses the 100.64.0.0/10 range."
+},
+{
 "t": "CIDR",
 "d": "Notation that states the network bits with a slash (e.g. /24) instead of writing out the full mask."
+},
+{
+"t": "Classification and marking",
+"d": "First step of QoS: identifying the type of traffic and marking it (DSCP or CoS) so the rest of the network treats it by priority."
 },
 {
 "t": "CLI",
@@ -238,6 +352,14 @@ const TERMINOS = [
 "d": "Service models: IaaS gives you the infrastructure, PaaS the platform to deploy on, SaaS the finished application."
 },
 {
+"t": "Cloud management",
+"d": "Network devices configured and monitored from a cloud web dashboard, such as Cisco Meraki, with no local controller."
+},
+{
+"t": "Collapsed core",
+"d": "Two-tier design in which core and distribution are merged into the same switches. Typical of medium-sized campuses."
+},
+{
 "t": "Collision",
 "d": "Two frames sent at the same time clashing on a shared medium. Full-duplex switches eliminate them."
 },
@@ -246,16 +368,64 @@ const TERMINOS = [
 "d": "A network segment where frames can collide. Every switch port is its own domain."
 },
 {
+"t": "Console cable",
+"d": "Cable to configure a device through its CONSOLE port: RJ45 at one end and DB9 serial or USB at the other."
+},
+{
 "t": "Container",
 "d": "An application packaged with everything it needs to run, sharing the host's operating system. Lighter than a virtual machine."
+},
+{
+"t": "Control, data and management planes",
+"d": "The control plane decides (routing protocols, STP); the data plane forwards traffic; the management plane is how the device is administered (SSH, SNMP)."
+},
+{
+"t": "Convergence",
+"d": "Point at which every router or switch has updated its view of the network after a change. The faster it is, the shorter the outage."
+},
+{
+"t": "CoS",
+"d": "3-bit priority marking inside the 802.1Q tag. It only exists in tagged frames, at layer 2."
+},
+{
+"t": "Cost (OSPF)",
+"d": "OSPF's metric: reference bandwidth divided by the interface bandwidth. The route with the lowest total cost wins."
+},
+{
+"t": "CRC",
+"d": "Error check at the end of every Ethernet frame. Many CRC errors indicate a damaged cable or interference."
 },
 {
 "t": "Crossover cable",
 "d": "A network cable with the pairs swapped, once used to join identical devices. Auto-MDIX makes it unnecessary today."
 },
 {
+"t": "Crosstalk",
+"d": "Interference from one wire pair onto a nearby one. Twisting the pairs reduces it."
+},
+{
+"t": "CRUD",
+"d": "The four operations on data: create, read, update and delete. In REST they map to POST, GET, PUT or PATCH, and DELETE."
+},
+{
 "t": "CSMA/CD",
 "d": "Classic Ethernet's method: listen before transmitting and detect collisions. Irrelevant on modern full-duplex networks."
+},
+{
+"t": "DAI (Dynamic ARP Inspection)",
+"d": "Switch feature that drops fake ARP messages by checking them against the DHCP snooping table. It stops ARP poisoning."
+},
+{
+"t": "Data center",
+"d": "Facility with servers, storage and high-capacity networking, plus redundant cooling and power."
+},
+{
+"t": "dBm",
+"d": "Unit of signal power in decibels relative to 1 milliwatt. In WiFi, -50 dBm is an excellent signal and -80 dBm a very weak one."
+},
+{
+"t": "Debug",
+"d": "IOS command that shows live what a process is doing. Very useful, but it uses CPU: turn it off with undebug all."
 },
 {
 "t": "Default route",
@@ -270,6 +440,22 @@ const TERMINOS = [
 "d": "A switch security feature that only accepts DHCP replies from trusted ports, blocking rogue DHCP servers."
 },
 {
+"t": "DHCP starvation",
+"d": "Attack that requests addresses with thousands of fake MACs until the server's pool is empty. Stopped by DHCP snooping and its rate limit."
+},
+{
+"t": "DHCPv6",
+"d": "DHCP for IPv6. It can hand out addresses (stateful) or only information such as DNS (stateless), alongside SLAAC."
+},
+{
+"t": "Digital certificate",
+"d": "Electronic document that binds a public key to an identity, signed by a certificate authority. HTTPS and VPNs use it."
+},
+{
+"t": "Distance vector and link state",
+"d": "Families of routing protocols. Distance-vector protocols trust what neighbors tell them (RIP); link-state protocols build a complete map of the network (OSPF)."
+},
+{
 "t": "DMZ",
 "d": "An intermediate network zone where public servers live, separated from the internal network by the firewall."
 },
@@ -278,8 +464,24 @@ const TERMINOS = [
 "d": "The system that translates domain names (e.g. google.com) into IP addresses."
 },
 {
+"t": "DoS and DDoS",
+"d": "Denial-of-service attacks: they overwhelm a device or link to make it unusable. In DDoS the attack comes from thousands of devices at once."
+},
+{
+"t": "DR (Designated Router)",
+"d": "Router elected on an OSPF segment with several routers to centralize the exchange of information. The highest priority wins, then the highest router ID."
+},
+{
+"t": "DSCP",
+"d": "6-bit priority marking in the IP header. It survives end to end; voice is usually marked EF (46)."
+},
+{
 "t": "DTP",
 "d": "Cisco's protocol that automatically negotiates whether a link is access or trunk. Turning it off is the safe practice."
+},
+{
+"t": "Dual stack",
+"d": "Running IPv4 and IPv6 at the same time on the same devices and interfaces. It is the usual way to migrate to IPv6."
 },
 {
 "t": "Duplex (half/full)",
@@ -290,8 +492,32 @@ const TERMINOS = [
 "d": "The router learns routes by itself, talking to its neighbors with protocols such as OSPF or EIGRP."
 },
 {
+"t": "EAP",
+"d": "Authentication framework used by 802.1X. It has variants such as PEAP or EAP-TLS, which uses certificates."
+},
+{
+"t": "EIGRP",
+"d": "Cisco's advanced distance-vector routing protocol. Administrative distance 90 for internal routes."
+},
+{
 "t": "Encapsulation",
 "d": "Adding headers as you move down the OSI layers: data → segment → packet → frame → bits."
+},
+{
+"t": "Endpoint",
+"d": "Any end device on the network: PC, phone, printer, camera or sensor."
+},
+{
+"t": "Ephemeral port",
+"d": "Random, high source port (usually 49152 to 65535) the client picks for each connection."
+},
+{
+"t": "Err-disabled",
+"d": "State in which the switch shuts a port down because of a protection: port security, BPDU Guard, the DHCP snooping limit. It is recovered with shutdown and no shutdown."
+},
+{
+"t": "ESP",
+"d": "IPsec protocol that encrypts and authenticates the data. In tunnel mode it encrypts the whole original packet."
 },
 {
 "t": "EtherChannel",
@@ -306,6 +532,10 @@ const TERMINOS = [
 "d": "The method that builds the host part of an IPv6 address from the interface's MAC."
 },
 {
+"t": "Exploit",
+"d": "Code or technique that takes advantage of a specific vulnerability to attack a system."
+},
+{
 "t": "FHRP",
 "d": "A family of protocols (HSRP, VRRP, GLBP) that provide a redundant gateway: if one router dies, another takes over."
 },
@@ -316,6 +546,26 @@ const TERMINOS = [
 {
 "t": "Firewall",
 "d": "A device or software that filters network traffic to protect it according to security rules."
+},
+{
+"t": "Flash memory",
+"d": "Permanent memory on a Cisco device that stores the IOS image and, on switches, the vlan.dat file."
+},
+{
+"t": "FlexConnect",
+"d": "AP mode for remote sites: client traffic exits locally at the site instead of going through the tunnel to the central WLC."
+},
+{
+"t": "Floating static route",
+"d": "Backup static route with a higher administrative distance than the main one. It only enters the table if the main one disappears."
+},
+{
+"t": "Flooding",
+"d": "When the switch does not know the destination MAC, it sends the frame out of every port in the VLAN except the one it came in on."
+},
+{
+"t": "Fragmentation",
+"d": "Splitting a packet into smaller pieces when it exceeds a link's MTU. IPv6 only lets the source do it."
 },
 {
 "t": "Frame",
@@ -334,6 +584,34 @@ const TERMINOS = [
 "d": "Cisco's FHRP protocol that, on top of redundancy, shares the load across several routers."
 },
 {
+"t": "Global unicast address",
+"d": "Public IPv6 address, routable on the Internet. It starts with 2 or 3 (2000::/3)."
+},
+{
+"t": "Gratuitous ARP",
+"d": "ARP a device sends without being asked, to announce its own IP and MAC. HSRP and MAC changes use it; it is also abused in attacks."
+},
+{
+"t": "GRE",
+"d": "Tunneling protocol that encapsulates packets inside others. It does not encrypt, which is why it is combined with IPsec."
+},
+{
+"t": "Hash",
+"d": "Fixed-length digest calculated from some data. It is used to check integrity and to store passwords without keeping them in clear text (SHA-256, scrypt)."
+},
+{
+"t": "Hello packet",
+"d": "Message protocols such as OSPF send periodically to discover neighbors and check that they are still alive."
+},
+{
+"t": "Host",
+"d": "Any device with an IP address that sends or receives data: a PC, a server, a phone."
+},
+{
+"t": "Host route",
+"d": "/32 route leading to a single device. It beats any network route that contains it."
+},
+{
 "t": "HSRP",
 "d": "Cisco's FHRP protocol: two routers share a virtual IP; if the active one fails, the standby takes over."
 },
@@ -342,12 +620,52 @@ const TERMINOS = [
 "d": "The web protocol (port 80). HTTPS is its TLS-encrypted version (port 443)."
 },
 {
+"t": "Hub",
+"d": "Old device that repeated every signal out of all its ports. Everything was one collision domain; switches are used today."
+},
+{
+"t": "Hypervisor",
+"d": "Software that creates and runs virtual machines. Type 1 runs directly on the hardware; type 2, on top of an operating system."
+},
+{
 "t": "ICMP",
 "d": "The control and error message protocol; 'ping' uses it to check connectivity."
 },
 {
+"t": "ICMPv6",
+"d": "ICMP for IPv6. Besides ping and error messages, it carries NDP, which replaces ARP."
+},
+{
+"t": "IDS and IPS",
+"d": "Systems that detect attacks by analyzing traffic. An IDS only alerts; an IPS, placed inline, also blocks them."
+},
+{
+"t": "IEEE",
+"d": "Body that publishes the standards for Ethernet (802.3), WiFi (802.11), VLANs (802.1Q) and many more."
+},
+{
+"t": "IGP and EGP",
+"d": "IGPs route inside an organization (OSPF, EIGRP). EGPs, between different organizations: today, only BGP."
+},
+{
+"t": "Infrastructure as Code (IaC)",
+"d": "Defining the network or servers in versioned text files that a tool applies automatically and repeatably."
+},
+{
+"t": "Inside local and inside global",
+"d": "In NAT, the inside local is the internal device's private IP and the inside global, the public IP it uses on the Internet."
+},
+{
 "t": "Inter-VLAN routing",
 "d": "Routing that lets devices in different VLANs talk to each other through a router or an L3 switch."
+},
+{
+"t": "IOS",
+"d": "Operating system of Cisco routers and switches. Its modern versions are IOS XE; service provider routers use IOS XR."
+},
+{
+"t": "IOS modes",
+"d": "Levels of the Cisco CLI: user (>), privileged (#), global configuration ((config)#) and submodes such as (config-if)#."
 },
 {
 "t": "IP address",
@@ -362,12 +680,20 @@ const TERMINOS = [
 "d": "The new version of the IP protocol, with 128-bit addresses, created to overcome IPv4 exhaustion."
 },
 {
+"t": "ISP",
+"d": "Internet service provider: the carrier that connects your network to the Internet."
+},
+{
 "t": "Jitter",
 "d": "Variation in packet delay. It is the enemy of voice and video, even when bandwidth is plentiful."
 },
 {
 "t": "JSON",
 "d": "The text data format REST APIs use. Essential for network automation."
+},
+{
+"t": "Keepalive",
+"d": "Periodic message confirming the other end is still active. If they stop arriving, the link or session is considered down."
 },
 {
 "t": "LACP",
@@ -378,16 +704,48 @@ const TERMINOS = [
 "d": "Local area network: the network of a home, office or building."
 },
 {
+"t": "Late collision",
+"d": "Collision detected late in the frame. On modern networks it almost always reveals a duplex mismatch."
+},
+{
 "t": "Latency",
 "d": "How long a packet takes to get from source to destination. Lower is better (critical for voice/video)."
+},
+{
+"t": "Layer 3 switch",
+"d": "Switch that, besides switching, routes between VLANs and networks in hardware, with SVIs and routed ports."
+},
+{
+"t": "Lease (DHCP)",
+"d": "Time during which a client may use the IP the DHCP server gave it. Before it ends, the client renews it."
+},
+{
+"t": "Link-local address",
+"d": "fe80::/10 IPv6 address valid only on the link. Every IPv6 interface has one, and routers use it as the next hop."
 },
 {
 "t": "LLDP",
 "d": "The vendor-neutral equivalent of CDP: it discovers directly connected neighbors whatever the manufacturer."
 },
 {
+"t": "LLQ",
+"d": "Low-latency queuing: a strict priority queue for voice, with a cap so it does not starve everything else."
+},
+{
+"t": "Load balancing",
+"d": "Spreading traffic across several paths or servers. OSPF does it across equal-cost routes, and EtherChannel by flows."
+},
+{
+"t": "Longest prefix match",
+"d": "Rule the router uses to choose a route: the one with the longest prefix that matches the destination wins."
+},
+{
 "t": "Loopback",
 "d": "A router's always-up virtual interface. Widely used as a stable identifier in OSPF and for management."
+},
+{
+"t": "LSA",
+"d": "OSPF link-state advertisement. Each router describes its links in LSAs, and the map of the network is built from all of them."
 },
 {
 "t": "MAC address",
@@ -398,8 +756,24 @@ const TERMINOS = [
 "d": "The switch table that maps each MAC address to the port it was learned on."
 },
 {
+"t": "MAC flooding",
+"d": "Attack that fills the switch's MAC table with fake addresses so it floods frames out of every port and the attacker captures them. Port security stops it."
+},
+{
+"t": "Malware",
+"d": "Malicious software: viruses, worms, trojans, ransomware or spyware."
+},
+{
+"t": "Man-in-the-middle",
+"d": "Attack in which someone places themselves between two communicating devices to read or alter their traffic, for example with fake ARPs."
+},
+{
 "t": "Metric",
 "d": "The value a routing protocol uses to pick the best route: cost in OSPF, hop count in RIP."
+},
+{
+"t": "MIB and OID",
+"d": "The MIB is the catalog of data a device offers through SNMP. Each piece of data has a unique numeric identifier, the OID."
 },
 {
 "t": "MOTD banner",
@@ -414,8 +788,16 @@ const TERMINOS = [
 "d": "The largest packet that can be transmitted without fragmenting (typically 1500 bytes on Ethernet)."
 },
 {
+"t": "Multi-factor authentication (MFA)",
+"d": "Requiring two or more factors of different kinds: something you know (password), something you have (phone, token) and something you are (fingerprint)."
+},
+{
 "t": "Multicast",
 "d": "Sending a packet to a specific GROUP of subscribed devices, not to everyone."
+},
+{
+"t": "Multimode fiber",
+"d": "Fiber with a thicker core (50 or 62.5 microns) for short distances, inside a building or a data center. Orange or aqua jacket."
 },
 {
 "t": "NAT",
@@ -424,6 +806,30 @@ const TERMINOS = [
 {
 "t": "Native VLAN",
 "d": "The VLAN whose traffic crosses a trunk untagged. It must match at both ends, and moving it off VLAN 1 is good practice."
+},
+{
+"t": "NDP",
+"d": "IPv6 neighbor discovery protocol, over ICMPv6. It replaces ARP and lets devices find routers and prefixes."
+},
+{
+"t": "NETCONF and RESTCONF",
+"d": "Protocols for configuring devices programmatically using YANG data models. NETCONF runs over SSH with XML; RESTCONF, over HTTPS with JSON or XML."
+},
+{
+"t": "Network address",
+"d": "The first address of a subnet, with all host bits set to 0. It identifies the network and is not assigned to any device."
+},
+{
+"t": "NGFW (next-generation firewall)",
+"d": "Firewall that, besides ports and addresses, understands applications, includes IPS and filters by user and reputation."
+},
+{
+"t": "NIC",
+"d": "Network interface card: the component that connects a device to the network and holds its MAC address."
+},
+{
+"t": "Northbound and southbound APIs",
+"d": "In SDN, the northbound API connects the controller with applications (usually REST) and the southbound API, the controller with the devices (NETCONF, OpenFlow...)."
 },
 {
 "t": "NTP",
@@ -442,16 +848,48 @@ const TERMINOS = [
 "d": "A dynamic routing protocol that works out the best routes from the 'cost' of each link."
 },
 {
+"t": "OSPFv3",
+"d": "The version of OSPF for IPv6. It is enabled per interface and needs a 32-bit router ID."
+},
+{
+"t": "OUI",
+"d": "The first three bytes of a MAC address, which identify the card's manufacturer."
+},
+{
+"t": "Overlay and underlay",
+"d": "The underlay is the physical network that provides IP connectivity. The overlay is a logical network of tunnels built on top, as in SD-Access or VXLAN."
+},
+{
 "t": "Packet",
 "d": "The layer 3 data unit: it carries the source and destination IP addresses."
+},
+{
+"t": "Packet switching",
+"d": "Data is split into packets that travel separately and share the links. It is the basis of the Internet."
 },
 {
 "t": "PAgP",
 "d": "Cisco's proprietary protocol for negotiating EtherChannel (the proprietary counterpart to LACP)."
 },
 {
+"t": "Passive interface",
+"d": "Interface on which OSPF advertises the network but sends no hellos and forms no neighbors. Used toward user LANs."
+},
+{
+"t": "Password policy",
+"d": "Rules on password length, complexity, expiry and reuse. Today length and MFA are prioritized over frequent changes."
+},
+{
 "t": "PAT (NAT overload)",
 "d": "The NAT variant that lets many devices share one public IP, telling them apart by port number."
+},
+{
+"t": "PDU",
+"d": "Data unit of each layer: data at the application layer, segment at layer 4, packet at layer 3, frame at layer 2 and bits at layer 1."
+},
+{
+"t": "Phishing",
+"d": "Deception by email, SMS or web that imitates a trusted entity to steal passwords or data. It is the most common form of social engineering."
 },
 {
 "t": "Ping",
@@ -460,6 +898,10 @@ const TERMINOS = [
 {
 "t": "PoE (Power over Ethernet)",
 "d": "It sends electrical power down the network cable to run IP phones, cameras or APs."
+},
+{
+"t": "Policing and shaping",
+"d": "Two ways of limiting traffic in QoS. Policing drops or remarks the excess; shaping delays it in a queue to smooth it."
 },
 {
 "t": "Port",
@@ -478,12 +920,40 @@ const TERMINOS = [
 "d": "The number of network bits in an address, the value after the slash in /24."
 },
 {
+"t": "Private address (RFC 1918)",
+"d": "Ranges reserved for internal networks that are not routed on the Internet: 10.0.0.0/8, 172.16.0.0/12 and 192.168.0.0/16."
+},
+{
+"t": "Proxy ARP",
+"d": "A router answers an ARP on behalf of a device on another network. It allows static routes with only an exit interface on Ethernet, but it is bad practice."
+},
+{
+"t": "PSK",
+"d": "Pre-shared key: the same password configured on every device, as in WPA2-Personal or a simple VPN."
+},
+{
+"t": "Public address",
+"d": "Unique address on the Internet, assigned by a carrier or a regional registry. It is the one the rest of the world sees."
+},
+{
+"t": "Public, private and hybrid cloud",
+"d": "A public cloud is offered by a provider to many customers (AWS, Azure). A private cloud serves one organization. A hybrid cloud combines both."
+},
+{
+"t": "Puppet and Chef",
+"d": "Veteran automation tools that need an agent on every managed device."
+},
+{
 "t": "QoS",
 "d": "Quality of service: it prioritizes sensitive traffic (voice, video) when the network gets congested."
 },
 {
 "t": "RADIUS",
 "d": "The standard AAA protocol that centralizes user authentication. It encrypts only the password."
+},
+{
+"t": "Rapid PVST+",
+"d": "Cisco's version of RSTP with one instance per VLAN. It converges in seconds and is the recommended mode on Cisco switches."
 },
 {
 "t": "REST API",
@@ -498,24 +968,68 @@ const TERMINOS = [
 "d": "The standard connector on twisted-pair Ethernet cables."
 },
 {
+"t": "Roaming",
+"d": "A WiFi client moving from one access point to another without losing its connection as it moves."
+},
+{
+"t": "Rogue device",
+"d": "Unauthorized device connected to the network, such as an AP or a DHCP server set up by a user or an attacker."
+},
+{
 "t": "Root bridge",
 "d": "The central reference switch in STP; every path in the tree is calculated towards it."
+},
+{
+"t": "Root Guard",
+"d": "STP protection that prevents a switch connected to that port from becoming root bridge."
+},
+{
+"t": "Route summarization",
+"d": "Advertising several contiguous networks with one route with a shorter prefix. It shrinks tables and adds stability."
 },
 {
 "t": "Router",
 "d": "The device that forwards packets between different networks, choosing the best route."
 },
 {
+"t": "Router ID",
+"d": "32-bit identifier of an OSPF router. It comes from the router-id command, the highest loopback or the highest active interface."
+},
+{
 "t": "Router-on-a-stick",
 "d": "Inter-VLAN routing over a single trunk link to the router, split into subinterfaces."
+},
+{
+"t": "Routing loop",
+"d": "Packets going round between routers because each one thinks the other is the way. The TTL eventually drops them."
 },
 {
 "t": "Routing table",
 "d": "The list of networks a router knows and how to reach them. It is consulted for every packet."
 },
 {
+"t": "RSSI",
+"d": "Strength of the signal a WiFi client receives, in dBm. The closer to 0, the better."
+},
+{
+"t": "RSTP",
+"d": "Rapid Spanning Tree (802.1w): fast version of STP that converges in seconds."
+},
+{
 "t": "Running-config",
 "d": "The active configuration in RAM. It is lost on reboot unless you save it to the startup-config."
+},
+{
+"t": "SAE",
+"d": "WPA3-Personal key exchange method. It replaces WPA2's PSK and resists offline dictionary attacks."
+},
+{
+"t": "SD-Access",
+"d": "Cisco's campus solution based on Catalyst Center: it builds an overlay fabric with segmentation and group-based policies."
+},
+{
+"t": "SD-WAN",
+"d": "Software-defined WAN: a central controller manages the links of several sites and chooses the best path for each application."
 },
 {
 "t": "SDN",
@@ -526,12 +1040,56 @@ const TERMINOS = [
 "d": "The layer 4 (TCP) data unit: it carries the source and destination ports."
 },
 {
+"t": "Severity (syslog)",
+"d": "Severity level of a message, from 0 (emergencies) to 7 (debugging). The lower the number, the more severe."
+},
+{
+"t": "SFP and QSFP",
+"d": "Pluggable transceivers for switch ports. SFP carries one lane (1, 10 or 25 Gbps); QSFP, four (40 or 100 Gbps)."
+},
+{
+"t": "SFTP and SCP",
+"d": "Secure file transfer over SSH. They replace FTP and TFTP when traffic crosses untrusted networks."
+},
+{
+"t": "Single-mode fiber",
+"d": "Fiber with a very thin core (9 microns) that carries light along a single path. It reaches tens of kilometers; its jacket is usually yellow."
+},
+{
 "t": "SLAAC",
 "d": "IPv6 address autoconfiguration: the host builds its own address from the prefix the router advertises."
 },
 {
+"t": "SMTP",
+"d": "Protocol for sending mail between servers, TCP port 25 (and 587 for authenticated submission from clients)."
+},
+{
 "t": "SNMP",
 "d": "The protocol for monitoring and managing network devices centrally."
+},
+{
+"t": "SNMP community",
+"d": "String that acts as a password in SNMPv1 and v2c. It travels in clear text; the factory ones, public and private, must be changed."
+},
+{
+"t": "SNMP trap",
+"d": "Alert a device sends on its own to the SNMP manager when something happens, for example an interface going down."
+},
+{
+"t": "Social engineering",
+"d": "Tricking people into revealing information or granting access: phishing, calls pretending to be support, abandoned USB sticks."
+},
+{
+"t": "SPF",
+"d": "Dijkstra's algorithm, which OSPF uses to calculate the lowest-cost path to each network."
+},
+{
+"t": "Spine-leaf",
+"d": "Two-level data center design: every leaf switch connects to every spine, so any server is two hops from any other."
+},
+{
+"t": "Spoofing",
+"d": "Impersonating an identity by forging an IP address, a MAC or an ARP or DHCP message."
 },
 {
 "t": "SSH",
@@ -546,6 +1104,10 @@ const TERMINOS = [
 "d": "The configuration saved in NVRAM that the device loads when it boots."
 },
 {
+"t": "Stateful firewall",
+"d": "Firewall that remembers open connections and automatically lets the replies through, instead of evaluating each packet on its own."
+},
+{
 "t": "Static route",
 "d": "A route configured by hand by the administrator, not learned from a protocol."
 },
@@ -554,12 +1116,24 @@ const TERMINOS = [
 "d": "The Port Security option that automatically learns the connected MAC and pins it into the configuration."
 },
 {
+"t": "Store-and-forward and cut-through switching",
+"d": "Store-and-forward receives the whole frame and checks the CRC before forwarding it. Cut-through forwards it as soon as it reads the destination MAC: less latency, but damaged frames get through."
+},
+{
 "t": "STP (Spanning Tree)",
 "d": "The protocol that prevents loops in networks with redundant switches by blocking the spare links."
 },
 {
+"t": "STP port roles",
+"d": "Root (the best path to the root bridge), designated (the forwarding one on each segment), alternate and backup (in reserve, blocked)."
+},
+{
 "t": "Straight-through cable",
 "d": "A network cable with the same pair order at both ends: the usual one for connecting a PC to a switch."
+},
+{
+"t": "Stratum (NTP)",
+"d": "Distance to the reference time source. Stratum 1 is connected to a GPS or atomic clock; 16 means unsynchronized."
 },
 {
 "t": "Subinterface",
@@ -574,8 +1148,20 @@ const TERMINOS = [
 "d": "Splitting a large network into smaller subnets to organize and optimize addressing."
 },
 {
+"t": "SVI",
+"d": "A switch's virtual VLAN interface (interface vlan 10). It is used to manage it or, on a layer 3 switch, as the VLAN's gateway."
+},
+{
 "t": "Switch",
 "d": "The device that connects hosts on a LAN and forwards frames by MAC address."
+},
+{
+"t": "Switch stack",
+"d": "Several switches joined by special cables that work and are managed as one."
+},
+{
+"t": "Symmetric and asymmetric encryption",
+"d": "Symmetric uses the same key to encrypt and decrypt and is fast (AES). Asymmetric uses a public and private key pair (RSA) and is used to exchange keys and sign."
 },
 {
 "t": "Syslog",
@@ -594,20 +1180,52 @@ const TERMINOS = [
 "d": "The UNENCRYPTED remote administration protocol (port 23). Insecure; use SSH."
 },
 {
+"t": "Terraform",
+"d": "Infrastructure-as-code tool that describes the desired state in files and creates or corrects it in the cloud or on the network."
+},
+{
+"t": "TFTP",
+"d": "Very simple file transfer over UDP 69, with no username or encryption. Used for configuration backups and IOS images on management networks."
+},
+{
+"t": "Threat",
+"d": "Anything that can exploit a vulnerability to cause harm: an attacker, malware or human error."
+},
+{
+"t": "Three-tier design",
+"d": "Hierarchical campus network model: access (users), distribution (policies and routing) and core (fast transport)."
+},
+{
 "t": "Throughput",
 "d": "The speed you actually get in practice, normally lower than the theoretical bandwidth."
+},
+{
+"t": "TLS",
+"d": "Protocol that encrypts application connections, such as HTTPS. Successor to SSL."
 },
 {
 "t": "Topology",
 "d": "How the devices are wired together: star, mesh, ring or bus."
 },
 {
+"t": "Traceroute",
+"d": "Tool that shows each router along the path to a destination, using packets with an increasing TTL."
+},
+{
 "t": "Trunk",
 "d": "A link between switches that carries the traffic of several VLANs at once (802.1Q)."
 },
 {
+"t": "Trust boundary",
+"d": "Point in the network from which the QoS markings carried by packets are trusted. It is usually at the IP phone or the access switch."
+},
+{
 "t": "TTL (Time To Live)",
 "d": "The counter that limits how many hops (routers) a packet may cross before being dropped."
+},
+{
+"t": "Twisted pair (UTP and STP)",
+"d": "Copper cable with twisted pairs of wires. UTP has no shield; STP or FTP have one to resist interference."
 },
 {
 "t": "UDP",
@@ -618,6 +1236,18 @@ const TERMINOS = [
 "d": "One-to-one communication: a single source and a single destination."
 },
 {
+"t": "Unique local address",
+"d": "Private IPv6 address from the fc00::/7 range, which in practice starts with fd. It is not routed on the Internet."
+},
+{
+"t": "Uplink",
+"d": "A switch's link toward the upper level of the network, usually faster than the user ports."
+},
+{
+"t": "Virtual machine (VM)",
+"d": "Complete computer emulated in software on a hypervisor, with its own operating system."
+},
+{
 "t": "Virtualization",
 "d": "Running several virtual machines on one physical server thanks to a hypervisor."
 },
@@ -626,12 +1256,24 @@ const TERMINOS = [
 "d": "A virtual local area network that logically separates devices even when they share a switch."
 },
 {
+"t": "VLAN hopping",
+"d": "Attack to jump into another VLAN through a DTP-negotiated trunk or double tagging. Avoided by disabling DTP and changing the native VLAN."
+},
+{
 "t": "VLSM",
 "d": "Variable-length subnet masks: using different prefixes according to the size of each subnet, wasting no addresses."
 },
 {
+"t": "Voice VLAN",
+"d": "Separate VLAN for IP phones on the same port as the PC, configured with switchport voice vlan."
+},
+{
 "t": "VPN",
 "d": "An encrypted tunnel that securely connects networks or users across the Internet."
+},
+{
+"t": "VRF",
+"d": "Several independent routing tables inside one router, as if they were separate routers. It allows networks with overlapping addresses."
 },
 {
 "t": "VRRP",
@@ -642,12 +1284,28 @@ const TERMINOS = [
 "d": "Cisco's protocol that propagates the VLAN database between switches. Dangerous if misconfigured."
 },
 {
+"t": "Vulnerability",
+"d": "Weakness in a system that a threat can exploit: a software bug, an insecure configuration or a weak password."
+},
+{
+"t": "VXLAN",
+"d": "Overlay technology that carries layer 2 frames inside UDP packets. It allows millions of segments and is used in data centers and SD-Access."
+},
+{
 "t": "WAN",
 "d": "Wide area network: it connects distant sites, normally through a service provider."
 },
 {
+"t": "Well-known port",
+"d": "Ports 0 to 1023, reserved for standard services: 22 SSH, 53 DNS, 80 HTTP, 443 HTTPS."
+},
+{
 "t": "WiFi",
 "d": "Wireless local network technology (the 802.11 standard)."
+},
+{
+"t": "WiFi channel",
+"d": "Slice of a radio band an access point uses. In 2.4 GHz only 1, 6 and 11 do not overlap."
 },
 {
 "t": "Wildcard mask",
@@ -664,6 +1322,18 @@ const TERMINOS = [
 {
 "t": "WPA2 / WPA3",
 "d": "WiFi security standards. WPA3 is the most modern and robust; WEP is obsolete and must not be used."
+},
+{
+"t": "XML",
+"d": "Data format with opening and closing tags. NETCONF uses it; today JSON is more common in REST APIs."
+},
+{
+"t": "YAML",
+"d": "Readable, indentation-based data format. It is the format of Ansible playbooks."
+},
+{
+"t": "YANG",
+"d": "Language that describes network devices' data models. NETCONF and RESTCONF use it to know what can be configured."
 }
 ];
 
@@ -681,8 +1351,11 @@ function resaltar(texto, q) {
 
 function pintar(q = '') {
   const filtro = q.trim().toLowerCase();
+  // Sin tildes: "direccion" encuentra "Dirección", como en la app.
+  const plano = s => s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+  const fp = plano(filtro);
   const res = TERMINOS.filter(x =>
-    !filtro || x.t.toLowerCase().includes(filtro) || x.d.toLowerCase().includes(filtro));
+    !fp || plano(x.t).includes(fp) || plano(x.d).includes(fp));
   $contador.textContent = filtro
     ? `${res.length} result${res.length === 1 ? '' : 's'} for "${q}"`
     : `${TERMINOS.length} terms · in alphabetical order`;
@@ -690,7 +1363,7 @@ function pintar(q = '') {
     ? res.map(x => `<article class="termino" id="t-${x.t.charAt(0).toUpperCase()}">
          <h3>${resaltar(x.t, filtro)}</h3><p>${resaltar(x.d, filtro)}</p></article>`).join('')
     : `<div class="tarjeta" style="text-align:center;padding:40px">
-         <p style="font-size:2rem;margin:0">🔍</p>
+         <p style="margin:0;color:var(--texto-sec)"><span class="material-symbols-rounded" style="font-size:2.2rem" aria-hidden="true">search</span></p>
          <h3>No results</h3>
          <p class="texto-sec">We could not find "${q}". Try another word.</p></div>`;
 }

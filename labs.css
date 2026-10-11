@@ -3,7 +3,7 @@
    (generado por herramientas/guias_packet_tracer.py en el repo de la app)
    ============================================================ */
 .cabecera-pagina {
-  background: linear-gradient(125deg, var(--marino), var(--azul2) 90%);
+  background: var(--marino);
   color: #fff; padding: 64px 0 56px; position: relative; overflow: hidden;
 }
 #redCanvas { position: absolute; inset: 0; width: 100%; height: 100%; opacity: .6; }
@@ -72,14 +72,14 @@ details.pistas ul { margin: 0; padding: 0 22px 16px 38px; }
 details.pistas li { margin-bottom: 8px; font-size: .95rem; }
 details.solucion > .paso { padding: 0 18px; }
 .paso h3 { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; font-size: 1.08rem; margin: 1.2em 0 .4em; }
-.paso .num { display: inline-grid; place-items: center; width: 28px; height: 28px; border-radius: 9px; background: linear-gradient(135deg, var(--cian), var(--azul)); color: #fff; font-size: .9rem; }
+.paso .num { display: inline-grid; place-items: center; width: 28px; height: 28px; border-radius: 9px; background: var(--azul); color: var(--fondo2); font-size: .9rem; }
 .paso .equipo { font-family: 'JetBrains Mono', monospace; font-size: .78rem; font-weight: 600; color: var(--texto-sec); border: 1px solid var(--borde); border-radius: 6px; padding: 2px 8px; }
 details.solucion > .paso:last-child { padding-bottom: 8px; }
 
 .errores li { margin-bottom: 8px; }
 .cta-app {
   margin: 48px 0 28px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px;
-  background: linear-gradient(125deg, var(--marino), var(--azul2)); color: #fff; border-radius: var(--radio); padding: 28px;
+  background: var(--marino); color: #fff; border-radius: var(--radio); padding: 28px;
 }
 .cta-app h3 { color: #fff; margin: 0 0 6px; }
 .cta-app p { color: #c8d3f5; margin: 0; max-width: 560px; }

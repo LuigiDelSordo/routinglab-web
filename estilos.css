@@ -1,27 +1,28 @@
 /* ============================================================
    RoutingLab · sistema de diseño web
-   Mismos colores y tipografías que la app (Color.kt, Sora/Inter)
+   Mismos colores y tipografías que la app (Color.kt, Sora/Inter): marino, un azul
+   de acento y el color solo para lo que significa algo (acierto, aviso, error).
    ============================================================ */
 
 :root {
   /* Marca */
-  --marino: #0A1D5C;
-  --azul: #2E5BFF;
-  --azul2: #4361EE;
-  --cian: #4CC9F0;
-  --violeta: #7209B7;
-  --fucsia: #F72585;
-  --verde: #06D6A0;
-  --ambar: #FF9E00;
+  --marino: #0B1F4D;
+  --azul: #1F4FD1;
+  --azul2: #1A44B8;
+  --cian: #3D8BFD;
+  --violeta: #16306E;
+  --fucsia: #DC2626;
+  --verde: #22A06B;
+  --ambar: #D97706;
 
   /* Tema claro (por defecto) */
-  --fondo: #F4F6FB;
+  --fondo: #EEF0F4;
   --fondo2: #FFFFFF;
   --superficie: #FFFFFF;
-  --superficie-var: #E8ECF6;
-  --texto: #141A28;
-  --texto-sec: #475069;
-  --borde: #DCE2F0;
+  --superficie-var: #F1F3F6;
+  --texto: #111827;
+  --texto-sec: #4B5563;
+  --borde: #D1D5DB;
   --sombra: 0 4px 24px rgba(20, 26, 40, .08);
   --sombra-fuerte: 0 12px 40px rgba(20, 26, 40, .14);
 
@@ -32,26 +33,31 @@
 }
 
 html[data-tema="oscuro"] {
-  --fondo: #0A1122;
-  --fondo2: #0E1730;
-  --superficie: #111A30;
-  --superficie-var: #1C2742;
-  --texto: #E2E7F5;
-  --texto-sec: #A8B3CF;
-  --borde: #24304F;
+  /* Como la app en oscuro: azul claro de acento y texto marino encima */
+  --azul: #8AB4FF;
+  --azul2: #A9C7FF;
+  --fondo: #0F1218;
+  --fondo2: #13171E;
+  --superficie: #171B22;
+  --superficie-var: #1F242D;
+  --texto: #E5E7EB;
+  --texto-sec: #9CA3AF;
+  --borde: #2E3440;
   --sombra: 0 4px 24px rgba(0, 0, 0, .35);
   --sombra-fuerte: 0 12px 40px rgba(0, 0, 0, .5);
 }
 
 @media (prefers-color-scheme: dark) {
   html:not([data-tema="claro"]) {
-    --fondo: #0A1122;
-    --fondo2: #0E1730;
-    --superficie: #111A30;
-    --superficie-var: #1C2742;
-    --texto: #E2E7F5;
-    --texto-sec: #A8B3CF;
-    --borde: #24304F;
+    --azul: #8AB4FF;
+    --azul2: #A9C7FF;
+    --fondo: #0F1218;
+    --fondo2: #13171E;
+    --superficie: #171B22;
+    --superficie-var: #1F242D;
+    --texto: #E5E7EB;
+    --texto-sec: #9CA3AF;
+    --borde: #2E3440;
     --sombra: 0 4px 24px rgba(0, 0, 0, .35);
     --sombra-fuerte: 0 12px 40px rgba(0, 0, 0, .5);
   }
@@ -89,10 +95,7 @@ a:hover { color: var(--cian); }
 .contenedor { max-width: var(--ancho); margin: 0 auto; padding: 0 24px; }
 .centrado { text-align: center; }
 .texto-sec { color: var(--texto-sec); }
-.degradado-texto {
-  background: linear-gradient(100deg, var(--cian), var(--azul) 45%, var(--violeta));
-  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
-}
+.degradado-texto { color: var(--azul); }
 
 /* ---------- Navegación ---------- */
 .nav {
@@ -109,9 +112,12 @@ a:hover { color: var(--cian); }
 .logo svg { width: 30px; height: 30px; flex: none; }
 .nav-links { display: flex; gap: 6px; margin-left: auto; align-items: center; }
 .nav-links a {
-  color: var(--texto-sec); font-size: .95rem; font-weight: 500;
-  padding: 8px 12px; border-radius: 10px; transition: all var(--trans);
+  color: var(--texto-sec); font-size: .95rem; font-weight: 500; white-space: nowrap;
+  padding: 8px 10px; border-radius: 10px; transition: all var(--trans);
 }
+/* El botón de descargar de la barra: texto blanco (la regla de arriba lo dejaba gris) */
+.nav-links a.btn-primario { color: #fff; background: var(--azul); padding: 9px 16px; }
+.nav-links a.btn-primario:hover { color: #fff; background: var(--azul2); }
 .nav-links a:hover { color: var(--texto); background: var(--superficie-var); }
 .nav-links a.activo { color: var(--azul); font-weight: 600; }
 
@@ -121,6 +127,7 @@ a:hover { color: var(--cian); }
   display: grid; place-items: center; font-size: 1.05rem; transition: all var(--trans);
 }
 .boton-tema:hover { border-color: var(--azul); transform: translateY(-1px); }
+.boton-tema svg { display: block; }
 
 /* Selector de idioma: mismo tamaño que el botón de tema, pero con texto. */
 .cambio-idioma {
@@ -162,12 +169,13 @@ a:hover { color: var(--cian); }
 }
 .btn:active { transform: scale(.97); }
 .btn-primario {
-  background: linear-gradient(100deg, var(--azul), var(--violeta));
-  color: #fff; box-shadow: 0 8px 24px rgba(46, 91, 255, .35);
+  background: var(--azul);
+  color: #fff; box-shadow: 0 4px 14px rgba(31, 79, 209, .22);
 }
-.btn-primario:hover { transform: translateY(-2px); box-shadow: 0 14px 32px rgba(46, 91, 255, .45); color: #fff; }
-.btn-claro { background: #fff; color: var(--azul); box-shadow: var(--sombra); }
-.btn-claro:hover { transform: translateY(-2px); color: var(--azul); }
+.btn-primario:hover { transform: translateY(-1px); box-shadow: 0 8px 22px rgba(31, 79, 209, .3); color: #fff; }
+/* Siempre sobre fondo marino: azul fijo, también en el tema oscuro */
+.btn-claro { background: #fff; color: #1F4FD1; box-shadow: var(--sombra); }
+.btn-claro:hover { transform: translateY(-2px); color: #1F4FD1; }
 .btn-fantasma { background: transparent; color: var(--texto); border: 1.5px solid var(--borde); }
 .btn-fantasma:hover { border-color: var(--azul); color: var(--azul); }
 .btn-sm { padding: 10px 18px; font-size: .9rem; border-radius: 11px; }
@@ -194,25 +202,17 @@ section { padding: 88px 0; }
   transition: transform var(--trans), box-shadow var(--trans), border-color var(--trans);
 }
 .tarjeta:hover { transform: translateY(-4px); box-shadow: var(--sombra-fuerte); border-color: color-mix(in srgb, var(--azul) 40%, var(--borde)); }
-/* Acento asimétrico, como en la app */
-.tarjeta::before {
-  content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 5px;
-  background: linear-gradient(180deg, var(--cian), var(--azul));
-}
-.tarjeta.g1::before { background: linear-gradient(180deg, var(--violeta), var(--azul)); }
-.tarjeta.g2::before { background: linear-gradient(180deg, var(--verde), #118AB2); }
-.tarjeta.g3::before { background: linear-gradient(180deg, var(--fucsia), var(--violeta)); }
-.tarjeta.g4::before { background: linear-gradient(180deg, var(--ambar), #FF5400); }
-
+/* Iconos como en la app: azul sobre un fondo azul muy suave, sin degradados. */
 .icono-chip {
-  width: 52px; height: 52px; border-radius: 15px; display: grid; place-items: center;
+  width: 48px; height: 48px; border-radius: 12px; display: grid; place-items: center;
   font-size: 1.5rem; margin-bottom: 16px;
-  background: linear-gradient(135deg, var(--cian), var(--azul)); color: #fff;
+  background: color-mix(in srgb, var(--azul) 12%, var(--superficie)); color: var(--azul);
 }
-.g1 .icono-chip { background: linear-gradient(135deg, var(--violeta), var(--azul)); }
-.g2 .icono-chip { background: linear-gradient(135deg, var(--verde), #118AB2); }
-.g3 .icono-chip { background: linear-gradient(135deg, var(--fucsia), var(--violeta)); }
-.g4 .icono-chip { background: linear-gradient(135deg, var(--ambar), #FF5400); }
+html[data-tema="oscuro"] .icono-chip { color: #8AB4FF; background: color-mix(in srgb, #8AB4FF 14%, var(--superficie)); }
+@media (prefers-color-scheme: dark) {
+  html:not([data-tema="claro"]) .icono-chip { color: #8AB4FF; background: color-mix(in srgb, #8AB4FF 14%, var(--superficie)); }
+}
+.material-symbols-rounded { font-size: 1.5rem; line-height: 1; }
 
 /* ---------- Animación al hacer scroll ---------- */
 .revelar { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.7,.3,1); }
@@ -247,7 +247,7 @@ footer h4 { font-size: .85rem; text-transform: uppercase; letter-spacing: .08em;
 
 /* ---------- Utilidades ---------- */
 .insignia { display: inline-block; padding: 4px 10px; border-radius: 8px; font-size: .78rem; font-weight: 700; }
-.insignia-verde { background: color-mix(in srgb, var(--verde) 18%, transparent); color: #06805f; }
+.insignia-verde { background: color-mix(in srgb, var(--verde) 16%, transparent); color: #15803D; }
 html[data-tema="oscuro"] .insignia-verde { color: var(--verde); }
 .mono { font-family: 'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace; }
 .oculto { display: none !important; }
@@ -261,7 +261,7 @@ html[data-tema="oscuro"] .insignia-verde { color: var(--verde); }
 .vlsm-quitar:hover { border-color: #B3261E; color: #B3261E; }
 .tabla-vlsm td, .tabla-vlsm th { padding: 10px 12px; font-size: .9rem; white-space: nowrap; }
 .barra-uso { height: 8px; border-radius: 4px; background: var(--superficie-var); overflow: hidden; margin-top: 14px; }
-.barra-uso div { height: 100%; background: linear-gradient(90deg, var(--cian), var(--azul)); }
+.barra-uso div { height: 100%; background: var(--azul); }
 .aviso-caja {
   background: color-mix(in srgb, var(--ambar) 12%, var(--fondo2)); border: 1px solid color-mix(in srgb, var(--ambar) 55%, var(--borde));
   padding: 12px 15px; border-radius: var(--radio-s); font-size: .92rem; margin-bottom: 12px;
@@ -276,3 +276,15 @@ html[data-tema="oscuro"] .insignia-verde { color: var(--verde); }
 /* VLSM: formulario arriba y tabla a todo el ancho debajo */
 .calc-apilada { display: grid; grid-template-columns: minmax(0, 1fr); gap: 24px; }
 .calc-apilada > .tarjeta { max-width: 560px; }
+
+/* En oscuro el azul de acento es claro: los botones llevan el texto en marino */
+html[data-tema="oscuro"] .btn-primario,
+html[data-tema="oscuro"] .btn-primario:hover,
+html[data-tema="oscuro"] .nav-links a.btn-primario,
+html[data-tema="oscuro"] .nav-links a.btn-primario:hover { color: var(--marino); }
+@media (prefers-color-scheme: dark) {
+  html:not([data-tema="claro"]) .btn-primario,
+  html:not([data-tema="claro"]) .btn-primario:hover,
+  html:not([data-tema="claro"]) .nav-links a.btn-primario,
+  html:not([data-tema="claro"]) .nav-links a.btn-primario:hover { color: var(--marino); }
+}
