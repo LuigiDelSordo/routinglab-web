@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lab 8: Single-area OSPF · Packet Tracer</title>
+<meta name="description" content="router-id, network with wildcards, passive interfaces and neighbors. Packet Tracer guide for the CCNA with topology, step-by-step solution and verification.">
+<meta property="og:title" content="Lab 8: Single-area OSPF · Packet Tracer">
+<meta property="og:description" content="router-id, network with wildcards, passive interfaces and neighbors. Packet Tracer guide for the CCNA with topology, step-by-step solution and verification.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://routinglab.es/en/labs/ospf.html">
+<meta property="og:site_name" content="RoutingLab">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://routinglab.es/capturas/og-en.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="RoutingLab · CCNA 200-301">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Lab 8: Single-area OSPF · Packet Tracer">
+<meta name="twitter:description" content="router-id, network with wildcards, passive interfaces and neighbors. Packet Tracer guide for the CCNA with topology, step-by-step solution and verification.">
+<meta name="twitter:image" content="https://routinglab.es/capturas/og-en.jpg">
+<meta name="theme-color" content="#0A1D5C">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../estilos.css">
+<link rel="stylesheet" href="../../labs.css">
+<link rel="alternate" hreflang="es" href="https://routinglab.es/laboratorios/ospf.html">
+<link rel="alternate" hreflang="en" href="https://routinglab.es/en/labs/ospf.html">
+<link rel="alternate" hreflang="x-default" href="https://routinglab.es/laboratorios/ospf.html">
+<link rel="canonical" href="https://routinglab.es/en/labs/ospf.html">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="contenedor nav-inner">
+    <a href="../index.html" class="logo">
+      <svg viewBox="0 0 100 100" aria-hidden="true">
+        <circle cx="50" cy="50" r="48" fill="url(#g)"/>
+        <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#0A1D5C"/><stop offset="1" stop-color="#2E5BFF"/>
+        </linearGradient></defs>
+        <g stroke="#4CC9F0" stroke-width="6" stroke-linecap="round">
+          <path d="M50 50 L28 30 M50 50 L72 26 M50 50 L28 72 M50 50 L74 70 M28 30 L72 26 M28 72 L74 70"/>
+        </g>
+        <circle cx="28" cy="30" r="9" fill="#fff"/><circle cx="72" cy="26" r="9" fill="#fff"/>
+        <circle cx="28" cy="72" r="9" fill="#fff"/><circle cx="74" cy="70" r="9" fill="#fff"/>
+        <circle cx="50" cy="50" r="11" fill="#4CC9F0"/>
+      </svg>
+      RoutingLab
+    </a>
+    <button class="menu-movil" aria-label="Open menu">☰</button>
+    <div class="nav-links">
+      <a href="../index.html#caracteristicas">Features</a>
+      <a href="../index.html#demo">Demo</a>
+      <a href="../tools.html">Tools</a>
+      <a href="../labs.html" class="activo">Labs</a>
+      <a href="../glossary.html">Glossary</a>
+      <a href="../index.html#precios">Pricing</a>
+      <a href="../support.html">Support</a>
+      <a href="../index.html#descargar" class="btn btn-primario btn-sm">Download</a>
+    </div>
+    <a href="../../laboratorios/ospf.html" class="cambio-idioma" hreflang="es" lang="es" aria-label="Leer esta página en español">ES</a>
+    <button class="boton-tema" onclick="alternarTema()">🌙</button>
+  </div>
+</nav>
+<header class="cabecera-pagina cabecera-lab">
+  <canvas id="redCanvas" aria-hidden="true"></canvas>
+  <div class="contenedor">
+    <a class="miga" href="../labs.html">← All labs</a>
+    <span class="etiqueta-seccion" style="background:rgba(255,255,255,.15);color:#fff">Lab 8 · Packet Tracer</span>
+    <h1>Single-area OSPF</h1>
+    <p>router-id, network with wildcards, passive interfaces and neighbors</p>
+    <div class="guia-meta">
+      <span>Level: Intermediate</span>
+      <span>Time: 35 min</span>
+      <span>Domain 3.0 IP Connectivity</span>
+    </div>
+  </div>
+</header>
+<section class="seccion-guia">
+<div class="contenedor guia">
+<h2>Scenario</h2>
+<p>Three routers in a row: R1 – R2 – R3. R2 already runs OSPF (process 1, router-id 2.2.2.2). Your job is to configure R1 and R3 so the LANs at both ends can reach each other without a single static route.</p>
+<p>Use process 1 and area 0. Set the router-id (1.1.1.1 on R1 and 3.3.3.3 on R3) before advertising the networks, advertise all their connected networks and make the LAN interface passive, since there&#x27;s no router to talk to there. Verify the neighbors with show ip ospf neighbor.</p>
+<h2>Topology</h2><div class="topologia"><svg viewBox="0 0 640 340" role="img" aria-label="R1, R2, R3, PC1, PC3"><line class="cable" x1="60" y1="278" x2="169" y2="46"/><line class="cable" x1="169" y1="46" x2="320" y2="46"/><line class="cable" x1="320" y1="46" x2="471" y2="46"/><line class="cable" x1="471" y1="46" x2="580" y2="278"/><defs><linearGradient id="gospf0" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4CC9F0"/><stop offset="1" stop-color="#2E5BFF"/></linearGradient></defs><rect x="30" y="248" width="60" height="60" rx="17" fill="url(#gospf0)"/><g transform="translate(44,262) scale(1.333)" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M9 20h6M12 16v4"/></g><text class="nombre" x="60" y="330" text-anchor="middle">PC1</text><defs><linearGradient id="gospf1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7209B7"/><stop offset="1" stop-color="#2E5BFF"/></linearGradient></defs><rect x="139" y="16" width="60" height="60" rx="17" fill="url(#gospf1)"/><g transform="translate(153,30) scale(1.333)" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M12 4v5M12 15v5M4 12h5M15 12h5M10 7l2-3 2 3M10 17l2 3 2-3M7 10l-3 2 3 2M17 10l3 2-3 2"/></g><text class="nombre" x="169" y="98" text-anchor="middle">R1</text><defs><linearGradient id="gospf2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#06D6A0"/><stop offset="1" stop-color="#118AB2"/></linearGradient></defs><rect x="290" y="16" width="60" height="60" rx="17" fill="url(#gospf2)"/><g transform="translate(304,30) scale(1.333)" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M12 4v5M12 15v5M4 12h5M15 12h5M10 7l2-3 2 3M10 17l2 3 2-3M7 10l-3 2 3 2M17 10l3 2-3 2"/></g><text class="nombre" x="320" y="98" text-anchor="middle">R2</text><defs><linearGradient id="gospf3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F72585"/><stop offset="1" stop-color="#7209B7"/></linearGradient></defs><rect x="441" y="16" width="60" height="60" rx="17" fill="url(#gospf3)"/><g transform="translate(455,30) scale(1.333)" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M12 4v5M12 15v5M4 12h5M15 12h5M10 7l2-3 2 3M10 17l2 3 2-3M7 10l-3 2 3 2M17 10l3 2-3 2"/></g><text class="nombre" x="471" y="98" text-anchor="middle">R3</text><defs><linearGradient id="gospf4" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FF9E00"/><stop offset="1" stop-color="#FF5400"/></linearGradient></defs><rect x="550" y="248" width="60" height="60" rx="17" fill="url(#gospf4)"/><g transform="translate(564,262) scale(1.333)" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M9 20h6M12 16v4"/></g><text class="nombre" x="580" y="330" text-anchor="middle">PC3</text><rect class="puerto-fondo" x="62" y="222" width="38" height="22" rx="6"/><text class="puerto" x="81" y="238" text-anchor="middle">Fa0</text><rect class="puerto-fondo" x="108" y="107" width="55" height="22" rx="6"/><text class="puerto" x="135" y="123" text-anchor="middle">Gi0/0</text><rect class="puerto-fondo" x="217" y="18" width="55" height="22" rx="6"/><text class="puerto" x="244" y="34" text-anchor="middle">Gi0/1</text><rect class="puerto-fondo" x="217" y="52" width="55" height="22" rx="6"/><text class="puerto" x="244" y="68" text-anchor="middle">Gi0/0</text><rect class="puerto-fondo" x="368" y="18" width="55" height="22" rx="6"/><text class="puerto" x="396" y="34" text-anchor="middle">Gi0/1</text><rect class="puerto-fondo" x="368" y="52" width="55" height="22" rx="6"/><text class="puerto" x="396" y="68" text-anchor="middle">Gi0/0</text><rect class="puerto-fondo" x="477" y="107" width="55" height="22" rx="6"/><text class="puerto" x="505" y="123" text-anchor="middle">Gi0/1</text><rect class="puerto-fondo" x="540" y="222" width="38" height="22" rx="6"/><text class="puerto" x="559" y="238" text-anchor="middle">Fa0</text></svg></div>
+<h2>Devices and cabling</h2><ul class="modelos"><li><strong>R1, R2, R3</strong> <span class="texto-sec">·</span> <span class="mono">2911</span></li><li><strong>PC1, PC3</strong> <span class="texto-sec">·</span> <span class="mono">PC-PT</span></li></ul>
+<div class="tabla-envoltura"><table class="tabla-guia"><thead><tr><th>From</th><th>To</th><th>Cable</th></tr></thead><tbody><tr><td><strong>PC1</strong> <span class="mono">Fa0</span></td><td><strong>R1</strong> <span class="mono">Gi0/0</span></td><td>Crossover</td></tr><tr><td><strong>R1</strong> <span class="mono">Gi0/1</span></td><td><strong>R2</strong> <span class="mono">Gi0/0</span></td><td>Crossover</td></tr><tr><td><strong>R2</strong> <span class="mono">Gi0/1</span></td><td><strong>R3</strong> <span class="mono">Gi0/0</span></td><td>Crossover</td></tr><tr><td><strong>R3</strong> <span class="mono">Gi0/1</span></td><td><strong>PC3</strong> <span class="mono">Fa0</span></td><td>Crossover</td></tr></tbody></table></div>
+<p class="nota">If in doubt, the automatic connection cable (the lightning bolt) picks the right one. Rule: straight-through between different devices (PC or router to switch) and crossover between alike ones.</p>
+<h2>Addressing</h2><div class="tabla-envoltura"><table class="tabla-guia"><thead><tr><th>Device</th><th>Interface</th><th>Address</th><th>Mask</th><th>Default gateway</th></tr></thead><tbody><tr><td><strong>R1</strong></td><td>G0/0</td><td class="mono">192.168.1.1</td><td class="mono">255.255.255.0</td><td class="mono">—</td></tr><tr><td><strong>R1</strong></td><td>G0/1</td><td class="mono">10.0.12.1</td><td class="mono">255.255.255.252</td><td class="mono">—</td></tr><tr><td><strong>R2</strong></td><td>G0/0</td><td class="mono">10.0.12.2</td><td class="mono">255.255.255.252</td><td class="mono">—</td></tr><tr><td><strong>R2</strong></td><td>G0/1</td><td class="mono">10.0.23.1</td><td class="mono">255.255.255.252</td><td class="mono">—</td></tr><tr><td><strong>R3</strong></td><td>G0/0</td><td class="mono">10.0.23.2</td><td class="mono">255.255.255.252</td><td class="mono">—</td></tr><tr><td><strong>R3</strong></td><td>G0/1</td><td class="mono">192.168.3.1</td><td class="mono">255.255.255.0</td><td class="mono">—</td></tr><tr><td><strong>PC1</strong></td><td>NIC</td><td class="mono">192.168.1.10</td><td class="mono">255.255.255.0</td><td class="mono">192.168.1.1</td></tr><tr><td><strong>PC3</strong></td><td>NIC</td><td class="mono">192.168.3.10</td><td class="mono">255.255.255.0</td><td class="mono">192.168.3.1</td></tr></tbody></table></div>
+<h2>Starting configuration</h2>
+<p>In the app this is already done. In Packet Tracer, before you start, enter each device with enable and configure terminal and type (or paste) these lines.</p>
+<div class="terminal"><span class="eq">R1</span>hostname R1
+no ip domain-lookup
+interface g0/0
+ip address 192.168.1.1 255.255.255.0
+no shutdown
+interface g0/1
+ip address 10.0.12.1 255.255.255.252
+no shutdown</div>
+<div class="terminal"><span class="eq">R2</span>hostname R2
+no ip domain-lookup
+interface g0/0
+ip address 10.0.12.2 255.255.255.252
+no shutdown
+interface g0/1
+ip address 10.0.23.1 255.255.255.252
+no shutdown
+router ospf 1
+router-id 2.2.2.2
+network 10.0.12.0 0.0.0.3 area 0
+network 10.0.23.0 0.0.0.3 area 0</div>
+<div class="terminal"><span class="eq">R3</span>hostname R3
+no ip domain-lookup
+interface g0/0
+ip address 10.0.23.2 255.255.255.252
+no shutdown
+interface g0/1
+ip address 192.168.3.1 255.255.255.0
+no shutdown</div>
+<h3>PCs and servers (Desktop › IP Configuration)</h3><ul class="lista-pcs"><li class="mono">PC1: IP 192.168.1.10, mask 255.255.255.0, gateway 192.168.1.1</li><li class="mono">PC3: IP 192.168.3.10, mask 255.255.255.0, gateway 192.168.3.1</li></ul>
+<h2>Tasks</h2><p>What must end up working. In the app, each one ticks itself off as soon as you get it.</p><ol class="tareas">
+<li>R1: OSPF 1 with router-id 1.1.1.1</li>
+<li>R1 advertises both its networks in area 0</li>
+<li>R1: G0/0 passive</li>
+<li>R3: router-id 3.3.3.3 and both its networks</li>
+<li>R3: G0/1 passive</li>
+<li>R2 has R1 and R3 as FULL neighbors</li>
+<li>PC1 reaches PC3</li>
+<li>Checked with show ip ospf neighbor</li>
+</ol>
+<div class="consejo"><strong>In Packet Tracer</strong><ul><li>Routers are joined with crossover cables, and each PC to its router also with crossover.</li><li>Do the starting configuration of all three routers. R2&#x27;s OSPF is already part of it.</li></ul></div>
+<details class="pistas"><summary>Hints</summary><ul>
+<li><strong>R1: OSPF 1 with router-id 1.1.1.1:</strong> router ospf 1 → router-id 1.1.1.1. If it already had neighbors, IOS asks for clear ip ospf process.</li>
+<li><strong>R1 advertises both its networks in area 0:</strong> network 192.168.1.0 0.0.0.255 area 0 and network 10.0.12.0 0.0.0.3 area 0 (the wildcard is the inverted mask)</li>
+<li><strong>R1: G0/0 passive:</strong> passive-interface g0/0 inside router ospf 1</li>
+<li><strong>R3: router-id 3.3.3.3 and both its networks:</strong> Same as R1, with 10.0.23.0 0.0.0.3 and 192.168.3.0 0.0.0.255</li>
+<li><strong>R3: G0/1 passive:</strong> passive-interface g0/1</li>
+<li><strong>R2 has R1 and R3 as FULL neighbors:</strong> Neighbors need the same area, the same subnet and a non-passive interface</li>
+<li><strong>PC1 reaches PC3:</strong> From PC1: ping 192.168.3.10</li>
+<li><strong>Checked with show ip ospf neighbor:</strong> show ip ospf neighbor on R1 or R3</li>
+</ul></details>
+<h2>Step-by-step solution</h2><p class="texto-sec">Try it on your own first: you learn much more by typing the commands yourself.</p>
+<details class="solucion"><summary>Show the solution</summary>
+<div class="paso"><h3><span class="num">1</span>Start OSPF and set the router ID <span class="equipo">R1</span></h3>
+<p>The router ID is chosen when the process starts. If you change it once there are neighbors, IOS asks for clear ip ospf process to apply it.</p>
+<div class="terminal"><span class="eq">R1</span>enable
+configure terminal
+router ospf 1
+router-id 1.1.1.1</div>
+</div>
+<div class="paso"><h3><span class="num">2</span>Advertise the networks <span class="equipo">R1</span></h3>
+<p>network uses a wildcard (the inverted mask) and enables OSPF on the interfaces whose IP matches.</p>
+<div class="terminal"><span class="eq">R1</span>network 192.168.1.0 0.0.0.255 area 0
+network 10.0.12.0 0.0.0.3 area 0</div>
+</div>
+<div class="paso"><h3><span class="num">3</span>Make the LAN interface passive <span class="equipo">R1</span></h3>
+<p>A passive interface is still advertised but sends no hellos: there are no routers to talk to on the LAN.</p>
+<div class="terminal"><span class="eq">R1</span>passive-interface g0/0
+end</div>
+</div>
+<div class="paso"><h3><span class="num">4</span>Do the same on R3 <span class="equipo">R3</span></h3>
+<div class="terminal"><span class="eq">R3</span>enable
+configure terminal
+router ospf 1
+router-id 3.3.3.3
+network 10.0.23.0 0.0.0.3 area 0
+network 192.168.3.0 0.0.0.255 area 0
+passive-interface g0/1
+end</div>
+</div>
+</details>
+<h2>Verification</h2>
+<p>R2 has 1.1.1.1 and 3.3.3.3 in FULL state. On an Ethernet link one will be DR and the other BDR.</p>
+<div class="terminal"><span class="eq">R2</span><span class="entrada">R2#show ip ospf neighbor</span>
+
+Neighbor ID     Pri   State           Dead Time   Address         Interface
+3.3.3.3           1   FULL/DR         00:00:37    10.0.23.2       GigabitEthernet0/1
+1.1.1.1           1   FULL/BDR        00:00:39    10.0.12.1       GigabitEthernet0/0</div>
+<p>R1 learns R3&#x27;s network and the R2–R3 link through OSPF (O), with distance 110.</p>
+<div class="terminal"><span class="eq">R1</span><span class="entrada">R1#show ip route ospf</span>
+Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2, E - EGP
+       i - IS-IS, L1 - IS-IS level-1, L2 - IS-IS level-2, ia - IS-IS inter area
+       * - candidate default, U - per-user static route, o - ODR
+       P - periodic downloaded static route
+
+Gateway of last resort is not set
+
+      10.0.0.0/30 is subnetted, 1 subnets
+O        10.0.23.0/30 [110/2] via 10.0.12.2, 00:00:12, GigabitEthernet0/1
+O     192.168.3.0/24 [110/3] via 10.0.12.2, 00:00:12, GigabitEthernet0/1</div>
+<p>Reaching one end from the other without a single static route is the final proof.</p>
+<div class="terminal"><span class="eq">PC1</span><span class="entrada">C:\&gt;ping 192.168.3.10</span>
+
+Pinging 192.168.3.10 with 32 bytes of data:
+
+Reply from 192.168.3.10: bytes=32 time&lt;1ms TTL=125
+Reply from 192.168.3.10: bytes=32 time&lt;1ms TTL=125
+Reply from 192.168.3.10: bytes=32 time&lt;1ms TTL=125
+Reply from 192.168.3.10: bytes=32 time&lt;1ms TTL=125
+
+Ping statistics for 192.168.3.10:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 0ms, Maximum = 0ms, Average = 0ms
+</div>
+<h2>Common mistakes</h2><ul class="errores"><li>Typing the mask instead of the wildcard in network (255.255.255.0 instead of 0.0.0.255).</li><li>Different areas on each side of the link: the routers never become neighbors.</li><li>Making the interface toward another router passive: it&#x27;s advertised, but no adjacency forms.</li></ul>
+<div class="cta-app">
+  <div>
+    <h3>Practice this lab on your phone</h3>
+    <p>RoutingLab has this lab with a simulated IOS terminal: abbreviations, ? help, the same error messages and objectives that check themselves. The first two labs are free.</p>
+  </div>
+  <a href="https://play.google.com/store/apps/details?id=com.luigi.routinglab" class="btn btn-claro" rel="noopener">Get RoutingLab</a>
+</div>
+<div class="navegacion-labs"><a href="static-routes.html">← Previous<span>Static, default and floating routes</span></a><a class="sig" href="dhcp.html">Next →<span>DHCP server on the router</span></a></div>
+</div>
+</section>
+<footer>
+  <div class="contenedor">
+    <div class="pie-rejilla">
+      <div>
+        <a href="../index.html" class="logo" style="margin-bottom:12px">RoutingLab</a>
+        <p class="texto-sec" style="max-width:280px;font-size:.92rem">The app to prepare for the CCNA 200-301 certification.</p>
+      </div>
+      <div><h4>Product</h4><div class="pie-links">
+        <a href="../index.html#caracteristicas">Features</a>
+        <a href="../index.html#precios">Pricing</a>
+        <a href="../index.html#demo">Sample quiz</a>
+      </div></div>
+      <div><h4>Free</h4><div class="pie-links">
+        <a href="../labs.html">Packet Tracer labs</a>
+        <a href="../tools.html">Network calculators</a>
+        <a href="../glossary.html">Glossary</a>
+      </div></div>
+      <div><h4>Help</h4><div class="pie-links">
+        <a href="../support.html">Support</a>
+        <a href="mailto:soporte@routinglab.es">soporte@routinglab.es</a>
+        <a href="../privacy.html">Privacy</a>
+        <a href="../terms.html">Terms</a>
+        <a href="../delete-account.html">Delete account</a>
+      </div></div>
+    </div>
+    <div class="pie-abajo">
+      <span>© <span data-anio>2026</span> RoutingLab · routinglab.es</span>
+      <span>Cisco, Packet Tracer and CCNA are trademarks of Cisco Systems, Inc. RoutingLab is not affiliated with or sponsored by Cisco.</span>
+    </div>
+  </div>
+</footer>
+<script src="../../app.js"></script>
+</body>
+</html>

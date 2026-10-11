@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lab 12: ACL extendida nombrada · Packet Tracer</title>
+<meta name="description" content="Filtrar por protocolo y puerto y aplicar cerca del origen. Guía de Packet Tracer para el CCNA con topología, solución paso a paso y verificación.">
+<meta property="og:title" content="Lab 12: ACL extendida nombrada · Packet Tracer">
+<meta property="og:description" content="Filtrar por protocolo y puerto y aplicar cerca del origen. Guía de Packet Tracer para el CCNA con topología, solución paso a paso y verificación.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://routinglab.es/laboratorios/acl-extendida.html">
+<meta property="og:site_name" content="RoutingLab">
+<meta property="og:locale" content="es_ES">
+<meta property="og:image" content="https://routinglab.es/capturas/og-es.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="RoutingLab · CCNA 200-301">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Lab 12: ACL extendida nombrada · Packet Tracer">
+<meta name="twitter:description" content="Filtrar por protocolo y puerto y aplicar cerca del origen. Guía de Packet Tracer para el CCNA con topología, solución paso a paso y verificación.">
+<meta name="twitter:image" content="https://routinglab.es/capturas/og-es.jpg">
+<meta name="theme-color" content="#0A1D5C">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../estilos.css">
+<link rel="stylesheet" href="../labs.css">
+<link rel="alternate" hreflang="es" href="https://routinglab.es/laboratorios/acl-extendida.html">
+<link rel="alternate" hreflang="en" href="https://routinglab.es/en/labs/extended-acl.html">
+<link rel="alternate" hreflang="x-default" href="https://routinglab.es/laboratorios/acl-extendida.html">
+<link rel="canonical" href="https://routinglab.es/laboratorios/acl-extendida.html">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="contenedor nav-inner">
+    <a href="../index.html" class="logo">
+      <svg viewBox="0 0 100 100" aria-hidden="true">
+        <circle cx="50" cy="50" r="48" fill="url(#g)"/>
+        <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#0A1D5C"/><stop offset="1" stop-color="#2E5BFF"/>
+        </linearGradient></defs>
+        <g stroke="#4CC9F0" stroke-width="6" stroke-linecap="round">
+          <path d="M50 50 L28 30 M50 50 L72 26 M50 50 L28 72 M50 50 L74 70 M28 30 L72 26 M28 72 L74 70"/>
+        </g>
+        <circle cx="28" cy="30" r="9" fill="#fff"/><circle cx="72" cy="26" r="9" fill="#fff"/>
+        <circle cx="28" cy="72" r="9" fill="#fff"/><circle cx="74" cy="70" r="9" fill="#fff"/>
+        <circle cx="50" cy="50" r="11" fill="#4CC9F0"/>
+      </svg>
+      RoutingLab
+    </a>
+    <button class="menu-movil" aria-label="Abrir menú">☰</button>
+    <div class="nav-links">
+      <a href="../index.html#caracteristicas">Características</a>
+      <a href="../index.html#demo">Demo</a>
+      <a href="../herramientas.html">Herramientas</a>
+      <a href="../laboratorios.html" class="activo">Laboratorios</a>
+      <a href="../glosario.html">Glosario</a>
+      <a href="../index.html#precios">Precios</a>
+      <a href="../soporte.html">Soporte</a>
+      <a href="../index.html#descargar" class="btn btn-primario btn-sm">Descargar</a>
+    </div>
+    <a href="../en/labs/extended-acl.html" class="cambio-idioma" hreflang="en" lang="en" aria-label="Read this page in English">EN</a>
+    <button class="boton-tema" onclick="alternarTema()">🌙</button>
+  </div>
+</nav>
+<header class="cabecera-pagina cabecera-lab">
+  <canvas id="redCanvas" aria-hidden="true"></canvas>
+  <div class="contenedor">
+    <a class="miga" href="../laboratorios.html">← Todos los laboratorios</a>
+    <span class="etiqueta-seccion" style="background:rgba(255,255,255,.15);color:#fff">Lab 12 · Packet Tracer</span>
+    <h1>ACL extendida nombrada</h1>
+    <p>Filtrar por protocolo y puerto y aplicar cerca del origen</p>
+    <div class="guia-meta">
+      <span>Nivel: Avanzado</span>
+      <span>Tiempo: 30 min</span>
+      <span>Dominio 5.0 Fundamentos de seguridad</span>
+    </div>
+  </div>
+</header>
+<section class="seccion-guia">
+<div class="contenedor guia">
+<h2>Escenario</h2>
+<p>SRV1 (192.168.30.10) es un servidor web. La LAN 192.168.10.0/24 no debe poder abrir su web (TCP 80), pero sí hacerle ping y llegar al resto de redes. La LAN 192.168.20.0/24 puede hacerlo todo.</p>
+<p>Crea la ACL extendida nombrada BLOQUEO_WEB y aplícala donde corresponde a una extendida: lo más cerca posible del origen. Pruébala desde PC1 con curl 192.168.30.10 (debe fallar) y desde PC3 (debe funcionar).</p>
+<h2>Topología</h2><div class="topologia"><svg viewBox="0 0 640 340" role="img" aria-label="R1, SW1, PC1, PC2, PC3, SRV1"><line class="cable" x1="372" y1="130" x2="200" y2="130"/><line class="cable" x1="60" y1="46" x2="200" y2="130"/><line class="cable" x1="60" y1="227" x2="200" y2="130"/><line class="cable" x1="372" y1="130" x2="372" y2="278"/><line class="cable" x1="372" y1="130" x2="580" y2="130"/><defs><linearGradient id="gacl_ext0" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4CC9F0"/><stop offset="1" stop-color="#2E5BFF"/></linearGradient></defs><rect x="30" y="16" width="60" height="60" rx="17" fill="url(#gacl_ext0)"/><g transform="translate(44,30) scale(1.333)" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M9 20h6M12 16v4"/></g><text class="nombre" x="60" y="98" text-anchor="middle">PC1</text><defs><linearGradient id="gacl_ext1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7209B7"/><stop offset="1" stop-color="#2E5BFF"/></linearGradient></defs><rect x="30" y="197" width="60" height="60" rx="17" fill="url(#gacl_ext1)"/><g transform="translate(44,211) scale(1.333)" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M9 20h6M12 16v4"/></g><text class="nombre" x="60" y="279" text-anchor="middle">PC2</text><defs><linearGradient id="gacl_ext2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#06D6A0"/><stop offset="1" stop-color="#118AB2"/></linearGradient></defs><rect x="170" y="100" width="60" height="60" rx="17" fill="url(#gacl_ext2)"/><g transform="translate(184,114) scale(1.333)" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="10" rx="2"/><path d="M7 11h9M14 9l2 2-2 2M17 13H8M10 15l-2-2 2-2"/></g><text class="nombre" x="200" y="182" text-anchor="middle">SW1</text><defs><linearGradient id="gacl_ext3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F72585"/><stop offset="1" stop-color="#7209B7"/></linearGradient></defs><rect x="342" y="100" width="60" height="60" rx="17" fill="url(#gacl_ext3)"/><g transform="translate(356,114) scale(1.333)" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M12 4v5M12 15v5M4 12h5M15 12h5M10 7l2-3 2 3M10 17l2 3 2-3M7 10l-3 2 3 2M17 10l3 2-3 2"/></g><text class="nombre" x="372" y="182" text-anchor="middle">R1</text><defs><linearGradient id="gacl_ext4" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FF9E00"/><stop offset="1" stop-color="#FF5400"/></linearGradient></defs><rect x="342" y="248" width="60" height="60" rx="17" fill="url(#gacl_ext4)"/><g transform="translate(356,262) scale(1.333)" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M9 20h6M12 16v4"/></g><text class="nombre" x="372" y="330" text-anchor="middle">PC3</text><defs><linearGradient id="gacl_ext5" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4CC9F0"/><stop offset="1" stop-color="#2E5BFF"/></linearGradient></defs><rect x="550" y="100" width="60" height="60" rx="17" fill="url(#gacl_ext5)"/><g transform="translate(564,114) scale(1.333)" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="5" rx="1"/><rect x="5" y="10" width="14" height="5" rx="1"/><rect x="5" y="17" width="14" height="4" rx="1"/><path d="M8 5.5h.01M8 12.5h.01"/></g><text class="nombre" x="580" y="182" text-anchor="middle">SRV1</text><rect class="puerto-fondo" x="259" y="136" width="55" height="22" rx="6"/><text class="puerto" x="286" y="152" text-anchor="middle">Gi0/0</text><rect class="puerto-fondo" x="259" y="102" width="55" height="22" rx="6"/><text class="puerto" x="286" y="118" text-anchor="middle">Gi0/1</text><rect class="puerto-fondo" x="124" y="55" width="38" height="22" rx="6"/><text class="puerto" x="143" y="71" text-anchor="middle">Fa0</text><rect class="puerto-fondo" x="88" y="102" width="55" height="22" rx="6"/><text class="puerto" x="115" y="118" text-anchor="middle">Fa0/1</text><rect class="puerto-fondo" x="97" y="146" width="38" height="22" rx="6"/><text class="puerto" x="115" y="162" text-anchor="middle">Fa0</text><rect class="puerto-fondo" x="120" y="192" width="55" height="22" rx="6"/><text class="puerto" x="148" y="208" text-anchor="middle">Fa0/2</text><rect class="puerto-fondo" x="344" y="191" width="55" height="22" rx="6"/><text class="puerto" x="372" y="207" text-anchor="middle">Gi0/1</text><rect class="puerto-fondo" x="353" y="222" width="38" height="22" rx="6"/><text class="puerto" x="372" y="238" text-anchor="middle">Fa0</text><rect class="puerto-fondo" x="428" y="119" width="55" height="22" rx="6"/><text class="puerto" x="456" y="135" text-anchor="middle">Gi0/2</text><rect class="puerto-fondo" x="508" y="119" width="38" height="22" rx="6"/><text class="puerto" x="527" y="135" text-anchor="middle">Fa0</text></svg></div>
+<h2>Equipos y cableado</h2><ul class="modelos"><li><strong>R1</strong> <span class="texto-sec">·</span> <span class="mono">2911</span></li><li><strong>SW1</strong> <span class="texto-sec">·</span> <span class="mono">2960-24TT</span></li><li><strong>PC1, PC2, PC3</strong> <span class="texto-sec">·</span> <span class="mono">PC-PT</span></li><li><strong>SRV1</strong> <span class="texto-sec">·</span> <span class="mono">Server-PT</span></li></ul>
+<div class="tabla-envoltura"><table class="tabla-guia"><thead><tr><th>Desde</th><th>Hasta</th><th>Cable</th></tr></thead><tbody><tr><td><strong>R1</strong> <span class="mono">Gi0/0</span></td><td><strong>SW1</strong> <span class="mono">Gi0/1</span></td><td>Directo</td></tr><tr><td><strong>PC1</strong> <span class="mono">Fa0</span></td><td><strong>SW1</strong> <span class="mono">Fa0/1</span></td><td>Directo</td></tr><tr><td><strong>PC2</strong> <span class="mono">Fa0</span></td><td><strong>SW1</strong> <span class="mono">Fa0/2</span></td><td>Directo</td></tr><tr><td><strong>R1</strong> <span class="mono">Gi0/1</span></td><td><strong>PC3</strong> <span class="mono">Fa0</span></td><td>Cruzado</td></tr><tr><td><strong>R1</strong> <span class="mono">Gi0/2</span></td><td><strong>SRV1</strong> <span class="mono">Fa0</span></td><td>Cruzado</td></tr></tbody></table></div>
+<p class="nota">Si dudas, el cable de conexión automática (el rayo) elige el correcto. Regla: directo entre equipos distintos (PC o router con switch) y cruzado entre iguales.</p>
+<h2>Direccionamiento</h2><div class="tabla-envoltura"><table class="tabla-guia"><thead><tr><th>Equipo</th><th>Interfaz</th><th>Dirección</th><th>Máscara</th><th>Puerta de enlace</th></tr></thead><tbody><tr><td><strong>R1</strong></td><td>G0/0</td><td class="mono">192.168.10.1</td><td class="mono">255.255.255.0</td><td class="mono">—</td></tr><tr><td><strong>R1</strong></td><td>G0/1</td><td class="mono">192.168.20.1</td><td class="mono">255.255.255.0</td><td class="mono">—</td></tr><tr><td><strong>R1</strong></td><td>G0/2</td><td class="mono">192.168.30.1</td><td class="mono">255.255.255.0</td><td class="mono">—</td></tr><tr><td><strong>PC1</strong></td><td>NIC</td><td class="mono">192.168.10.10</td><td class="mono">255.255.255.0</td><td class="mono">192.168.10.1</td></tr><tr><td><strong>PC2</strong></td><td>NIC</td><td class="mono">192.168.10.11</td><td class="mono">255.255.255.0</td><td class="mono">192.168.10.1</td></tr><tr><td><strong>PC3</strong></td><td>NIC</td><td class="mono">192.168.20.10</td><td class="mono">255.255.255.0</td><td class="mono">192.168.20.1</td></tr><tr><td><strong>SRV1</strong></td><td>NIC</td><td class="mono">192.168.30.10</td><td class="mono">255.255.255.0</td><td class="mono">192.168.30.1</td></tr></tbody></table></div>
+<h2>Configuración de partida</h2>
+<p>En la app esto viene hecho. En Packet Tracer, antes de empezar, entra en cada equipo con enable y configure terminal y escribe (o pega) estas líneas.</p>
+<div class="terminal"><span class="eq">R1</span>hostname R1
+no ip domain-lookup
+interface g0/0
+ip address 192.168.10.1 255.255.255.0
+no shutdown
+interface g0/1
+ip address 192.168.20.1 255.255.255.0
+no shutdown
+interface g0/2
+ip address 192.168.30.1 255.255.255.0
+no shutdown</div>
+<div class="terminal"><span class="eq">SW1</span>hostname SW1
+no ip domain-lookup</div>
+<h3>PC y servidores (Desktop › IP Configuration)</h3><ul class="lista-pcs"><li class="mono">PC1: IP 192.168.10.10, máscara 255.255.255.0, puerta de enlace 192.168.10.1</li><li class="mono">PC2: IP 192.168.10.11, máscara 255.255.255.0, puerta de enlace 192.168.10.1</li><li class="mono">PC3: IP 192.168.20.10, máscara 255.255.255.0, puerta de enlace 192.168.20.1</li><li class="mono">SRV1: IP 192.168.30.10, máscara 255.255.255.0, puerta de enlace 192.168.30.1 (con el servicio HTTP activo)</li></ul>
+<h2>Tareas</h2><p>Lo que tiene que quedar funcionando. En la app, cada una se marca sola en cuanto la consigues.</p><ol class="tareas">
+<li>Existe la ACL extendida BLOQUEO_WEB</li>
+<li>PC1 no puede abrir la web del servidor</li>
+<li>PC1 sigue haciendo ping al servidor</li>
+<li>PC3 sí abre la web</li>
+<li>Aplicada de entrada en G0/0, junto al origen</li>
+<li>PC1 sigue llegando a PC3</li>
+<li>Probado con curl desde PC1</li>
+</ol>
+<div class="consejo"><strong>En Packet Tracer</strong><ul><li>Misma topología que la ACL estándar. El Server-PT trae HTTP encendido (pestaña Services).</li><li>Para probar la web, en PC1 ve a Desktop › Web Browser y abre http://192.168.30.10: no debe cargar. Desde PC3, sí.</li></ul></div>
+<details class="pistas"><summary>Pistas</summary><ul>
+<li><strong>Existe la ACL extendida BLOQUEO_WEB:</strong> ip access-list extended BLOQUEO_WEB</li>
+<li><strong>PC1 no puede abrir la web del servidor:</strong> deny tcp 192.168.10.0 0.0.0.255 host 192.168.30.10 eq 80</li>
+<li><strong>PC1 sigue haciendo ping al servidor:</strong> Después del deny, permit ip any any; si no, el deny implícito lo corta todo</li>
+<li><strong>PC3 sí abre la web:</strong> La ACL solo debe afectar a la LAN 192.168.10.0/24</li>
+<li><strong>Aplicada de entrada en G0/0, junto al origen:</strong> interface g0/0 → ip access-group BLOQUEO_WEB in</li>
+<li><strong>PC1 sigue llegando a PC3:</strong> Desde PC1: ping 192.168.20.10</li>
+<li><strong>Probado con curl desde PC1:</strong> En la consola de PC1: curl 192.168.30.10</li>
+</ul></details>
+<h2>Solución paso a paso</h2><p class="texto-sec">Inténtalo antes por tu cuenta: se aprende mucho más escribiendo los comandos tú.</p>
+<details class="solucion"><summary>Ver la solución</summary>
+<div class="paso"><h3><span class="num">1</span>Crea la ACL extendida nombrada <span class="equipo">R1</span></h3>
+<p>Una extendida filtra por origen, destino, protocolo y puerto. eq 80 es HTTP (IOS lo muestra como www).</p>
+<div class="terminal"><span class="eq">R1</span>enable
+configure terminal
+ip access-list extended BLOQUEO_WEB
+deny tcp 192.168.10.0 0.0.0.255 host 192.168.30.10 eq 80
+permit ip any any
+exit</div>
+</div>
+<div class="paso"><h3><span class="num">2</span>Aplícala cerca del origen <span class="equipo">R1</span></h3>
+<p>Al filtrar con tanta precisión, se pone lo antes posible para no cargar la red con tráfico que se va a descartar.</p>
+<div class="terminal"><span class="eq">R1</span>interface g0/0
+ip access-group BLOQUEO_WEB in
+end</div>
+</div>
+</details>
+<h2>Verificación</h2>
+<p>El ping de PC1 al servidor sigue funcionando: solo se bloquea el puerto 80.</p>
+<div class="terminal"><span class="eq">PC1</span><span class="entrada">C:\&gt;ping 192.168.30.10</span>
+
+Pinging 192.168.30.10 with 32 bytes of data:
+
+Reply from 192.168.30.10: bytes=32 time&lt;1ms TTL=127
+Reply from 192.168.30.10: bytes=32 time&lt;1ms TTL=127
+Reply from 192.168.30.10: bytes=32 time&lt;1ms TTL=127
+Reply from 192.168.30.10: bytes=32 time&lt;1ms TTL=127
+
+Ping statistics for 192.168.30.10:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 0ms, Maximum = 0ms, Average = 0ms
+</div>
+<p>La línea deny suma coincidencias cuando PC1 intenta abrir la web.</p>
+<div class="terminal"><span class="eq">R1</span><span class="entrada">R1#show access-lists</span>
+Extended IP access list BLOQUEO_WEB
+    10 deny tcp 192.168.10.0 0.0.0.255 host 192.168.30.10 eq www (1 match(es))
+    20 permit ip any any (8 match(es))</div>
+<p>G0/0 tiene BLOQUEO_WEB de entrada.</p>
+<div class="terminal"><span class="eq">R1</span><span class="entrada">R1#show ip interface g0/0 | include access list</span>
+  Outgoing access list is not set
+  Inbound  access list is BLOQUEO_WEB</div>
+<h2>Errores típicos</h2><ul class="errores"><li>Olvidar permit ip any any: el deny implícito corta también el ping y el resto del tráfico.</li><li>Invertir origen y destino en la línea deny.</li></ul>
+<div class="cta-app">
+  <div>
+    <h3>Practica este laboratorio en el móvil</h3>
+    <p>En RoutingLab tienes este laboratorio con un terminal IOS simulado: abreviaturas, ayuda con ?, los mismos mensajes de error y objetivos que se comprueban solos. Los dos primeros labs son gratis.</p>
+  </div>
+  <a href="https://play.google.com/store/apps/details?id=com.luigi.routinglab" class="btn btn-claro" rel="noopener">Descargar RoutingLab</a>
+</div>
+<div class="navegacion-labs"><a href="acl-estandar.html">← Anterior<span>ACL estándar</span></a><a class="sig" href="ssh.html">Siguiente →<span>Acceso remoto por SSH</span></a></div>
+</div>
+</section>
+<footer>
+  <div class="contenedor">
+    <div class="pie-rejilla">
+      <div>
+        <a href="../index.html" class="logo" style="margin-bottom:12px">RoutingLab</a>
+        <p class="texto-sec" style="max-width:280px;font-size:.92rem">La app en español para preparar la certificación CCNA 200-301.</p>
+      </div>
+      <div><h4>Producto</h4><div class="pie-links">
+        <a href="../index.html#caracteristicas">Características</a>
+        <a href="../index.html#precios">Precios</a>
+        <a href="../index.html#demo">Test de prueba</a>
+      </div></div>
+      <div><h4>Gratis</h4><div class="pie-links">
+        <a href="../laboratorios.html">Laboratorios de Packet Tracer</a>
+        <a href="../herramientas.html">Calculadoras de red</a>
+        <a href="../glosario.html">Glosario</a>
+      </div></div>
+      <div><h4>Ayuda</h4><div class="pie-links">
+        <a href="../soporte.html">Soporte</a>
+        <a href="mailto:soporte@routinglab.es">soporte@routinglab.es</a>
+        <a href="../privacidad.html">Privacidad</a>
+        <a href="../terminos.html">Términos</a>
+        <a href="../eliminar-cuenta.html">Eliminar cuenta</a>
+      </div></div>
+    </div>
+    <div class="pie-abajo">
+      <span>© <span data-anio>2026</span> RoutingLab · routinglab.es</span>
+      <span>Cisco, Packet Tracer y CCNA son marcas de Cisco Systems, Inc. RoutingLab no está afiliado ni patrocinado por Cisco.</span>
+    </div>
+  </div>
+</footer>
+<script src="../app.js"></script>
+</body>
+</html>

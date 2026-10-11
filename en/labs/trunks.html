@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lab 4: 802.1Q trunks · Packet Tracer</title>
+<meta name="description" content="Static trunk, native VLAN and allowed VLANs. Packet Tracer guide for the CCNA with topology, step-by-step solution and verification.">
+<meta property="og:title" content="Lab 4: 802.1Q trunks · Packet Tracer">
+<meta property="og:description" content="Static trunk, native VLAN and allowed VLANs. Packet Tracer guide for the CCNA with topology, step-by-step solution and verification.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://routinglab.es/en/labs/trunks.html">
+<meta property="og:site_name" content="RoutingLab">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://routinglab.es/capturas/og-en.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="RoutingLab · CCNA 200-301">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Lab 4: 802.1Q trunks · Packet Tracer">
+<meta name="twitter:description" content="Static trunk, native VLAN and allowed VLANs. Packet Tracer guide for the CCNA with topology, step-by-step solution and verification.">
+<meta name="twitter:image" content="https://routinglab.es/capturas/og-en.jpg">
+<meta name="theme-color" content="#0A1D5C">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../estilos.css">
+<link rel="stylesheet" href="../../labs.css">
+<link rel="alternate" hreflang="es" href="https://routinglab.es/laboratorios/troncales.html">
+<link rel="alternate" hreflang="en" href="https://routinglab.es/en/labs/trunks.html">
+<link rel="alternate" hreflang="x-default" href="https://routinglab.es/laboratorios/troncales.html">
+<link rel="canonical" href="https://routinglab.es/en/labs/trunks.html">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="contenedor nav-inner">
+    <a href="../index.html" class="logo">
+      <svg viewBox="0 0 100 100" aria-hidden="true">
+        <circle cx="50" cy="50" r="48" fill="url(#g)"/>
+        <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#0A1D5C"/><stop offset="1" stop-color="#2E5BFF"/>
+        </linearGradient></defs>
+        <g stroke="#4CC9F0" stroke-width="6" stroke-linecap="round">
+          <path d="M50 50 L28 30 M50 50 L72 26 M50 50 L28 72 M50 50 L74 70 M28 30 L72 26 M28 72 L74 70"/>
+        </g>
+        <circle cx="28" cy="30" r="9" fill="#fff"/><circle cx="72" cy="26" r="9" fill="#fff"/>
+        <circle cx="28" cy="72" r="9" fill="#fff"/><circle cx="74" cy="70" r="9" fill="#fff"/>
+        <circle cx="50" cy="50" r="11" fill="#4CC9F0"/>
+      </svg>
+      RoutingLab
+    </a>
+    <button class="menu-movil" aria-label="Open menu">☰</button>
+    <div class="nav-links">
+      <a href="../index.html#caracteristicas">Features</a>
+      <a href="../index.html#demo">Demo</a>
+      <a href="../tools.html">Tools</a>
+      <a href="../labs.html" class="activo">Labs</a>
+      <a href="../glossary.html">Glossary</a>
+      <a href="../index.html#precios">Pricing</a>
+      <a href="../support.html">Support</a>
+      <a href="../index.html#descargar" class="btn btn-primario btn-sm">Download</a>
+    </div>
+    <a href="../../laboratorios/troncales.html" class="cambio-idioma" hreflang="es" lang="es" aria-label="Leer esta página en español">ES</a>
+    <button class="boton-tema" onclick="alternarTema()">🌙</button>
+  </div>
+</nav>
+<header class="cabecera-pagina cabecera-lab">
+  <canvas id="redCanvas" aria-hidden="true"></canvas>
+  <div class="contenedor">
+    <a class="miga" href="../labs.html">← All labs</a>
+    <span class="etiqueta-seccion" style="background:rgba(255,255,255,.15);color:#fff">Lab 4 · Packet Tracer</span>
+    <h1>802.1Q trunks</h1>
+    <p>Static trunk, native VLAN and allowed VLANs</p>
+    <div class="guia-meta">
+      <span>Level: Intermediate</span>
+      <span>Time: 25 min</span>
+      <span>Domain 2.0 Network Access</span>
+    </div>
+  </div>
+</header>
+<section class="seccion-guia">
+<div class="contenedor guia">
+<h2>Scenario</h2>
+<p>Sales (VLAN 10) and HR (VLAN 20) have people on two switches joined by G0/1. The VLANs and access ports are done, but the link between the switches is in access mode and only carries VLAN 1: PC1 can&#x27;t reach PC2 even though they&#x27;re in the same VLAN.</p>
+<p>Turn G0/1 into a static trunk on both switches. For security, create VLAN 99 (NATIVA) and use it as the native VLAN, and allow only VLANs 10, 20 and 99. Verify with show interfaces trunk.</p>
+<h2>Topology</h2><div class="topologia"><svg viewBox="0 0 640 340" role="img" aria-label="SW1, SW2, PC1, PC2, PC3, PC4"><line class="cable" x1="183" y1="46" x2="457" y2="46"/><line class="cable" x1="60" y1="278" x2="183" y2="46"/><line class="cable" x1="238" y1="278" x2="183" y2="46"/><line class="cable" x1="402" y1="278" x2="457" y2="46"/><line class="cable" x1="580" y1="278" x2="457" y2="46"/><defs><linearGradient id="gtroncales0" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4CC9F0"/><stop offset="1" stop-color="#2E5BFF"/></linearGradient></defs><rect x="153" y="16" width="60" height="60" rx="17" fill="url(#gtroncales0)"/><g transform="translate(167,30) scale(1.333)" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="10" rx="2"/><path d="M7 11h9M14 9l2 2-2 2M17 13H8M10 15l-2-2 2-2"/></g><text class="nombre" x="183" y="98" text-anchor="middle">SW1</text><defs><linearGradient id="gtroncales1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7209B7"/><stop offset="1" stop-color="#2E5BFF"/></linearGradient></defs><rect x="427" y="16" width="60" height="60" rx="17" fill="url(#gtroncales1)"/><g transform="translate(441,30) scale(1.333)" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="10" rx="2"/><path d="M7 11h9M14 9l2 2-2 2M17 13H8M10 15l-2-2 2-2"/></g><text class="nombre" x="457" y="98" text-anchor="middle">SW2</text><defs><linearGradient id="gtroncales2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#06D6A0"/><stop offset="1" stop-color="#118AB2"/></linearGradient></defs><rect x="30" y="248" width="60" height="60" rx="17" fill="url(#gtroncales2)"/><g transform="translate(44,262) scale(1.333)" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M9 20h6M12 16v4"/></g><text class="nombre" x="60" y="330" text-anchor="middle">PC1</text><defs><linearGradient id="gtroncales3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F72585"/><stop offset="1" stop-color="#7209B7"/></linearGradient></defs><rect x="208" y="248" width="60" height="60" rx="17" fill="url(#gtroncales3)"/><g transform="translate(222,262) scale(1.333)" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M9 20h6M12 16v4"/></g><text class="nombre" x="238" y="330" text-anchor="middle">PC3</text><defs><linearGradient id="gtroncales4" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FF9E00"/><stop offset="1" stop-color="#FF5400"/></linearGradient></defs><rect x="372" y="248" width="60" height="60" rx="17" fill="url(#gtroncales4)"/><g transform="translate(386,262) scale(1.333)" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M9 20h6M12 16v4"/></g><text class="nombre" x="402" y="330" text-anchor="middle">PC2</text><defs><linearGradient id="gtroncales5" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4CC9F0"/><stop offset="1" stop-color="#2E5BFF"/></linearGradient></defs><rect x="550" y="248" width="60" height="60" rx="17" fill="url(#gtroncales5)"/><g transform="translate(564,262) scale(1.333)" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M9 20h6M12 16v4"/></g><text class="nombre" x="580" y="330" text-anchor="middle">PC4</text><rect class="puerto-fondo" x="239" y="35" width="55" height="22" rx="6"/><text class="puerto" x="267" y="51" text-anchor="middle">Gi0/1</text><rect class="puerto-fondo" x="346" y="35" width="55" height="22" rx="6"/><text class="puerto" x="373" y="51" text-anchor="middle">Gi0/1</text><rect class="puerto-fondo" x="65" y="222" width="38" height="22" rx="6"/><text class="puerto" x="84" y="238" text-anchor="middle">Fa0</text><rect class="puerto-fondo" x="107" y="126" width="55" height="22" rx="6"/><text class="puerto" x="135" y="142" text-anchor="middle">Fa0/1</text><rect class="puerto-fondo" x="208" y="222" width="38" height="22" rx="6"/><text class="puerto" x="227" y="238" text-anchor="middle">Fa0</text><rect class="puerto-fondo" x="178" y="128" width="55" height="22" rx="6"/><text class="puerto" x="205" y="144" text-anchor="middle">Fa0/2</text><rect class="puerto-fondo" x="394" y="222" width="38" height="22" rx="6"/><text class="puerto" x="413" y="238" text-anchor="middle">Fa0</text><rect class="puerto-fondo" x="407" y="128" width="55" height="22" rx="6"/><text class="puerto" x="435" y="144" text-anchor="middle">Fa0/1</text><rect class="puerto-fondo" x="537" y="222" width="38" height="22" rx="6"/><text class="puerto" x="556" y="238" text-anchor="middle">Fa0</text><rect class="puerto-fondo" x="478" y="126" width="55" height="22" rx="6"/><text class="puerto" x="505" y="142" text-anchor="middle">Fa0/2</text></svg></div>
+<h2>Devices and cabling</h2><ul class="modelos"><li><strong>SW1, SW2</strong> <span class="texto-sec">·</span> <span class="mono">2960-24TT</span></li><li><strong>PC1, PC2, PC3, PC4</strong> <span class="texto-sec">·</span> <span class="mono">PC-PT</span></li></ul>
+<div class="tabla-envoltura"><table class="tabla-guia"><thead><tr><th>From</th><th>To</th><th>Cable</th></tr></thead><tbody><tr><td><strong>SW1</strong> <span class="mono">Gi0/1</span></td><td><strong>SW2</strong> <span class="mono">Gi0/1</span></td><td>Crossover</td></tr><tr><td><strong>PC1</strong> <span class="mono">Fa0</span></td><td><strong>SW1</strong> <span class="mono">Fa0/1</span></td><td>Straight-through</td></tr><tr><td><strong>PC3</strong> <span class="mono">Fa0</span></td><td><strong>SW1</strong> <span class="mono">Fa0/2</span></td><td>Straight-through</td></tr><tr><td><strong>PC2</strong> <span class="mono">Fa0</span></td><td><strong>SW2</strong> <span class="mono">Fa0/1</span></td><td>Straight-through</td></tr><tr><td><strong>PC4</strong> <span class="mono">Fa0</span></td><td><strong>SW2</strong> <span class="mono">Fa0/2</span></td><td>Straight-through</td></tr></tbody></table></div>
+<p class="nota">If in doubt, the automatic connection cable (the lightning bolt) picks the right one. Rule: straight-through between different devices (PC or router to switch) and crossover between alike ones.</p>
+<h2>Addressing</h2><div class="tabla-envoltura"><table class="tabla-guia"><thead><tr><th>Device</th><th>Interface</th><th>Address</th><th>Mask</th><th>Default gateway</th></tr></thead><tbody><tr><td><strong>PC1</strong></td><td>SW1 Fa0/1 · VLAN 10</td><td class="mono">192.168.10.11</td><td class="mono">255.255.255.0</td><td class="mono">—</td></tr><tr><td><strong>PC2</strong></td><td>SW2 Fa0/1 · VLAN 10</td><td class="mono">192.168.10.12</td><td class="mono">255.255.255.0</td><td class="mono">—</td></tr><tr><td><strong>PC3</strong></td><td>SW1 Fa0/2 · VLAN 20</td><td class="mono">192.168.20.11</td><td class="mono">255.255.255.0</td><td class="mono">—</td></tr><tr><td><strong>PC4</strong></td><td>SW2 Fa0/2 · VLAN 20</td><td class="mono">192.168.20.12</td><td class="mono">255.255.255.0</td><td class="mono">—</td></tr></tbody></table></div>
+<h2>Starting configuration</h2>
+<p>In the app this is already done. In Packet Tracer, before you start, enter each device with enable and configure terminal and type (or paste) these lines.</p>
+<div class="terminal"><span class="eq">SW1</span>hostname SW1
+no ip domain-lookup
+vlan 10
+name VENTAS
+vlan 20
+name RRHH
+interface fa0/1
+switchport mode access
+switchport access vlan 10
+interface fa0/2
+switchport mode access
+switchport access vlan 20</div>
+<div class="terminal"><span class="eq">SW2</span>hostname SW2
+no ip domain-lookup
+vlan 10
+name VENTAS
+vlan 20
+name RRHH
+interface fa0/1
+switchport mode access
+switchport access vlan 10
+interface fa0/2
+switchport mode access
+switchport access vlan 20</div>
+<h3>PCs and servers (Desktop › IP Configuration)</h3><ul class="lista-pcs"><li class="mono">PC1: IP 192.168.10.11, mask 255.255.255.0</li><li class="mono">PC2: IP 192.168.10.12, mask 255.255.255.0</li><li class="mono">PC3: IP 192.168.20.11, mask 255.255.255.0</li><li class="mono">PC4: IP 192.168.20.12, mask 255.255.255.0</li></ul>
+<h2>Tasks</h2><p>What must end up working. In the app, each one ticks itself off as soon as you get it.</p><ol class="tareas">
+<li>VLAN 99 NATIVA created on SW1 and SW2</li>
+<li>SW1 G0/1 as a static trunk</li>
+<li>SW2 G0/1 as a static trunk</li>
+<li>Native VLAN 99 on both ends</li>
+<li>Only VLANs 10, 20 and 99 allowed</li>
+<li>PC1 reaches PC2 and PC3 reaches PC4 over the trunk</li>
+<li>Checked with show interfaces trunk</li>
+</ol>
+<div class="consejo"><strong>In Packet Tracer</strong><ul><li>Join both switches on G0/1 with a crossover cable (or the automatic one). The PCs use straight-through cables.</li><li>The starting configuration (VLANs 10 and 20 and the access ports) must be done on both switches.</li></ul></div>
+<details class="pistas"><summary>Hints</summary><ul>
+<li><strong>VLAN 99 NATIVA created on SW1 and SW2:</strong> On each switch: vlan 99 → name NATIVA</li>
+<li><strong>SW1 G0/1 as a static trunk:</strong> interface g0/1 → switchport mode trunk</li>
+<li><strong>SW2 G0/1 as a static trunk:</strong> Don&#x27;t rely on DTP negotiation: configure SW2 too</li>
+<li><strong>Native VLAN 99 on both ends:</strong> switchport trunk native vlan 99 on SW1 and SW2. If they don&#x27;t match, CDP reports a native VLAN mismatch.</li>
+<li><strong>Only VLANs 10, 20 and 99 allowed:</strong> switchport trunk allowed vlan 10,20,99 on both switches</li>
+<li><strong>PC1 reaches PC2 and PC3 reaches PC4 over the trunk:</strong> From PC1: ping 192.168.10.12. From PC3: ping 192.168.20.12</li>
+<li><strong>Checked with show interfaces trunk:</strong> show interfaces trunk</li>
+</ul></details>
+<h2>Step-by-step solution</h2><p class="texto-sec">Try it on your own first: you learn much more by typing the commands yourself.</p>
+<details class="solucion"><summary>Show the solution</summary>
+<div class="paso"><h3><span class="num">1</span>Create the native VLAN <span class="equipo">SW1</span></h3>
+<p>The native VLAN travels untagged across the trunk. Using a dedicated VLAN with no devices (instead of VLAN 1) prevents double-tagging attacks.</p>
+<div class="terminal"><span class="eq">SW1</span>enable
+configure terminal
+vlan 99
+name NATIVA
+exit</div>
+</div>
+<div class="paso"><h3><span class="num">2</span>Configure the trunk <span class="equipo">SW1</span></h3>
+<p>Static trunk, native 99 and only the VLANs you need.</p>
+<div class="terminal"><span class="eq">SW1</span>interface g0/1
+switchport mode trunk
+switchport trunk native vlan 99
+switchport trunk allowed vlan 10,20,99
+end</div>
+</div>
+<div class="paso"><h3><span class="num">3</span>Repeat the same on SW2 <span class="equipo">SW2</span></h3>
+<p>With SW1 on trunk, SW2 would negotiate the trunk through DTP, but the native and allowed VLANs must match on both ends.</p>
+<div class="terminal"><span class="eq">SW2</span>enable
+configure terminal
+vlan 99
+name NATIVA
+exit
+interface g0/1
+switchport mode trunk
+switchport trunk native vlan 99
+switchport trunk allowed vlan 10,20,99
+end</div>
+</div>
+</details>
+<h2>Verification</h2>
+<p>Mode &quot;on&quot; means a static trunk, Native vlan 99 and the allowed list 10,20,99. Check the same on SW2.</p>
+<div class="terminal"><span class="eq">SW1</span><span class="entrada">SW1#show interfaces trunk</span>
+Port        Mode             Encapsulation  Status        Native vlan
+Gi0/1       on               802.1q         trunking      99
+
+Port        Vlans allowed on trunk
+Gi0/1       10,20,99
+
+Port        Vlans allowed and active in management domain
+Gi0/1       10,20,99
+
+Port        Vlans in spanning tree forwarding state and not pruned
+Gi0/1       10,20,99</div>
+<p>PC1 and PC2 are on different switches: if the ping replies, VLAN 10 is crossing the trunk.</p>
+<div class="terminal"><span class="eq">PC1</span><span class="entrada">C:\&gt;ping 192.168.10.12</span>
+
+Pinging 192.168.10.12 with 32 bytes of data:
+
+Reply from 192.168.10.12: bytes=32 time&lt;1ms TTL=128
+Reply from 192.168.10.12: bytes=32 time&lt;1ms TTL=128
+Reply from 192.168.10.12: bytes=32 time&lt;1ms TTL=128
+Reply from 192.168.10.12: bytes=32 time&lt;1ms TTL=128
+
+Ping statistics for 192.168.10.12:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 0ms, Maximum = 0ms, Average = 0ms
+</div>
+<h2>Common mistakes</h2><ul class="errores"><li>A different native VLAN on each end: untagged traffic ends up in another VLAN and CDP reports a native VLAN mismatch.</li><li>Forgetting to create VLAN 99: the trunk allows it, but the switch doesn&#x27;t have it.</li></ul>
+<div class="cta-app">
+  <div>
+    <h3>Practice this lab on your phone</h3>
+    <p>RoutingLab has this lab with a simulated IOS terminal: abbreviations, ? help, the same error messages and objectives that check themselves. The first two labs are free.</p>
+  </div>
+  <a href="https://play.google.com/store/apps/details?id=com.luigi.routinglab" class="btn btn-claro" rel="noopener">Get RoutingLab</a>
+</div>
+<div class="navegacion-labs"><a href="vlans.html">← Previous<span>VLANs and access ports</span></a><a class="sig" href="router-on-a-stick.html">Next →<span>Router-on-a-stick</span></a></div>
+</div>
+</section>
+<footer>
+  <div class="contenedor">
+    <div class="pie-rejilla">
+      <div>
+        <a href="../index.html" class="logo" style="margin-bottom:12px">RoutingLab</a>
+        <p class="texto-sec" style="max-width:280px;font-size:.92rem">The app to prepare for the CCNA 200-301 certification.</p>
+      </div>
+      <div><h4>Product</h4><div class="pie-links">
+        <a href="../index.html#caracteristicas">Features</a>
+        <a href="../index.html#precios">Pricing</a>
+        <a href="../index.html#demo">Sample quiz</a>
+      </div></div>
+      <div><h4>Free</h4><div class="pie-links">
+        <a href="../labs.html">Packet Tracer labs</a>
+        <a href="../tools.html">Network calculators</a>
+        <a href="../glossary.html">Glossary</a>
+      </div></div>
+      <div><h4>Help</h4><div class="pie-links">
+        <a href="../support.html">Support</a>
+        <a href="mailto:soporte@routinglab.es">soporte@routinglab.es</a>
+        <a href="../privacy.html">Privacy</a>
+        <a href="../terms.html">Terms</a>
+        <a href="../delete-account.html">Delete account</a>
+      </div></div>
+    </div>
+    <div class="pie-abajo">
+      <span>© <span data-anio>2026</span> RoutingLab · routinglab.es</span>
+      <span>Cisco, Packet Tracer and CCNA are trademarks of Cisco Systems, Inc. RoutingLab is not affiliated with or sponsored by Cisco.</span>
+    </div>
+  </div>
+</footer>
+<script src="../../app.js"></script>
+</body>
+</html>

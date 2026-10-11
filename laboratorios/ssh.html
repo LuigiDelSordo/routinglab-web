@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lab 13: Acceso remoto por SSH · Packet Tracer</title>
+<meta name="description" content="Dominio, claves RSA, usuario local y vty solo para SSH. Guía de Packet Tracer para el CCNA con topología, solución paso a paso y verificación.">
+<meta property="og:title" content="Lab 13: Acceso remoto por SSH · Packet Tracer">
+<meta property="og:description" content="Dominio, claves RSA, usuario local y vty solo para SSH. Guía de Packet Tracer para el CCNA con topología, solución paso a paso y verificación.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://routinglab.es/laboratorios/ssh.html">
+<meta property="og:site_name" content="RoutingLab">
+<meta property="og:locale" content="es_ES">
+<meta property="og:image" content="https://routinglab.es/capturas/og-es.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="RoutingLab · CCNA 200-301">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Lab 13: Acceso remoto por SSH · Packet Tracer">
+<meta name="twitter:description" content="Dominio, claves RSA, usuario local y vty solo para SSH. Guía de Packet Tracer para el CCNA con topología, solución paso a paso y verificación.">
+<meta name="twitter:image" content="https://routinglab.es/capturas/og-es.jpg">
+<meta name="theme-color" content="#0A1D5C">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../estilos.css">
+<link rel="stylesheet" href="../labs.css">
+<link rel="alternate" hreflang="es" href="https://routinglab.es/laboratorios/ssh.html">
+<link rel="alternate" hreflang="en" href="https://routinglab.es/en/labs/ssh.html">
+<link rel="alternate" hreflang="x-default" href="https://routinglab.es/laboratorios/ssh.html">
+<link rel="canonical" href="https://routinglab.es/laboratorios/ssh.html">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="contenedor nav-inner">
+    <a href="../index.html" class="logo">
+      <svg viewBox="0 0 100 100" aria-hidden="true">
+        <circle cx="50" cy="50" r="48" fill="url(#g)"/>
+        <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#0A1D5C"/><stop offset="1" stop-color="#2E5BFF"/>
+        </linearGradient></defs>
+        <g stroke="#4CC9F0" stroke-width="6" stroke-linecap="round">
+          <path d="M50 50 L28 30 M50 50 L72 26 M50 50 L28 72 M50 50 L74 70 M28 30 L72 26 M28 72 L74 70"/>
+        </g>
+        <circle cx="28" cy="30" r="9" fill="#fff"/><circle cx="72" cy="26" r="9" fill="#fff"/>
+        <circle cx="28" cy="72" r="9" fill="#fff"/><circle cx="74" cy="70" r="9" fill="#fff"/>
+        <circle cx="50" cy="50" r="11" fill="#4CC9F0"/>
+      </svg>
+      RoutingLab
+    </a>
+    <button class="menu-movil" aria-label="Abrir menú">☰</button>
+    <div class="nav-links">
+      <a href="../index.html#caracteristicas">Características</a>
+      <a href="../index.html#demo">Demo</a>
+      <a href="../herramientas.html">Herramientas</a>
+      <a href="../laboratorios.html" class="activo">Laboratorios</a>
+      <a href="../glosario.html">Glosario</a>
+      <a href="../index.html#precios">Precios</a>
+      <a href="../soporte.html">Soporte</a>
+      <a href="../index.html#descargar" class="btn btn-primario btn-sm">Descargar</a>
+    </div>
+    <a href="../en/labs/ssh.html" class="cambio-idioma" hreflang="en" lang="en" aria-label="Read this page in English">EN</a>
+    <button class="boton-tema" onclick="alternarTema()">🌙</button>
+  </div>
+</nav>
+<header class="cabecera-pagina cabecera-lab">
+  <canvas id="redCanvas" aria-hidden="true"></canvas>
+  <div class="contenedor">
+    <a class="miga" href="../laboratorios.html">← Todos los laboratorios</a>
+    <span class="etiqueta-seccion" style="background:rgba(255,255,255,.15);color:#fff">Lab 13 · Packet Tracer</span>
+    <h1>Acceso remoto por SSH</h1>
+    <p>Dominio, claves RSA, usuario local y vty solo para SSH</p>
+    <div class="guia-meta">
+      <span>Nivel: Intermedio</span>
+      <span>Tiempo: 25 min</span>
+      <span>Dominio 5.0 Fundamentos de seguridad</span>
+    </div>
+  </div>
+</header>
+<section class="seccion-guia">
+<div class="contenedor guia">
+<h2>Escenario</h2>
+<p>Hay que administrar R1 desde PC1 de forma segura. Telnet manda todo en claro, así que solo se permitirá SSH versión 2.</p>
+<p>Configura el dominio ccna.local, genera claves RSA de 1024 bits, crea el usuario admin con la contraseña secreta cisco123 y protege el modo privilegiado con enable secret class. En las líneas vty 0 a 4, autentica con usuarios locales y admite solo SSH.</p>
+<p>Por último, conéctate desde PC1: ssh -l admin 192.168.1.1</p>
+<h2>Topología</h2><div class="topologia"><svg viewBox="0 0 640 340" role="img" aria-label="R1, SW1, PC1"><line class="cable" x1="320" y1="46" x2="320" y2="162"/><line class="cable" x1="320" y1="278" x2="320" y2="162"/><defs><linearGradient id="gssh0" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4CC9F0"/><stop offset="1" stop-color="#2E5BFF"/></linearGradient></defs><rect x="290" y="16" width="60" height="60" rx="17" fill="url(#gssh0)"/><g transform="translate(304,30) scale(1.333)" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M12 4v5M12 15v5M4 12h5M15 12h5M10 7l2-3 2 3M10 17l2 3 2-3M7 10l-3 2 3 2M17 10l3 2-3 2"/></g><text class="nombre" x="320" y="98" text-anchor="middle">R1</text><defs><linearGradient id="gssh1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7209B7"/><stop offset="1" stop-color="#2E5BFF"/></linearGradient></defs><rect x="290" y="132" width="60" height="60" rx="17" fill="url(#gssh1)"/><g transform="translate(304,146) scale(1.333)" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="10" rx="2"/><path d="M7 11h9M14 9l2 2-2 2M17 13H8M10 15l-2-2 2-2"/></g><text class="nombre" x="320" y="214" text-anchor="middle">SW1</text><defs><linearGradient id="gssh2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#06D6A0"/><stop offset="1" stop-color="#118AB2"/></linearGradient></defs><rect x="290" y="248" width="60" height="60" rx="17" fill="url(#gssh2)"/><g transform="translate(304,262) scale(1.333)" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M9 20h6M12 16v4"/></g><text class="nombre" x="320" y="330" text-anchor="middle">PC1</text><rect class="puerto-fondo" x="336" y="93" width="55" height="22" rx="6"/><text class="puerto" x="364" y="109" text-anchor="middle">Gi0/0</text><rect class="puerto-fondo" x="249" y="93" width="55" height="22" rx="6"/><text class="puerto" x="276" y="109" text-anchor="middle">Gi0/1</text><rect class="puerto-fondo" x="266" y="209" width="38" height="22" rx="6"/><text class="puerto" x="285" y="225" text-anchor="middle">Fa0</text><rect class="puerto-fondo" x="336" y="209" width="55" height="22" rx="6"/><text class="puerto" x="364" y="225" text-anchor="middle">Fa0/1</text></svg></div>
+<h2>Equipos y cableado</h2><ul class="modelos"><li><strong>R1</strong> <span class="texto-sec">·</span> <span class="mono">2911</span></li><li><strong>SW1</strong> <span class="texto-sec">·</span> <span class="mono">2960-24TT</span></li><li><strong>PC1</strong> <span class="texto-sec">·</span> <span class="mono">PC-PT</span></li></ul>
+<div class="tabla-envoltura"><table class="tabla-guia"><thead><tr><th>Desde</th><th>Hasta</th><th>Cable</th></tr></thead><tbody><tr><td><strong>R1</strong> <span class="mono">Gi0/0</span></td><td><strong>SW1</strong> <span class="mono">Gi0/1</span></td><td>Directo</td></tr><tr><td><strong>PC1</strong> <span class="mono">Fa0</span></td><td><strong>SW1</strong> <span class="mono">Fa0/1</span></td><td>Directo</td></tr></tbody></table></div>
+<p class="nota">Si dudas, el cable de conexión automática (el rayo) elige el correcto. Regla: directo entre equipos distintos (PC o router con switch) y cruzado entre iguales.</p>
+<h2>Direccionamiento</h2><div class="tabla-envoltura"><table class="tabla-guia"><thead><tr><th>Equipo</th><th>Interfaz</th><th>Dirección</th><th>Máscara</th><th>Puerta de enlace</th></tr></thead><tbody><tr><td><strong>R1</strong></td><td>G0/0</td><td class="mono">192.168.1.1</td><td class="mono">255.255.255.0</td><td class="mono">—</td></tr><tr><td><strong>PC1</strong></td><td>NIC</td><td class="mono">192.168.1.10</td><td class="mono">255.255.255.0</td><td class="mono">192.168.1.1</td></tr></tbody></table></div>
+<h2>Configuración de partida</h2>
+<p>En la app esto viene hecho. En Packet Tracer, antes de empezar, entra en cada equipo con enable y configure terminal y escribe (o pega) estas líneas.</p>
+<div class="terminal"><span class="eq">R1</span>hostname R1
+no ip domain-lookup
+interface g0/0
+ip address 192.168.1.1 255.255.255.0
+no shutdown</div>
+<div class="terminal"><span class="eq">SW1</span>hostname SW1
+no ip domain-lookup</div>
+<h3>PC y servidores (Desktop › IP Configuration)</h3><ul class="lista-pcs"><li class="mono">PC1: IP 192.168.1.10, máscara 255.255.255.0, puerta de enlace 192.168.1.1</li></ul>
+<h2>Tareas</h2><p>Lo que tiene que quedar funcionando. En la app, cada una se marca sola en cuanto la consigues.</p><ol class="tareas">
+<li>Dominio ccna.local</li>
+<li>Claves RSA de 1024 bits o más</li>
+<li>Usuario admin con contraseña secreta</li>
+<li>Modo privilegiado con enable secret</li>
+<li>SSH versión 2</li>
+<li>vty 0 a 4: usuarios locales y solo SSH</li>
+<li>PC1 entra por SSH</li>
+</ol>
+<div class="consejo"><strong>En Packet Tracer</strong><ul><li>Para conectarte, en PC1 ve a Desktop › Command Prompt y escribe ssh -l admin 192.168.1.1.</li></ul></div>
+<details class="pistas"><summary>Pistas</summary><ul>
+<li><strong>Dominio ccna.local:</strong> ip domain-name ccna.local. Sin dominio no se pueden generar las claves.</li>
+<li><strong>Claves RSA de 1024 bits o más:</strong> crypto key generate rsa y responde 1024 (o añade general-keys modulus 1024)</li>
+<li><strong>Usuario admin con contraseña secreta:</strong> username admin secret cisco123</li>
+<li><strong>Modo privilegiado con enable secret:</strong> enable secret class. Por vty, sin contraseña de enable IOS responde «% No password set».</li>
+<li><strong>SSH versión 2:</strong> ip ssh version 2 (necesita claves de 768 bits o más)</li>
+<li><strong>vty 0 a 4: usuarios locales y solo SSH:</strong> line vty 0 4 → login local → transport input ssh</li>
+<li><strong>PC1 entra por SSH:</strong> En la consola de PC1: ssh -l admin 192.168.1.1 y la contraseña cisco123</li>
+</ul></details>
+<h2>Solución paso a paso</h2><p class="texto-sec">Inténtalo antes por tu cuenta: se aprende mucho más escribiendo los comandos tú.</p>
+<details class="solucion"><summary>Ver la solución</summary>
+<div class="paso"><h3><span class="num">1</span>Dominio y claves RSA <span class="equipo">R1</span></h3>
+<p>Las claves se nombran con hostname.dominio: sin un nombre distinto de Router y sin dominio, IOS no las genera.</p>
+<div class="terminal"><span class="eq">R1</span>enable
+configure terminal
+ip domain-name ccna.local
+crypto key generate rsa general-keys modulus 1024</div>
+</div>
+<div class="paso"><h3><span class="num">2</span>Usuario local y enable secret <span class="equipo">R1</span></h3>
+<p>Por SSH entras con usuario y contraseña. Sin enable secret, desde una sesión remota IOS responde «% No password set» al intentar enable.</p>
+<div class="terminal"><span class="eq">R1</span>username admin secret cisco123
+enable secret class</div>
+</div>
+<div class="paso"><h3><span class="num">3</span>SSH versión 2 <span class="equipo">R1</span></h3>
+<p>La versión 2 necesita claves de 768 bits o más.</p>
+<div class="terminal"><span class="eq">R1</span>ip ssh version 2</div>
+</div>
+<div class="paso"><h3><span class="num">4</span>Líneas vty solo para SSH <span class="equipo">R1</span></h3>
+<p>login local usa los usuarios del router y transport input ssh rechaza Telnet.</p>
+<div class="terminal"><span class="eq">R1</span>line vty 0 4
+login local
+transport input ssh
+end</div>
+</div>
+<div class="paso"><h3><span class="num">5</span>Conéctate desde PC1 <span class="equipo">PC1</span></h3>
+<p>La contraseña no se ve al escribirla. Después entra en modo privilegiado con la de enable.</p>
+<div class="terminal"><span class="eq">PC1</span>ssh -l admin 192.168.1.1
+cisco123
+enable
+class
+exit</div>
+</div>
+</details>
+<h2>Verificación</h2>
+<p>SSH Enabled - version 2.0: claves generadas y versión 2 activa.</p>
+<div class="terminal"><span class="eq">R1</span><span class="entrada">R1#show ip ssh</span>
+SSH Enabled - version 2.0
+Authentication timeout: 120 secs; Authentication retries: 3</div>
+<p>Las vty usan login local y solo admiten SSH.</p>
+<div class="terminal"><span class="eq">R1</span><span class="entrada">R1#show running-config | section line vty</span>
+line vty 0 4
+ login local
+ transport input ssh</div>
+<h2>Errores típicos</h2><ul class="errores"><li>Generar las claves sin ip domain-name: «% Please define a domain-name first».</li><li>Usar login en lugar de login local: SSH necesita un usuario.</li></ul>
+<div class="cta-app">
+  <div>
+    <h3>Practica este laboratorio en el móvil</h3>
+    <p>En RoutingLab tienes este laboratorio con un terminal IOS simulado: abreviaturas, ayuda con ?, los mismos mensajes de error y objetivos que se comprueban solos. Los dos primeros labs son gratis.</p>
+  </div>
+  <a href="https://play.google.com/store/apps/details?id=com.luigi.routinglab" class="btn btn-claro" rel="noopener">Descargar RoutingLab</a>
+</div>
+<div class="navegacion-labs"><a href="acl-extendida.html">← Anterior<span>ACL extendida nombrada</span></a><a class="sig" href="port-security.html">Siguiente →<span>Port security</span></a></div>
+</div>
+</section>
+<footer>
+  <div class="contenedor">
+    <div class="pie-rejilla">
+      <div>
+        <a href="../index.html" class="logo" style="margin-bottom:12px">RoutingLab</a>
+        <p class="texto-sec" style="max-width:280px;font-size:.92rem">La app en español para preparar la certificación CCNA 200-301.</p>
+      </div>
+      <div><h4>Producto</h4><div class="pie-links">
+        <a href="../index.html#caracteristicas">Características</a>
+        <a href="../index.html#precios">Precios</a>
+        <a href="../index.html#demo">Test de prueba</a>
+      </div></div>
+      <div><h4>Gratis</h4><div class="pie-links">
+        <a href="../laboratorios.html">Laboratorios de Packet Tracer</a>
+        <a href="../herramientas.html">Calculadoras de red</a>
+        <a href="../glosario.html">Glosario</a>
+      </div></div>
+      <div><h4>Ayuda</h4><div class="pie-links">
+        <a href="../soporte.html">Soporte</a>
+        <a href="mailto:soporte@routinglab.es">soporte@routinglab.es</a>
+        <a href="../privacidad.html">Privacidad</a>
+        <a href="../terminos.html">Términos</a>
+        <a href="../eliminar-cuenta.html">Eliminar cuenta</a>
+      </div></div>
+    </div>
+    <div class="pie-abajo">
+      <span>© <span data-anio>2026</span> RoutingLab · routinglab.es</span>
+      <span>Cisco, Packet Tracer y CCNA son marcas de Cisco Systems, Inc. RoutingLab no está afiliado ni patrocinado por Cisco.</span>
+    </div>
+  </div>
+</footer>
+<script src="../app.js"></script>
+</body>
+</html>

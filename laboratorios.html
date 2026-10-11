@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Laboratorios de Packet Tracer para el CCNA · RoutingLab</title>
+<meta name="description" content="15 prácticas guiadas de Packet Tracer para el CCNA 200-301: VLAN, troncales, OSPF, DHCP, NAT, ACL, SSH, port security e IPv6, con topología, solución paso a paso y verificación.">
+<meta property="og:title" content="Laboratorios de Packet Tracer para el CCNA · RoutingLab">
+<meta property="og:description" content="15 prácticas guiadas de Packet Tracer para el CCNA 200-301: VLAN, troncales, OSPF, DHCP, NAT, ACL, SSH, port security e IPv6, con topología, solución paso a paso y verificación.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://routinglab.es/laboratorios.html">
+<meta property="og:site_name" content="RoutingLab">
+<meta property="og:locale" content="es_ES">
+<meta property="og:image" content="https://routinglab.es/capturas/og-es.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="RoutingLab · CCNA 200-301">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Laboratorios de Packet Tracer para el CCNA · RoutingLab">
+<meta name="twitter:description" content="15 prácticas guiadas de Packet Tracer para el CCNA 200-301: VLAN, troncales, OSPF, DHCP, NAT, ACL, SSH, port security e IPv6, con topología, solución paso a paso y verificación.">
+<meta name="twitter:image" content="https://routinglab.es/capturas/og-es.jpg">
+<meta name="theme-color" content="#0A1D5C">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="estilos.css">
+<link rel="stylesheet" href="labs.css">
+<link rel="alternate" hreflang="es" href="https://routinglab.es/laboratorios.html">
+<link rel="alternate" hreflang="en" href="https://routinglab.es/en/labs.html">
+<link rel="alternate" hreflang="x-default" href="https://routinglab.es/laboratorios.html">
+<link rel="canonical" href="https://routinglab.es/laboratorios.html">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="contenedor nav-inner">
+    <a href="index.html" class="logo">
+      <svg viewBox="0 0 100 100" aria-hidden="true">
+        <circle cx="50" cy="50" r="48" fill="url(#g)"/>
+        <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#0A1D5C"/><stop offset="1" stop-color="#2E5BFF"/>
+        </linearGradient></defs>
+        <g stroke="#4CC9F0" stroke-width="6" stroke-linecap="round">
+          <path d="M50 50 L28 30 M50 50 L72 26 M50 50 L28 72 M50 50 L74 70 M28 30 L72 26 M28 72 L74 70"/>
+        </g>
+        <circle cx="28" cy="30" r="9" fill="#fff"/><circle cx="72" cy="26" r="9" fill="#fff"/>
+        <circle cx="28" cy="72" r="9" fill="#fff"/><circle cx="74" cy="70" r="9" fill="#fff"/>
+        <circle cx="50" cy="50" r="11" fill="#4CC9F0"/>
+      </svg>
+      RoutingLab
+    </a>
+    <button class="menu-movil" aria-label="Abrir menú">☰</button>
+    <div class="nav-links">
+      <a href="index.html#caracteristicas">Características</a>
+      <a href="index.html#demo">Demo</a>
+      <a href="herramientas.html">Herramientas</a>
+      <a href="laboratorios.html" class="activo">Laboratorios</a>
+      <a href="glosario.html">Glosario</a>
+      <a href="index.html#precios">Precios</a>
+      <a href="soporte.html">Soporte</a>
+      <a href="index.html#descargar" class="btn btn-primario btn-sm">Descargar</a>
+    </div>
+    <a href="en/labs.html" class="cambio-idioma" hreflang="en" lang="en" aria-label="Read this page in English">EN</a>
+    <button class="boton-tema" onclick="alternarTema()">🌙</button>
+  </div>
+</nav>
+<header class="cabecera-pagina">
+  <canvas id="redCanvas" aria-hidden="true"></canvas>
+  <div class="contenedor">
+    <span class="etiqueta-seccion" style="background:rgba(255,255,255,.15);color:#fff">Gratis · paso a paso</span>
+    <h1>Laboratorios de Packet Tracer para el CCNA</h1>
+    <p>Quince prácticas para montar en Cisco Packet Tracer, con la topología, el direccionamiento, las tareas y la solución explicada. Son los mismos laboratorios que trae la app, donde puedes hacerlos también desde el móvil.</p>
+  </div>
+</header>
+<section class="seccion-guia">
+<div class="contenedor">
+  <h2 class="centrado">Cómo sacarles partido</h2>
+  <div class="rejilla rejilla-3 como-usar">
+<div class="tarjeta g1"><div class="icono-chip">🧩</div><h3>Monta la topología</h3><p class="texto-sec">Coloca los equipos, cablea como indica la tabla y aplica la configuración de partida.</p></div>
+<div class="tarjeta g2"><div class="icono-chip">⌨️</div><h3>Resuelve sin mirar</h3><p class="texto-sec">Intenta cada tarea por tu cuenta. La solución está escondida hasta que la pidas.</p></div>
+<div class="tarjeta g3"><div class="icono-chip">✅</div><h3>Verifica</h3><p class="texto-sec">Compara tus show y tus ping con la salida esperada de cada guía.</p></div>
+  </div>
+  <p class="centrado texto-sec nota-pt">Packet Tracer es gratis: se descarga desde <a href="https://www.netacad.com/cisco-packet-tracer" rel="noopener">Cisco Networking Academy</a> con una cuenta gratuita.</p>
+  <div class="rejilla rejilla-3 lista-labs">
+<a class="tarjeta tarjeta-lab g0" href="laboratorios/configuracion-basica.html">
+  <span class="num-lab">Lab 1</span>
+  <h3>Configuración básica y acceso seguro</h3>
+  <p class="texto-sec">Nombre, contraseñas, banner y guardar la configuración</p>
+  <div class="meta-lab"><span>Básico</span><span>20 min</span></div>
+  <span class="abrir">Ver guía →</span>
+</a>
+<a class="tarjeta tarjeta-lab g1" href="laboratorios/interfaces.html">
+  <span class="num-lab">Lab 2</span>
+  <h3>Interfaces y direccionamiento</h3>
+  <p class="texto-sec">Direcciones IP, descripciones, no shutdown y loopback</p>
+  <div class="meta-lab"><span>Básico</span><span>20 min</span></div>
+  <span class="abrir">Ver guía →</span>
+</a>
+<a class="tarjeta tarjeta-lab g2" href="laboratorios/vlan.html">
+  <span class="num-lab">Lab 3</span>
+  <h3>VLAN y puertos de acceso</h3>
+  <p class="texto-sec">Crear VLAN, nombrarlas y asignar puertos con interface range</p>
+  <div class="meta-lab"><span>Básico</span><span>25 min</span></div>
+  <span class="abrir">Ver guía →</span>
+</a>
+<a class="tarjeta tarjeta-lab g3" href="laboratorios/troncales.html">
+  <span class="num-lab">Lab 4</span>
+  <h3>Troncales 802.1Q</h3>
+  <p class="texto-sec">Troncal estático, VLAN nativa y VLAN permitidas</p>
+  <div class="meta-lab"><span>Intermedio</span><span>25 min</span></div>
+  <span class="abrir">Ver guía →</span>
+</a>
+<a class="tarjeta tarjeta-lab g4" href="laboratorios/router-on-a-stick.html">
+  <span class="num-lab">Lab 5</span>
+  <h3>Router-on-a-stick</h3>
+  <p class="texto-sec">Subinterfaces 802.1Q para enrutar entre VLAN</p>
+  <div class="meta-lab"><span>Intermedio</span><span>30 min</span></div>
+  <span class="abrir">Ver guía →</span>
+</a>
+<a class="tarjeta tarjeta-lab g0" href="laboratorios/inter-vlan-multicapa.html">
+  <span class="num-lab">Lab 6</span>
+  <h3>Inter-VLAN con switch multicapa</h3>
+  <p class="texto-sec">ip routing, SVI y un puerto enrutado hacia el router</p>
+  <div class="meta-lab"><span>Intermedio</span><span>30 min</span></div>
+  <span class="abrir">Ver guía →</span>
+</a>
+<a class="tarjeta tarjeta-lab g1" href="laboratorios/rutas-estaticas.html">
+  <span class="num-lab">Lab 7</span>
+  <h3>Rutas estáticas, por defecto y flotantes</h3>
+  <p class="texto-sec">ip route, ruta por defecto y una de respaldo con distancia administrativa</p>
+  <div class="meta-lab"><span>Intermedio</span><span>25 min</span></div>
+  <span class="abrir">Ver guía →</span>
+</a>
+<a class="tarjeta tarjeta-lab g2" href="laboratorios/ospf.html">
+  <span class="num-lab">Lab 8</span>
+  <h3>OSPF de área única</h3>
+  <p class="texto-sec">router-id, network con wildcard, interfaces pasivas y vecinos</p>
+  <div class="meta-lab"><span>Intermedio</span><span>35 min</span></div>
+  <span class="abrir">Ver guía →</span>
+</a>
+<a class="tarjeta tarjeta-lab g3" href="laboratorios/dhcp.html">
+  <span class="num-lab">Lab 9</span>
+  <h3>Servidor DHCP en el router</h3>
+  <p class="texto-sec">Direcciones excluidas, pool, puerta de enlace y DNS</p>
+  <div class="meta-lab"><span>Básico</span><span>20 min</span></div>
+  <span class="abrir">Ver guía →</span>
+</a>
+<a class="tarjeta tarjeta-lab g4" href="laboratorios/nat-pat.html">
+  <span class="num-lab">Lab 10</span>
+  <h3>NAT con sobrecarga (PAT)</h3>
+  <p class="texto-sec">ACL, ip nat inside/outside y una sola IP pública para toda la LAN</p>
+  <div class="meta-lab"><span>Intermedio</span><span>30 min</span></div>
+  <span class="abrir">Ver guía →</span>
+</a>
+<a class="tarjeta tarjeta-lab g0" href="laboratorios/acl-estandar.html">
+  <span class="num-lab">Lab 11</span>
+  <h3>ACL estándar</h3>
+  <p class="texto-sec">Bloquear a un host y aplicar la ACL cerca del destino</p>
+  <div class="meta-lab"><span>Intermedio</span><span>25 min</span></div>
+  <span class="abrir">Ver guía →</span>
+</a>
+<a class="tarjeta tarjeta-lab g1" href="laboratorios/acl-extendida.html">
+  <span class="num-lab">Lab 12</span>
+  <h3>ACL extendida nombrada</h3>
+  <p class="texto-sec">Filtrar por protocolo y puerto y aplicar cerca del origen</p>
+  <div class="meta-lab"><span>Avanzado</span><span>30 min</span></div>
+  <span class="abrir">Ver guía →</span>
+</a>
+<a class="tarjeta tarjeta-lab g2" href="laboratorios/ssh.html">
+  <span class="num-lab">Lab 13</span>
+  <h3>Acceso remoto por SSH</h3>
+  <p class="texto-sec">Dominio, claves RSA, usuario local y vty solo para SSH</p>
+  <div class="meta-lab"><span>Intermedio</span><span>25 min</span></div>
+  <span class="abrir">Ver guía →</span>
+</a>
+<a class="tarjeta tarjeta-lab g3" href="laboratorios/port-security.html">
+  <span class="num-lab">Lab 14</span>
+  <h3>Port security</h3>
+  <p class="texto-sec">Máximo de MAC, aprendizaje sticky y modos de violación</p>
+  <div class="meta-lab"><span>Intermedio</span><span>20 min</span></div>
+  <span class="abrir">Ver guía →</span>
+</a>
+<a class="tarjeta tarjeta-lab g4" href="laboratorios/ipv6.html">
+  <span class="num-lab">Lab 15</span>
+  <h3>IPv6 y rutas estáticas</h3>
+  <p class="texto-sec">ipv6 unicast-routing, direcciones, link-local y rutas IPv6</p>
+  <div class="meta-lab"><span>Intermedio</span><span>30 min</span></div>
+  <span class="abrir">Ver guía →</span>
+</a>
+  </div>
+  <div class="cta-app">
+    <div>
+      <h3>Practica este laboratorio en el móvil</h3>
+      <p>En RoutingLab tienes este laboratorio con un terminal IOS simulado: abreviaturas, ayuda con ?, los mismos mensajes de error y objetivos que se comprueban solos. Los dos primeros labs son gratis.</p>
+    </div>
+    <a href="https://play.google.com/store/apps/details?id=com.luigi.routinglab" class="btn btn-claro" rel="noopener">Descargar RoutingLab</a>
+  </div>
+</div>
+</section>
+<footer>
+  <div class="contenedor">
+    <div class="pie-rejilla">
+      <div>
+        <a href="index.html" class="logo" style="margin-bottom:12px">RoutingLab</a>
+        <p class="texto-sec" style="max-width:280px;font-size:.92rem">La app en español para preparar la certificación CCNA 200-301.</p>
+      </div>
+      <div><h4>Producto</h4><div class="pie-links">
+        <a href="index.html#caracteristicas">Características</a>
+        <a href="index.html#precios">Precios</a>
+        <a href="index.html#demo">Test de prueba</a>
+      </div></div>
+      <div><h4>Gratis</h4><div class="pie-links">
+        <a href="laboratorios.html">Laboratorios de Packet Tracer</a>
+        <a href="herramientas.html">Calculadoras de red</a>
+        <a href="glosario.html">Glosario</a>
+      </div></div>
+      <div><h4>Ayuda</h4><div class="pie-links">
+        <a href="soporte.html">Soporte</a>
+        <a href="mailto:soporte@routinglab.es">soporte@routinglab.es</a>
+        <a href="privacidad.html">Privacidad</a>
+        <a href="terminos.html">Términos</a>
+        <a href="eliminar-cuenta.html">Eliminar cuenta</a>
+      </div></div>
+    </div>
+    <div class="pie-abajo">
+      <span>© <span data-anio>2026</span> RoutingLab · routinglab.es</span>
+      <span>Cisco, Packet Tracer y CCNA son marcas de Cisco Systems, Inc. RoutingLab no está afiliado ni patrocinado por Cisco.</span>
+    </div>
+  </div>
+</footer>
+<script src="app.js"></script>
+</body>
+</html>

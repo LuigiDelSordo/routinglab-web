@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lab 9: Servidor DHCP en el router · Packet Tracer</title>
+<meta name="description" content="Direcciones excluidas, pool, puerta de enlace y DNS. Guía de Packet Tracer para el CCNA con topología, solución paso a paso y verificación.">
+<meta property="og:title" content="Lab 9: Servidor DHCP en el router · Packet Tracer">
+<meta property="og:description" content="Direcciones excluidas, pool, puerta de enlace y DNS. Guía de Packet Tracer para el CCNA con topología, solución paso a paso y verificación.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://routinglab.es/laboratorios/dhcp.html">
+<meta property="og:site_name" content="RoutingLab">
+<meta property="og:locale" content="es_ES">
+<meta property="og:image" content="https://routinglab.es/capturas/og-es.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="RoutingLab · CCNA 200-301">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Lab 9: Servidor DHCP en el router · Packet Tracer">
+<meta name="twitter:description" content="Direcciones excluidas, pool, puerta de enlace y DNS. Guía de Packet Tracer para el CCNA con topología, solución paso a paso y verificación.">
+<meta name="twitter:image" content="https://routinglab.es/capturas/og-es.jpg">
+<meta name="theme-color" content="#0A1D5C">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../estilos.css">
+<link rel="stylesheet" href="../labs.css">
+<link rel="alternate" hreflang="es" href="https://routinglab.es/laboratorios/dhcp.html">
+<link rel="alternate" hreflang="en" href="https://routinglab.es/en/labs/dhcp.html">
+<link rel="alternate" hreflang="x-default" href="https://routinglab.es/laboratorios/dhcp.html">
+<link rel="canonical" href="https://routinglab.es/laboratorios/dhcp.html">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="contenedor nav-inner">
+    <a href="../index.html" class="logo">
+      <svg viewBox="0 0 100 100" aria-hidden="true">
+        <circle cx="50" cy="50" r="48" fill="url(#g)"/>
+        <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#0A1D5C"/><stop offset="1" stop-color="#2E5BFF"/>
+        </linearGradient></defs>
+        <g stroke="#4CC9F0" stroke-width="6" stroke-linecap="round">
+          <path d="M50 50 L28 30 M50 50 L72 26 M50 50 L28 72 M50 50 L74 70 M28 30 L72 26 M28 72 L74 70"/>
+        </g>
+        <circle cx="28" cy="30" r="9" fill="#fff"/><circle cx="72" cy="26" r="9" fill="#fff"/>
+        <circle cx="28" cy="72" r="9" fill="#fff"/><circle cx="74" cy="70" r="9" fill="#fff"/>
+        <circle cx="50" cy="50" r="11" fill="#4CC9F0"/>
+      </svg>
+      RoutingLab
+    </a>
+    <button class="menu-movil" aria-label="Abrir menú">☰</button>
+    <div class="nav-links">
+      <a href="../index.html#caracteristicas">Características</a>
+      <a href="../index.html#demo">Demo</a>
+      <a href="../herramientas.html">Herramientas</a>
+      <a href="../laboratorios.html" class="activo">Laboratorios</a>
+      <a href="../glosario.html">Glosario</a>
+      <a href="../index.html#precios">Precios</a>
+      <a href="../soporte.html">Soporte</a>
+      <a href="../index.html#descargar" class="btn btn-primario btn-sm">Descargar</a>
+    </div>
+    <a href="../en/labs/dhcp.html" class="cambio-idioma" hreflang="en" lang="en" aria-label="Read this page in English">EN</a>
+    <button class="boton-tema" onclick="alternarTema()">🌙</button>
+  </div>
+</nav>
+<header class="cabecera-pagina cabecera-lab">
+  <canvas id="redCanvas" aria-hidden="true"></canvas>
+  <div class="contenedor">
+    <a class="miga" href="../laboratorios.html">← Todos los laboratorios</a>
+    <span class="etiqueta-seccion" style="background:rgba(255,255,255,.15);color:#fff">Lab 9 · Packet Tracer</span>
+    <h1>Servidor DHCP en el router</h1>
+    <p>Direcciones excluidas, pool, puerta de enlace y DNS</p>
+    <div class="guia-meta">
+      <span>Nivel: Básico</span>
+      <span>Tiempo: 20 min</span>
+      <span>Dominio 4.0 Servicios IP</span>
+    </div>
+  </div>
+</header>
+<section class="seccion-guia">
+<div class="contenedor guia">
+<h2>Escenario</h2>
+<p>Los PC de la LAN 192.168.1.0/24 están configurados para pedir su IP por DHCP, pero nadie les contesta. R1 hará de servidor.</p>
+<p>Reserva las direcciones 192.168.1.1 a 192.168.1.10 para equipos con IP fija y crea un pool llamado LAN que reparta el resto, con 192.168.1.1 como puerta de enlace y 8.8.8.8 como DNS.</p>
+<p>Ojo: si un PC recibe su IP antes de que termines el pool, se quedará sin puerta de enlace o DNS. En su consola, ipconfig /renew la pide de nuevo.</p>
+<h2>Topología</h2><div class="topologia"><svg viewBox="0 0 640 340" role="img" aria-label="R1, SW1, PC1, PC2"><line class="cable" x1="320" y1="46" x2="320" y2="162"/><line class="cable" x1="60" y1="278" x2="320" y2="162"/><line class="cable" x1="580" y1="278" x2="320" y2="162"/><defs><linearGradient id="gdhcp0" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4CC9F0"/><stop offset="1" stop-color="#2E5BFF"/></linearGradient></defs><rect x="290" y="16" width="60" height="60" rx="17" fill="url(#gdhcp0)"/><g transform="translate(304,30) scale(1.333)" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M12 4v5M12 15v5M4 12h5M15 12h5M10 7l2-3 2 3M10 17l2 3 2-3M7 10l-3 2 3 2M17 10l3 2-3 2"/></g><text class="nombre" x="320" y="98" text-anchor="middle">R1</text><defs><linearGradient id="gdhcp1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7209B7"/><stop offset="1" stop-color="#2E5BFF"/></linearGradient></defs><rect x="290" y="132" width="60" height="60" rx="17" fill="url(#gdhcp1)"/><g transform="translate(304,146) scale(1.333)" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="10" rx="2"/><path d="M7 11h9M14 9l2 2-2 2M17 13H8M10 15l-2-2 2-2"/></g><text class="nombre" x="320" y="214" text-anchor="middle">SW1</text><defs><linearGradient id="gdhcp2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#06D6A0"/><stop offset="1" stop-color="#118AB2"/></linearGradient></defs><rect x="30" y="248" width="60" height="60" rx="17" fill="url(#gdhcp2)"/><g transform="translate(44,262) scale(1.333)" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M9 20h6M12 16v4"/></g><text class="nombre" x="60" y="330" text-anchor="middle">PC1</text><defs><linearGradient id="gdhcp3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F72585"/><stop offset="1" stop-color="#7209B7"/></linearGradient></defs><rect x="550" y="248" width="60" height="60" rx="17" fill="url(#gdhcp3)"/><g transform="translate(564,262) scale(1.333)" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M9 20h6M12 16v4"/></g><text class="nombre" x="580" y="330" text-anchor="middle">PC2</text><rect class="puerto-fondo" x="336" y="93" width="55" height="22" rx="6"/><text class="puerto" x="364" y="109" text-anchor="middle">Gi0/0</text><rect class="puerto-fondo" x="249" y="93" width="55" height="22" rx="6"/><text class="puerto" x="276" y="109" text-anchor="middle">Gi0/1</text><rect class="puerto-fondo" x="94" y="243" width="38" height="22" rx="6"/><text class="puerto" x="113" y="259" text-anchor="middle">Fa0</text><rect class="puerto-fondo" x="211" y="187" width="55" height="22" rx="6"/><text class="puerto" x="238" y="203" text-anchor="middle">Fa0/1</text><rect class="puerto-fondo" x="508" y="243" width="38" height="22" rx="6"/><text class="puerto" x="527" y="259" text-anchor="middle">Fa0</text><rect class="puerto-fondo" x="374" y="187" width="55" height="22" rx="6"/><text class="puerto" x="402" y="203" text-anchor="middle">Fa0/2</text></svg></div>
+<h2>Equipos y cableado</h2><ul class="modelos"><li><strong>R1</strong> <span class="texto-sec">·</span> <span class="mono">2911</span></li><li><strong>SW1</strong> <span class="texto-sec">·</span> <span class="mono">2960-24TT</span></li><li><strong>PC1, PC2</strong> <span class="texto-sec">·</span> <span class="mono">PC-PT</span></li></ul>
+<div class="tabla-envoltura"><table class="tabla-guia"><thead><tr><th>Desde</th><th>Hasta</th><th>Cable</th></tr></thead><tbody><tr><td><strong>R1</strong> <span class="mono">Gi0/0</span></td><td><strong>SW1</strong> <span class="mono">Gi0/1</span></td><td>Directo</td></tr><tr><td><strong>PC1</strong> <span class="mono">Fa0</span></td><td><strong>SW1</strong> <span class="mono">Fa0/1</span></td><td>Directo</td></tr><tr><td><strong>PC2</strong> <span class="mono">Fa0</span></td><td><strong>SW1</strong> <span class="mono">Fa0/2</span></td><td>Directo</td></tr></tbody></table></div>
+<p class="nota">Si dudas, el cable de conexión automática (el rayo) elige el correcto. Regla: directo entre equipos distintos (PC o router con switch) y cruzado entre iguales.</p>
+<h2>Direccionamiento</h2><div class="tabla-envoltura"><table class="tabla-guia"><thead><tr><th>Equipo</th><th>Interfaz</th><th>Dirección</th><th>Máscara</th><th>Puerta de enlace</th></tr></thead><tbody><tr><td><strong>R1</strong></td><td>G0/0</td><td class="mono">192.168.1.1</td><td class="mono">255.255.255.0</td><td class="mono">—</td></tr><tr><td><strong>PC1</strong></td><td>NIC</td><td class="mono">DHCP</td><td class="mono">DHCP</td><td class="mono">DHCP</td></tr><tr><td><strong>PC2</strong></td><td>NIC</td><td class="mono">DHCP</td><td class="mono">DHCP</td><td class="mono">DHCP</td></tr></tbody></table></div>
+<h2>Configuración de partida</h2>
+<p>En la app esto viene hecho. En Packet Tracer, antes de empezar, entra en cada equipo con enable y configure terminal y escribe (o pega) estas líneas.</p>
+<div class="terminal"><span class="eq">R1</span>hostname R1
+no ip domain-lookup
+interface g0/0
+ip address 192.168.1.1 255.255.255.0
+no shutdown</div>
+<div class="terminal"><span class="eq">SW1</span>hostname SW1
+no ip domain-lookup</div>
+<h3>PC y servidores (Desktop › IP Configuration)</h3><ul class="lista-pcs"><li class="mono">PC1: DHCP</li><li class="mono">PC2: DHCP</li></ul>
+<h2>Tareas</h2><p>Lo que tiene que quedar funcionando. En la app, cada una se marca sola en cuanto la consigues.</p><ol class="tareas">
+<li>Excluidas 192.168.1.1 a 192.168.1.10</li>
+<li>Pool LAN con la red 192.168.1.0/24</li>
+<li>El pool reparte 192.168.1.1 como puerta de enlace</li>
+<li>El pool reparte 8.8.8.8 como DNS</li>
+<li>PC1 y PC2 reciben IP, puerta de enlace y DNS</li>
+<li>Comprobado con show ip dhcp binding</li>
+</ol>
+<div class="consejo"><strong>En Packet Tracer</strong><ul><li>En cada PC, ve a Desktop › IP Configuration y elige DHCP. También puedes usar ipconfig /renew en Command Prompt.</li></ul></div>
+<details class="pistas"><summary>Pistas</summary><ul>
+<li><strong>Excluidas 192.168.1.1 a 192.168.1.10:</strong> ip dhcp excluded-address 192.168.1.1 192.168.1.10 (en configuración global, no dentro del pool)</li>
+<li><strong>Pool LAN con la red 192.168.1.0/24:</strong> ip dhcp pool LAN → network 192.168.1.0 255.255.255.0</li>
+<li><strong>El pool reparte 192.168.1.1 como puerta de enlace:</strong> Dentro del pool: default-router 192.168.1.1</li>
+<li><strong>El pool reparte 8.8.8.8 como DNS:</strong> Dentro del pool: dns-server 8.8.8.8</li>
+<li><strong>PC1 y PC2 reciben IP, puerta de enlace y DNS:</strong> Mira su configuración con ipconfig /all. Si les falta algo, ipconfig /renew.</li>
+<li><strong>Comprobado con show ip dhcp binding:</strong> show ip dhcp binding en R1</li>
+</ul></details>
+<h2>Solución paso a paso</h2><p class="texto-sec">Inténtalo antes por tu cuenta: se aprende mucho más escribiendo los comandos tú.</p>
+<details class="solucion"><summary>Ver la solución</summary>
+<div class="paso"><h3><span class="num">1</span>Reserva las direcciones fijas <span class="equipo">R1</span></h3>
+<p>Las excluidas se configuran fuera del pool, en modo global. Aquí quedan para el router y otros equipos con IP fija.</p>
+<div class="terminal"><span class="eq">R1</span>enable
+configure terminal
+ip dhcp excluded-address 192.168.1.1 192.168.1.10</div>
+</div>
+<div class="paso"><h3><span class="num">2</span>Crea el pool <span class="equipo">R1</span></h3>
+<p>network define qué se reparte; default-router y dns-server, lo que recibe cada PC además de la IP.</p>
+<div class="terminal"><span class="eq">R1</span>ip dhcp pool LAN
+network 192.168.1.0 255.255.255.0
+default-router 192.168.1.1
+dns-server 8.8.8.8
+end</div>
+</div>
+<div class="paso"><h3><span class="num">3</span>Pide la IP en los PC <span class="equipo">PC1</span></h3>
+<p>Si un PC pidió la IP antes de terminar el pool, se quedará sin puerta de enlace o DNS hasta que la pida de nuevo.</p>
+<div class="terminal"><span class="eq">PC1</span>ipconfig /renew</div>
+</div>
+<div class="paso"><h3><span class="num">4</span>Y en PC2 <span class="equipo">PC2</span></h3>
+<div class="terminal"><span class="eq">PC2</span>ipconfig /renew</div>
+</div>
+</details>
+<h2>Verificación</h2>
+<p>Cada concesión liga una IP (desde la .11) a la MAC del PC.</p>
+<div class="terminal"><span class="eq">R1</span><span class="entrada">R1#show ip dhcp binding</span>
+IP address       Client-ID/              Lease expiration        Type
+                 Hardware address
+192.168.1.11     00D0.AF38.7A1A           --                     Automatic
+192.168.1.12     0001.30DB.97A9           --                     Automatic</div>
+<p>El PC muestra su IP, la puerta de enlace, el servidor DHCP y el DNS que le ha dado el router.</p>
+<div class="terminal"><span class="eq">PC1</span><span class="entrada">C:\&gt;ipconfig /all</span>
+
+FastEthernet0 Connection:(default port)
+
+   Connection-specific DNS Suffix..: 
+   Physical Address................: 00D0.AF38.7A1A
+   Link-local IPv6 Address.........: FE80::2D0:AFFF:FE38:7A1A
+   IPv6 Address....................: ::
+   IPv4 Address....................: 192.168.1.11
+   Subnet Mask.....................: 255.255.255.0
+   Default Gateway.................: ::
+                                     192.168.1.1
+   DHCP Servers....................: 192.168.1.1
+   DNS Servers.....................: ::
+                                     8.8.8.8
+</div>
+<h2>Errores típicos</h2><ul class="errores"><li>Poner excluded-address dentro del pool: no existe ahí, va en configuración global.</li><li>Olvidar default-router: los PC reciben IP pero no salen de su red.</li></ul>
+<div class="cta-app">
+  <div>
+    <h3>Practica este laboratorio en el móvil</h3>
+    <p>En RoutingLab tienes este laboratorio con un terminal IOS simulado: abreviaturas, ayuda con ?, los mismos mensajes de error y objetivos que se comprueban solos. Los dos primeros labs son gratis.</p>
+  </div>
+  <a href="https://play.google.com/store/apps/details?id=com.luigi.routinglab" class="btn btn-claro" rel="noopener">Descargar RoutingLab</a>
+</div>
+<div class="navegacion-labs"><a href="ospf.html">← Anterior<span>OSPF de área única</span></a><a class="sig" href="nat-pat.html">Siguiente →<span>NAT con sobrecarga (PAT)</span></a></div>
+</div>
+</section>
+<footer>
+  <div class="contenedor">
+    <div class="pie-rejilla">
+      <div>
+        <a href="../index.html" class="logo" style="margin-bottom:12px">RoutingLab</a>
+        <p class="texto-sec" style="max-width:280px;font-size:.92rem">La app en español para preparar la certificación CCNA 200-301.</p>
+      </div>
+      <div><h4>Producto</h4><div class="pie-links">
+        <a href="../index.html#caracteristicas">Características</a>
+        <a href="../index.html#precios">Precios</a>
+        <a href="../index.html#demo">Test de prueba</a>
+      </div></div>
+      <div><h4>Gratis</h4><div class="pie-links">
+        <a href="../laboratorios.html">Laboratorios de Packet Tracer</a>
+        <a href="../herramientas.html">Calculadoras de red</a>
+        <a href="../glosario.html">Glosario</a>
+      </div></div>
+      <div><h4>Ayuda</h4><div class="pie-links">
+        <a href="../soporte.html">Soporte</a>
+        <a href="mailto:soporte@routinglab.es">soporte@routinglab.es</a>
+        <a href="../privacidad.html">Privacidad</a>
+        <a href="../terminos.html">Términos</a>
+        <a href="../eliminar-cuenta.html">Eliminar cuenta</a>
+      </div></div>
+    </div>
+    <div class="pie-abajo">
+      <span>© <span data-anio>2026</span> RoutingLab · routinglab.es</span>
+      <span>Cisco, Packet Tracer y CCNA son marcas de Cisco Systems, Inc. RoutingLab no está afiliado ni patrocinado por Cisco.</span>
+    </div>
+  </div>
+</footer>
+<script src="../app.js"></script>
+</body>
+</html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lab 15: IPv6 and static routes · Packet Tracer</title>
+<meta name="description" content="ipv6 unicast-routing, addresses, link-local and IPv6 routes. Packet Tracer guide for the CCNA with topology, step-by-step solution and verification.">
+<meta property="og:title" content="Lab 15: IPv6 and static routes · Packet Tracer">
+<meta property="og:description" content="ipv6 unicast-routing, addresses, link-local and IPv6 routes. Packet Tracer guide for the CCNA with topology, step-by-step solution and verification.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://routinglab.es/en/labs/ipv6.html">
+<meta property="og:site_name" content="RoutingLab">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://routinglab.es/capturas/og-en.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="RoutingLab · CCNA 200-301">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Lab 15: IPv6 and static routes · Packet Tracer">
+<meta name="twitter:description" content="ipv6 unicast-routing, addresses, link-local and IPv6 routes. Packet Tracer guide for the CCNA with topology, step-by-step solution and verification.">
+<meta name="twitter:image" content="https://routinglab.es/capturas/og-en.jpg">
+<meta name="theme-color" content="#0A1D5C">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../estilos.css">
+<link rel="stylesheet" href="../../labs.css">
+<link rel="alternate" hreflang="es" href="https://routinglab.es/laboratorios/ipv6.html">
+<link rel="alternate" hreflang="en" href="https://routinglab.es/en/labs/ipv6.html">
+<link rel="alternate" hreflang="x-default" href="https://routinglab.es/laboratorios/ipv6.html">
+<link rel="canonical" href="https://routinglab.es/en/labs/ipv6.html">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="contenedor nav-inner">
+    <a href="../index.html" class="logo">
+      <svg viewBox="0 0 100 100" aria-hidden="true">
+        <circle cx="50" cy="50" r="48" fill="url(#g)"/>
+        <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#0A1D5C"/><stop offset="1" stop-color="#2E5BFF"/>
+        </linearGradient></defs>
+        <g stroke="#4CC9F0" stroke-width="6" stroke-linecap="round">
+          <path d="M50 50 L28 30 M50 50 L72 26 M50 50 L28 72 M50 50 L74 70 M28 30 L72 26 M28 72 L74 70"/>
+        </g>
+        <circle cx="28" cy="30" r="9" fill="#fff"/><circle cx="72" cy="26" r="9" fill="#fff"/>
+        <circle cx="28" cy="72" r="9" fill="#fff"/><circle cx="74" cy="70" r="9" fill="#fff"/>
+        <circle cx="50" cy="50" r="11" fill="#4CC9F0"/>
+      </svg>
+      RoutingLab
+    </a>
+    <button class="menu-movil" aria-label="Open menu">☰</button>
+    <div class="nav-links">
+      <a href="../index.html#caracteristicas">Features</a>
+      <a href="../index.html#demo">Demo</a>
+      <a href="../tools.html">Tools</a>
+      <a href="../labs.html" class="activo">Labs</a>
+      <a href="../glossary.html">Glossary</a>
+      <a href="../index.html#precios">Pricing</a>
+      <a href="../support.html">Support</a>
+      <a href="../index.html#descargar" class="btn btn-primario btn-sm">Download</a>
+    </div>
+    <a href="../../laboratorios/ipv6.html" class="cambio-idioma" hreflang="es" lang="es" aria-label="Leer esta página en español">ES</a>
+    <button class="boton-tema" onclick="alternarTema()">🌙</button>
+  </div>
+</nav>
+<header class="cabecera-pagina cabecera-lab">
+  <canvas id="redCanvas" aria-hidden="true"></canvas>
+  <div class="contenedor">
+    <a class="miga" href="../labs.html">← All labs</a>
+    <span class="etiqueta-seccion" style="background:rgba(255,255,255,.15);color:#fff">Lab 15 · Packet Tracer</span>
+    <h1>IPv6 and static routes</h1>
+    <p>ipv6 unicast-routing, addresses, link-local and IPv6 routes</p>
+    <div class="guia-meta">
+      <span>Level: Intermediate</span>
+      <span>Time: 30 min</span>
+      <span>Domain 3.0 IP Connectivity</span>
+    </div>
+  </div>
+</header>
+<section class="seccion-guia">
+<div class="contenedor guia">
+<h2>Scenario</h2>
+<p>The network is moving to IPv6. R2 is already configured, except for its route to PC1&#x27;s LAN. R1 has no IPv6 at all.</p>
+<p>On R1, enable IPv6 routing, put 2001:DB8:1::1/64 on G0/0 with link-local FE80::1 (PC1&#x27;s default gateway) and 2001:DB8:12::1/64 on G0/1. Create an IPv6 default route via 2001:DB8:12::2. On R2, add the route to 2001:DB8:1::/64 via 2001:DB8:12::1.</p>
+<p>Check it with ping 2001:DB8:2::10 from PC1.</p>
+<h2>Topology</h2><div class="topologia"><svg viewBox="0 0 640 190" role="img" aria-label="R1, R2, PC1, PC2"><line class="cable" x1="60" y1="87" x2="215" y2="87"/><line class="cable" x1="215" y1="87" x2="425" y2="87"/><line class="cable" x1="425" y1="87" x2="580" y2="87"/><defs><linearGradient id="gipv60" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4CC9F0"/><stop offset="1" stop-color="#2E5BFF"/></linearGradient></defs><rect x="30" y="57" width="60" height="60" rx="17" fill="url(#gipv60)"/><g transform="translate(44,71) scale(1.333)" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M9 20h6M12 16v4"/></g><text class="nombre" x="60" y="139" text-anchor="middle">PC1</text><defs><linearGradient id="gipv61" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7209B7"/><stop offset="1" stop-color="#2E5BFF"/></linearGradient></defs><rect x="185" y="57" width="60" height="60" rx="17" fill="url(#gipv61)"/><g transform="translate(199,71) scale(1.333)" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M12 4v5M12 15v5M4 12h5M15 12h5M10 7l2-3 2 3M10 17l2 3 2-3M7 10l-3 2 3 2M17 10l3 2-3 2"/></g><text class="nombre" x="215" y="139" text-anchor="middle">R1</text><defs><linearGradient id="gipv62" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#06D6A0"/><stop offset="1" stop-color="#118AB2"/></linearGradient></defs><rect x="395" y="57" width="60" height="60" rx="17" fill="url(#gipv62)"/><g transform="translate(409,71) scale(1.333)" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M12 4v5M12 15v5M4 12h5M15 12h5M10 7l2-3 2 3M10 17l2 3 2-3M7 10l-3 2 3 2M17 10l3 2-3 2"/></g><text class="nombre" x="425" y="139" text-anchor="middle">R2</text><defs><linearGradient id="gipv63" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F72585"/><stop offset="1" stop-color="#7209B7"/></linearGradient></defs><rect x="550" y="57" width="60" height="60" rx="17" fill="url(#gipv63)"/><g transform="translate(564,71) scale(1.333)" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M9 20h6M12 16v4"/></g><text class="nombre" x="580" y="139" text-anchor="middle">PC2</text><rect class="puerto-fondo" x="118" y="59" width="38" height="22" rx="6"/><text class="puerto" x="137" y="75" text-anchor="middle">Fa0</text><rect class="puerto-fondo" x="110" y="93" width="55" height="22" rx="6"/><text class="puerto" x="137" y="109" text-anchor="middle">Gi0/0</text><rect class="puerto-fondo" x="249" y="76" width="55" height="22" rx="6"/><text class="puerto" x="276" y="92" text-anchor="middle">Gi0/1</text><rect class="puerto-fondo" x="336" y="76" width="55" height="22" rx="6"/><text class="puerto" x="364" y="92" text-anchor="middle">Gi0/0</text><rect class="puerto-fondo" x="475" y="59" width="55" height="22" rx="6"/><text class="puerto" x="503" y="75" text-anchor="middle">Gi0/1</text><rect class="puerto-fondo" x="484" y="93" width="38" height="22" rx="6"/><text class="puerto" x="503" y="109" text-anchor="middle">Fa0</text></svg></div>
+<h2>Devices and cabling</h2><ul class="modelos"><li><strong>R1, R2</strong> <span class="texto-sec">·</span> <span class="mono">2911</span></li><li><strong>PC1, PC2</strong> <span class="texto-sec">·</span> <span class="mono">PC-PT</span></li></ul>
+<div class="tabla-envoltura"><table class="tabla-guia"><thead><tr><th>From</th><th>To</th><th>Cable</th></tr></thead><tbody><tr><td><strong>PC1</strong> <span class="mono">Fa0</span></td><td><strong>R1</strong> <span class="mono">Gi0/0</span></td><td>Crossover</td></tr><tr><td><strong>R1</strong> <span class="mono">Gi0/1</span></td><td><strong>R2</strong> <span class="mono">Gi0/0</span></td><td>Crossover</td></tr><tr><td><strong>R2</strong> <span class="mono">Gi0/1</span></td><td><strong>PC2</strong> <span class="mono">Fa0</span></td><td>Crossover</td></tr></tbody></table></div>
+<p class="nota">If in doubt, the automatic connection cable (the lightning bolt) picks the right one. Rule: straight-through between different devices (PC or router to switch) and crossover between alike ones.</p>
+<h2>Addressing</h2><div class="tabla-envoltura"><table class="tabla-guia"><thead><tr><th>Device</th><th>Interface</th><th>Address</th><th>Mask</th><th>Default gateway</th></tr></thead><tbody><tr><td><strong>R1</strong></td><td>G0/0</td><td class="mono">2001:DB8:1::1 · FE80::1</td><td class="mono">/64</td><td class="mono">—</td></tr><tr><td><strong>R1</strong></td><td>G0/1</td><td class="mono">2001:DB8:12::1</td><td class="mono">/64</td><td class="mono">—</td></tr><tr><td><strong>R2</strong></td><td>G0/0</td><td class="mono">2001:DB8:12::2</td><td class="mono">/64</td><td class="mono">—</td></tr><tr><td><strong>R2</strong></td><td>G0/1</td><td class="mono">2001:DB8:2::1 · FE80::2</td><td class="mono">/64</td><td class="mono">—</td></tr><tr><td><strong>PC1</strong></td><td>NIC</td><td class="mono">2001:DB8:1::10</td><td class="mono">/64</td><td class="mono">FE80::1</td></tr><tr><td><strong>PC2</strong></td><td>NIC</td><td class="mono">2001:DB8:2::10</td><td class="mono">/64</td><td class="mono">FE80::2</td></tr></tbody></table></div>
+<h2>Starting configuration</h2>
+<p>In the app this is already done. In Packet Tracer, before you start, enter each device with enable and configure terminal and type (or paste) these lines.</p>
+<div class="terminal"><span class="eq">R1</span>hostname R1
+no ip domain-lookup
+interface g0/0
+no shutdown
+interface g0/1
+no shutdown</div>
+<div class="terminal"><span class="eq">R2</span>hostname R2
+no ip domain-lookup
+ipv6 unicast-routing
+interface g0/0
+ipv6 address 2001:db8:12::2/64
+no shutdown
+interface g0/1
+ipv6 address 2001:db8:2::1/64
+ipv6 address fe80::2 link-local
+no shutdown</div>
+<h3>PCs and servers (Desktop › IP Configuration)</h3><ul class="lista-pcs"><li class="mono">PC1: IPv6 2001:DB8:1::10/64, gateway FE80::1</li><li class="mono">PC2: IPv6 2001:DB8:2::10/64, gateway FE80::2</li></ul>
+<h2>Tasks</h2><p>What must end up working. In the app, each one ticks itself off as soon as you get it.</p><ol class="tareas">
+<li>R1 routes IPv6</li>
+<li>G0/0: 2001:DB8:1::1/64 and link-local FE80::1</li>
+<li>G0/1: 2001:DB8:12::1/64</li>
+<li>R1: default route ::/0 via 2001:DB8:12::2</li>
+<li>R2: route to 2001:DB8:1::/64 via 2001:DB8:12::1</li>
+<li>PC1 reaches PC2 over IPv6</li>
+<li>Checked with show ipv6 route</li>
+</ol>
+<div class="consejo"><strong>In Packet Tracer</strong><ul><li>Each PC&#x27;s IPv6 address is set in Desktop › IP Configuration, in the IPv6 section (Static).</li><li>In the starting configuration, R1 only brings its interfaces up; R2 already has its IPv6.</li></ul></div>
+<details class="pistas"><summary>Hints</summary><ul>
+<li><strong>R1 routes IPv6:</strong> ipv6 unicast-routing (without it the router won&#x27;t forward IPv6)</li>
+<li><strong>G0/0: 2001:DB8:1::1/64 and link-local FE80::1:</strong> ipv6 address 2001:db8:1::1/64 and ipv6 address fe80::1 link-local</li>
+<li><strong>G0/1: 2001:DB8:12::1/64:</strong> interface g0/1 → ipv6 address 2001:db8:12::1/64</li>
+<li><strong>R1: default route ::/0 via 2001:DB8:12::2:</strong> ipv6 route ::/0 2001:db8:12::2</li>
+<li><strong>R2: route to 2001:DB8:1::/64 via 2001:DB8:12::1:</strong> ipv6 route 2001:db8:1::/64 2001:db8:12::1</li>
+<li><strong>PC1 reaches PC2 over IPv6:</strong> From PC1: ping 2001:db8:2::10</li>
+<li><strong>Checked with show ipv6 route:</strong> show ipv6 route on R1</li>
+</ul></details>
+<h2>Step-by-step solution</h2><p class="texto-sec">Try it on your own first: you learn much more by typing the commands yourself.</p>
+<details class="solucion"><summary>Show the solution</summary>
+<div class="paso"><h3><span class="num">1</span>Enable IPv6 routing <span class="equipo">R1</span></h3>
+<p>Without ipv6 unicast-routing the router has IPv6 addresses but doesn&#x27;t forward packets.</p>
+<div class="terminal"><span class="eq">R1</span>enable
+configure terminal
+ipv6 unicast-routing</div>
+</div>
+<div class="paso"><h3><span class="num">2</span>G0/0 addresses <span class="equipo">R1</span></h3>
+<p>The FE80::1 link-local is what PC1 uses as its default gateway: setting it by hand makes it easy to remember.</p>
+<div class="terminal"><span class="eq">R1</span>interface g0/0
+ipv6 address 2001:db8:1::1/64
+ipv6 address fe80::1 link-local</div>
+</div>
+<div class="paso"><h3><span class="num">3</span>G0/1 address <span class="equipo">R1</span></h3>
+<div class="terminal"><span class="eq">R1</span>interface g0/1
+ipv6 address 2001:db8:12::1/64
+exit</div>
+</div>
+<div class="paso"><h3><span class="num">4</span>IPv6 default route <span class="equipo">R1</span></h3>
+<p>::/0 is the IPv6 equivalent of 0.0.0.0/0.</p>
+<div class="terminal"><span class="eq">R1</span>ipv6 route ::/0 2001:db8:12::2
+end</div>
+</div>
+<div class="paso"><h3><span class="num">5</span>Return route on R2 <span class="equipo">R2</span></h3>
+<div class="terminal"><span class="eq">R2</span>enable
+configure terminal
+ipv6 route 2001:db8:1::/64 2001:db8:12::1
+end</div>
+</div>
+</details>
+<h2>Verification</h2>
+<p>The connected networks (C), the router&#x27;s own addresses (L) and the default route (S ::/0).</p>
+<div class="terminal"><span class="eq">R1</span><span class="entrada">R1#show ipv6 route</span>
+IPv6 Routing Table - default - 6 entries
+Codes: C - Connected, L - Local, S - Static, U - Per-user Static route
+       B - BGP, R - RIP, I1 - ISIS L1, I2 - ISIS L2
+       IA - ISIS interarea, IS - ISIS summary, D - EIGRP, EX - EIGRP external
+       ND - ND Default, NDp - ND Prefix, DCE - Destination, NDr - Redirect
+       O - OSPF Intra, OI - OSPF Inter, OE1 - OSPF ext 1, OE2 - OSPF ext 2
+       ON1 - OSPF NSSA ext 1, ON2 - OSPF NSSA ext 2
+S   ::/0 [1/0]
+     via 2001:DB8:12::2
+C   2001:DB8:1::/64 [0/0]
+     via GigabitEthernet0/0, directly connected
+L   2001:DB8:1::1/128 [0/0]
+     via GigabitEthernet0/0, receive
+C   2001:DB8:12::/64 [0/0]
+     via GigabitEthernet0/1, directly connected
+L   2001:DB8:12::1/128 [0/0]
+     via GigabitEthernet0/1, receive
+L   FF00::/8 [0/0]
+     via Null0, receive</div>
+<p>PC1 reaches PC2 over IPv6 across both routers.</p>
+<div class="terminal"><span class="eq">PC1</span><span class="entrada">C:\&gt;ping 2001:db8:2::10</span>
+
+Pinging 2001:DB8:2::10 with 32 bytes of data:
+
+Reply from 2001:DB8:2::10: bytes=32 time&lt;1ms TTL=126
+Reply from 2001:DB8:2::10: bytes=32 time&lt;1ms TTL=126
+Reply from 2001:DB8:2::10: bytes=32 time&lt;1ms TTL=126
+Reply from 2001:DB8:2::10: bytes=32 time&lt;1ms TTL=126
+
+Ping statistics for 2001:DB8:2::10:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 0ms, Maximum = 0ms, Average = 0ms
+</div>
+<h2>Common mistakes</h2><ul class="errores"><li>Forgetting ipv6 unicast-routing: everything looks fine, but the router doesn&#x27;t forward.</li><li>Using a link-local as the next hop without specifying the exit interface.</li></ul>
+<div class="cta-app">
+  <div>
+    <h3>Practice this lab on your phone</h3>
+    <p>RoutingLab has this lab with a simulated IOS terminal: abbreviations, ? help, the same error messages and objectives that check themselves. The first two labs are free.</p>
+  </div>
+  <a href="https://play.google.com/store/apps/details?id=com.luigi.routinglab" class="btn btn-claro" rel="noopener">Get RoutingLab</a>
+</div>
+<div class="navegacion-labs"><a href="port-security.html">← Previous<span>Port security</span></a><span></span></div>
+</div>
+</section>
+<footer>
+  <div class="contenedor">
+    <div class="pie-rejilla">
+      <div>
+        <a href="../index.html" class="logo" style="margin-bottom:12px">RoutingLab</a>
+        <p class="texto-sec" style="max-width:280px;font-size:.92rem">The app to prepare for the CCNA 200-301 certification.</p>
+      </div>
+      <div><h4>Product</h4><div class="pie-links">
+        <a href="../index.html#caracteristicas">Features</a>
+        <a href="../index.html#precios">Pricing</a>
+        <a href="../index.html#demo">Sample quiz</a>
+      </div></div>
+      <div><h4>Free</h4><div class="pie-links">
+        <a href="../labs.html">Packet Tracer labs</a>
+        <a href="../tools.html">Network calculators</a>
+        <a href="../glossary.html">Glossary</a>
+      </div></div>
+      <div><h4>Help</h4><div class="pie-links">
+        <a href="../support.html">Support</a>
+        <a href="mailto:soporte@routinglab.es">soporte@routinglab.es</a>
+        <a href="../privacy.html">Privacy</a>
+        <a href="../terms.html">Terms</a>
+        <a href="../delete-account.html">Delete account</a>
+      </div></div>
+    </div>
+    <div class="pie-abajo">
+      <span>© <span data-anio>2026</span> RoutingLab · routinglab.es</span>
+      <span>Cisco, Packet Tracer and CCNA are trademarks of Cisco Systems, Inc. RoutingLab is not affiliated with or sponsored by Cisco.</span>
+    </div>
+  </div>
+</footer>
+<script src="../../app.js"></script>
+</body>
+</html>

@@ -99,4 +99,228 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://routinglab.es/terminos.html"/>
     <lastmod>2026-10-10</lastmod><priority>0.4</priority>
   </url>
+  <url>
+    <loc>https://routinglab.es/laboratorios.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://routinglab.es/laboratorios.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://routinglab.es/en/labs.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://routinglab.es/laboratorios.html"/>
+    <lastmod>2026-10-11</lastmod><priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://routinglab.es/en/labs.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://routinglab.es/laboratorios.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://routinglab.es/en/labs.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://routinglab.es/laboratorios.html"/>
+    <lastmod>2026-10-11</lastmod><priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://routinglab.es/laboratorios/configuracion-basica.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://routinglab.es/laboratorios/configuracion-basica.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://routinglab.es/en/labs/basic-configuration.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://routinglab.es/laboratorios/configuracion-basica.html"/>
+    <lastmod>2026-10-11</lastmod><priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://routinglab.es/en/labs/basic-configuration.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://routinglab.es/laboratorios/configuracion-basica.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://routinglab.es/en/labs/basic-configuration.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://routinglab.es/laboratorios/configuracion-basica.html"/>
+    <lastmod>2026-10-11</lastmod><priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://routinglab.es/laboratorios/interfaces.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://routinglab.es/laboratorios/interfaces.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://routinglab.es/en/labs/interfaces.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://routinglab.es/laboratorios/interfaces.html"/>
+    <lastmod>2026-10-11</lastmod><priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://routinglab.es/en/labs/interfaces.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://routinglab.es/laboratorios/interfaces.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://routinglab.es/en/labs/interfaces.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://routinglab.es/laboratorios/interfaces.html"/>
+    <lastmod>2026-10-11</lastmod><priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://routinglab.es/laboratorios/vlan.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://routinglab.es/laboratorios/vlan.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://routinglab.es/en/labs/vlans.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://routinglab.es/laboratorios/vlan.html"/>
+    <lastmod>2026-10-11</lastmod><priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://routinglab.es/en/labs/vlans.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://routinglab.es/laboratorios/vlan.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://routinglab.es/en/labs/vlans.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://routinglab.es/laboratorios/vlan.html"/>
+    <lastmod>2026-10-11</lastmod><priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://routinglab.es/laboratorios/troncales.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://routinglab.es/laboratorios/troncales.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://routinglab.es/en/labs/trunks.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://routinglab.es/laboratorios/troncales.html"/>
+    <lastmod>2026-10-11</lastmod><priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://routinglab.es/en/labs/trunks.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://routinglab.es/laboratorios/troncales.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://routinglab.es/en/labs/trunks.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://routinglab.es/laboratorios/troncales.html"/>
+    <lastmod>2026-10-11</lastmod><priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://routinglab.es/laboratorios/router-on-a-stick.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://routinglab.es/laboratorios/router-on-a-stick.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://routinglab.es/en/labs/router-on-a-stick.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://routinglab.es/laboratorios/router-on-a-stick.html"/>
+    <lastmod>2026-10-11</lastmod><priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://routinglab.es/en/labs/router-on-a-stick.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://routinglab.es/laboratorios/router-on-a-stick.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://routinglab.es/en/labs/router-on-a-stick.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://routinglab.es/laboratorios/router-on-a-stick.html"/>
+    <lastmod>2026-10-11</lastmod><priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://routinglab.es/laboratorios/inter-vlan-multicapa.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://routinglab.es/laboratorios/inter-vlan-multicapa.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://routinglab.es/en/labs/multilayer-inter-vlan.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://routinglab.es/laboratorios/inter-vlan-multicapa.html"/>
+    <lastmod>2026-10-11</lastmod><priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://routinglab.es/en/labs/multilayer-inter-vlan.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://routinglab.es/laboratorios/inter-vlan-multicapa.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://routinglab.es/en/labs/multilayer-inter-vlan.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://routinglab.es/laboratorios/inter-vlan-multicapa.html"/>
+    <lastmod>2026-10-11</lastmod><priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://routinglab.es/laboratorios/rutas-estaticas.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://routinglab.es/laboratorios/rutas-estaticas.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://routinglab.es/en/labs/static-routes.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://routinglab.es/laboratorios/rutas-estaticas.html"/>
+    <lastmod>2026-10-11</lastmod><priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://routinglab.es/en/labs/static-routes.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://routinglab.es/laboratorios/rutas-estaticas.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://routinglab.es/en/labs/static-routes.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://routinglab.es/laboratorios/rutas-estaticas.html"/>
+    <lastmod>2026-10-11</lastmod><priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://routinglab.es/laboratorios/ospf.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://routinglab.es/laboratorios/ospf.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://routinglab.es/en/labs/ospf.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://routinglab.es/laboratorios/ospf.html"/>
+    <lastmod>2026-10-11</lastmod><priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://routinglab.es/en/labs/ospf.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://routinglab.es/laboratorios/ospf.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://routinglab.es/en/labs/ospf.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://routinglab.es/laboratorios/ospf.html"/>
+    <lastmod>2026-10-11</lastmod><priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://routinglab.es/laboratorios/dhcp.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://routinglab.es/laboratorios/dhcp.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://routinglab.es/en/labs/dhcp.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://routinglab.es/laboratorios/dhcp.html"/>
+    <lastmod>2026-10-11</lastmod><priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://routinglab.es/en/labs/dhcp.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://routinglab.es/laboratorios/dhcp.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://routinglab.es/en/labs/dhcp.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://routinglab.es/laboratorios/dhcp.html"/>
+    <lastmod>2026-10-11</lastmod><priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://routinglab.es/laboratorios/nat-pat.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://routinglab.es/laboratorios/nat-pat.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://routinglab.es/en/labs/nat-pat.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://routinglab.es/laboratorios/nat-pat.html"/>
+    <lastmod>2026-10-11</lastmod><priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://routinglab.es/en/labs/nat-pat.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://routinglab.es/laboratorios/nat-pat.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://routinglab.es/en/labs/nat-pat.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://routinglab.es/laboratorios/nat-pat.html"/>
+    <lastmod>2026-10-11</lastmod><priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://routinglab.es/laboratorios/acl-estandar.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://routinglab.es/laboratorios/acl-estandar.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://routinglab.es/en/labs/standard-acl.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://routinglab.es/laboratorios/acl-estandar.html"/>
+    <lastmod>2026-10-11</lastmod><priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://routinglab.es/en/labs/standard-acl.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://routinglab.es/laboratorios/acl-estandar.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://routinglab.es/en/labs/standard-acl.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://routinglab.es/laboratorios/acl-estandar.html"/>
+    <lastmod>2026-10-11</lastmod><priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://routinglab.es/laboratorios/acl-extendida.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://routinglab.es/laboratorios/acl-extendida.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://routinglab.es/en/labs/extended-acl.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://routinglab.es/laboratorios/acl-extendida.html"/>
+    <lastmod>2026-10-11</lastmod><priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://routinglab.es/en/labs/extended-acl.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://routinglab.es/laboratorios/acl-extendida.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://routinglab.es/en/labs/extended-acl.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://routinglab.es/laboratorios/acl-extendida.html"/>
+    <lastmod>2026-10-11</lastmod><priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://routinglab.es/laboratorios/ssh.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://routinglab.es/laboratorios/ssh.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://routinglab.es/en/labs/ssh.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://routinglab.es/laboratorios/ssh.html"/>
+    <lastmod>2026-10-11</lastmod><priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://routinglab.es/en/labs/ssh.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://routinglab.es/laboratorios/ssh.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://routinglab.es/en/labs/ssh.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://routinglab.es/laboratorios/ssh.html"/>
+    <lastmod>2026-10-11</lastmod><priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://routinglab.es/laboratorios/port-security.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://routinglab.es/laboratorios/port-security.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://routinglab.es/en/labs/port-security.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://routinglab.es/laboratorios/port-security.html"/>
+    <lastmod>2026-10-11</lastmod><priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://routinglab.es/en/labs/port-security.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://routinglab.es/laboratorios/port-security.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://routinglab.es/en/labs/port-security.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://routinglab.es/laboratorios/port-security.html"/>
+    <lastmod>2026-10-11</lastmod><priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://routinglab.es/laboratorios/ipv6.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://routinglab.es/laboratorios/ipv6.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://routinglab.es/en/labs/ipv6.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://routinglab.es/laboratorios/ipv6.html"/>
+    <lastmod>2026-10-11</lastmod><priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://routinglab.es/en/labs/ipv6.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://routinglab.es/laboratorios/ipv6.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://routinglab.es/en/labs/ipv6.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://routinglab.es/laboratorios/ipv6.html"/>
+    <lastmod>2026-10-11</lastmod><priority>0.6</priority>
+  </url>
 </urlset>

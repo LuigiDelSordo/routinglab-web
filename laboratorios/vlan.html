@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lab 3: VLAN y puertos de acceso · Packet Tracer</title>
+<meta name="description" content="Crear VLAN, nombrarlas y asignar puertos con interface range. Guía de Packet Tracer para el CCNA con topología, solución paso a paso y verificación.">
+<meta property="og:title" content="Lab 3: VLAN y puertos de acceso · Packet Tracer">
+<meta property="og:description" content="Crear VLAN, nombrarlas y asignar puertos con interface range. Guía de Packet Tracer para el CCNA con topología, solución paso a paso y verificación.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://routinglab.es/laboratorios/vlan.html">
+<meta property="og:site_name" content="RoutingLab">
+<meta property="og:locale" content="es_ES">
+<meta property="og:image" content="https://routinglab.es/capturas/og-es.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="RoutingLab · CCNA 200-301">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Lab 3: VLAN y puertos de acceso · Packet Tracer">
+<meta name="twitter:description" content="Crear VLAN, nombrarlas y asignar puertos con interface range. Guía de Packet Tracer para el CCNA con topología, solución paso a paso y verificación.">
+<meta name="twitter:image" content="https://routinglab.es/capturas/og-es.jpg">
+<meta name="theme-color" content="#0A1D5C">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../estilos.css">
+<link rel="stylesheet" href="../labs.css">
+<link rel="alternate" hreflang="es" href="https://routinglab.es/laboratorios/vlan.html">
+<link rel="alternate" hreflang="en" href="https://routinglab.es/en/labs/vlans.html">
+<link rel="alternate" hreflang="x-default" href="https://routinglab.es/laboratorios/vlan.html">
+<link rel="canonical" href="https://routinglab.es/laboratorios/vlan.html">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="contenedor nav-inner">
+    <a href="../index.html" class="logo">
+      <svg viewBox="0 0 100 100" aria-hidden="true">
+        <circle cx="50" cy="50" r="48" fill="url(#g)"/>
+        <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#0A1D5C"/><stop offset="1" stop-color="#2E5BFF"/>
+        </linearGradient></defs>
+        <g stroke="#4CC9F0" stroke-width="6" stroke-linecap="round">
+          <path d="M50 50 L28 30 M50 50 L72 26 M50 50 L28 72 M50 50 L74 70 M28 30 L72 26 M28 72 L74 70"/>
+        </g>
+        <circle cx="28" cy="30" r="9" fill="#fff"/><circle cx="72" cy="26" r="9" fill="#fff"/>
+        <circle cx="28" cy="72" r="9" fill="#fff"/><circle cx="74" cy="70" r="9" fill="#fff"/>
+        <circle cx="50" cy="50" r="11" fill="#4CC9F0"/>
+      </svg>
+      RoutingLab
+    </a>
+    <button class="menu-movil" aria-label="Abrir menú">☰</button>
+    <div class="nav-links">
+      <a href="../index.html#caracteristicas">Características</a>
+      <a href="../index.html#demo">Demo</a>
+      <a href="../herramientas.html">Herramientas</a>
+      <a href="../laboratorios.html" class="activo">Laboratorios</a>
+      <a href="../glosario.html">Glosario</a>
+      <a href="../index.html#precios">Precios</a>
+      <a href="../soporte.html">Soporte</a>
+      <a href="../index.html#descargar" class="btn btn-primario btn-sm">Descargar</a>
+    </div>
+    <a href="../en/labs/vlans.html" class="cambio-idioma" hreflang="en" lang="en" aria-label="Read this page in English">EN</a>
+    <button class="boton-tema" onclick="alternarTema()">🌙</button>
+  </div>
+</nav>
+<header class="cabecera-pagina cabecera-lab">
+  <canvas id="redCanvas" aria-hidden="true"></canvas>
+  <div class="contenedor">
+    <a class="miga" href="../laboratorios.html">← Todos los laboratorios</a>
+    <span class="etiqueta-seccion" style="background:rgba(255,255,255,.15);color:#fff">Lab 3 · Packet Tracer</span>
+    <h1>VLAN y puertos de acceso</h1>
+    <p>Crear VLAN, nombrarlas y asignar puertos con interface range</p>
+    <div class="guia-meta">
+      <span>Nivel: Básico</span>
+      <span>Tiempo: 25 min</span>
+      <span>Dominio 2.0 Acceso a la red</span>
+    </div>
+  </div>
+</header>
+<section class="seccion-guia">
+<div class="contenedor guia">
+<h2>Escenario</h2>
+<p>En la oficina hay dos departamentos en el mismo switch: Ventas y RRHH. Hoy todo está en la VLAN 1 y cualquiera puede ver el tráfico de difusión del otro.</p>
+<p>Crea la VLAN 10 (VENTAS) y la VLAN 20 (RRHH). Pon los puertos Fa0/1 a Fa0/10 en modo acceso en la VLAN 10 y los Fa0/11 a Fa0/20 en la VLAN 20. Los puertos Fa0/21 a Fa0/24 no se usan: apágalos.</p>
+<p>Usa interface range para no ir puerto a puerto y verifica el resultado con show vlan brief.</p>
+<h2>Topología</h2><div class="topologia"><svg viewBox="0 0 640 340" role="img" aria-label="SW1, PC1, PC2, PC3, PC4"><line class="cable" x1="60" y1="278" x2="320" y2="46"/><line class="cable" x1="231" y1="278" x2="320" y2="46"/><line class="cable" x1="409" y1="278" x2="320" y2="46"/><line class="cable" x1="580" y1="278" x2="320" y2="46"/><defs><linearGradient id="gvlans0" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4CC9F0"/><stop offset="1" stop-color="#2E5BFF"/></linearGradient></defs><rect x="290" y="16" width="60" height="60" rx="17" fill="url(#gvlans0)"/><g transform="translate(304,30) scale(1.333)" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="10" rx="2"/><path d="M7 11h9M14 9l2 2-2 2M17 13H8M10 15l-2-2 2-2"/></g><text class="nombre" x="320" y="98" text-anchor="middle">SW1</text><defs><linearGradient id="gvlans1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7209B7"/><stop offset="1" stop-color="#2E5BFF"/></linearGradient></defs><rect x="30" y="248" width="60" height="60" rx="17" fill="url(#gvlans1)"/><g transform="translate(44,262) scale(1.333)" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M9 20h6M12 16v4"/></g><text class="nombre" x="60" y="330" text-anchor="middle">PC1</text><defs><linearGradient id="gvlans2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#06D6A0"/><stop offset="1" stop-color="#118AB2"/></linearGradient></defs><rect x="201" y="248" width="60" height="60" rx="17" fill="url(#gvlans2)"/><g transform="translate(215,262) scale(1.333)" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M9 20h6M12 16v4"/></g><text class="nombre" x="231" y="330" text-anchor="middle">PC2</text><defs><linearGradient id="gvlans3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F72585"/><stop offset="1" stop-color="#7209B7"/></linearGradient></defs><rect x="379" y="248" width="60" height="60" rx="17" fill="url(#gvlans3)"/><g transform="translate(393,262) scale(1.333)" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M9 20h6M12 16v4"/></g><text class="nombre" x="409" y="330" text-anchor="middle">PC3</text><defs><linearGradient id="gvlans4" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FF9E00"/><stop offset="1" stop-color="#FF5400"/></linearGradient></defs><rect x="550" y="248" width="60" height="60" rx="17" fill="url(#gvlans4)"/><g transform="translate(564,262) scale(1.333)" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M9 20h6M12 16v4"/></g><text class="nombre" x="580" y="330" text-anchor="middle">PC4</text><rect class="puerto-fondo" x="92" y="222" width="38" height="22" rx="6"/><text class="puerto" x="110" y="238" text-anchor="middle">Fa0</text><rect class="puerto-fondo" x="209" y="109" width="55" height="22" rx="6"/><text class="puerto" x="237" y="125" text-anchor="middle">Fa0/1</text><rect class="puerto-fondo" x="229" y="222" width="38" height="22" rx="6"/><text class="puerto" x="248" y="238" text-anchor="middle">Fa0</text><rect class="puerto-fondo" x="249" y="148" width="55" height="22" rx="6"/><text class="puerto" x="277" y="164" text-anchor="middle">Fa0/2</text><rect class="puerto-fondo" x="373" y="222" width="38" height="22" rx="6"/><text class="puerto" x="392" y="238" text-anchor="middle">Fa0</text><rect class="puerto-fondo" x="332" y="148" width="64" height="22" rx="6"/><text class="puerto" x="363" y="164" text-anchor="middle">Fa0/11</text><rect class="puerto-fondo" x="511" y="222" width="38" height="22" rx="6"/><text class="puerto" x="530" y="238" text-anchor="middle">Fa0</text><rect class="puerto-fondo" x="373" y="110" width="64" height="22" rx="6"/><text class="puerto" x="404" y="126" text-anchor="middle">Fa0/12</text></svg></div>
+<h2>Equipos y cableado</h2><ul class="modelos"><li><strong>SW1</strong> <span class="texto-sec">·</span> <span class="mono">2960-24TT</span></li><li><strong>PC1, PC2, PC3, PC4</strong> <span class="texto-sec">·</span> <span class="mono">PC-PT</span></li></ul>
+<div class="tabla-envoltura"><table class="tabla-guia"><thead><tr><th>Desde</th><th>Hasta</th><th>Cable</th></tr></thead><tbody><tr><td><strong>PC1</strong> <span class="mono">Fa0</span></td><td><strong>SW1</strong> <span class="mono">Fa0/1</span></td><td>Directo</td></tr><tr><td><strong>PC2</strong> <span class="mono">Fa0</span></td><td><strong>SW1</strong> <span class="mono">Fa0/2</span></td><td>Directo</td></tr><tr><td><strong>PC3</strong> <span class="mono">Fa0</span></td><td><strong>SW1</strong> <span class="mono">Fa0/11</span></td><td>Directo</td></tr><tr><td><strong>PC4</strong> <span class="mono">Fa0</span></td><td><strong>SW1</strong> <span class="mono">Fa0/12</span></td><td>Directo</td></tr></tbody></table></div>
+<p class="nota">Si dudas, el cable de conexión automática (el rayo) elige el correcto. Regla: directo entre equipos distintos (PC o router con switch) y cruzado entre iguales.</p>
+<h2>Direccionamiento</h2><div class="tabla-envoltura"><table class="tabla-guia"><thead><tr><th>Equipo</th><th>Interfaz</th><th>Dirección</th><th>Máscara</th><th>Puerta de enlace</th></tr></thead><tbody><tr><td><strong>PC1</strong></td><td>Fa0/1 · VLAN 10</td><td class="mono">192.168.10.11</td><td class="mono">255.255.255.0</td><td class="mono">—</td></tr><tr><td><strong>PC2</strong></td><td>Fa0/2 · VLAN 10</td><td class="mono">192.168.10.12</td><td class="mono">255.255.255.0</td><td class="mono">—</td></tr><tr><td><strong>PC3</strong></td><td>Fa0/11 · VLAN 20</td><td class="mono">192.168.20.11</td><td class="mono">255.255.255.0</td><td class="mono">—</td></tr><tr><td><strong>PC4</strong></td><td>Fa0/12 · VLAN 20</td><td class="mono">192.168.20.12</td><td class="mono">255.255.255.0</td><td class="mono">—</td></tr></tbody></table></div>
+<h2>Configuración de partida</h2>
+<p>En la app esto viene hecho. En Packet Tracer, antes de empezar, entra en cada equipo con enable y configure terminal y escribe (o pega) estas líneas.</p>
+<div class="terminal"><span class="eq">SW1</span>hostname SW1
+no ip domain-lookup</div>
+<h3>PC y servidores (Desktop › IP Configuration)</h3><ul class="lista-pcs"><li class="mono">PC1: IP 192.168.10.11, máscara 255.255.255.0</li><li class="mono">PC2: IP 192.168.10.12, máscara 255.255.255.0</li><li class="mono">PC3: IP 192.168.20.11, máscara 255.255.255.0</li><li class="mono">PC4: IP 192.168.20.12, máscara 255.255.255.0</li></ul>
+<h2>Tareas</h2><p>Lo que tiene que quedar funcionando. En la app, cada una se marca sola en cuanto la consigues.</p><ol class="tareas">
+<li>VLAN 10 llamada VENTAS</li>
+<li>VLAN 20 llamada RRHH</li>
+<li>Fa0/1–Fa0/10: acceso en la VLAN 10</li>
+<li>Fa0/11–Fa0/20: acceso en la VLAN 20</li>
+<li>Fa0/21–Fa0/24 apagados</li>
+<li>Cada pareja de PC se comunica dentro de su VLAN</li>
+<li>Comprobado con show vlan brief</li>
+</ol>
+<div class="consejo"><strong>En Packet Tracer</strong><ul><li>Usa cable directo de cada PC al switch. En un 2960 los puertos vienen encendidos y en la VLAN 1.</li></ul></div>
+<details class="pistas"><summary>Pistas</summary><ul>
+<li><strong>VLAN 10 llamada VENTAS:</strong> vlan 10 → name VENTAS</li>
+<li><strong>VLAN 20 llamada RRHH:</strong> vlan 20 → name RRHH</li>
+<li><strong>Fa0/1–Fa0/10: acceso en la VLAN 10:</strong> interface range fa0/1 - 10 → switchport mode access → switchport access vlan 10</li>
+<li><strong>Fa0/11–Fa0/20: acceso en la VLAN 20:</strong> interface range fa0/11 - 20 → switchport mode access → switchport access vlan 20</li>
+<li><strong>Fa0/21–Fa0/24 apagados:</strong> interface range fa0/21 - 24 → shutdown. Un puerto sin uso apagado es una puerta menos.</li>
+<li><strong>Cada pareja de PC se comunica dentro de su VLAN:</strong> PC1–PC2 en la VLAN 10 y PC3–PC4 en la 20. Pruébalo con ping desde PC1 y PC3.</li>
+<li><strong>Comprobado con show vlan brief:</strong> show vlan brief</li>
+</ul></details>
+<h2>Solución paso a paso</h2><p class="texto-sec">Inténtalo antes por tu cuenta: se aprende mucho más escribiendo los comandos tú.</p>
+<details class="solucion"><summary>Ver la solución</summary>
+<div class="paso"><h3><span class="num">1</span>Crea y nombra las VLAN <span class="equipo">SW1</span></h3>
+<p>vlan 10 crea la VLAN y entra en su modo; name le pone nombre. Al escribir vlan 20 desde dentro de la VLAN 10, IOS salta a la nueva.</p>
+<div class="terminal"><span class="eq">SW1</span>enable
+configure terminal
+vlan 10
+name VENTAS
+vlan 20
+name RRHH
+exit</div>
+</div>
+<div class="paso"><h3><span class="num">2</span>Asigna los puertos de Ventas <span class="equipo">SW1</span></h3>
+<p>interface range configura varios puertos a la vez. switchport mode access fija el puerto como de acceso para que no negocie un troncal.</p>
+<div class="terminal"><span class="eq">SW1</span>interface range fa0/1 - 10
+switchport mode access
+switchport access vlan 10</div>
+</div>
+<div class="paso"><h3><span class="num">3</span>Asigna los puertos de RRHH <span class="equipo">SW1</span></h3>
+<div class="terminal"><span class="eq">SW1</span>interface range fa0/11 - 20
+switchport mode access
+switchport access vlan 20</div>
+</div>
+<div class="paso"><h3><span class="num">4</span>Apaga los puertos que no se usan <span class="equipo">SW1</span></h3>
+<p>Un puerto libre encendido es una puerta abierta para quien enchufe un equipo. Apagarlos es una buena práctica de seguridad.</p>
+<div class="terminal"><span class="eq">SW1</span>interface range fa0/21 - 24
+shutdown
+end</div>
+</div>
+</details>
+<h2>Verificación</h2>
+<p>Cada VLAN debe listar sus puertos. Los que no aparecen en ninguna o son troncales o están asignados a una VLAN que no existe.</p>
+<div class="terminal"><span class="eq">SW1</span><span class="entrada">SW1#show vlan brief</span>
+
+VLAN Name                             Status    Ports
+---- -------------------------------- --------- -------------------------------
+1    default                          active    Fa0/21, Fa0/22, Fa0/23, Fa0/24
+                                                Gi0/1, Gi0/2
+10   VENTAS                           active    Fa0/1, Fa0/2, Fa0/3, Fa0/4
+                                                Fa0/5, Fa0/6, Fa0/7, Fa0/8
+                                                Fa0/9, Fa0/10
+20   RRHH                             active    Fa0/11, Fa0/12, Fa0/13, Fa0/14
+                                                Fa0/15, Fa0/16, Fa0/17, Fa0/18
+                                                Fa0/19, Fa0/20
+1002 fddi-default                     act/unsup 
+1003 token-ring-default               act/unsup 
+1004 fddinet-default                  act/unsup 
+1005 trnet-default                    act/unsup </div>
+<p>PC1 llega a PC2 porque comparten VLAN y red. Entre VLAN distintas haría falta un router o un switch de capa 3.</p>
+<div class="terminal"><span class="eq">PC1</span><span class="entrada">C:\&gt;ping 192.168.10.12</span>
+
+Pinging 192.168.10.12 with 32 bytes of data:
+
+Reply from 192.168.10.12: bytes=32 time&lt;1ms TTL=128
+Reply from 192.168.10.12: bytes=32 time&lt;1ms TTL=128
+Reply from 192.168.10.12: bytes=32 time&lt;1ms TTL=128
+Reply from 192.168.10.12: bytes=32 time&lt;1ms TTL=128
+
+Ping statistics for 192.168.10.12:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 0ms, Maximum = 0ms, Average = 0ms
+</div>
+<h2>Errores típicos</h2><ul class="errores"><li>Asignar el puerto a una VLAN que no existe: IOS la crea con un aviso («% Access VLAN does not exist. Creating vlan 30»), pero con el nombre por defecto.</li><li>Dejar los puertos en modo dinámico: si alguien conecta un switch, podría formarse un troncal.</li></ul>
+<div class="cta-app">
+  <div>
+    <h3>Practica este laboratorio en el móvil</h3>
+    <p>En RoutingLab tienes este laboratorio con un terminal IOS simulado: abreviaturas, ayuda con ?, los mismos mensajes de error y objetivos que se comprueban solos. Los dos primeros labs son gratis.</p>
+  </div>
+  <a href="https://play.google.com/store/apps/details?id=com.luigi.routinglab" class="btn btn-claro" rel="noopener">Descargar RoutingLab</a>
+</div>
+<div class="navegacion-labs"><a href="interfaces.html">← Anterior<span>Interfaces y direccionamiento</span></a><a class="sig" href="troncales.html">Siguiente →<span>Troncales 802.1Q</span></a></div>
+</div>
+</section>
+<footer>
+  <div class="contenedor">
+    <div class="pie-rejilla">
+      <div>
+        <a href="../index.html" class="logo" style="margin-bottom:12px">RoutingLab</a>
+        <p class="texto-sec" style="max-width:280px;font-size:.92rem">La app en español para preparar la certificación CCNA 200-301.</p>
+      </div>
+      <div><h4>Producto</h4><div class="pie-links">
+        <a href="../index.html#caracteristicas">Características</a>
+        <a href="../index.html#precios">Precios</a>
+        <a href="../index.html#demo">Test de prueba</a>
+      </div></div>
+      <div><h4>Gratis</h4><div class="pie-links">
+        <a href="../laboratorios.html">Laboratorios de Packet Tracer</a>
+        <a href="../herramientas.html">Calculadoras de red</a>
+        <a href="../glosario.html">Glosario</a>
+      </div></div>
+      <div><h4>Ayuda</h4><div class="pie-links">
+        <a href="../soporte.html">Soporte</a>
+        <a href="mailto:soporte@routinglab.es">soporte@routinglab.es</a>
+        <a href="../privacidad.html">Privacidad</a>
+        <a href="../terminos.html">Términos</a>
+        <a href="../eliminar-cuenta.html">Eliminar cuenta</a>
+      </div></div>
+    </div>
+    <div class="pie-abajo">
+      <span>© <span data-anio>2026</span> RoutingLab · routinglab.es</span>
+      <span>Cisco, Packet Tracer y CCNA son marcas de Cisco Systems, Inc. RoutingLab no está afiliado ni patrocinado por Cisco.</span>
+    </div>
+  </div>
+</footer>
+<script src="../app.js"></script>
+</body>
+</html>

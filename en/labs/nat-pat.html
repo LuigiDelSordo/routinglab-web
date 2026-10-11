@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lab 10: NAT overload (PAT) · Packet Tracer</title>
+<meta name="description" content="ACL, ip nat inside/outside and one public IP for the whole LAN. Packet Tracer guide for the CCNA with topology, step-by-step solution and verification.">
+<meta property="og:title" content="Lab 10: NAT overload (PAT) · Packet Tracer">
+<meta property="og:description" content="ACL, ip nat inside/outside and one public IP for the whole LAN. Packet Tracer guide for the CCNA with topology, step-by-step solution and verification.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://routinglab.es/en/labs/nat-pat.html">
+<meta property="og:site_name" content="RoutingLab">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://routinglab.es/capturas/og-en.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="RoutingLab · CCNA 200-301">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Lab 10: NAT overload (PAT) · Packet Tracer">
+<meta name="twitter:description" content="ACL, ip nat inside/outside and one public IP for the whole LAN. Packet Tracer guide for the CCNA with topology, step-by-step solution and verification.">
+<meta name="twitter:image" content="https://routinglab.es/capturas/og-en.jpg">
+<meta name="theme-color" content="#0A1D5C">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../estilos.css">
+<link rel="stylesheet" href="../../labs.css">
+<link rel="alternate" hreflang="es" href="https://routinglab.es/laboratorios/nat-pat.html">
+<link rel="alternate" hreflang="en" href="https://routinglab.es/en/labs/nat-pat.html">
+<link rel="alternate" hreflang="x-default" href="https://routinglab.es/laboratorios/nat-pat.html">
+<link rel="canonical" href="https://routinglab.es/en/labs/nat-pat.html">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="contenedor nav-inner">
+    <a href="../index.html" class="logo">
+      <svg viewBox="0 0 100 100" aria-hidden="true">
+        <circle cx="50" cy="50" r="48" fill="url(#g)"/>
+        <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#0A1D5C"/><stop offset="1" stop-color="#2E5BFF"/>
+        </linearGradient></defs>
+        <g stroke="#4CC9F0" stroke-width="6" stroke-linecap="round">
+          <path d="M50 50 L28 30 M50 50 L72 26 M50 50 L28 72 M50 50 L74 70 M28 30 L72 26 M28 72 L74 70"/>
+        </g>
+        <circle cx="28" cy="30" r="9" fill="#fff"/><circle cx="72" cy="26" r="9" fill="#fff"/>
+        <circle cx="28" cy="72" r="9" fill="#fff"/><circle cx="74" cy="70" r="9" fill="#fff"/>
+        <circle cx="50" cy="50" r="11" fill="#4CC9F0"/>
+      </svg>
+      RoutingLab
+    </a>
+    <button class="menu-movil" aria-label="Open menu">☰</button>
+    <div class="nav-links">
+      <a href="../index.html#caracteristicas">Features</a>
+      <a href="../index.html#demo">Demo</a>
+      <a href="../tools.html">Tools</a>
+      <a href="../labs.html" class="activo">Labs</a>
+      <a href="../glossary.html">Glossary</a>
+      <a href="../index.html#precios">Pricing</a>
+      <a href="../support.html">Support</a>
+      <a href="../index.html#descargar" class="btn btn-primario btn-sm">Download</a>
+    </div>
+    <a href="../../laboratorios/nat-pat.html" class="cambio-idioma" hreflang="es" lang="es" aria-label="Leer esta página en español">ES</a>
+    <button class="boton-tema" onclick="alternarTema()">🌙</button>
+  </div>
+</nav>
+<header class="cabecera-pagina cabecera-lab">
+  <canvas id="redCanvas" aria-hidden="true"></canvas>
+  <div class="contenedor">
+    <a class="miga" href="../labs.html">← All labs</a>
+    <span class="etiqueta-seccion" style="background:rgba(255,255,255,.15);color:#fff">Lab 10 · Packet Tracer</span>
+    <h1>NAT overload (PAT)</h1>
+    <p>ACL, ip nat inside/outside and one public IP for the whole LAN</p>
+    <div class="guia-meta">
+      <span>Level: Intermediate</span>
+      <span>Time: 30 min</span>
+      <span>Domain 4.0 IP Services</span>
+    </div>
+  </div>
+</header>
+<section class="seccion-guia">
+<div class="contenedor guia">
+<h2>Scenario</h2>
+<p>The LAN uses private addresses (192.168.1.0/24) and the ISP doesn&#x27;t know how to send traffic back to them: the PCs can&#x27;t reach the Internet web server (198.51.100.10).</p>
+<p>Configure PAT on R1 so the whole LAN goes out with the IP of its public interface (G0/1): a standard ACL 1 permitting the LAN, G0/0 as inside, G0/1 as outside and the translation with overload. Then ping from a PC and look at the translations with show ip nat translations.</p>
+<h2>Topology</h2><div class="topologia"><svg viewBox="0 0 640 340" role="img" aria-label="R1, ISP, SW1, PC1, PC2, SRV1"><line class="cable" x1="304" y1="162" x2="174" y2="162"/><line class="cable" x1="60" y1="46" x2="174" y2="162"/><line class="cable" x1="60" y1="278" x2="174" y2="162"/><line class="cable" x1="304" y1="162" x2="440" y2="162"/><line class="cable" x1="440" y1="162" x2="580" y2="162"/><defs><linearGradient id="gnat0" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4CC9F0"/><stop offset="1" stop-color="#2E5BFF"/></linearGradient></defs><rect x="30" y="16" width="60" height="60" rx="17" fill="url(#gnat0)"/><g transform="translate(44,30) scale(1.333)" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M9 20h6M12 16v4"/></g><text class="nombre" x="60" y="98" text-anchor="middle">PC1</text><defs><linearGradient id="gnat1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7209B7"/><stop offset="1" stop-color="#2E5BFF"/></linearGradient></defs><rect x="30" y="248" width="60" height="60" rx="17" fill="url(#gnat1)"/><g transform="translate(44,262) scale(1.333)" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M9 20h6M12 16v4"/></g><text class="nombre" x="60" y="330" text-anchor="middle">PC2</text><defs><linearGradient id="gnat2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#06D6A0"/><stop offset="1" stop-color="#118AB2"/></linearGradient></defs><rect x="144" y="132" width="60" height="60" rx="17" fill="url(#gnat2)"/><g transform="translate(158,146) scale(1.333)" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="10" rx="2"/><path d="M7 11h9M14 9l2 2-2 2M17 13H8M10 15l-2-2 2-2"/></g><text class="nombre" x="174" y="214" text-anchor="middle">SW1</text><defs><linearGradient id="gnat3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F72585"/><stop offset="1" stop-color="#7209B7"/></linearGradient></defs><rect x="274" y="132" width="60" height="60" rx="17" fill="url(#gnat3)"/><g transform="translate(288,146) scale(1.333)" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M12 4v5M12 15v5M4 12h5M15 12h5M10 7l2-3 2 3M10 17l2 3 2-3M7 10l-3 2 3 2M17 10l3 2-3 2"/></g><text class="nombre" x="304" y="214" text-anchor="middle">R1</text><defs><linearGradient id="gnat4" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FF9E00"/><stop offset="1" stop-color="#FF5400"/></linearGradient></defs><rect x="410" y="132" width="60" height="60" rx="17" fill="url(#gnat4)"/><g transform="translate(424,146) scale(1.333)" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M12 4v5M12 15v5M4 12h5M15 12h5M10 7l2-3 2 3M10 17l2 3 2-3M7 10l-3 2 3 2M17 10l3 2-3 2"/></g><text class="nombre" x="440" y="214" text-anchor="middle">ISP</text><defs><linearGradient id="gnat5" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4CC9F0"/><stop offset="1" stop-color="#2E5BFF"/></linearGradient></defs><rect x="550" y="132" width="60" height="60" rx="17" fill="url(#gnat5)"/><g transform="translate(564,146) scale(1.333)" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="5" rx="1"/><rect x="5" y="10" width="14" height="5" rx="1"/><rect x="5" y="17" width="14" height="4" rx="1"/><path d="M8 5.5h.01M8 12.5h.01"/></g><text class="nombre" x="580" y="214" text-anchor="middle">SRV1</text><rect class="puerto-fondo" x="212" y="168" width="55" height="22" rx="6"/><text class="puerto" x="239" y="184" text-anchor="middle">Gi0/0</text><rect class="puerto-fondo" x="212" y="134" width="55" height="22" rx="6"/><text class="puerto" x="239" y="150" text-anchor="middle">Gi0/1</text><rect class="puerto-fondo" x="125" y="67" width="38" height="22" rx="6"/><text class="puerto" x="144" y="83" text-anchor="middle">Fa0</text><rect class="puerto-fondo" x="59" y="123" width="55" height="22" rx="6"/><text class="puerto" x="86" y="139" text-anchor="middle">Fa0/1</text><rect class="puerto-fondo" x="72" y="183" width="38" height="22" rx="6"/><text class="puerto" x="91" y="199" text-anchor="middle">Fa0</text><rect class="puerto-fondo" x="121" y="239" width="55" height="22" rx="6"/><text class="puerto" x="148" y="255" text-anchor="middle">Fa0/2</text><rect class="puerto-fondo" x="344" y="134" width="55" height="22" rx="6"/><text class="puerto" x="372" y="150" text-anchor="middle">Gi0/1</text><rect class="puerto-fondo" x="344" y="168" width="55" height="22" rx="6"/><text class="puerto" x="372" y="184" text-anchor="middle">Gi0/0</text><rect class="puerto-fondo" x="482" y="134" width="55" height="22" rx="6"/><text class="puerto" x="510" y="150" text-anchor="middle">Gi0/1</text><rect class="puerto-fondo" x="491" y="168" width="38" height="22" rx="6"/><text class="puerto" x="510" y="184" text-anchor="middle">Fa0</text></svg></div>
+<h2>Devices and cabling</h2><ul class="modelos"><li><strong>R1, ISP</strong> <span class="texto-sec">·</span> <span class="mono">2911</span></li><li><strong>SW1</strong> <span class="texto-sec">·</span> <span class="mono">2960-24TT</span></li><li><strong>PC1, PC2</strong> <span class="texto-sec">·</span> <span class="mono">PC-PT</span></li><li><strong>SRV1</strong> <span class="texto-sec">·</span> <span class="mono">Server-PT</span></li></ul>
+<div class="tabla-envoltura"><table class="tabla-guia"><thead><tr><th>From</th><th>To</th><th>Cable</th></tr></thead><tbody><tr><td><strong>R1</strong> <span class="mono">Gi0/0</span></td><td><strong>SW1</strong> <span class="mono">Gi0/1</span></td><td>Straight-through</td></tr><tr><td><strong>PC1</strong> <span class="mono">Fa0</span></td><td><strong>SW1</strong> <span class="mono">Fa0/1</span></td><td>Straight-through</td></tr><tr><td><strong>PC2</strong> <span class="mono">Fa0</span></td><td><strong>SW1</strong> <span class="mono">Fa0/2</span></td><td>Straight-through</td></tr><tr><td><strong>R1</strong> <span class="mono">Gi0/1</span></td><td><strong>ISP</strong> <span class="mono">Gi0/0</span></td><td>Crossover</td></tr><tr><td><strong>ISP</strong> <span class="mono">Gi0/1</span></td><td><strong>SRV1</strong> <span class="mono">Fa0</span></td><td>Crossover</td></tr></tbody></table></div>
+<p class="nota">If in doubt, the automatic connection cable (the lightning bolt) picks the right one. Rule: straight-through between different devices (PC or router to switch) and crossover between alike ones.</p>
+<h2>Addressing</h2><div class="tabla-envoltura"><table class="tabla-guia"><thead><tr><th>Device</th><th>Interface</th><th>Address</th><th>Mask</th><th>Default gateway</th></tr></thead><tbody><tr><td><strong>R1</strong></td><td>G0/0 (inside)</td><td class="mono">192.168.1.1</td><td class="mono">255.255.255.0</td><td class="mono">—</td></tr><tr><td><strong>R1</strong></td><td>G0/1 (outside)</td><td class="mono">203.0.113.2</td><td class="mono">255.255.255.252</td><td class="mono">—</td></tr><tr><td><strong>ISP</strong></td><td>G0/0</td><td class="mono">203.0.113.1</td><td class="mono">255.255.255.252</td><td class="mono">—</td></tr><tr><td><strong>ISP</strong></td><td>G0/1</td><td class="mono">198.51.100.1</td><td class="mono">255.255.255.0</td><td class="mono">—</td></tr><tr><td><strong>PC1</strong></td><td>NIC</td><td class="mono">192.168.1.10</td><td class="mono">255.255.255.0</td><td class="mono">192.168.1.1</td></tr><tr><td><strong>PC2</strong></td><td>NIC</td><td class="mono">192.168.1.11</td><td class="mono">255.255.255.0</td><td class="mono">192.168.1.1</td></tr><tr><td><strong>SRV1</strong></td><td>NIC</td><td class="mono">198.51.100.10</td><td class="mono">255.255.255.0</td><td class="mono">198.51.100.1</td></tr></tbody></table></div>
+<h2>Starting configuration</h2>
+<p>In the app this is already done. In Packet Tracer, before you start, enter each device with enable and configure terminal and type (or paste) these lines.</p>
+<div class="terminal"><span class="eq">R1</span>hostname R1
+no ip domain-lookup
+interface g0/0
+ip address 192.168.1.1 255.255.255.0
+no shutdown
+interface g0/1
+ip address 203.0.113.2 255.255.255.252
+no shutdown
+ip route 0.0.0.0 0.0.0.0 203.0.113.1</div>
+<div class="terminal"><span class="eq">ISP</span>hostname ISP
+no ip domain-lookup
+interface g0/0
+ip address 203.0.113.1 255.255.255.252
+no shutdown
+interface g0/1
+ip address 198.51.100.1 255.255.255.0
+no shutdown</div>
+<div class="terminal"><span class="eq">SW1</span>hostname SW1
+no ip domain-lookup</div>
+<h3>PCs and servers (Desktop › IP Configuration)</h3><ul class="lista-pcs"><li class="mono">PC1: IP 192.168.1.10, mask 255.255.255.0, gateway 192.168.1.1</li><li class="mono">PC2: IP 192.168.1.11, mask 255.255.255.0, gateway 192.168.1.1</li><li class="mono">SRV1: IP 198.51.100.10, mask 255.255.255.0, gateway 198.51.100.1 (with the HTTP service on)</li></ul>
+<h2>Tasks</h2><p>What must end up working. In the app, each one ticks itself off as soon as you get it.</p><ol class="tareas">
+<li>ACL 1 permitting 192.168.1.0/24</li>
+<li>G0/0 as the inside interface</li>
+<li>G0/1 as the outside interface</li>
+<li>PAT using G0/1&#x27;s IP</li>
+<li>PC1 and PC2 reach server 198.51.100.10</li>
+<li>Translations checked with show ip nat translations</li>
+</ol>
+<div class="consejo"><strong>In Packet Tracer</strong><ul><li>The ISP is another 2911 router and the server a Server-PT, which has the HTTP service on by default.</li></ul></div>
+<details class="pistas"><summary>Hints</summary><ul>
+<li><strong>ACL 1 permitting 192.168.1.0/24:</strong> access-list 1 permit 192.168.1.0 0.0.0.255</li>
+<li><strong>G0/0 as the inside interface:</strong> interface g0/0 → ip nat inside</li>
+<li><strong>G0/1 as the outside interface:</strong> interface g0/1 → ip nat outside</li>
+<li><strong>PAT using G0/1&#x27;s IP:</strong> ip nat inside source list 1 interface g0/1 overload</li>
+<li><strong>PC1 and PC2 reach server 198.51.100.10:</strong> From PC1: ping 198.51.100.10. Without NAT, the ISP has no route back to 192.168.1.0.</li>
+<li><strong>Translations checked with show ip nat translations:</strong> First ping from a PC, then show ip nat translations on R1</li>
+</ul></details>
+<h2>Step-by-step solution</h2><p class="texto-sec">Try it on your own first: you learn much more by typing the commands yourself.</p>
+<details class="solucion"><summary>Show the solution</summary>
+<div class="paso"><h3><span class="num">1</span>Define what gets translated <span class="equipo">R1</span></h3>
+<p>The standard ACL marks the inside addresses allowed to go out translated.</p>
+<div class="terminal"><span class="eq">R1</span>enable
+configure terminal
+access-list 1 permit 192.168.1.0 0.0.0.255</div>
+</div>
+<div class="paso"><h3><span class="num">2</span>Mark inside and outside <span class="equipo">R1</span></h3>
+<p>NAT only translates traffic that enters an inside interface and leaves through an outside one.</p>
+<div class="terminal"><span class="eq">R1</span>interface g0/0
+ip nat inside
+interface g0/1
+ip nat outside
+exit</div>
+</div>
+<div class="paso"><h3><span class="num">3</span>Enable PAT <span class="equipo">R1</span></h3>
+<p>overload lets the whole LAN share G0/1&#x27;s IP, telling each connection apart by its port.</p>
+<div class="terminal"><span class="eq">R1</span>ip nat inside source list 1 interface g0/1 overload
+end</div>
+</div>
+</details>
+<h2>Verification</h2>
+<p>Without NAT, the ISP has no route back to 192.168.1.0/24 and the ping fails. With NAT, it replies.</p>
+<div class="terminal"><span class="eq">PC1</span><span class="entrada">C:\&gt;ping 198.51.100.10</span>
+
+Pinging 198.51.100.10 with 32 bytes of data:
+
+Reply from 198.51.100.10: bytes=32 time&lt;1ms TTL=126
+Reply from 198.51.100.10: bytes=32 time&lt;1ms TTL=126
+Reply from 198.51.100.10: bytes=32 time&lt;1ms TTL=126
+Reply from 198.51.100.10: bytes=32 time&lt;1ms TTL=126
+
+Ping statistics for 198.51.100.10:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 0ms, Maximum = 0ms, Average = 0ms
+</div>
+<p>Each echo shows up translated: inside, 192.168.1.10; outside, 203.0.113.2 with its own port.</p>
+<div class="terminal"><span class="eq">R1</span><span class="entrada">R1#show ip nat translations</span>
+Pro  Inside global         Inside local          Outside local         Outside global
+icmp 203.0.113.2:1         192.168.1.10:1        198.51.100.10:1       198.51.100.10:1
+icmp 203.0.113.2:2         192.168.1.10:2        198.51.100.10:2       198.51.100.10:2
+icmp 203.0.113.2:3         192.168.1.10:3        198.51.100.10:3       198.51.100.10:3
+icmp 203.0.113.2:4         192.168.1.10:4        198.51.100.10:4       198.51.100.10:4
+icmp 203.0.113.2:5         192.168.1.10:5        198.51.100.10:5       198.51.100.10:5
+icmp 203.0.113.2:6         192.168.1.10:6        198.51.100.10:6       198.51.100.10:6
+icmp 203.0.113.2:7         192.168.1.10:7        198.51.100.10:7       198.51.100.10:7
+icmp 203.0.113.2:8         192.168.1.10:8        198.51.100.10:8       198.51.100.10:8</div>
+<h2>Common mistakes</h2><ul class="errores"><li>Swapping inside and outside: nothing gets translated.</li><li>An ACL that doesn&#x27;t match the LAN (for example, with the mask instead of the wildcard).</li></ul>
+<div class="cta-app">
+  <div>
+    <h3>Practice this lab on your phone</h3>
+    <p>RoutingLab has this lab with a simulated IOS terminal: abbreviations, ? help, the same error messages and objectives that check themselves. The first two labs are free.</p>
+  </div>
+  <a href="https://play.google.com/store/apps/details?id=com.luigi.routinglab" class="btn btn-claro" rel="noopener">Get RoutingLab</a>
+</div>
+<div class="navegacion-labs"><a href="dhcp.html">← Previous<span>DHCP server on the router</span></a><a class="sig" href="standard-acl.html">Next →<span>Standard ACL</span></a></div>
+</div>
+</section>
+<footer>
+  <div class="contenedor">
+    <div class="pie-rejilla">
+      <div>
+        <a href="../index.html" class="logo" style="margin-bottom:12px">RoutingLab</a>
+        <p class="texto-sec" style="max-width:280px;font-size:.92rem">The app to prepare for the CCNA 200-301 certification.</p>
+      </div>
+      <div><h4>Product</h4><div class="pie-links">
+        <a href="../index.html#caracteristicas">Features</a>
+        <a href="../index.html#precios">Pricing</a>
+        <a href="../index.html#demo">Sample quiz</a>
+      </div></div>
+      <div><h4>Free</h4><div class="pie-links">
+        <a href="../labs.html">Packet Tracer labs</a>
+        <a href="../tools.html">Network calculators</a>
+        <a href="../glossary.html">Glossary</a>
+      </div></div>
+      <div><h4>Help</h4><div class="pie-links">
+        <a href="../support.html">Support</a>
+        <a href="mailto:soporte@routinglab.es">soporte@routinglab.es</a>
+        <a href="../privacy.html">Privacy</a>
+        <a href="../terms.html">Terms</a>
+        <a href="../delete-account.html">Delete account</a>
+      </div></div>
+    </div>
+    <div class="pie-abajo">
+      <span>© <span data-anio>2026</span> RoutingLab · routinglab.es</span>
+      <span>Cisco, Packet Tracer and CCNA are trademarks of Cisco Systems, Inc. RoutingLab is not affiliated with or sponsored by Cisco.</span>
+    </div>
+  </div>
+</footer>
+<script src="../../app.js"></script>
+</body>
+</html>

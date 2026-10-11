@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lab 1: Configuración básica y acceso seguro · Packet Tracer</title>
+<meta name="description" content="Nombre, contraseñas, banner y guardar la configuración. Guía de Packet Tracer para el CCNA con topología, solución paso a paso y verificación.">
+<meta property="og:title" content="Lab 1: Configuración básica y acceso seguro · Packet Tracer">
+<meta property="og:description" content="Nombre, contraseñas, banner y guardar la configuración. Guía de Packet Tracer para el CCNA con topología, solución paso a paso y verificación.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://routinglab.es/laboratorios/configuracion-basica.html">
+<meta property="og:site_name" content="RoutingLab">
+<meta property="og:locale" content="es_ES">
+<meta property="og:image" content="https://routinglab.es/capturas/og-es.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="RoutingLab · CCNA 200-301">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Lab 1: Configuración básica y acceso seguro · Packet Tracer">
+<meta name="twitter:description" content="Nombre, contraseñas, banner y guardar la configuración. Guía de Packet Tracer para el CCNA con topología, solución paso a paso y verificación.">
+<meta name="twitter:image" content="https://routinglab.es/capturas/og-es.jpg">
+<meta name="theme-color" content="#0A1D5C">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../estilos.css">
+<link rel="stylesheet" href="../labs.css">
+<link rel="alternate" hreflang="es" href="https://routinglab.es/laboratorios/configuracion-basica.html">
+<link rel="alternate" hreflang="en" href="https://routinglab.es/en/labs/basic-configuration.html">
+<link rel="alternate" hreflang="x-default" href="https://routinglab.es/laboratorios/configuracion-basica.html">
+<link rel="canonical" href="https://routinglab.es/laboratorios/configuracion-basica.html">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="contenedor nav-inner">
+    <a href="../index.html" class="logo">
+      <svg viewBox="0 0 100 100" aria-hidden="true">
+        <circle cx="50" cy="50" r="48" fill="url(#g)"/>
+        <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#0A1D5C"/><stop offset="1" stop-color="#2E5BFF"/>
+        </linearGradient></defs>
+        <g stroke="#4CC9F0" stroke-width="6" stroke-linecap="round">
+          <path d="M50 50 L28 30 M50 50 L72 26 M50 50 L28 72 M50 50 L74 70 M28 30 L72 26 M28 72 L74 70"/>
+        </g>
+        <circle cx="28" cy="30" r="9" fill="#fff"/><circle cx="72" cy="26" r="9" fill="#fff"/>
+        <circle cx="28" cy="72" r="9" fill="#fff"/><circle cx="74" cy="70" r="9" fill="#fff"/>
+        <circle cx="50" cy="50" r="11" fill="#4CC9F0"/>
+      </svg>
+      RoutingLab
+    </a>
+    <button class="menu-movil" aria-label="Abrir menú">☰</button>
+    <div class="nav-links">
+      <a href="../index.html#caracteristicas">Características</a>
+      <a href="../index.html#demo">Demo</a>
+      <a href="../herramientas.html">Herramientas</a>
+      <a href="../laboratorios.html" class="activo">Laboratorios</a>
+      <a href="../glosario.html">Glosario</a>
+      <a href="../index.html#precios">Precios</a>
+      <a href="../soporte.html">Soporte</a>
+      <a href="../index.html#descargar" class="btn btn-primario btn-sm">Descargar</a>
+    </div>
+    <a href="../en/labs/basic-configuration.html" class="cambio-idioma" hreflang="en" lang="en" aria-label="Read this page in English">EN</a>
+    <button class="boton-tema" onclick="alternarTema()">🌙</button>
+  </div>
+</nav>
+<header class="cabecera-pagina cabecera-lab">
+  <canvas id="redCanvas" aria-hidden="true"></canvas>
+  <div class="contenedor">
+    <a class="miga" href="../laboratorios.html">← Todos los laboratorios</a>
+    <span class="etiqueta-seccion" style="background:rgba(255,255,255,.15);color:#fff">Lab 1 · Packet Tracer</span>
+    <h1>Configuración básica y acceso seguro</h1>
+    <p>Nombre, contraseñas, banner y guardar la configuración</p>
+    <div class="guia-meta">
+      <span>Nivel: Básico</span>
+      <span>Tiempo: 20 min</span>
+      <span>Dominio 5.0 Fundamentos de seguridad</span>
+    </div>
+  </div>
+</header>
+<section class="seccion-guia">
+<div class="contenedor guia">
+<h2>Escenario</h2>
+<p>Acabas de sacar un router 2911 de la caja. Antes de conectarlo a la red hay que dejarlo identificado y protegido.</p>
+<p>Ponle de nombre R1, protege el modo privilegiado con la contraseña cifrada «class» y la consola y el acceso remoto (líneas vty 0 a 4) con «cisco». Cifra las contraseñas que se guardan en claro, añade un banner que avise de que solo puede entrar personal autorizado y evita que el router intente resolver por DNS los comandos mal escritos.</p>
+<p>Cuando termines, guarda la configuración para que sobreviva a un reinicio. Puedes comprobarlo con reload.</p>
+<h2>Topología</h2><div class="topologia"><svg viewBox="0 0 640 190" role="img" aria-label="R1"><defs><linearGradient id="gbasico0" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4CC9F0"/><stop offset="1" stop-color="#2E5BFF"/></linearGradient></defs><rect x="290" y="57" width="60" height="60" rx="17" fill="url(#gbasico0)"/><g transform="translate(304,71) scale(1.333)" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M12 4v5M12 15v5M4 12h5M15 12h5M10 7l2-3 2 3M10 17l2 3 2-3M7 10l-3 2 3 2M17 10l3 2-3 2"/></g><text class="nombre" x="320" y="139" text-anchor="middle">R1</text></svg></div>
+<h2>Equipos y cableado</h2><ul class="modelos"><li><strong>R1</strong> <span class="texto-sec">·</span> <span class="mono">2911</span></li></ul>
+<h2>Configuración de partida</h2>
+<p>Este laboratorio empieza con los equipos tal como salen de fábrica.</p>
+<h2>Tareas</h2><p>Lo que tiene que quedar funcionando. En la app, cada una se marca sola en cuanto la consigues.</p><ol class="tareas">
+<li>El router se llama R1</li>
+<li>Modo privilegiado protegido con enable secret «class»</li>
+<li>Consola con contraseña «cisco» y login</li>
+<li>Líneas vty 0 a 4 con contraseña «cisco» y login</li>
+<li>Contraseñas en claro cifradas</li>
+<li>Banner MOTD de aviso</li>
+<li>Sin búsquedas DNS por comandos mal escritos</li>
+<li>Configuración guardada en la NVRAM</li>
+</ol>
+<div class="consejo"><strong>En Packet Tracer</strong><ul><li>Al abrir la CLI de un router nuevo, Packet Tracer pregunta «Would you like to enter the initial configuration dialog? [yes/no]». Responde no y pulsa Intro hasta ver Router&gt;.</li><li>No hace falta cablear nada: este laboratorio se hace entero desde la pestaña CLI del router.</li></ul></div>
+<details class="pistas"><summary>Pistas</summary><ul>
+<li><strong>El router se llama R1:</strong> En modo de configuración global: hostname R1</li>
+<li><strong>Modo privilegiado protegido con enable secret «class»:</strong> enable secret class (secret se guarda cifrada; password no)</li>
+<li><strong>Consola con contraseña «cisco» y login:</strong> line console 0, después password cisco y login</li>
+<li><strong>Líneas vty 0 a 4 con contraseña «cisco» y login:</strong> line vty 0 4, después password cisco y login</li>
+<li><strong>Contraseñas en claro cifradas:</strong> service password-encryption cifra las que ya existen y las nuevas</li>
+<li><strong>Banner MOTD de aviso:</strong> banner motd #Solo personal autorizado# (el primer carácter es el delimitador)</li>
+<li><strong>Sin búsquedas DNS por comandos mal escritos:</strong> no ip domain-lookup</li>
+<li><strong>Configuración guardada en la NVRAM:</strong> En modo privilegiado: copy running-config startup-config y pulsa Intro. Si cambias algo después, vuelve a guardar.</li>
+</ul></details>
+<h2>Solución paso a paso</h2><p class="texto-sec">Inténtalo antes por tu cuenta: se aprende mucho más escribiendo los comandos tú.</p>
+<details class="solucion"><summary>Ver la solución</summary>
+<div class="paso"><h3><span class="num">1</span>Entra en configuración y pon nombre al router <span class="equipo">R1</span></h3>
+<p>enable te lleva al modo privilegiado (#) y configure terminal al de configuración global. no ip domain-lookup evita que, al escribir mal un comando, el router se quede segundos intentando resolverlo como un nombre de equipo.</p>
+<div class="terminal"><span class="eq">R1</span>enable
+configure terminal
+hostname R1
+no ip domain-lookup</div>
+</div>
+<div class="paso"><h3><span class="num">2</span>Protege el modo privilegiado <span class="equipo">R1</span></h3>
+<p>enable secret se guarda con un hash (tipo 5); enable password, en claro. Si existen las dos, manda secret.</p>
+<div class="terminal"><span class="eq">R1</span>enable secret class</div>
+</div>
+<div class="paso"><h3><span class="num">3</span>Protege la consola <span class="equipo">R1</span></h3>
+<p>La contraseña sola no basta: sin login, la línea no la pide.</p>
+<div class="terminal"><span class="eq">R1</span>line console 0
+password cisco
+login
+exit</div>
+</div>
+<div class="paso"><h3><span class="num">4</span>Protege el acceso remoto <span class="equipo">R1</span></h3>
+<p>Las líneas vty 0 a 4 son las sesiones Telnet/SSH simultáneas. Se configuran a la vez.</p>
+<div class="terminal"><span class="eq">R1</span>line vty 0 4
+password cisco
+login
+exit</div>
+</div>
+<div class="paso"><h3><span class="num">5</span>Cifra las contraseñas y añade el banner <span class="equipo">R1</span></h3>
+<p>service password-encryption aplica el tipo 7 a las contraseñas en claro (es reversible: protege de miradas, no de un atacante). En el banner, el primer carácter es el delimitador.</p>
+<div class="terminal"><span class="eq">R1</span>service password-encryption
+banner motd #Solo personal autorizado#
+end</div>
+</div>
+<div class="paso"><h3><span class="num">6</span>Guarda la configuración <span class="equipo">R1</span></h3>
+<p>Lo que configuras vive en la running-config (RAM). copy running-config startup-config lo copia a la NVRAM; IOS pregunta el nombre del destino y basta con pulsar Intro.</p>
+<div class="terminal"><span class="eq">R1</span>copy running-config startup-config
+<span class="intro">⏎</span></div>
+</div>
+</details>
+<h2>Verificación</h2>
+<p>Las contraseñas de consola y vty aparecen como «password 7 …» y la de enable como «secret 5 …». Si ves alguna en claro, falta service password-encryption.</p>
+<div class="terminal"><span class="eq">R1</span><span class="entrada">R1#show running-config</span>
+Building configuration...
+
+Current configuration : 706 bytes
+!
+version 15.1
+service timestamps debug datetime msec
+service timestamps log datetime msec
+service password-encryption
+!
+hostname R1
+!
+boot-start-marker
+boot-end-marker
+!
+enable secret 5 $1$uINU$aT/G1LuCbNEGfagIKjl0Hb
+!
+no aaa new-model
+!
+no ip domain-lookup
+ip cef
+!
+interface GigabitEthernet0/0
+ no ip address
+ shutdown
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/1
+ no ip address
+ shutdown
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/2
+ no ip address
+ shutdown
+ duplex auto
+ speed auto
+!
+ip forward-protocol nd
+!
+no ip http server
+!
+!
+banner motd ^CSolo personal autorizado^C
+!
+line con 0
+ password 7 01100F175804
+ login
+line aux 0
+line vty 0 4
+ password 7 01100F175804
+ login
+!
+end</div>
+<h2>Errores típicos</h2><ul class="errores"><li>Usar enable password en lugar de enable secret: funciona, pero queda en claro (o con el tipo 7, que se descifra en segundos).</li><li>Olvidar login en las líneas: la contraseña está puesta, pero nadie la pide.</li><li>No guardar: tras un reload, el router vuelve a la configuración anterior. Compruébalo tú mismo con reload.</li></ul>
+<div class="cta-app">
+  <div>
+    <h3>Practica este laboratorio en el móvil</h3>
+    <p>En RoutingLab tienes este laboratorio con un terminal IOS simulado: abreviaturas, ayuda con ?, los mismos mensajes de error y objetivos que se comprueban solos. Los dos primeros labs son gratis.</p>
+  </div>
+  <a href="https://play.google.com/store/apps/details?id=com.luigi.routinglab" class="btn btn-claro" rel="noopener">Descargar RoutingLab</a>
+</div>
+<div class="navegacion-labs"><span></span><a class="sig" href="interfaces.html">Siguiente →<span>Interfaces y direccionamiento</span></a></div>
+</div>
+</section>
+<footer>
+  <div class="contenedor">
+    <div class="pie-rejilla">
+      <div>
+        <a href="../index.html" class="logo" style="margin-bottom:12px">RoutingLab</a>
+        <p class="texto-sec" style="max-width:280px;font-size:.92rem">La app en español para preparar la certificación CCNA 200-301.</p>
+      </div>
+      <div><h4>Producto</h4><div class="pie-links">
+        <a href="../index.html#caracteristicas">Características</a>
+        <a href="../index.html#precios">Precios</a>
+        <a href="../index.html#demo">Test de prueba</a>
+      </div></div>
+      <div><h4>Gratis</h4><div class="pie-links">
+        <a href="../laboratorios.html">Laboratorios de Packet Tracer</a>
+        <a href="../herramientas.html">Calculadoras de red</a>
+        <a href="../glosario.html">Glosario</a>
+      </div></div>
+      <div><h4>Ayuda</h4><div class="pie-links">
+        <a href="../soporte.html">Soporte</a>
+        <a href="mailto:soporte@routinglab.es">soporte@routinglab.es</a>
+        <a href="../privacidad.html">Privacidad</a>
+        <a href="../terminos.html">Términos</a>
+        <a href="../eliminar-cuenta.html">Eliminar cuenta</a>
+      </div></div>
+    </div>
+    <div class="pie-abajo">
+      <span>© <span data-anio>2026</span> RoutingLab · routinglab.es</span>
+      <span>Cisco, Packet Tracer y CCNA son marcas de Cisco Systems, Inc. RoutingLab no está afiliado ni patrocinado por Cisco.</span>
+    </div>
+  </div>
+</footer>
+<script src="../app.js"></script>
+</body>
+</html>

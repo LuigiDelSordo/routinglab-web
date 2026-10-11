@@ -1,0 +1,103 @@
+/* ============================================================
+   RoutingLab · guías de laboratorios de Packet Tracer
+   (generado por herramientas/guias_packet_tracer.py en el repo de la app)
+   ============================================================ */
+.cabecera-pagina {
+  background: linear-gradient(125deg, var(--marino), var(--azul2) 90%);
+  color: #fff; padding: 64px 0 56px; position: relative; overflow: hidden;
+}
+#redCanvas { position: absolute; inset: 0; width: 100%; height: 100%; opacity: .6; }
+.cabecera-pagina .contenedor { position: relative; z-index: 2; }
+.cabecera-pagina h1 { color: #fff; font-size: clamp(2rem, 5vw, 3rem); }
+.cabecera-pagina p { color: #c8d3f5; max-width: 680px; font-size: 1.08rem; margin: 0; }
+.miga { display: inline-block; color: #c8d3f5; font-size: .92rem; font-weight: 600; margin-bottom: 14px; }
+.miga:hover { color: #fff; }
+.guia-meta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+.guia-meta span { background: rgba(255,255,255,.14); color: #fff; padding: 6px 12px; border-radius: 999px; font-size: .85rem; font-weight: 600; }
+
+.seccion-guia { padding-top: 48px; }
+.guia { max-width: 880px; }
+.guia h2 { font-size: clamp(1.4rem, 3vw, 1.75rem); margin-top: 2.2em; }
+.guia > h2:first-child { margin-top: 0; }
+.guia h3 { margin-top: 1.4em; }
+.guia > p, .guia li { font-size: 1.02rem; }
+.nota, .nota-pt { font-size: .92rem; color: var(--texto-sec); margin-top: 10px; }
+.nota-pt { margin: 22px auto 40px; max-width: 640px; }
+.mono { font-family: 'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace; }
+
+.topologia { background: var(--superficie); border: 1px solid var(--borde); border-radius: var(--radio); padding: 10px; box-shadow: var(--sombra); overflow-x: auto; }
+/* En el móvil el dibujo no baja de 460 px para que se lean los puertos: se desplaza de lado */
+.topologia svg { width: 100%; min-width: 460px; height: auto; display: block; }
+.topologia .cable { stroke: var(--azul); stroke-width: 3; }
+.topologia .puerto-fondo { fill: var(--superficie); stroke: var(--borde); }
+.topologia .puerto { fill: var(--texto-sec); font: 600 14px 'JetBrains Mono', monospace; }
+.topologia .nombre { fill: var(--texto); font: 700 17px 'Sora', sans-serif; paint-order: stroke; stroke: var(--superficie); stroke-width: 6px; stroke-linejoin: round; }
+.modelos { list-style: none; padding: 0; margin: 0 0 14px; display: flex; flex-wrap: wrap; gap: 8px; }
+.modelos li { background: var(--superficie); border: 1px solid var(--borde); border-radius: 10px; padding: 6px 12px; font-size: .92rem; }
+
+.tabla-envoltura { overflow-x: auto; border: 1px solid var(--borde); border-radius: var(--radio-s); background: var(--superficie); }
+.tabla-guia { width: 100%; border-collapse: collapse; font-size: .93rem; }
+.tabla-guia th, .tabla-guia td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--borde); vertical-align: top; }
+.tabla-guia th { font-size: .74rem; text-transform: uppercase; letter-spacing: .06em; color: var(--texto-sec); white-space: nowrap; }
+.tabla-guia tbody tr:last-child td { border-bottom: 0; }
+.tabla-guia td.mono { white-space: nowrap; }
+
+.terminal {
+  display: block; margin: 12px 0 18px; background: #0B1220; color: #B4C0D3; border-radius: var(--radio-s);
+  padding: 14px 16px; font-family: 'JetBrains Mono', monospace; font-size: .84rem; line-height: 1.6;
+  overflow-x: auto; white-space: pre;
+}
+.terminal .eq { display: block; color: #7F8DB0; font-family: 'Inter', sans-serif; font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; margin-bottom: 6px; }
+.terminal .entrada { color: #fff; font-weight: 600; }
+.terminal .intro { color: #E3B341; }
+.lista-pcs { padding-left: 20px; }
+.lista-pcs li { font-size: .9rem; margin-bottom: 4px; }
+
+.tareas li { margin-bottom: 6px; }
+.consejo {
+  margin-top: 24px; background: color-mix(in srgb, var(--cian) 10%, var(--superficie));
+  border: 1px solid color-mix(in srgb, var(--cian) 45%, var(--borde)); border-radius: var(--radio-s); padding: 16px 20px;
+}
+.consejo ul { margin: 8px 0 0; padding-left: 20px; }
+.consejo li { margin-bottom: 6px; }
+
+details.pistas, details.solucion { margin-top: 18px; border: 1px solid var(--borde); border-radius: var(--radio-s); background: var(--superficie); }
+details.pistas > summary, details.solucion > summary {
+  cursor: pointer; list-style: none; padding: 14px 18px; font-weight: 700; color: var(--azul);
+}
+details.pistas > summary::-webkit-details-marker, details.solucion > summary::-webkit-details-marker { display: none; }
+details.pistas > summary::before, details.solucion > summary::before { content: '▸ '; }
+details[open].pistas > summary::before, details[open].solucion > summary::before { content: '▾ '; }
+details.pistas ul { margin: 0; padding: 0 22px 16px 38px; }
+details.pistas li { margin-bottom: 8px; font-size: .95rem; }
+details.solucion > .paso { padding: 0 18px; }
+.paso h3 { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; font-size: 1.08rem; margin: 1.2em 0 .4em; }
+.paso .num { display: inline-grid; place-items: center; width: 28px; height: 28px; border-radius: 9px; background: linear-gradient(135deg, var(--cian), var(--azul)); color: #fff; font-size: .9rem; }
+.paso .equipo { font-family: 'JetBrains Mono', monospace; font-size: .78rem; font-weight: 600; color: var(--texto-sec); border: 1px solid var(--borde); border-radius: 6px; padding: 2px 8px; }
+details.solucion > .paso:last-child { padding-bottom: 8px; }
+
+.errores li { margin-bottom: 8px; }
+.cta-app {
+  margin: 48px 0 28px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px;
+  background: linear-gradient(125deg, var(--marino), var(--azul2)); color: #fff; border-radius: var(--radio); padding: 28px;
+}
+.cta-app h3 { color: #fff; margin: 0 0 6px; }
+.cta-app p { color: #c8d3f5; margin: 0; max-width: 560px; }
+.navegacion-labs { display: flex; justify-content: space-between; gap: 16px; margin-bottom: 20px; }
+.navegacion-labs a { display: flex; flex-direction: column; font-weight: 700; max-width: 48%; }
+.navegacion-labs a span { color: var(--texto-sec); font-weight: 500; font-size: .92rem; }
+.navegacion-labs a.sig { text-align: right; margin-left: auto; }
+
+.como-usar .tarjeta:hover { transform: none; }
+.lista-labs .tarjeta-lab { color: inherit; display: flex; flex-direction: column; }
+.tarjeta-lab .num-lab { font-size: .76rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--azul); }
+.tarjeta-lab h3 { margin: 6px 0 8px; }
+.tarjeta-lab p { flex: 1; }
+.meta-lab { display: flex; gap: 8px; margin: 4px 0 14px; }
+.meta-lab span { font-size: .78rem; font-weight: 600; color: var(--texto-sec); background: var(--superficie-var); border-radius: 8px; padding: 3px 9px; }
+.tarjeta-lab .abrir { color: var(--azul); font-weight: 700; }
+@media (max-width: 600px) {
+  .cabecera-pagina { padding: 44px 0 40px; }
+  .cta-app { padding: 22px; }
+  .navegacion-labs a { max-width: 50%; }
+}

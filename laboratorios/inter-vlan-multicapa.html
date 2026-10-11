@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lab 6: Inter-VLAN con switch multicapa · Packet Tracer</title>
+<meta name="description" content="ip routing, SVI y un puerto enrutado hacia el router. Guía de Packet Tracer para el CCNA con topología, solución paso a paso y verificación.">
+<meta property="og:title" content="Lab 6: Inter-VLAN con switch multicapa · Packet Tracer">
+<meta property="og:description" content="ip routing, SVI y un puerto enrutado hacia el router. Guía de Packet Tracer para el CCNA con topología, solución paso a paso y verificación.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://routinglab.es/laboratorios/inter-vlan-multicapa.html">
+<meta property="og:site_name" content="RoutingLab">
+<meta property="og:locale" content="es_ES">
+<meta property="og:image" content="https://routinglab.es/capturas/og-es.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="RoutingLab · CCNA 200-301">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Lab 6: Inter-VLAN con switch multicapa · Packet Tracer">
+<meta name="twitter:description" content="ip routing, SVI y un puerto enrutado hacia el router. Guía de Packet Tracer para el CCNA con topología, solución paso a paso y verificación.">
+<meta name="twitter:image" content="https://routinglab.es/capturas/og-es.jpg">
+<meta name="theme-color" content="#0A1D5C">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../estilos.css">
+<link rel="stylesheet" href="../labs.css">
+<link rel="alternate" hreflang="es" href="https://routinglab.es/laboratorios/inter-vlan-multicapa.html">
+<link rel="alternate" hreflang="en" href="https://routinglab.es/en/labs/multilayer-inter-vlan.html">
+<link rel="alternate" hreflang="x-default" href="https://routinglab.es/laboratorios/inter-vlan-multicapa.html">
+<link rel="canonical" href="https://routinglab.es/laboratorios/inter-vlan-multicapa.html">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="contenedor nav-inner">
+    <a href="../index.html" class="logo">
+      <svg viewBox="0 0 100 100" aria-hidden="true">
+        <circle cx="50" cy="50" r="48" fill="url(#g)"/>
+        <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#0A1D5C"/><stop offset="1" stop-color="#2E5BFF"/>
+        </linearGradient></defs>
+        <g stroke="#4CC9F0" stroke-width="6" stroke-linecap="round">
+          <path d="M50 50 L28 30 M50 50 L72 26 M50 50 L28 72 M50 50 L74 70 M28 30 L72 26 M28 72 L74 70"/>
+        </g>
+        <circle cx="28" cy="30" r="9" fill="#fff"/><circle cx="72" cy="26" r="9" fill="#fff"/>
+        <circle cx="28" cy="72" r="9" fill="#fff"/><circle cx="74" cy="70" r="9" fill="#fff"/>
+        <circle cx="50" cy="50" r="11" fill="#4CC9F0"/>
+      </svg>
+      RoutingLab
+    </a>
+    <button class="menu-movil" aria-label="Abrir menú">☰</button>
+    <div class="nav-links">
+      <a href="../index.html#caracteristicas">Características</a>
+      <a href="../index.html#demo">Demo</a>
+      <a href="../herramientas.html">Herramientas</a>
+      <a href="../laboratorios.html" class="activo">Laboratorios</a>
+      <a href="../glosario.html">Glosario</a>
+      <a href="../index.html#precios">Precios</a>
+      <a href="../soporte.html">Soporte</a>
+      <a href="../index.html#descargar" class="btn btn-primario btn-sm">Descargar</a>
+    </div>
+    <a href="../en/labs/multilayer-inter-vlan.html" class="cambio-idioma" hreflang="en" lang="en" aria-label="Read this page in English">EN</a>
+    <button class="boton-tema" onclick="alternarTema()">🌙</button>
+  </div>
+</nav>
+<header class="cabecera-pagina cabecera-lab">
+  <canvas id="redCanvas" aria-hidden="true"></canvas>
+  <div class="contenedor">
+    <a class="miga" href="../laboratorios.html">← Todos los laboratorios</a>
+    <span class="etiqueta-seccion" style="background:rgba(255,255,255,.15);color:#fff">Lab 6 · Packet Tracer</span>
+    <h1>Inter-VLAN con switch multicapa</h1>
+    <p>ip routing, SVI y un puerto enrutado hacia el router</p>
+    <div class="guia-meta">
+      <span>Nivel: Intermedio</span>
+      <span>Tiempo: 30 min</span>
+      <span>Dominio 2.0 Acceso a la red</span>
+    </div>
+  </div>
+</header>
+<section class="seccion-guia">
+<div class="contenedor guia">
+<h2>Escenario</h2>
+<p>En vez de router-on-a-stick, esta red usa un switch multicapa 3560 (MLS1) para enrutar entre la VLAN 10 y la 20. Las VLAN y los puertos de acceso ya están hechos.</p>
+<p>Activa el enrutamiento IP y crea las SVI: VLAN 10 con 192.168.10.1/24 y VLAN 20 con 192.168.20.1/24. Después convierte G0/1 en puerto enrutado (10.0.0.1/30) hacia R1 y añade una ruta por defecto hacia 10.0.0.2 para llegar a «Internet» (8.8.8.8).</p>
+<h2>Topología</h2><div class="topologia"><svg viewBox="0 0 640 340" role="img" aria-label="R1, MLS1, PC1, PC2"><line class="cable" x1="320" y1="46" x2="320" y2="164"/><line class="cable" x1="60" y1="278" x2="320" y2="164"/><line class="cable" x1="580" y1="278" x2="320" y2="164"/><defs><linearGradient id="gsvi0" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4CC9F0"/><stop offset="1" stop-color="#2E5BFF"/></linearGradient></defs><rect x="290" y="16" width="60" height="60" rx="17" fill="url(#gsvi0)"/><g transform="translate(304,30) scale(1.333)" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M12 4v5M12 15v5M4 12h5M15 12h5M10 7l2-3 2 3M10 17l2 3 2-3M7 10l-3 2 3 2M17 10l3 2-3 2"/></g><text class="nombre" x="320" y="98" text-anchor="middle">R1</text><defs><linearGradient id="gsvi1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7209B7"/><stop offset="1" stop-color="#2E5BFF"/></linearGradient></defs><rect x="290" y="134" width="60" height="60" rx="17" fill="url(#gsvi1)"/><g transform="translate(304,148) scale(1.333)" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="18" height="10" rx="2"/><path d="M7 13h9M14 11l2 2-2 2M17 17H8M10 19l-2-2 2-2M6 6h12"/></g><text class="nombre" x="320" y="216" text-anchor="middle">MLS1</text><defs><linearGradient id="gsvi2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#06D6A0"/><stop offset="1" stop-color="#118AB2"/></linearGradient></defs><rect x="30" y="248" width="60" height="60" rx="17" fill="url(#gsvi2)"/><g transform="translate(44,262) scale(1.333)" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M9 20h6M12 16v4"/></g><text class="nombre" x="60" y="330" text-anchor="middle">PC1</text><defs><linearGradient id="gsvi3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F72585"/><stop offset="1" stop-color="#7209B7"/></linearGradient></defs><rect x="550" y="248" width="60" height="60" rx="17" fill="url(#gsvi3)"/><g transform="translate(564,262) scale(1.333)" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M9 20h6M12 16v4"/></g><text class="nombre" x="580" y="330" text-anchor="middle">PC2</text><rect class="puerto-fondo" x="336" y="94" width="55" height="22" rx="6"/><text class="puerto" x="364" y="110" text-anchor="middle">Gi0/0</text><rect class="puerto-fondo" x="249" y="94" width="55" height="22" rx="6"/><text class="puerto" x="276" y="110" text-anchor="middle">Gi0/1</text><rect class="puerto-fondo" x="94" y="244" width="38" height="22" rx="6"/><text class="puerto" x="113" y="260" text-anchor="middle">Fa0</text><rect class="puerto-fondo" x="211" y="188" width="55" height="22" rx="6"/><text class="puerto" x="238" y="204" text-anchor="middle">Fa0/1</text><rect class="puerto-fondo" x="508" y="244" width="38" height="22" rx="6"/><text class="puerto" x="527" y="260" text-anchor="middle">Fa0</text><rect class="puerto-fondo" x="374" y="188" width="55" height="22" rx="6"/><text class="puerto" x="402" y="204" text-anchor="middle">Fa0/2</text></svg></div>
+<h2>Equipos y cableado</h2><ul class="modelos"><li><strong>R1</strong> <span class="texto-sec">·</span> <span class="mono">2911</span></li><li><strong>MLS1</strong> <span class="texto-sec">·</span> <span class="mono">3560-24PS</span></li><li><strong>PC1, PC2</strong> <span class="texto-sec">·</span> <span class="mono">PC-PT</span></li></ul>
+<div class="tabla-envoltura"><table class="tabla-guia"><thead><tr><th>Desde</th><th>Hasta</th><th>Cable</th></tr></thead><tbody><tr><td><strong>R1</strong> <span class="mono">Gi0/0</span></td><td><strong>MLS1</strong> <span class="mono">Gi0/1</span></td><td>Directo</td></tr><tr><td><strong>PC1</strong> <span class="mono">Fa0</span></td><td><strong>MLS1</strong> <span class="mono">Fa0/1</span></td><td>Directo</td></tr><tr><td><strong>PC2</strong> <span class="mono">Fa0</span></td><td><strong>MLS1</strong> <span class="mono">Fa0/2</span></td><td>Directo</td></tr></tbody></table></div>
+<p class="nota">Si dudas, el cable de conexión automática (el rayo) elige el correcto. Regla: directo entre equipos distintos (PC o router con switch) y cruzado entre iguales.</p>
+<h2>Direccionamiento</h2><div class="tabla-envoltura"><table class="tabla-guia"><thead><tr><th>Equipo</th><th>Interfaz</th><th>Dirección</th><th>Máscara</th><th>Puerta de enlace</th></tr></thead><tbody><tr><td><strong>MLS1</strong></td><td>VLAN 10</td><td class="mono">192.168.10.1</td><td class="mono">255.255.255.0</td><td class="mono">—</td></tr><tr><td><strong>MLS1</strong></td><td>VLAN 20</td><td class="mono">192.168.20.1</td><td class="mono">255.255.255.0</td><td class="mono">—</td></tr><tr><td><strong>MLS1</strong></td><td>G0/1</td><td class="mono">10.0.0.1</td><td class="mono">255.255.255.252</td><td class="mono">—</td></tr><tr><td><strong>R1</strong></td><td>G0/0</td><td class="mono">10.0.0.2</td><td class="mono">255.255.255.252</td><td class="mono">—</td></tr><tr><td><strong>R1</strong></td><td>Lo0</td><td class="mono">8.8.8.8</td><td class="mono">255.255.255.255</td><td class="mono">—</td></tr><tr><td><strong>PC1</strong></td><td>VLAN 10</td><td class="mono">192.168.10.10</td><td class="mono">255.255.255.0</td><td class="mono">192.168.10.1</td></tr><tr><td><strong>PC2</strong></td><td>VLAN 20</td><td class="mono">192.168.20.10</td><td class="mono">255.255.255.0</td><td class="mono">192.168.20.1</td></tr></tbody></table></div>
+<h2>Configuración de partida</h2>
+<p>En la app esto viene hecho. En Packet Tracer, antes de empezar, entra en cada equipo con enable y configure terminal y escribe (o pega) estas líneas.</p>
+<div class="terminal"><span class="eq">R1</span>hostname R1
+no ip domain-lookup
+interface g0/0
+ip address 10.0.0.2 255.255.255.252
+no shutdown
+interface loopback 0
+description Internet
+ip address 8.8.8.8 255.255.255.255
+ip route 192.168.0.0 255.255.0.0 10.0.0.1</div>
+<div class="terminal"><span class="eq">MLS1</span>hostname MLS1
+no ip domain-lookup
+vlan 10
+name VENTAS
+vlan 20
+name RRHH
+interface fa0/1
+switchport mode access
+switchport access vlan 10
+interface fa0/2
+switchport mode access
+switchport access vlan 20</div>
+<h3>PC y servidores (Desktop › IP Configuration)</h3><ul class="lista-pcs"><li class="mono">PC1: IP 192.168.10.10, máscara 255.255.255.0, puerta de enlace 192.168.10.1</li><li class="mono">PC2: IP 192.168.20.10, máscara 255.255.255.0, puerta de enlace 192.168.20.1</li></ul>
+<h2>Tareas</h2><p>Lo que tiene que quedar funcionando. En la app, cada una se marca sola en cuanto la consigues.</p><ol class="tareas">
+<li>Enrutamiento IP activado en MLS1</li>
+<li>SVI de la VLAN 10 con 192.168.10.1/24 y activa</li>
+<li>SVI de la VLAN 20 con 192.168.20.1/24 y activa</li>
+<li>PC1 llega a PC2</li>
+<li>G0/1 como puerto enrutado con 10.0.0.1/30</li>
+<li>Ruta por defecto hacia 10.0.0.2</li>
+<li>PC1 llega a «Internet» (8.8.8.8)</li>
+</ol>
+<div class="consejo"><strong>En Packet Tracer</strong><ul><li>Busca el switch 3560-24PS en la sección de switches. Los PC van con cable directo y el router también.</li><li>Haz antes la configuración de partida de MLS1 y de R1 (este último simula Internet con una loopback 8.8.8.8).</li></ul></div>
+<details class="pistas"><summary>Pistas</summary><ul>
+<li><strong>Enrutamiento IP activado en MLS1:</strong> Un 3560 no enruta hasta que escribes ip routing en configuración global</li>
+<li><strong>SVI de la VLAN 10 con 192.168.10.1/24 y activa:</strong> interface vlan 10 → ip address 192.168.10.1 255.255.255.0 → no shutdown</li>
+<li><strong>SVI de la VLAN 20 con 192.168.20.1/24 y activa:</strong> interface vlan 20 → ip address 192.168.20.1 255.255.255.0 → no shutdown</li>
+<li><strong>PC1 llega a PC2:</strong> Necesitas ip routing y las dos SVI arriba</li>
+<li><strong>G0/1 como puerto enrutado con 10.0.0.1/30:</strong> interface g0/1 → no switchport → ip address 10.0.0.1 255.255.255.252. En un puerto de capa 2 no se puede poner IP.</li>
+<li><strong>Ruta por defecto hacia 10.0.0.2:</strong> ip route 0.0.0.0 0.0.0.0 10.0.0.2</li>
+<li><strong>PC1 llega a «Internet» (8.8.8.8):</strong> Desde PC1: ping 8.8.8.8</li>
+</ul></details>
+<h2>Solución paso a paso</h2><p class="texto-sec">Inténtalo antes por tu cuenta: se aprende mucho más escribiendo los comandos tú.</p>
+<details class="solucion"><summary>Ver la solución</summary>
+<div class="paso"><h3><span class="num">1</span>Activa el enrutamiento <span class="equipo">MLS1</span></h3>
+<p>Un switch multicapa no enruta entre VLAN hasta que escribes ip routing.</p>
+<div class="terminal"><span class="eq">MLS1</span>enable
+configure terminal
+ip routing</div>
+</div>
+<div class="paso"><h3><span class="num">2</span>Crea las SVI <span class="equipo">MLS1</span></h3>
+<p>Cada interface vlan es la puerta de enlace de su VLAN. Solo sube si la VLAN existe y tiene algún puerto activo.</p>
+<div class="terminal"><span class="eq">MLS1</span>interface vlan 10
+ip address 192.168.10.1 255.255.255.0
+no shutdown
+interface vlan 20
+ip address 192.168.20.1 255.255.255.0
+no shutdown</div>
+</div>
+<div class="paso"><h3><span class="num">3</span>Convierte G0/1 en puerto enrutado <span class="equipo">MLS1</span></h3>
+<p>no switchport saca el puerto de la conmutación: pasa a comportarse como la interfaz de un router.</p>
+<div class="terminal"><span class="eq">MLS1</span>interface g0/1
+no switchport
+ip address 10.0.0.1 255.255.255.252
+no shutdown
+exit</div>
+</div>
+<div class="paso"><h3><span class="num">4</span>Añade la ruta por defecto <span class="equipo">MLS1</span></h3>
+<div class="terminal"><span class="eq">MLS1</span>ip route 0.0.0.0 0.0.0.0 10.0.0.2
+end</div>
+</div>
+</details>
+<h2>Verificación</h2>
+<p>Deben salir las dos VLAN y el enlace 10.0.0.0/30 como conectadas (C) y la ruta por defecto (S*).</p>
+<div class="terminal"><span class="eq">MLS1</span><span class="entrada">MLS1#show ip route</span>
+Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2, E - EGP
+       i - IS-IS, L1 - IS-IS level-1, L2 - IS-IS level-2, ia - IS-IS inter area
+       * - candidate default, U - per-user static route, o - ODR
+       P - periodic downloaded static route
+
+Gateway of last resort is 10.0.0.2 to network 0.0.0.0
+
+S*    0.0.0.0/0 [1/0] via 10.0.0.2
+      10.0.0.0/8 is variably subnetted, 2 subnets, 2 masks
+C        10.0.0.0/30 is directly connected, GigabitEthernet0/1
+L        10.0.0.1/32 is directly connected, GigabitEthernet0/1
+      192.168.10.0/24 is variably subnetted, 2 subnets, 2 masks
+C        192.168.10.0/24 is directly connected, Vlan10
+L        192.168.10.1/32 is directly connected, Vlan10
+      192.168.20.0/24 is variably subnetted, 2 subnets, 2 masks
+C        192.168.20.0/24 is directly connected, Vlan20
+L        192.168.20.1/32 is directly connected, Vlan20</div>
+<p>PC1 llega a 8.8.8.8: MLS1 enruta y R1 sabe volver a 192.168.0.0/16.</p>
+<div class="terminal"><span class="eq">PC1</span><span class="entrada">C:\&gt;ping 8.8.8.8</span>
+
+Pinging 8.8.8.8 with 32 bytes of data:
+
+Reply from 8.8.8.8: bytes=32 time&lt;1ms TTL=254
+Reply from 8.8.8.8: bytes=32 time&lt;1ms TTL=254
+Reply from 8.8.8.8: bytes=32 time&lt;1ms TTL=254
+Reply from 8.8.8.8: bytes=32 time&lt;1ms TTL=254
+
+Ping statistics for 8.8.8.8:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 0ms, Maximum = 0ms, Average = 0ms
+</div>
+<h2>Errores típicos</h2><ul class="errores"><li>Intentar poner IP en G0/1 sin no switchport: IOS responde «% IP addresses may not be configured on L2 links».</li><li>Olvidar ip routing: las SVI suben, pero los PC de VLAN distintas no se ven.</li></ul>
+<div class="cta-app">
+  <div>
+    <h3>Practica este laboratorio en el móvil</h3>
+    <p>En RoutingLab tienes este laboratorio con un terminal IOS simulado: abreviaturas, ayuda con ?, los mismos mensajes de error y objetivos que se comprueban solos. Los dos primeros labs son gratis.</p>
+  </div>
+  <a href="https://play.google.com/store/apps/details?id=com.luigi.routinglab" class="btn btn-claro" rel="noopener">Descargar RoutingLab</a>
+</div>
+<div class="navegacion-labs"><a href="router-on-a-stick.html">← Anterior<span>Router-on-a-stick</span></a><a class="sig" href="rutas-estaticas.html">Siguiente →<span>Rutas estáticas, por defecto y flotantes</span></a></div>
+</div>
+</section>
+<footer>
+  <div class="contenedor">
+    <div class="pie-rejilla">
+      <div>
+        <a href="../index.html" class="logo" style="margin-bottom:12px">RoutingLab</a>
+        <p class="texto-sec" style="max-width:280px;font-size:.92rem">La app en español para preparar la certificación CCNA 200-301.</p>
+      </div>
+      <div><h4>Producto</h4><div class="pie-links">
+        <a href="../index.html#caracteristicas">Características</a>
+        <a href="../index.html#precios">Precios</a>
+        <a href="../index.html#demo">Test de prueba</a>
+      </div></div>
+      <div><h4>Gratis</h4><div class="pie-links">
+        <a href="../laboratorios.html">Laboratorios de Packet Tracer</a>
+        <a href="../herramientas.html">Calculadoras de red</a>
+        <a href="../glosario.html">Glosario</a>
+      </div></div>
+      <div><h4>Ayuda</h4><div class="pie-links">
+        <a href="../soporte.html">Soporte</a>
+        <a href="mailto:soporte@routinglab.es">soporte@routinglab.es</a>
+        <a href="../privacidad.html">Privacidad</a>
+        <a href="../terminos.html">Términos</a>
+        <a href="../eliminar-cuenta.html">Eliminar cuenta</a>
+      </div></div>
+    </div>
+    <div class="pie-abajo">
+      <span>© <span data-anio>2026</span> RoutingLab · routinglab.es</span>
+      <span>Cisco, Packet Tracer y CCNA son marcas de Cisco Systems, Inc. RoutingLab no está afiliado ni patrocinado por Cisco.</span>
+    </div>
+  </div>
+</footer>
+<script src="../app.js"></script>
+</body>
+</html>
